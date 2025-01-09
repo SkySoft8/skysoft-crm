@@ -1,0 +1,192 @@
+<?php //app-metadata-module-metadata-home-
+
+return [PHP_INT_MAX, [
+    'search' => [],
+    'mass_update' => [
+        'fields' => [],
+    ],
+    'listview' => [
+        'columns' => [],
+        'bulkActions' => [
+            'delete' => [
+                'key' => 'delete',
+                'labelKey' => 'LBL_DELETE',
+                'params' => [
+                    'min' => 1,
+                    'displayConfirmation' => true,
+                    'confirmationLabel' => 'NTC_DELETE_CONFIRMATION_MULTIPLE',
+                ],
+                'acl' => [
+                    'delete',
+                ],
+            ],
+            'export' => [
+                'key' => 'export',
+                'labelKey' => 'LBL_EXPORT',
+                'params' => [
+                    'min' => 1,
+                ],
+                'acl' => [
+                    'export',
+                ],
+            ],
+            'merge' => [
+                'key' => 'merge',
+                'labelKey' => 'LBL_MERGE_DUPLICATES',
+                'params' => [
+                    'min' => 2,
+                    'max' => 5,
+                ],
+                'acl' => [
+                    'edit',
+                    'delete',
+                ],
+            ],
+        ],
+        'lineActions' => [],
+        'tableActions' => [
+            [
+                'key' => 'select-columns',
+                'icon' => 'column_chooser',
+                'titleKey' => 'LBL_COLUMNS',
+                'params' => [
+                    'expanded' => true,
+                ],
+                'modes' => [
+                    'list',
+                ],
+                'klass' => [
+                    'column-chooser-button',
+                ],
+            ],
+        ],
+        'availableFilters' => [],
+        'sidebarWidgets' => [],
+        'paginationType' => null,
+        'maxHeight' => null,
+    ],
+    'subpanel' => [],
+    'recordview' => [
+        'templateMeta' => [
+            'maxColumns' => 2,
+            'useTabs' => true,
+            'tabDefs' => [],
+        ],
+        'topWidget' => [
+            'refreshOn' => 'data-update',
+        ],
+        'sidebarWidgets' => [],
+        'bottomWidgets' => [],
+        'actions' => [
+            [
+                'key' => 'edit',
+                'labelKey' => 'LBL_EDIT',
+                'params' => [
+                    'expanded' => true,
+                ],
+                'modes' => [
+                    'detail',
+                ],
+                'acl' => [
+                    'edit',
+                ],
+            ],
+            [
+                'key' => 'save',
+                'labelKey' => 'LBL_SAVE_BUTTON_LABEL',
+                'params' => [
+                    'expanded' => true,
+                ],
+                'modes' => [
+                    'edit',
+                ],
+                'acl' => [
+                    'edit',
+                ],
+            ],
+            [
+                'key' => 'saveNew',
+                'labelKey' => 'LBL_SAVE_BUTTON_LABEL',
+                'params' => [
+                    'expanded' => true,
+                ],
+                'modes' => [
+                    'create',
+                ],
+                'acl' => [
+                    'edit',
+                ],
+            ],
+            [
+                'key' => 'cancel',
+                'labelKey' => 'LBL_CANCEL',
+                'params' => [
+                    'expanded' => true,
+                ],
+                'modes' => [
+                    'edit',
+                ],
+            ],
+            [
+                'key' => 'cancelCreate',
+                'labelKey' => 'LBL_CANCEL',
+                'params' => [
+                    'expanded' => true,
+                ],
+                'modes' => [
+                    'create',
+                ],
+            ],
+            [
+                'key' => 'saveContinue',
+                'labelKey' => 'LBL_SAVE_CONTINUE_LABEL',
+                'params' => [
+                    'expanded' => true,
+                    'collapsedMobile' => true,
+                ],
+                'modes' => [
+                    'edit',
+                ],
+                'acl' => [
+                    'edit',
+                ],
+            ],
+            [
+                'key' => 'delete',
+                'labelKey' => 'LBL_DELETE',
+                'asyncProcess' => true,
+                'params' => [
+                    'displayConfirmation' => true,
+                    'confirmationLabel' => 'NTC_DELETE_CONFIRMATION',
+                ],
+                'modes' => [
+                    'detail',
+                ],
+                'acl' => [
+                    'delete',
+                ],
+            ],
+            [
+                'key' => 'duplicate',
+                'labelKey' => 'LBL_DUPLICATE_BUTTON',
+                'asyncProcess' => true,
+                'params' => null,
+                'modes' => [
+                    'detail',
+                ],
+                'acl' => [
+                    'export',
+                    'edit',
+                ],
+            ],
+        ],
+        'panels' => [],
+        'summaryTemplates' => [
+            'create' => 'LBL_CREATE',
+            'edit' => 'LBL_SUMMARY_DEFAULT',
+            'detail' => 'LBL_SUMMARY_DEFAULT',
+        ],
+        'vardefs' => [],
+        'metadata' => [],
+    ],
+]];

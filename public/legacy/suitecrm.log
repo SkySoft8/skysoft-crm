@@ -1,0 +1,36 @@
+Wed Jan  8 14:30:47 2025 [31800][1][SECURITY] OutboundEmail::checkSavePermissions - not logged in - skipping check
+Wed Jan  8 14:30:47 2025 [31800][1][FATAL] User update error: Temp User is not retrieved at ID 1, boolean given
+Wed Jan  8 14:30:48 2025 [31800][1][FATAL] Email address save error
+Wed Jan  8 14:30:57 2025 [31800][1][SECURITY] Invalid ext  logger_file_ext : ''.
+Wed Jan  8 14:30:57 2025 [31800][1][SECURITY] Setting logger_file_ext to '.log'.
+Wed Jan  8 14:30:57 2025 [31800][1][SECURITY] Setting logger_file_name to ''.
+Wed Jan  8 14:30:57 2025 [31800][1][SECURITY] Log file extension can't be blank.
+Wed Jan  8 14:30:57 2025 [31800][1][SECURITY] Setting logger_file_name to ''.
+Wed Jan  8 14:30:57 2025 [31800][1][SECURITY] Log file extension can't be blank.
+Wed Jan  8 14:31:12 2025 [31800][1][FATAL] Email address save error
+Wed Jan  8 14:31:42 2025 [31800][1][FATAL] Mysqli_query failed.
+Wed Jan  8 14:31:42 2025 [31800][1][FATAL]  Query Failed: SELECT opportunities.sales_stage, SUM(opportunities.amount_usdollar) as amount_usdollar FROM opportunities  LEFT JOIN opportunities_cstm ON opportunities.id = opportunities_cstm.id_c   LEFT JOIN  users jt0 ON opportunities.modified_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0  LEFT JOIN  users jt1 ON opportunities.created_by=jt1.id AND jt1.deleted=0
+
+ AND jt1.deleted=0  LEFT JOIN  users jt2 ON opportunities.assigned_user_id=jt2.id AND jt2.deleted=0
+
+ AND jt2.deleted=0  LEFT JOIN  accounts_opportunities jtl3 ON opportunities.id=jtl3.opportunity_id AND jtl3.deleted=0
+
+ LEFT JOIN  accounts accounts ON accounts.id=jtl3.account_id AND accounts.deleted=0
+ AND accounts.deleted=0  LEFT JOIN  campaigns jt4 ON opportunities.campaign_id=jt4.id AND jt4.deleted=0
+
+ AND jt4.deleted=0 where opportunities.deleted=0 AND opportunities.amount_usdollar is not null AND opportunities.sales_stage is not null  GROUP BY opportunities.sales_stage DESC: MySQL error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 12
+Wed Jan  8 14:31:58 2025 [31800][1][FATAL] Mysqli_query failed.
+Wed Jan  8 14:31:58 2025 [31800][1][FATAL]  Query Failed: SELECT opportunities.sales_stage, SUM(opportunities.amount_usdollar) as amount_usdollar FROM opportunities  LEFT JOIN opportunities_cstm ON opportunities.id = opportunities_cstm.id_c   LEFT JOIN  users jt0 ON opportunities.modified_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0  LEFT JOIN  users jt1 ON opportunities.created_by=jt1.id AND jt1.deleted=0
+
+ AND jt1.deleted=0  LEFT JOIN  users jt2 ON opportunities.assigned_user_id=jt2.id AND jt2.deleted=0
+
+ AND jt2.deleted=0  LEFT JOIN  accounts_opportunities jtl3 ON opportunities.id=jtl3.opportunity_id AND jtl3.deleted=0
+
+ LEFT JOIN  accounts accounts ON accounts.id=jtl3.account_id AND accounts.deleted=0
+ AND accounts.deleted=0  LEFT JOIN  campaigns jt4 ON opportunities.campaign_id=jt4.id AND jt4.deleted=0
+
+ AND jt4.deleted=0 where opportunities.deleted=0 AND opportunities.amount_usdollar is not null AND opportunities.sales_stage is not null  GROUP BY opportunities.sales_stage DESC: MySQL error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 12
