@@ -1,0 +1,7 @@
+parameters:
+  module.recordview.actions_limits:
+    XSmall: 3
+    Small: 4
+    Medium: 4
+    Large: 4
+    XLarge: 4

@@ -1,0 +1,576 @@
+<!--
+/**
+ *
+ * SugarCRM Community Edition is a customer relationship management program developed by
+ * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
+ *
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
+ * Copyright (C) 2011 - 2024 SalesAgility Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by the
+ * Free Software Foundation with the addition of the following permission added
+ * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
+ * IN WHICH THE COPYRIGHT IS OWNED BY SUGARCRM, SUGARCRM DISCLAIMS THE WARRANTY
+ * OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with
+ * this program; if not, see http://www.gnu.org/licenses or write to the Free
+ * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301 USA.
+ *
+ * You can contact SugarCRM, Inc. headquarters at 10050 North Wolfe Road,
+ * SW2-130, Cupertino, CA 95014, USA. or at email address contact@sugarcrm.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
+ * these Appropriate Legal Notices must retain the display of the "Powered by
+ * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
+ * reasonably feasible for technical reasons, the Appropriate Legal Notices must
+ * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
+ */
+-->
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="icon" type="image/png" href="dist/themes/suite8/images/favicon.ico">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <link rel="stylesheet" href="dist/{{ cssFile }}">
+</head>
+<script>
+    if (window.location.href.includes('#/install')) {
+        window.location.href = window.location.href.replace('#/install', '');
+    }
+</script>
+<body>
+<app-root>
+    <div class="app-shell">
+        <div class="top-panel fixed-top">
+            <nav class="navbar ml-0 pl-0">
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="pl-4">
+                            <img alt=""
+                                 src="legacy/themes/default/images/company_logo.png"
+                                 title=""
+                                 class="">
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div></div>
+        <div class="install-view full-height-view">
+            <div class="install-view-header">
+                <div class="row mr-0">
+                    <div class="col-md-5 install-header-title-col">
+                        <div class="install-view-title record-view-name pl-4">
+                            <scrm-label>{{ mod_strings.LBL_WELCOME }}</scrm-label>
+                        </div>
+                        <div class="install-view-subtitle record-view-title">
+                            <scrm-label>{{ mod_strings.LBL_PRE_INSTALL_REQ }}</scrm-label>
+                        </div>
+                    </div>
+                    <div class="col-md-7 install-header-buttons-col">
+                        <div class="row mr-1 ml-1">
+                            <div class="w-100 d-flex justify-content-end align-items-center">
+                                <div>
+                                    {% if errorsFound == true or warningsFound == true %}
+                                        <div class="action-group-menu float-right install-view-actions">
+                                            <button type="button" class="button-group-button settings-button d-flex
+                                            flex-wrap align-content-end"
+                                                    onclick="window.location.reload()">
+                                                <label style="cursor: pointer"
+                                                       class="mb-0">{{ mod_strings.LBL_RECHECK }}</label>
+                                            </button>
+                                        </div>
+                                    {% endif %}
+
+                                    <form id="submitForm" onsubmit="return confirm('Are you sure you want to continue?');" method="post" action="./#/install">
+                                        <input type="hidden" value="true" name="install-checked">
+                                        {% if errorsFound == true and warningsFound == true %}
+                                            <div class="action-group-menu float-right install-view-actions">
+                                                <button type="submit" class="button-group-button settings-button d-flex
+                                            flex-wrap align-content-end error-warning-action-button"
+                                                        >
+                                                    <label style="cursor: pointer"
+                                                           class="mb-0">{{ mod_strings.LBL_PROCEED_WITH_ERRORS_AND_WARNINGS }}
+                                                    </label>
+                                                </button>
+                                            </div>
+                                        {% elseif errorsFound == true %}
+                                            <div class="action-group-menu float-right install-view-actions">
+                                                <button type="submit" class="button-group-button settings-button d-flex
+                                            flex-wrap align-content-end error-action-button">
+                                                    <label style="cursor: pointer"
+                                                           class="mb-0">{{ mod_strings.LBL_PROCEED_WITH_ERRORS }}
+                                                    </label>
+                                                </button>
+                                            </div>
+                                        {% elseif warningsFound == true %}
+                                            <div class="action-group-menu float-right install-view-actions">
+                                                <button type="submit" class="button-group-button settings-button d-flex
+                                            flex-wrap align-content-end warning-action-button">
+                                                    <label style="cursor: pointer"
+                                                           class="mb-0">{{ mod_strings.LBL_PROCEED_WITH_WARNINGS }}</label>
+                                                </button>
+                                            </div>
+                                        {% endif %}
+                                        {% if errorsFound == false and warningsFound == false %}
+                                            <div class="action-group-menu float-right install-view-actions">
+                                                <button type="submit" class="button-group-button settings-button d-flex
+                                            flex-wrap align-content-end">
+                                                    <label style="cursor: pointer"
+                                                           class="mb-0">{{ mod_strings.LBL_PROCEED }}</label>
+                                                </button>
+                                            </div>
+                                        {% endif %}
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="record-view-hr-container">
+                <hr class="record-view-hr">
+            </div>
+            <div class="install-view-container record-view-container view-container container-fluid pt-3 pb-3 small-font">
+                <div id="output-banner" class="d-flex flex-column output-banner">
+                    {% if errorsFound == true and warningsFound == true %}
+                        <div id="error-warning-banner" class="error-warning-banner">
+                            {{ mod_strings.LBL_ERRORS_AND_WARNINGS_FOUND }}
+                        </div>
+                    {% elseif errorsFound == true %}
+                        <div id="errors-banner" class="errors-banner">
+                            {{ mod_strings.LBL_ERRORS_FOUND }}
+                        </div>
+                    {% elseif warningsFound == true %}
+                        <div id="warnings-banner" class="warnings-banner">
+                            {{ mod_strings.LBL_WARNINGS_FOUND }}
+                        </div>
+                    {% else %}
+                        <div id="passed-banner" class="passed-banner">
+                            {{ mod_strings.LBL_CHECKS_PASSED }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="row no-gutters">
+                    <div class="col">
+                        <div class="record-content tabs-layout container-fluid pl-0 pr-0">
+                            <div class="pt-3 rounded-right rounded-bottom">
+                                <div class="tab-pane fade show active" role="tabpanel">
+                                    <div class="tab-LBL_CONFIG">
+                                        <form class="edit field-layout d-flex install-form">
+                                            {% set extraErrors = [] %}
+                                            {% set extraWarnings = [] %}
+                                            {% set counter = 0 %}
+                                            <div id="configuration-header"
+                                                 class="d-flex col-md-3 pl-0 configuration-header">
+                                                <div id="system_check_label" class="d-flex system-check-header">
+                                                    <label id="{{ mod_strings.LBL_SYSTEM_CHECKS }}"
+                                                           class="d-flex system-check-label mb-0">{{ mod_strings.LBL_SYSTEM_CHECKS }}</label>
+                                                    <div id="error-symbols"
+                                                         class="flex-row error-symbol-container align-items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="#ffffff"
+                                                             class="bi bi-exclamation-circle error-symbol"
+                                                             viewBox="0 0 16 16" id="system-error-symbol">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                                            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff"
+                                                             class="bi error-symbol bi-exclamation-triangle"
+                                                             viewBox="0 0 16 16" id="system-warning-symbol">
+                                                            <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z"/>
+                                                            <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div id="check-mark-{{ mod_strings.LBL_SYSTEM_CHECKS }}"
+                                                         class="check-mark ml-md-auto ml-3 ">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="#155724"
+                                                             class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9 pr-0 pl-0">
+                                                <div id="system_checks">
+                                                    {% for system_check in systemChecks %}
+                                                        <div id="check_{{ system_check.label }}"
+                                                             class="d-flex system-check-individual-header"
+                                                             onclick="toggleResults('{{ system_check.label }}_results', 'check_{{ system_check.label }}')">
+                                                            <label id="{{ system_check.label }}_label"
+                                                                   class="ml-2 mb-0 d-flex system-check-individual-label">
+                                                                {{ system_check.label }}
+                                                            </label>
+                                                            <div id="error-symbols"
+                                                                 class="flex-row d-flex pl-2 align-items-center">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     id="error-symbol-{{ system_check.label }}"
+                                                                     fill="#f18478"
+                                                                     class="bi bi-exclamation-circle error-symbol"
+                                                                     viewBox="0 0 16 16">
+                                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                                                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                                                                </svg>
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     fill="#ef9f22"
+                                                                     class="bi error-symbol bi-exclamation-triangle"
+                                                                     viewBox="0 0 16 16"
+                                                                     id="warning-symbol-{{ system_check.label }}">
+                                                                    <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z"/>
+                                                                    <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div id="check-mark-{{ system_check.label }}"
+                                                                 class="check-mark">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="#155724"
+                                                                     class="bi bi-check" viewBox="0 0 16 16">
+                                                                    <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+                                                                </svg>
+                                                            </div>
+                                                            <img class="expand-checks"
+                                                                 src="dist/themes/suite8/images/down_carret.svg"
+                                                                 id="down_arrow">
+                                                        </div>
+
+                                                        <div class="flex-column results d-none"
+                                                             id="{{ system_check.label }}_results">
+                                                            {% for check in system_check.checks %}
+                                                                <div id="results-box_{{ counter }}"
+                                                                     class="results-box">
+                                                                    <div id="error_label_{{ counter }}"
+                                                                         class="badge badge-danger result-issue">
+                                                                        {{ mod_strings.LBL_ERROR }}
+                                                                    </div>
+                                                                    <div id="warning-icon_{{ counter }}"
+                                                                         class="badge badge-warning result-issue">
+                                                                        {{ mod_strings.LBL_WARNING }}
+                                                                    </div>
+                                                                    <div class="d-inline-block check-label">
+                                                                        <b>{{ check.label }}:</b>
+                                                                    </div>
+                                                                    {% if check.errors is empty %}
+                                                                        {% if check.result is iterable %}
+                                                                            {% for  resultArray in check.result %}
+                                                                                <div class="d-inline-block check-result">
+                                                                                    {{ resultArray }}
+                                                                                </div>
+                                                                            {% endfor %}
+                                                                        {% elseif check.result is not empty %}
+                                                                            <div class="d-inline-block pl-2 align-middle">
+                                                                                {{ check.result }}
+                                                                            </div>
+                                                                        {% endif %}
+                                                                    {% endif %}
+                                                                    {% if check.errors and check.errors is not empty %}
+                                                                        <script>
+                                                                            function setErrorHeader() {
+                                                                                document.getElementById('check_{{ system_check.label }}').style.border = '1px solid #f18478';
+                                                                                document.getElementById('{{ system_check.label }}_label').style.color = '#f18478';
+                                                                                document.getElementById('system_check_label').style.backgroundColor = '#f18478';
+                                                                                document.getElementById('{{ mod_strings.LBL_SYSTEM_CHECKS }}').style.color = '#FFFFFF';
+                                                                                document.getElementById('{{ system_check.label }}_label').classList.add('error');
+                                                                                document.getElementById('check_{{ system_check.label }}').classList.add('error');
+                                                                            }
+
+                                                                            function showErrorIcon() {
+                                                                                document.getElementById('error-symbols').style.display = 'flex';
+                                                                                document.getElementById('error-symbol-{{ system_check.label }}').style.display = 'flex';
+                                                                                document.getElementById('system-error-symbol').style.display = 'flex';
+                                                                                document.getElementById("error_label_{{ counter }}").style.display = 'block';
+                                                                            }
+
+                                                                            setErrorHeader();
+                                                                            showErrorIcon();
+                                                                        </script>
+                                                                        {% if check.errors|length >= 2 %}
+                                                                            {% set extraErrors = check.errors %}
+                                                                        {% endif %}
+                                                                        {% if check.errors|length < 2 %}
+                                                                            {% for error in check.errors %}
+                                                                                {% if error|length > 200 %}
+                                                                                    {% set extraErrors = extraErrors|merge([error]) %}
+                                                                                {% endif %}
+                                                                            {% endfor %}
+                                                                        {% endif %}
+                                                                    {% if extraErrors is empty %}
+                                                                        {% for error in check.errors %}
+                                                                        <div class="d-inline-block field-group-field pb-2 pl-2 pt-1">
+                                                                            {{ error }}
+                                                                        </div>
+                                                                        {% endfor %}
+                                                                    {% else %}
+                                                                    {% if extraErrors|length > 1 %}
+                                                                        <div id="error-brief_{{ counter }}"
+                                                                             class="first-warning">
+                                                                            {{ extraErrors|first }}
+                                                                        </div>
+                                                                        <div id="view-full_{{ counter }}"
+                                                                             class="view-full pb-1 pr-3"
+                                                                             onclick="showFullDescription({{ counter }}, true)">
+                                                                            See All Errors >
+                                                                        </div>
+                                                                        <div id="all-errors_{{ counter }}"
+                                                                             class="error-full pl-2">
+                                                                            <ul>
+                                                                                {% for error in extraErrors %}
+                                                                                    <li>{{ error }}</li>
+                                                                                {% endfor %}
+                                                                            </ul>
+                                                                        </div>
+                                                                    {% else %}
+                                                                        <div id="error-brief_{{ counter }}"
+                                                                             class="error-details">
+                                                                            {{ extraErrors|first }}
+                                                                        </div>
+                                                                        <div id="view-full_{{ counter }}"
+                                                                             class="view-full"
+                                                                             onclick="showFullDescription({{ counter }})">
+                                                                            {{ mod_strings.LBL_VIEW_FULL_ERROR }}
+                                                                            >
+                                                                        </div>
+                                                                        <div id="error-full_{{ counter }}"
+                                                                             class="error-full pl-2">
+                                                                            {{ extraErrors|first }}
+                                                                        </div>
+                                                                    {% endif %}
+                                                                    {% endif %}
+                                                                    {% endif %}
+                                                                    {% set extraErrors = [] %}
+                                                                    {% if check.warnings and check.warnings is not empty %}
+                                                                        <script>
+                                                                            function setWarningIcon() {
+
+                                                                                if (document.getElementById('check_{{ system_check.label }}').classList.contains('error')) {
+                                                                                    return;
+                                                                                }
+
+                                                                                document.getElementById('{{ system_check.label }}_label').style.color = '#ef9f22';
+                                                                                document.getElementById('check_{{ system_check.label }}').style.border = '1px solid #ef9f22';
+                                                                                document.getElementById('error-symbols').style.display = 'flex';
+
+
+                                                                                if ((document.getElementById('system-error-symbol')?.style?.display || 'none') === 'none') {
+                                                                                    document.getElementById('system-warning-symbol').style.display = 'flex';
+                                                                                    document.getElementById('system-warning-symbol').style.fill = '#FFFFFF';
+                                                                                    document.getElementById('system_check_label').style.backgroundColor = '#ef9f22';
+
+                                                                                }
+                                                                                if (document.getElementById('{{ system_check.label }}_label').classList.contains('error')) {
+                                                                                    return;
+                                                                                }
+                                                                                document.getElementById('{{ mod_strings.LBL_SYSTEM_CHECKS }}').style.color = '#FFFFFF';
+
+                                                                                document.getElementById('{{ system_check.label }}_label').classList.add('warning');
+
+                                                                                document.getElementById('warning-symbol-{{ system_check.label }}').style.display = 'flex';
+                                                                            }
+
+                                                                            document.getElementById('warning-icon_{{ counter }}').style.display = 'block';
+                                                                            setWarningIcon();
+                                                                        </script>
+                                                                        {% if check.warnings|length >= 2 %}
+                                                                            {% set extraWarnings = check.warnings %}
+                                                                        {% endif %}
+                                                                        {% if check.warnings|length < 2 %}
+                                                                            {% for warning in check.warnings %}
+                                                                                {% if warning|length > 200 %}
+                                                                                    {% set extraWarnings = extraWarnings|merge([warning]) %}
+                                                                                {% endif %}
+                                                                            {% endfor %}
+                                                                        {% endif %}
+                                                                    {% if extraWarnings is empty %}
+                                                                        {% for warning in check.warnings %}
+                                                                        <div class="field-group-field pl-2 pb-2 d-inline-block check-result">
+                                                                            {{ warning }}
+                                                                        </div>
+                                                                        {% endfor %}
+                                                                    {% else %}
+                                                                    {% if extraWarnings|length > 1 %}
+                                                                        <div id="error-brief_{{ counter }}"
+                                                                             class="first-warning pl-2">
+                                                                            {{ extraWarnings|first }}
+                                                                        </div>
+                                                                        <div id="view-full_{{ counter }}"
+                                                                             class="view-full"
+                                                                             onclick="showFullDescription({{ counter }}, true)">
+                                                                            See All Warnings >
+                                                                        </div>
+                                                                        <div id="all-errors_{{ counter }}"
+                                                                             class="error-full ml-2">
+                                                                            <ul>
+                                                                                {% for warning in extraWarnings %}
+                                                                                    <li>{{ warning }}</li>
+                                                                                {% endfor %}
+                                                                            </ul>
+                                                                        </div>
+                                                                    {% else %}
+                                                                        <div id="error-brief_{{ counter }}"
+                                                                             class="error-details col-md-5">
+                                                                            {{ extraWarnings|first }}
+                                                                        </div>
+                                                                        <div id="view-full_{{ counter }}"
+                                                                             class="view-full"
+                                                                             onclick="showFullDescription({{ counter }})">
+                                                                            view full description >
+                                                                        </div>
+                                                                        <div id="error-full_{{ counter }}"
+                                                                             class="error-full col-md-7">
+                                                                            {{ extraWarnings|first }}
+                                                                        </div>
+                                                                    {% endif %}
+                                                                    {% endif %}
+                                                                    {% endif %}
+                                                                </div>
+                                                                <div id="close_desc_{{ counter }}"
+                                                                     class="close-description ml-2 mt-2"
+                                                                     onclick="collapseFullDescription({{ counter }})">
+                                                                    < {{ mod_strings.LBL_CLOSE_DESCRIPTION }}
+                                                                </div>
+                                                                <div id="close_all_desc_{{ counter }}"
+                                                                     class="close-description ml-2 mt-2"
+                                                                     onclick="collapseFullDescription({{ counter }}, true)">
+                                                                    < {{ mod_strings.LBL_CLOSE_DESCRIPTION }}
+                                                                </div>
+                                                                {% set extraWarnings = [] %}
+                                                                {% set counter = counter + 1 %}
+                                                            {% endfor %}
+                                                        </div>
+                                                        <script>
+                                                            function sectionChecksPassed() {
+                                                                if ((document.getElementById('error-symbol-{{ system_check.label }}')?.style?.display || 'none') !== 'none') {
+                                                                    return;
+                                                                }
+                                                                if ((document.getElementById('warning-symbol-{{ system_check.label }}')?.style?.display || 'none') !== 'none') {
+                                                                    return;
+                                                                }
+
+                                                                document.getElementById('check-mark-{{ system_check.label }}').style.display = "flex";
+                                                            }
+
+                                                            sectionChecksPassed();
+                                                        </script>
+                                                    {% endfor %}
+                                                    <script>
+                                                        function allPassed() {
+                                                            if ((document.getElementById('system-error-symbol')?.style?.display || 'none') !== 'none') {
+                                                                return;
+                                                            }
+                                                            if ((document.getElementById('system-warning-symbol')?.style?.display || 'none') !== 'none') {
+                                                                return;
+                                                            }
+
+                                                            document.getElementById('check-mark-{{ mod_strings.LBL_SYSTEM_CHECKS }}').style.display = "flex";
+                                                        }
+
+                                                        allPassed();
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="copyright-links"><a data-toggle="modal" data-target=".copyright-suitecrm" class="footer-link"> ©
+                    Supercharged by SuiteCRM </a><a data-toggle="modal" data-target=".copyright-sugarcrm"
+                                                    class="footer-link"> © Powered By SugarCRM </a></div>
+        </div>
+        <div class="copyright"></div>
+    </div>
+</app-root>
+</body>
+</html>
+
+<script>
+
+    function toggleResults(resultId, currentId) {
+        if (document.getElementById(resultId).classList.contains('d-none')) {
+            document.getElementById(currentId).style.marginBottom = 0;
+            document.getElementById(resultId).classList.add('d-flex');
+            document.getElementById(resultId).classList.remove('d-none');
+            return;
+        }
+        document.getElementById(currentId).style.marginBottom = '.5rem';
+        document.getElementById(resultId).classList.remove('d-flex');
+        document.getElementById(resultId).classList.add('d-none')
+
+    }
+
+    function showFullDescription(counter, showAll = false) {
+        document.getElementById('error-brief_' + counter).style.display = 'none';
+        document.getElementById('view-full_' + counter).style.display = 'none';
+        document.getElementById('results-box_' + counter).style.borderBottom = 'none';
+
+        const lastResults = document.querySelectorAll('.results div.results-box:nth-last-child(3)');
+
+
+        for (let j = 0, element; element = lastResults[j]; j++) {
+            if (document.getElementById('results-box_' + counter).id === element.id) {
+                if (!showAll) {
+                    document.getElementById('close_desc_' + counter).style.borderBottom = 'none';
+                }
+                document.getElementById('close_all_desc_' + counter).style.borderBottom = 'none';
+            }
+        }
+
+        if (!showAll) {
+            document.getElementById('error-full_' + counter).style.display = 'block';
+            document.getElementById('close_desc_' + counter).style.display = 'inline-block';
+            return;
+        }
+
+        document.getElementById('close_all_desc_' + counter).style.display = 'inline-block';
+        document.getElementById('all-errors_' + counter).style.display = 'block';
+
+
+    }
+
+
+    function collapseFullDescription(counter, hideAll = false) {
+        document.getElementById('error-brief_' + counter).style.display = 'inline-block';
+        document.getElementById('view-full_' + counter).style.display = 'inline-block';
+
+        const lastResults = document.querySelectorAll('.results div.results-box:nth-last-child(3)');
+
+
+        for (let j = 0, element; element = lastResults[j]; j++) {
+
+            if (document.getElementById('results-box_' + counter).id === element.id) {
+                document.getElementById('results-box_' + counter).style.borderBottom = 'none';
+                continue;
+            }
+
+            document.getElementById('results-box_' + counter).style.borderBottom = '1px solid lightgray';
+        }
+
+        if (!hideAll) {
+            document.getElementById('error-full_' + counter).style.display = 'none';
+            document.getElementById('close_desc_' + counter).style.display = 'none';
+            return;
+        }
+        document.getElementById('close_all_desc_' + counter).style.display = 'none';
+        document.getElementById('all-errors_' + counter).style.display = 'none';
+
+    }
+</script>

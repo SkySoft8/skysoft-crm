@@ -1,0 +1,13 @@
+Tue Jan 14 11:03:25 2025 [22304][1][SECURITY] OutboundEmail::checkSavePermissions - not logged in - skipping check
+Tue Jan 14 11:03:25 2025 [22304][1][FATAL] User update error: Temp User is not retrieved at ID 1, boolean given
+Tue Jan 14 11:03:25 2025 [22304][1][FATAL] Email address save error
+Tue Jan 14 11:03:33 2025 [22304][1][SECURITY] Invalid ext  logger_file_ext : ''.
+Tue Jan 14 11:03:33 2025 [22304][1][SECURITY] Setting logger_file_ext to '.log'.
+Tue Jan 14 11:03:33 2025 [22304][1][SECURITY] Setting logger_file_name to ''.
+Tue Jan 14 11:03:33 2025 [22304][1][SECURITY] Log file extension can't be blank.
+Tue Jan 14 11:03:33 2025 [22304][1][SECURITY] Setting logger_file_name to ''.
+Tue Jan 14 11:03:33 2025 [22304][1][SECURITY] Log file extension can't be blank.
+Tue Jan 14 11:03:48 2025 [22304][1][FATAL] Email address save error
+Tue Jan 14 11:06:32 2025 [22304][1][FATAL] log call at: modules/EmailMan/tpls/config.tpl - styleChecked is not set
+Tue Jan 14 11:06:34 2025 [22304][1][FATAL] log call at: modules/EmailMan/tpls/config.tpl - styleChecked is not set
+Tue Jan 14 11:08:14 2025 [22304][1][FATAL] Email address save error
