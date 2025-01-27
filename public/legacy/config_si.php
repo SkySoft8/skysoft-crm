@@ -14,7 +14,7 @@ $sugar_config_si = array (
   'default_time_format' => 'H:i',
   'export_delimiter' => ',',
   'setup_db_admin_password' => 'Etdcvg241',
-  'setup_db_admin_user_name' => 'root',
+  'setup_db_admin_user_name' => 'crm',
   'setup_db_port_num' => '3306',
   'setup_db_create_database' => 1,
   'setup_db_database_name' => 'crm',
@@ -28,3 +28,5 @@ $sugar_config_si = array (
   'setup_site_url' => 'http://127.0.0.1/crm/public/index.php',
   'setup_system_name' => 'SuiteCRM',
 );
+
+

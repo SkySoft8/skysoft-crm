@@ -11,3 +11,10 @@ Tue Jan 14 11:03:48 2025 [22304][1][FATAL] Email address save error
 Tue Jan 14 11:06:32 2025 [22304][1][FATAL] log call at: modules/EmailMan/tpls/config.tpl - styleChecked is not set
 Tue Jan 14 11:06:34 2025 [22304][1][FATAL] log call at: modules/EmailMan/tpls/config.tpl - styleChecked is not set
 Tue Jan 14 11:08:14 2025 [22304][1][FATAL] Email address save error
+Tue Jan 14 11:32:39 2025 [22304][1][FATAL] Email address save error
+Tue Jan 14 15:42:07 2025 [32840][1][FATAL] Email address save error
+Wed Jan 15 14:47:16 2025 [32840][1][FATAL] Email address save error
+Wed Jan 15 14:56:23 2025 [32840][1][FATAL] Email address save error
+Mon Jan 27 11:18:30 2025 [8172][1][FATAL] Email address save error
+Mon Jan 27 11:19:16 2025 [8172][1][FATAL] ZIP Error(0): Status(9)
+Mon Jan 27 11:21:10 2025 [8172][1][FATAL] Email address save error

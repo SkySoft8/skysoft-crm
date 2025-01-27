@@ -50,7 +50,7 @@ return [PHP_INT_MAX, [
             'signature_default' => null,
             'signature_prepend' => null,
             'email_link_type' => 'sugar',
-            'editor_type' => null,
+            'editor_type' => 'mozaik',
             'email_show_counts' => 0,
             'email_editor_option' => null,
             'default_email_charset' => 'UTF-8',
@@ -65,9 +65,77 @@ return [PHP_INT_MAX, [
             'record_modal_max_height' => null,
             'ui' => [
                 'noop' => 'noop',
+                'accounts-listview-show-sidebar-widgets' => true,
+                'accounts-listview-current-pagination-type' => 'pagination',
+                'accounts-listview-current-filters' => [
+                    'default' => [
+                        'key' => 'default',
+                        'module' => 'saved-search',
+                        'attributes' => [
+                            'contents' => '',
+                        ],
+                        'criteria' => [
+                            'name' => 'default',
+                            'filters' => [],
+                        ],
+                    ],
+                ],
+                'accounts-listview-current-sort' => [
+                    'orderBy' => '',
+                    'sortOrder' => 'NONE',
+                ],
+                'administration-recordview-current-record-pagination' => [
+                    'pagination' => [
+                        'pageSize' => 20,
+                        'current' => 0,
+                        'previous' => -1,
+                        'next' => -1,
+                        'last' => -20,
+                        'total' => 0,
+                        'pageFirst' => 0,
+                        'pageLast' => 0,
+                    ],
+                    'recordIds' => [],
+                ],
+                'users-listview-show-sidebar-widgets' => false,
+                'users-listview-current-pagination-type' => 'pagination',
+                'users-listview-current-filters' => [
+                    'default' => [
+                        'key' => 'default',
+                        'module' => 'saved-search',
+                        'attributes' => [
+                            'contents' => '',
+                        ],
+                        'criteria' => [
+                            'name' => 'default',
+                            'filters' => [],
+                        ],
+                    ],
+                ],
+                'users-listview-current-sort' => [
+                    'orderBy' => '',
+                    'sortOrder' => 'NONE',
+                ],
+                'home-recordview-current-record-pagination' => [
+                    'pagination' => [
+                        'pageSize' => 20,
+                        'current' => 0,
+                        'previous' => -1,
+                        'next' => -1,
+                        'last' => 0,
+                        'total' => 1,
+                        'pageFirst' => 1,
+                        'pageLast' => 1,
+                    ],
+                    'recordIds' => [
+                        [
+                            'id' => '1',
+                        ],
+                    ],
+                ],
             ],
             'snooze_alert_timer' => 600,
-            'language' => 'en_us',
+            'language' => 'ru_ru',
         ],
         'value' => null,
     ],

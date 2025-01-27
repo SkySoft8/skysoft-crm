@@ -1,5 +1,5 @@
 <?php
-// created: 2025-01-14 11:03:29
+// created: 2025-01-27 11:20:56
 $sugar_config = array (
   'addAjaxBannedModules' => 
   array (
@@ -147,7 +147,7 @@ $sugar_config = array (
   'default_email_charset' => 'UTF-8',
   'default_email_client' => 'sugar',
   'default_email_editor' => 'html',
-  'default_export_charset' => 'UTF-8',
+  'default_export_charset' => 'ISO-8859-1',
   'default_language' => 'en_us',
   'default_locale_name_format' => 's f l',
   'default_max_tabs' => 8,
@@ -252,11 +252,12 @@ $sugar_config = array (
     'max_retries' => 5,
     'timeout' => 86400,
   ),
-  'js_custom_version' => '',
+  'js_custom_version' => 1,
   'js_lang_version' => 1,
   'languages' => 
   array (
     'en_us' => 'English (US)',
+    'ru_ru' => 'Русский - Russian',
   ),
   'large_scale_test' => false,
   'lead_conv_activity_opt' => 'donothing',
