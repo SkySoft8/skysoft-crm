@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-01-14 11:04:10
+/* Smarty version 4.5.3, created on 2025-02-17 11:02:36
   from 'C:\Apache24\htdocs\crm\public\legacy\themes\suite8\include\Dashlets\DashletHeader.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_678644aab6efc4_68033697',
+  'unifunc' => 'content_67b3174cb9d6b8_03595262',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_678644aab6efc4_68033697 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b3174cb9d6b8_03595262 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\modifier.replace.php','function'=>'smarty_modifier_replace',),1=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getimage.php','function'=>'smarty_function_sugar_getimage',),));
 ?>
 <div onmouseover="this.style.cursor = 'move';" id="dashlet_header_<?php echo $_smarty_tpl->tpl_vars['DASHLET_ID']->value;?>

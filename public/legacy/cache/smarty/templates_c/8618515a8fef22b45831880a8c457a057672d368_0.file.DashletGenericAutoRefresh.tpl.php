@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-01-14 11:04:10
+/* Smarty version 4.5.3, created on 2025-02-17 11:02:36
   from 'C:\Apache24\htdocs\crm\public\legacy\include\Dashlets\DashletGenericAutoRefresh.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_678644aa543286_31811278',
+  'unifunc' => 'content_67b3174ca05a26_31646449',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_678644aa543286_31811278 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b3174ca05a26_31646449 (Smarty_Internal_Template $_smarty_tpl) {
 ?><input type="hidden" id="<?php echo $_smarty_tpl->tpl_vars['dashletId']->value;?>
 _offset" name="<?php echo $_smarty_tpl->tpl_vars['dashletId']->value;?>
 _offset" value="0">

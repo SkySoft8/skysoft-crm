@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-01-14 11:32:58
+/* Smarty version 4.5.3, created on 2025-02-17 11:09:11
   from 'C:\Apache24\htdocs\crm\public\legacy\cache\themes\suite8\modules\Users\EditView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67864b6a3efc22_69565199',
+  'unifunc' => 'content_67b318d7a808f4_31143862',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4dfe2cabab302e0ff5b285a9674c9ad65495509f' => 
     array (
       0 => 'C:\\Apache24\\htdocs\\crm\\public\\legacy\\cache\\themes\\suite8\\modules\\Users\\EditView.tpl',
-      1 => 1736854378,
+      1 => 1739790551,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/Reminders/tpls/remindersDefaults.tpl' => 1,
   ),
 ),false)) {
-function content_67864b6a3efc22_69565199 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b318d7a808f4_31143862 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getjspath.php','function'=>'smarty_function_sugar_getjspath',),1=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_action_menu.php','function'=>'smarty_function_sugar_action_menu',),2=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_include.php','function'=>'smarty_function_sugar_include',),3=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_translate.php','function'=>'smarty_function_sugar_translate',),4=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\block.minify.php','function'=>'smarty_block_minify',),5=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\modifier.strip_semicolon.php','function'=>'smarty_modifier_strip_semicolon',),6=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.counter.php','function'=>'smarty_function_counter',),7=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.html_options.php','function'=>'smarty_function_html_options',),8=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getimage.php','function'=>'smarty_function_sugar_getimage',),9=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_help.php','function'=>'smarty_function_sugar_help',),10=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getimagepath.php','function'=>'smarty_function_sugar_getimagepath',),));
 ?>
 
@@ -234,6 +234,8 @@ EditView_tabs.on('contentReady', function(e){
 </div>
 <div class="panel-body panel-collapse collapse in panelContainer" id="detailpanel_-1" data-id="LBL_USER_INFORMATION">
 <div class="tab-content">
+<br />
+<b>Deprecated</b>:  Using unregistered function "intval" in a template is deprecated and will be removed in a future release. Use Smarty::registerPlugin to explicitly register a custom modifier. in <b>C:\Apache24\htdocs\crm\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php</b> on line <b>663</b><br />
 <!-- tab_panel_content.tpl -->
 <div class="row edit-view-row">
 
@@ -2516,7 +2518,7 @@ addToValidate('EditView', 'user_hash', 'varchar', false,'<?php echo smarty_funct
 ' );
 addToValidate('EditView', 'system_generated_password', 'bool', true,'<?php echo smarty_function_sugar_translate(array('label'=>'LBL_SYSTEM_GENERATED_PASSWORD','module'=>'Users','for_js'=>true),$_smarty_tpl);?>
 ' );
-addToValidate('EditView', 'pwd_last_changed_date', 'date', false,'Password Last Changed' );
+addToValidate('EditView', 'pwd_last_changed_date', 'date', false,'Последнее изменение пароля' );
 addToValidate('EditView', 'authenticate_id', 'varchar', false,'<?php echo smarty_function_sugar_translate(array('label'=>'LBL_AUTHENTICATE_ID','module'=>'Users','for_js'=>true),$_smarty_tpl);?>
 ' );
 addToValidate('EditView', 'sugar_login', 'bool', false,'<?php echo smarty_function_sugar_translate(array('label'=>'LBL_SUITE_LOGIN','module'=>'Users','for_js'=>true),$_smarty_tpl);?>
@@ -2537,8 +2539,8 @@ addToValidate('EditView', 'receive_notifications', 'bool', false,'<?php echo sma
 ' );
 addToValidate('EditView', 'description', 'text', false,'<?php echo smarty_function_sugar_translate(array('label'=>'LBL_DESCRIPTION','module'=>'Users','for_js'=>true),$_smarty_tpl);?>
 ' );
-addToValidate('EditView', 'date_entered_date', 'date', true,'Date Entered' );
-addToValidate('EditView', 'date_modified_date', 'date', true,'Date Modified' );
+addToValidate('EditView', 'date_entered_date', 'date', true,'Дата создания' );
+addToValidate('EditView', 'date_modified_date', 'date', true,'Дата изменения' );
 addToValidate('EditView', 'modified_user_id', 'assigned_user_name', false,'<?php echo smarty_function_sugar_translate(array('label'=>'LBL_MODIFIED_BY_ID','module'=>'Users','for_js'=>true),$_smarty_tpl);?>
 ' );
 addToValidate('EditView', 'modified_by_name', 'varchar', false,'<?php echo smarty_function_sugar_translate(array('label'=>'LBL_MODIFIED_BY','module'=>'Users','for_js'=>true),$_smarty_tpl);?>
@@ -2629,7 +2631,7 @@ addToValidateBinaryDependency('EditView', 'reports_to_name', 'alpha', false,'<?p
 ', 'reports_to_id' );
 <?php echo '</script'; ?>
 ><?php echo '<script'; ?>
- language="javascript">if(typeof sqs_objects == 'undefined'){var sqs_objects = new Array;}sqs_objects['EditView_reports_to_name']={"form":"EditView","method":"get_user_array","field_list":["user_name","id"],"populate_list":["reports_to_name","reports_to_id"],"required_list":["reports_to_id"],"conditions":[{"name":"user_name","op":"like_custom","end":"%","value":""}],"limit":"30","no_match_text":"No Match"};<?php echo '</script'; ?>
+ language="javascript">if(typeof sqs_objects == 'undefined'){var sqs_objects = new Array;}sqs_objects['EditView_reports_to_name']={"form":"EditView","method":"get_user_array","field_list":["user_name","id"],"populate_list":["reports_to_name","reports_to_id"],"required_list":["reports_to_id"],"conditions":[{"name":"user_name","op":"like_custom","end":"%","value":""}],"limit":"30","no_match_text":"\u041d\u0435 \u0432\u044b\u0431\u0440\u0430\u043d\u043e"};<?php echo '</script'; ?>
 >
 <?php }
 }

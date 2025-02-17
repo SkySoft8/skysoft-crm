@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-01-14 11:04:11
+/* Smarty version 4.5.3, created on 2025-02-17 11:02:37
   from 'C:\Apache24\htdocs\crm\public\legacy\themes\suite8\include\MySugar\tpls\MySugar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_678644ab873939_75886902',
+  'unifunc' => 'content_67b3174d5bede0_25956996',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:themes/suite8/include/MySugar/tpls/actions_menu.tpl' => 1,
   ),
 ),false)) {
-function content_678644ab873939_75886902 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b3174d5bede0_25956996 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getscript.php','function'=>'smarty_function_sugar_getscript',),1=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.counter.php','function'=>'smarty_function_counter',),2=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getjspath.php','function'=>'smarty_function_sugar_getjspath',),));
 ?>
 

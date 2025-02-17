@@ -1,6 +1,8 @@
 <?php
-// created: 2025-01-14 11:03:54
+// created: 2025-02-17 11:02:17
 $mod_strings = array (
+  'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
+  'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Date Created',
   'LBL_DATE_MODIFIED' => 'Date Modified',
@@ -10,21 +12,10 @@ $mod_strings = array (
   'LBL_DESCRIPTION' => 'Description',
   'LBL_DELETED' => 'Deleted',
   'LBL_NAME' => 'Name',
-  'LBL_CREATED_USER' => 'Created by User',
-  'LBL_MODIFIED_USER' => 'Modified by User',
-  'LBL_LIST_NAME' => 'Name',
-  'LBL_EDIT_BUTTON' => 'Edit',
-  'LBL_REMOVE' => 'Remove',
-  'LBL_ASCENDING' => 'Ascending',
-  'LBL_DESCENDING' => 'Descending',
-  'LBL_OPT_IN' => 'Opt In',
-  'LBL_OPT_IN_PENDING_EMAIL_NOT_SENT' => 'Pending Confirm opt in, Confirm opt in not sent',
-  'LBL_OPT_IN_PENDING_EMAIL_SENT' => 'Pending Confirm opt in, Confirm opt in sent',
-  'LBL_OPT_IN_CONFIRMED' => 'Opted in',
-  'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
-  'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
   'LBL_SAVING' => 'Saving...',
   'LBL_SAVED' => 'Saved',
+  'LBL_CREATED_USER' => 'Created by User',
+  'LBL_MODIFIED_USER' => 'Modified by User',
   'LBL_LIST_FORM_TITLE' => 'Feed List',
   'LBL_MODULE_NAME' => 'Activity Streams',
   'LBL_MODULE_TITLE' => 'Activity Streams',

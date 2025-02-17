@@ -16,7 +16,7 @@ if (!\class_exists(App_KernelProdContainer::class, false)) {
 
 return new \ContainerJuoAvid\App_KernelProdContainer([
     'container.build_hash' => 'JuoAvid',
-    'container.build_id' => 'd515e53f',
-    'container.build_time' => 1736852451,
+    'container.build_id' => 'e970a170',
+    'container.build_time' => 1739790101,
     'container.runtime_mode' => \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? 'web=0' : 'web=1',
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerJuoAvid');

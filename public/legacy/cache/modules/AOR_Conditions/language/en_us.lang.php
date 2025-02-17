@@ -1,5 +1,5 @@
 <?php
-// created: 2025-01-14 11:03:54
+// created: 2025-02-17 11:02:18
 $mod_strings = array (
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Date Created',
@@ -15,12 +15,6 @@ $mod_strings = array (
   'LBL_LIST_NAME' => 'Name',
   'LBL_EDIT_BUTTON' => 'Edit',
   'LBL_REMOVE' => 'Remove',
-  'LBL_ASCENDING' => 'Ascending',
-  'LBL_DESCENDING' => 'Descending',
-  'LBL_OPT_IN' => 'Opt In',
-  'LBL_OPT_IN_PENDING_EMAIL_NOT_SENT' => 'Pending Confirm opt in, Confirm opt in not sent',
-  'LBL_OPT_IN_PENDING_EMAIL_SENT' => 'Pending Confirm opt in, Confirm opt in sent',
-  'LBL_OPT_IN_CONFIRMED' => 'Opted in',
   'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
   'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
   'LBL_LIST_FORM_TITLE' => 'Conditions List',

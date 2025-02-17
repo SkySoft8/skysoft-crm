@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-01-14 11:04:10
+/* Smarty version 4.5.3, created on 2025-02-17 11:02:36
   from 'C:\Apache24\htdocs\crm\public\legacy\include\Dashlets\DashletFooter.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_678644aacbd649_06153223',
+  'unifunc' => 'content_67b3174cd0d664_62723138',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,6 +20,6 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_678644aacbd649_06153223 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b3174cd0d664_62723138 (Smarty_Internal_Template $_smarty_tpl) {
 ?></div><div class="mr"></div></div><div class="ft"><div class="bl"></div><div class="ft-center"></div><div class="br"></div></div><?php }
 }

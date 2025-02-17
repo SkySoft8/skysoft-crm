@@ -1,8 +1,6 @@
 <?php
-// created: 2025-01-14 11:03:55
+// created: 2025-02-17 11:02:19
 $mod_strings = array (
-  'LBL_SECURITYGROUPS' => 'Security Groups',
-  'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Security Groups',
   'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
   'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
   'LBL_ID' => 'ID',
@@ -67,6 +65,7 @@ $mod_strings = array (
   'LBL_SMTP_FROM_ADDR' => '"From" address',
   'LBL_REPLY_TO_NAME' => '"Reply-to" name',
   'LBL_REPLY_TO_ADDR' => '"Reply-to" address',
+  'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Security Groups',
   'LBL_OWNER' => 'Owner',
   'LBL_OWNER_NAME' => 'Owner',
   'LNK_EXTERNAL_OAUTH_CONNECTIONS' => 'External OAuth Connections',
