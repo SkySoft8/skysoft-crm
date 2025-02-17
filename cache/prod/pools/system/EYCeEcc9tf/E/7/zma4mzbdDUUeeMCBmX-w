@@ -6587,7 +6587,7 @@ return [PHP_INT_MAX, [
                 'LBL_NEXT_STEP' => 'След. шаг',
                 'LBL_LEAD_SOURCE' => 'Источник предв. контакта',
                 'LBL_SALES_STAGE' => 'Стадия продаж',
-                'LBL_PROBABILITY' => 'Вероятность (%)',
+                'LBL_PROBABILITY' => 'Вероятность(%)',
                 'LBL_DESCRIPTION' => 'Описание',
                 'LBL_DUPLICATE' => 'Возможно дублирующаяся сделка',
                 'MSG_DUPLICATE' => 'Создаваемая вами сделка возможно дублирует уже имеющуюся сделку. Сделки, имеющие схожие названия показаны ниже. Нажмите кнопку "Сохранить" для продолжения создания новой сделки или кнопку "Отказаться" для возврата в модуль.',
@@ -6639,6 +6639,7 @@ return [PHP_INT_MAX, [
                 'LBL_OPT_IN_CONFIRMED' => 'Двойное подтверждение подписки.',
                 'LBL_SECURITYGROUPS' => 'Группы пользователей',
                 'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Группы пользователей',
+                'LBL_STATUSDEAL' => 'statusDeal',
             ],
             'home' => [
                 'LBL_MODULE_NAME' => 'SuiteCRM',

@@ -6953,14 +6953,14 @@ return [PHP_INT_MAX, [
     'recordview' => [
         'templateMeta' => [
             'maxColumns' => '2',
-            'useTabs' => true,
+            'useTabs' => false,
             'tabDefs' => [
                 'DEFAULT' => [
-                    'newTab' => true,
+                    'newTab' => false,
                     'panelDefault' => 'expanded',
                 ],
                 'LBL_PANEL_ASSIGNMENT' => [
-                    'newTab' => true,
+                    'newTab' => false,
                     'panelDefault' => 'expanded',
                 ],
             ],
@@ -7244,6 +7244,54 @@ return [PHP_INT_MAX, [
                     [
                         'cols' => [
                             [
+                                'name' => 'currency_id',
+                                'label' => 'LBL_CURRENCY',
+                                'comment' => 'Currency used for display purposes',
+                                'fieldDefinition' => [
+                                    'name' => 'currency_id',
+                                    'type' => 'id',
+                                    'group' => 'currency_id',
+                                    'vname' => 'LBL_CURRENCY',
+                                    'function' => [
+                                        'name' => 'getCurrencyDropDown',
+                                        'returns' => 'html',
+                                        'onListView' => true,
+                                    ],
+                                    'reportable' => false,
+                                    'comment' => 'Currency used for display purposes',
+                                    'required' => false,
+                                    'metadata' => [
+                                        'extraOptions' => [
+                                            [
+                                                'value' => '-99',
+                                                'label' => 'USD',
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                                'type' => 'id',
+                            ],
+                            [
+                                'name' => 'date_closed',
+                                'label' => 'LBL_DATE_CLOSED',
+                                'fieldDefinition' => [
+                                    'name' => 'date_closed',
+                                    'vname' => 'LBL_DATE_CLOSED',
+                                    'type' => 'date',
+                                    'audited' => true,
+                                    'comment' => 'Expected or actual date the oppportunity will close',
+                                    'importable' => 'required',
+                                    'required' => true,
+                                    'enable_range_search' => true,
+                                    'options' => 'date_range_search_dom',
+                                ],
+                                'type' => 'date',
+                            ],
+                        ],
+                    ],
+                    [
+                        'cols' => [
+                            [
                                 'name' => 'amount-group',
                                 'type' => 'grouped-field',
                                 'label' => 'LBL_AMOUNT',
@@ -7390,26 +7438,6 @@ return [PHP_INT_MAX, [
                                 ],
                             ],
                             [
-                                'name' => 'date_closed',
-                                'label' => 'LBL_DATE_CLOSED',
-                                'fieldDefinition' => [
-                                    'name' => 'date_closed',
-                                    'vname' => 'LBL_DATE_CLOSED',
-                                    'type' => 'date',
-                                    'audited' => true,
-                                    'comment' => 'Expected or actual date the oppportunity will close',
-                                    'importable' => 'required',
-                                    'required' => true,
-                                    'enable_range_search' => true,
-                                    'options' => 'date_range_search_dom',
-                                ],
-                                'type' => 'date',
-                            ],
-                        ],
-                    ],
-                    [
-                        'cols' => [
-                            [
                                 'name' => 'sales_stage',
                                 'label' => 'LBL_SALES_STAGE',
                                 'fieldDefinition' => [
@@ -7426,46 +7454,10 @@ return [PHP_INT_MAX, [
                                 ],
                                 'type' => 'enum',
                             ],
-                            [
-                                'name' => 'opportunity_type',
-                                'label' => 'LBL_TYPE',
-                                'fieldDefinition' => [
-                                    'name' => 'opportunity_type',
-                                    'vname' => 'LBL_TYPE',
-                                    'type' => 'enum',
-                                    'options' => 'opportunity_type_dom',
-                                    'len' => '255',
-                                    'audited' => true,
-                                    'comment' => 'Type of opportunity (ex: Existing, New)',
-                                    'merge_filter' => 'enabled',
-                                    'required' => false,
-                                ],
-                                'type' => 'enum',
-                            ],
                         ],
                     ],
                     [
                         'cols' => [
-                            [
-                                'name' => 'probability',
-                                'label' => 'LBL_PROBABILITY',
-                                'fieldDefinition' => [
-                                    'name' => 'probability',
-                                    'vname' => 'LBL_PROBABILITY',
-                                    'type' => 'int',
-                                    'dbType' => 'double',
-                                    'audited' => true,
-                                    'comment' => 'The probability of closure',
-                                    'validation' => [
-                                        'type' => 'range',
-                                        'min' => 0,
-                                        'max' => 100,
-                                    ],
-                                    'merge_filter' => 'enabled',
-                                    'required' => false,
-                                ],
-                                'type' => 'int',
-                            ],
                             [
                                 'name' => 'lead_source',
                                 'label' => 'LBL_LEAD_SOURCE',
@@ -7480,45 +7472,6 @@ return [PHP_INT_MAX, [
                                     'required' => false,
                                 ],
                                 'type' => 'enum',
-                            ],
-                        ],
-                    ],
-                    [
-                        'cols' => [
-                            [
-                                'name' => 'next_step',
-                                'label' => 'LBL_NEXT_STEP',
-                                'fieldDefinition' => [
-                                    'name' => 'next_step',
-                                    'vname' => 'LBL_NEXT_STEP',
-                                    'type' => 'varchar',
-                                    'len' => '100',
-                                    'comment' => 'The next step in the sales process',
-                                    'merge_filter' => 'enabled',
-                                    'required' => false,
-                                ],
-                                'type' => 'varchar',
-                            ],
-                            [
-                                'name' => 'campaign_name',
-                                'label' => 'LBL_CAMPAIGN',
-                                'fieldDefinition' => [
-                                    'name' => 'campaign_name',
-                                    'rname' => 'name',
-                                    'id_name' => 'campaign_id',
-                                    'vname' => 'LBL_CAMPAIGN',
-                                    'type' => 'relate',
-                                    'link' => 'campaign_opportunities',
-                                    'isnull' => 'true',
-                                    'table' => 'campaigns',
-                                    'module' => 'Campaigns',
-                                    'source' => 'non-db',
-                                    'additionalFields' => [
-                                        'id' => 'campaign_id',
-                                    ],
-                                    'required' => false,
-                                ],
-                                'type' => 'relate',
                             ],
                         ],
                     ],
@@ -7542,6 +7495,14 @@ return [PHP_INT_MAX, [
                         ],
                     ],
                     [
+                        'cols' => [],
+                    ],
+                ],
+            ],
+            [
+                'key' => 'LBL_PANEL_ASSIGNMENT',
+                'rows' => [
+                    [
                         'cols' => [
                             [
                                 'name' => 'assigned_user_name',
@@ -7561,51 +7522,6 @@ return [PHP_INT_MAX, [
                                     'required' => false,
                                 ],
                                 'type' => 'relate',
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-            [
-                'key' => 'LBL_PANEL_ASSIGNMENT',
-                'rows' => [
-                    [
-                        'cols' => [
-                            [
-                                'name' => 'date_modified',
-                                'label' => 'LBL_DATE_MODIFIED',
-                                'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-                                'fieldDefinition' => [
-                                    'name' => 'date_modified',
-                                    'vname' => 'LBL_DATE_MODIFIED',
-                                    'type' => 'datetime',
-                                    'group' => 'modified_by_name',
-                                    'comment' => 'Date record last modified',
-                                    'enable_range_search' => true,
-                                    'options' => 'date_range_search_dom',
-                                    'inline_edit' => false,
-                                    'required' => false,
-                                ],
-                                'type' => 'datetime',
-                                'readonly' => true,
-                            ],
-                            [
-                                'name' => 'date_entered',
-                                'label' => 'LBL_DATE_ENTERED',
-                                'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
-                                'fieldDefinition' => [
-                                    'name' => 'date_entered',
-                                    'vname' => 'LBL_DATE_ENTERED',
-                                    'type' => 'datetime',
-                                    'group' => 'created_by_name',
-                                    'comment' => 'Date record created',
-                                    'enable_range_search' => true,
-                                    'options' => 'date_range_search_dom',
-                                    'inline_edit' => false,
-                                    'required' => false,
-                                ],
-                                'type' => 'datetime',
-                                'readonly' => true,
                             ],
                         ],
                     ],

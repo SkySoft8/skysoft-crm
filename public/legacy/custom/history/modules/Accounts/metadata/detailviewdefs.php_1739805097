@@ -252,7 +252,10 @@ array (
             'comment' => 'The Company is of this type',
             'label' => 'LBL_TYPE',
           ),
-          1 => 
+        ),
+        1 => 
+        array (
+          0 => 
           array (
             'name' => 'industry',
             'comment' => 'The company belongs in this industry',

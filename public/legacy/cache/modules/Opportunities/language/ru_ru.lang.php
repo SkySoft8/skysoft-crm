@@ -1,5 +1,5 @@
 <?php
-// created: 2025-02-17 11:02:12
+// created: 2025-02-17 13:01:43
 $mod_strings = array (
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Дата создания',
@@ -53,7 +53,7 @@ $mod_strings = array (
   'LBL_NEXT_STEP' => 'След. шаг:',
   'LBL_LEAD_SOURCE' => 'Источник предв. контакта:',
   'LBL_SALES_STAGE' => 'Стадия продаж:',
-  'LBL_PROBABILITY' => 'Вероятность (%):',
+  'LBL_PROBABILITY' => 'Вероятность(%)',
   'LBL_DUPLICATE' => 'Возможно дублирующаяся сделка',
   'MSG_DUPLICATE' => 'Создаваемая вами сделка возможно дублирует уже имеющуюся сделку. Сделки, имеющие схожие названия показаны ниже. Нажмите кнопку "Сохранить" для продолжения создания новой сделки или кнопку "Отказаться" для возврата в модуль.',
   'LBL_NEW_FORM_TITLE' => 'Создать сделку',
@@ -79,4 +79,5 @@ $mod_strings = array (
   'LBL_EDITLAYOUT' => 'Изменить макет',
   'LBL_AOS_CONTRACTS' => 'Договоры',
   'LBL_AOS_QUOTES' => 'Предложения',
+  'LBL_STATUSDEAL' => 'statusDeal',
 );

@@ -198,6 +198,7 @@ return [PHP_INT_MAX, [
                     'phone_work',
                     'assigned_user_name',
                 ],
+                'opportunities-recordview-show-sidebar-widgets' => false,
             ],
             'snooze_alert_timer' => '600',
             'language' => 'ru_ru',
