@@ -15,7 +15,6 @@ RedirectMatch 403 (?i)/+cache/+diagnostic
 RedirectMatch 403 (?i)/+files\.md5$
 
 <IfModule mod_rewrite.c>
-    Options +SymLinksIfOwnerMatch
     Options -Indexes
     Options -MultiViews
     RewriteEngine On
