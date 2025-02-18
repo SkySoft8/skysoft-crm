@@ -1,5 +1,5 @@
 <?php
-// created: 2025-02-17 11:02:17
+// created: 2025-02-18 08:36:34
 $mod_strings = array (
   'LBL_ADMINISTRATION_MAIN' => 'Параметры подключения',
   'LBL_AVAILABLE' => 'Доступно',

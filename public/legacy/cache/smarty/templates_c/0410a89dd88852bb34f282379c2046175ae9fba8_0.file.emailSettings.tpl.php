@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-17 11:09:08
+/* Smarty version 4.5.3, created on 2025-02-18 08:38:36
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\Emails\templates\emailSettings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67b318d467a922_54400247',
+  'unifunc' => 'content_67b4470c62dab7_63211409',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/Emails/templates/emailSettingsAccounts.tpl' => 1,
   ),
 ),false)) {
-function content_67b318d467a922_54400247 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b4470c62dab7_63211409 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="ydlg-bd">
     <div id="tab_general" class="tab-content">

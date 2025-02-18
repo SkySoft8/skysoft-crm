@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-17 11:09:23
+/* Smarty version 4.5.3, created on 2025-02-18 08:37:49
   from 'C:\Apache24\htdocs\crm\public\legacy\themes\suite8\include\DetailView\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67b318e3bd4524_26407573',
+  'unifunc' => 'content_67b446dd349062_35690325',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:themes/suite8/include/DetailView/actions_buttons.tpl' => 1,
   ),
 ),false)) {
-function content_67b318e3bd4524_26407573 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b446dd349062_35690325 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.counter.php','function'=>'smarty_function_counter',),));
 ?>
 {*

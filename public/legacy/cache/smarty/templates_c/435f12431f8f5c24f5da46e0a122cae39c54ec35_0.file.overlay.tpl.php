@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-17 11:09:08
+/* Smarty version 4.5.3, created on 2025-02-18 08:38:36
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\Emails\templates\overlay.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67b318d444a138_66427222',
+  'unifunc' => 'content_67b4470c40d691_73182636',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67b318d444a138_66427222 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b4470c40d691_73182636 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="SUGAR.email2.e2overlay" style="visibility:hidden; position:absolute; top:0px; background-color:#fff;">
 	<div class="ydlg-hd" id="overlayTitle"></div>
 	<div class="ydlg-bd" id="overlayBody"></div>

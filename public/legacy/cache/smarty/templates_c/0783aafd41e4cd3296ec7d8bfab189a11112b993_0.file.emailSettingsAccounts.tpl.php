@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-17 11:09:08
+/* Smarty version 4.5.3, created on 2025-02-18 08:38:36
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\Emails\templates\emailSettingsAccounts.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67b318d490b9a3_98584805',
+  'unifunc' => 'content_67b4470c8cef68_44154605',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/Emails/templates/emailSettingsAccountDetails.tpl' => 1,
   ),
 ),false)) {
-function content_67b318d490b9a3_98584805 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b4470c8cef68_44154605 (Smarty_Internal_Template $_smarty_tpl) {
 ?><table cellpadding="4" cellspacing="0" border="0" width="100%" class="view">
 	<tr>
 		<td NOWRAP>

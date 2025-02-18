@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-17 11:02:36
+/* Smarty version 4.5.3, created on 2025-02-18 08:37:06
   from 'C:\Apache24\htdocs\crm\public\legacy\themes\suite8\include\ListView\ListViewSelectObjects.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67b3174c09c188_43250768',
+  'unifunc' => 'content_67b446b28f9ef3_07072608',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67b3174c09c188_43250768 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b446b28f9ef3_07072608 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="selectedRecords label hidden"><?php echo $_smarty_tpl->tpl_vars['APP']->value['LBL_LISTVIEW_SELECTED_OBJECTS'];?>
 </div><div class="selectedRecords value hidden"><?php echo $_smarty_tpl->tpl_vars['TOTAL_ITEMS_SELECTED']->value;?>
 </div>

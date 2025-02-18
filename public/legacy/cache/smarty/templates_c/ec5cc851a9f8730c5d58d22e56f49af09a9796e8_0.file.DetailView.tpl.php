@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-17 11:09:25
+/* Smarty version 4.5.3, created on 2025-02-18 09:02:15
   from 'C:\Apache24\htdocs\crm\public\legacy\cache\themes\suite8\modules\Users\DetailView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67b318e51d1322_90628659',
+  'unifunc' => 'content_67b44c974d01f9_24063283',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ec5cc851a9f8730c5d58d22e56f49af09a9796e8' => 
     array (
       0 => 'C:\\Apache24\\htdocs\\crm\\public\\legacy\\cache\\themes\\suite8\\modules\\Users\\DetailView.tpl',
-      1 => 1739790564,
+      1 => 1739869335,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/Reminders/tpls/remindersDefaults.tpl' => 1,
   ),
 ),false)) {
-function content_67b318e51d1322_90628659 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b44c974d01f9_24063283 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_include.php','function'=>'smarty_function_sugar_include',),1=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_translate.php','function'=>'smarty_function_sugar_translate',),2=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\modifier.strip_semicolon.php','function'=>'smarty_modifier_strip_semicolon',),3=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.counter.php','function'=>'smarty_function_counter',),4=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getimage.php','function'=>'smarty_function_sugar_getimage',),5=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_phone.php','function'=>'smarty_function_sugar_phone',),6=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\modifier.escape.php','function'=>'smarty_modifier_escape',),7=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getjspath.php','function'=>'smarty_function_sugar_getjspath',),));
 ?>
 
@@ -54,8 +54,6 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\p
 <input type="hidden" name="action" value="EditView">
 <input type="hidden" name="sugar_body_only">
 <?php if (!$_smarty_tpl->tpl_vars['config']->value['enable_action_menu']) {?>
-<br />
-<b>Deprecated</b>:  Using unregistered function "count" in a template is deprecated and will be removed in a future release. Use Smarty::registerPlugin to explicitly register a custom modifier. in <b>C:\Apache24\htdocs\crm\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php</b> on line <b>663</b><br />
 <div class="buttons">
 <?php if ($_smarty_tpl->tpl_vars['bean']->value->aclAccess("edit")) {?>
 <input title="<?php echo $_smarty_tpl->tpl_vars['APP']->value['LBL_EDIT_BUTTON_TITLE'];?>
@@ -167,8 +165,6 @@ if (!empty($_smarty_tpl->tpl_vars['fields']->value['id']['value']) && $_smarty_t
 if ($_smarty_tpl->tpl_vars['config']->value['enable_action_menu']) {?>
 <li id="tab-actions" class="dropdown">
 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Действия<span class="suitepicon suitepicon-action-caret"></span></a>
-<br />
-<b>Deprecated</b>:  Using unregistered function "count" in a template is deprecated and will be removed in a future release. Use Smarty::registerPlugin to explicitly register a custom modifier. in <b>C:\Apache24\htdocs\crm\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php</b> on line <b>663</b><br />
 <ul class="dropdown-menu">
 <li><?php if ($_smarty_tpl->tpl_vars['bean']->value->aclAccess("edit")) {?>
 <input title="<?php echo $_smarty_tpl->tpl_vars['APP']->value['LBL_EDIT_BUTTON_TITLE'];?>
@@ -210,8 +206,6 @@ if (!empty($_smarty_tpl->tpl_vars['fields']->value['id']['value']) && $_smarty_t
 <div class="tab-content">
 
 <div class="tab-pane-NOBOOTSTRAPTOGGLER active fade in" id='tab-content-0'>
-<br />
-<b>Deprecated</b>:  Using unregistered function "strpos" in a template is deprecated and will be removed in a future release. Use Smarty::registerPlugin to explicitly register a custom modifier. in <b>C:\Apache24\htdocs\crm\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php</b> on line <b>663</b><br />
 
 
 

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-17 11:09:23
+/* Smarty version 4.5.3, created on 2025-02-18 08:37:48
   from 'C:\Apache24\htdocs\crm\public\legacy\themes\suite8\include\DetailView\headerTitle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67b318e34c89e8_38588365',
+  'unifunc' => 'content_67b446dcad4213_86419041',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67b318e34c89e8_38588365 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b446dcad4213_86419041 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="header-module-title"><?php echo $_smarty_tpl->tpl_vars['MOD']->value['LBL_MODULE_NAME'];?>
 </div><?php }
 }

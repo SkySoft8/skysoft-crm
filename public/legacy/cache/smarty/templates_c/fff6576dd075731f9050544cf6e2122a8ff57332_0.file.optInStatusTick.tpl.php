@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-17 11:02:36
+/* Smarty version 4.5.3, created on 2025-02-18 08:37:07
   from 'C:\Apache24\htdocs\crm\public\legacy\include\SugarEmailAddress\templates\optInStatusTick.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67b3174ce01af1_50321796',
+  'unifunc' => 'content_67b446b3606f97_76552207',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67b3174ce01af1_50321796 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b446b3606f97_76552207 (Smarty_Internal_Template $_smarty_tpl) {
 ?><span class="email-opt-in-container"><span class="email-opt-in <?php echo $_smarty_tpl->tpl_vars['optInFlagClass']->value;?>
 " title="<?php echo $_smarty_tpl->tpl_vars['optInFlagTitle']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['optInFlagText']->value;?>

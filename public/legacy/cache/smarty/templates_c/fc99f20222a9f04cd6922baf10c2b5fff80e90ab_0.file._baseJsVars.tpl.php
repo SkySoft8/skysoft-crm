@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-17 11:09:08
+/* Smarty version 4.5.3, created on 2025-02-18 08:38:36
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\Emails\templates\_baseJsVars.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67b318d431b220_45876570',
+  'unifunc' => 'content_67b4470c2cb423_54738223',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67b318d431b220_45876570 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67b4470c2cb423_54738223 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
  type="text/javascript" language="Javascript">
 var req;

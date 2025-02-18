@@ -54,7 +54,7 @@ return [PHP_INT_MAX, [
             'email_show_counts' => 0,
             'email_editor_option' => null,
             'default_email_charset' => 'UTF-8',
-            'calendar_publish_key' => '42b99360-eb2c-43b9-b947-678644f9fb9e',
+            'calendar_publish_key' => null,
             'record_modal_pagination_type' => 'pagination',
             'subtheme' => 'Dawn',
             'syncGCal' => null,
@@ -65,112 +65,6 @@ return [PHP_INT_MAX, [
             'record_modal_max_height' => null,
             'ui' => [
                 'noop' => 'noop',
-                'accounts-listview-show-sidebar-widgets' => true,
-                'accounts-listview-current-pagination-type' => 'pagination',
-                'accounts-listview-current-filters' => [
-                    'default' => [
-                        'key' => 'default',
-                        'module' => 'saved-search',
-                        'attributes' => [
-                            'contents' => '',
-                        ],
-                        'criteria' => [
-                            'name' => 'default',
-                            'filters' => [],
-                        ],
-                    ],
-                ],
-                'accounts-listview-current-sort' => [
-                    'orderBy' => '',
-                    'sortOrder' => 'DESC',
-                ],
-                'administration-recordview-current-record-pagination' => [
-                    'pagination' => [
-                        'pageSize' => 20,
-                        'current' => 0,
-                        'previous' => -1,
-                        'next' => -1,
-                        'last' => -20,
-                        'total' => 0,
-                        'pageFirst' => 0,
-                        'pageLast' => 0,
-                    ],
-                    'recordIds' => [],
-                ],
-                'users-listview-show-sidebar-widgets' => false,
-                'users-listview-current-pagination-type' => 'pagination',
-                'users-listview-current-filters' => [
-                    'default' => [
-                        'key' => 'default',
-                        'module' => 'saved-search',
-                        'attributes' => [
-                            'contents' => '',
-                        ],
-                        'criteria' => [
-                            'name' => 'default',
-                            'filters' => [],
-                        ],
-                    ],
-                ],
-                'users-listview-current-sort' => [
-                    'orderBy' => '',
-                    'sortOrder' => 'NONE',
-                ],
-                'home-recordview-current-record-pagination' => [
-                    'pagination' => [
-                        'pageSize' => 20,
-                        'current' => 0,
-                        'previous' => -1,
-                        'next' => -1,
-                        'last' => 0,
-                        'total' => 1,
-                        'pageFirst' => 1,
-                        'pageLast' => 1,
-                    ],
-                    'recordIds' => [
-                        [
-                            'id' => '61df3b03-929d-a671-ba87-67a363a4af6d',
-                        ],
-                    ],
-                ],
-                'accounts-recordview-current-record-pagination' => [
-                    'pagination' => [
-                        'pageSize' => 20,
-                        'current' => 0,
-                        'previous' => -1,
-                        'next' => -1,
-                        'last' => -20,
-                        'total' => 0,
-                        'pageFirst' => 0,
-                        'pageLast' => 0,
-                    ],
-                    'recordIds' => [],
-                ],
-                'accounts-recordview-show-sidebar-widgets' => false,
-                'accounts-listview-displayed-columns' => [
-                    'name',
-                    'website',
-                    'account_type',
-                    'industry',
-                ],
-                'contacts-recordview-show-sidebar-widgets' => false,
-                'contacts-recordview-current-record-pagination' => [
-                    'pagination' => [
-                        'pageSize' => 20,
-                        'current' => 0,
-                        'previous' => -1,
-                        'next' => -1,
-                        'last' => 0,
-                        'total' => 1,
-                        'pageFirst' => 1,
-                        'pageLast' => 1,
-                    ],
-                    'recordIds' => [
-                        [
-                            'id' => '61df3b03-929d-a671-ba87-67a363a4af6d',
-                        ],
-                    ],
-                ],
                 'contacts-listview-show-sidebar-widgets' => false,
                 'contacts-listview-current-pagination-type' => 'pagination',
                 'contacts-listview-current-filters' => [
@@ -188,17 +82,21 @@ return [PHP_INT_MAX, [
                 ],
                 'contacts-listview-current-sort' => [
                     'orderBy' => '',
-                    'sortOrder' => 'DESC',
+                    'sortOrder' => 'NONE',
                 ],
-                'contacts-listview-displayed-columns' => [
-                    'name',
-                    'title',
-                    'account_name',
-                    'email1',
-                    'phone_work',
-                    'assigned_user_name',
+                'administration-recordview-current-record-pagination' => [
+                    'pagination' => [
+                        'pageSize' => 20,
+                        'current' => 0,
+                        'previous' => -1,
+                        'next' => -1,
+                        'last' => -20,
+                        'total' => 0,
+                        'pageFirst' => 0,
+                        'pageLast' => 0,
+                    ],
+                    'recordIds' => [],
                 ],
-                'opportunities-recordview-show-sidebar-widgets' => false,
             ],
             'snooze_alert_timer' => '600',
             'language' => 'ru_ru',
