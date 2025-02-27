@@ -14,4 +14,9 @@ $app_strings['LBL_GROUPTAB2_1739788647'] = 'Новая группа';
 $app_strings['LBL_GROUPTAB3_1739788733'] = 'Новая группа';
 
 $app_strings['LBL_GROUPTAB4_1739788733'] = 'Новая группа';
-?>
+
+$app_list_strings['meeting_status_dom']=array (
+  'in_process' => 'In process',
+  'completed' => 'Completed',
+  'planned' => 'Planned',
+);

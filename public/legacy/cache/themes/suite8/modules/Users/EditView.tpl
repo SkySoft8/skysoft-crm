@@ -140,8 +140,6 @@ EditView_tabs.on('contentReady', function(e){
 </div>
 <div class="panel-body panel-collapse collapse in panelContainer" id="detailpanel_-1" data-id="LBL_USER_INFORMATION">
 <div class="tab-content">
-<br />
-<b>Deprecated</b>:  Using unregistered function "intval" in a template is deprecated and will be removed in a future release. Use Smarty::registerPlugin to explicitly register a custom modifier. in <b>C:\Apache24\htdocs\crm\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php</b> on line <b>663</b><br />
 <!-- tab_panel_content.tpl -->
 <div class="row edit-view-row">
 

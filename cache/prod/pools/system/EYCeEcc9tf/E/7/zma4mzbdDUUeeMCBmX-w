@@ -2909,9 +2909,9 @@ return [PHP_INT_MAX, [
             ],
             'meeting_status_default' => 'Planned',
             'meeting_status_dom' => [
-                'Planned' => 'В планах',
-                'Held' => 'Состоялась',
-                'Not Held' => 'Не состоялась',
+                'in_process' => 'В процессе',
+                'completed' => 'Завершено',
+                'planned' => 'Запланировано',
             ],
             'extapi_meeting_password' => [
                 'WebEx' => 'WebEx',
@@ -5784,8 +5784,8 @@ return [PHP_INT_MAX, [
                 'LBL_EDIT_ALL_RECURRENCES' => 'Править, включая повторы',
                 'LBL_REMOVE_ALL_RECURRENCES' => 'Удалить, включая повторы',
                 'LBL_CONFIRM_REMOVE' => 'Вы действительно хотите удалить эту запись?',
-                'LBL_CONTRIBUTOR_SUITECRM' => 'Бесплатная альтернатива SugarCRM Professional Edition с открытым исходным кодом    <br>'."\n"
-                    .'        <hr><h2>'."\n"
+                'LBL_CONTRIBUTOR_SUITECRM' => 'Бесплатная альтернатива SugarCRM Professional Edition с открытым исходным кодом    <br>'."\r\n"
+                    .'        <hr><h2>'."\r\n"
                     .'        <a href="https://community.suitecrm.com/t/suitecrm/54668" target="_blank">Русифицированное Руководство пользователя и администратора SuiteCRM</a></h2>',
                 'LBL_CONTRIBUTOR_SECURITY_SUITE' => 'SecuritySuite by Jason Eggers',
                 'LBL_CONTRIBUTOR_JJW_GMAPS' => 'JJWDesign Google Maps by Jeffrey J. Walters',
@@ -10913,8 +10913,8 @@ return [PHP_INT_MAX, [
                 'LBL_CONFIGURE_SETTINGS_TITLE' => 'Настройка конфигурации',
                 'LBL_CONFIGURE_SETTINGS' => 'Системные установки',
                 'LBL_CONFIGURE_TABS_AND_SUBPANELS' => 'Настройка отображения закладок и субпанелей',
-                'LBL_COULD_NOT_CONNECT' => 'Ошибка: Нет возможности соединиться с сервером.'."\n"
-                    .'Проверьте параметры прокси-сервера в разделе <a href="index.php?module=Configurator&action=EditView">Настройка конфигурации</a>.'."\n"
+                'LBL_COULD_NOT_CONNECT' => 'Ошибка: Нет возможности соединиться с сервером.'."\r\n"
+                    .'Проверьте параметры прокси-сервера в разделе <a href="index.php?module=Configurator&action=EditView">Настройка конфигурации</a>.'."\r\n"
                     .'Последняя попытка подключения @ ',
                 'LBL_CREATE_RESOTRE_FILE' => 'Файл restoreExpand.sql был успешно создан. Вы можете использовать этот файл для восстановления прежних размеров полей.',
                 'LBL_CURRENCY' => 'Настройки валют, установка курса валют',
@@ -14270,14 +14270,14 @@ return [PHP_INT_MAX, [
                         'portalLayoutHelp' => 'The modules within the Sugar Portal appear in this area.<br><br>Select a module to edit the <b>Layouts</b>.',
                         'relationshipsHelp' => 'Здесь отображаются все связи между текущим и другими модулями.<br><br> <b>Название связи</b> создаётся системой автоматически при её добавлении. <br><br>Все указанные связи принадлежат <b>Основному модулю</b> и сохраняются в соответствующей таблице.<br><br>Нажмите на заголовке таблицы при необходимости сортировки выбранной колонки, а так же при необходимости изменения отображения колонок.<br><br>Для просмотра свойств связи нажмите на соответствующей строке таблицы.<br/><br/>Для создания новой связи нажмите на кнопку <b>Добавить связь</b>. Связи могут быть установлены между двумя любыми установленными модулями.',
                         'relationshipHelp' => '<b>Связи</b> могут быть установлены между текущим и другими установленными модулями.<br><br> Визуально связи отображаются в виде субпанелей, а так же связанных полей.<br><br> Выберите один из возможных <b>Типов</b> связей модуля:<br><br> <b>Один-к-одному</b> - записи в обеих модулях будут содержать связанные поля.<br><br> <b>Один-ко-многим</b> - запись в главном модуле будет содержать субпанель, а запись в подчинённом модуле будет содержать связанное поле.<br><br> <b>Многие-ко-многим</b> - записи в обеих модулях будут содержать субпанели.<br><br> Выберите Подчинённый модуль для создания связи. <br><br> Если тип связи допускает наличие субпанелей - выберите субпанель для соответствующих модулей.<br><br>Нажмите кнопку <b>Сохранить</b> для создания связи.',
-                        'convertLeadHelp' => 'Here you can add modules to the convert layout screen and modify the layouts of existing ones.<br/>'."\n"
-                            .'You can re-order the modules by dragging their rows in the table.<br/><br/>'."\n"
-                            ."\n"
-                            .'<b>Module:</b> The name of the module.<br/><br/>'."\n"
-                            .'<b>Required:</b> Required modules must be created or selected before the lead can be converted.<br/><br/>'."\n"
-                            .'<b>Copy Data:</b> If checked, fields from the lead will be copied to fields with the same name in the newly created records.<br/><br/>'."\n"
-                            .'<b>Allow Selection:</b> Modules with a relate field in Contacts can be selected rather than created during the convert lead process.<br/><br/>'."\n"
-                            .'<b>Edit:</b> Modify the convert layout for this module.<br/><br/>'."\n"
+                        'convertLeadHelp' => 'Here you can add modules to the convert layout screen and modify the layouts of existing ones.<br/>'."\r\n"
+                            .'You can re-order the modules by dragging their rows in the table.<br/><br/>'."\r\n"
+                            ."\r\n"
+                            .'<b>Module:</b> The name of the module.<br/><br/>'."\r\n"
+                            .'<b>Required:</b> Required modules must be created or selected before the lead can be converted.<br/><br/>'."\r\n"
+                            .'<b>Copy Data:</b> If checked, fields from the lead will be copied to fields with the same name in the newly created records.<br/><br/>'."\r\n"
+                            .'<b>Allow Selection:</b> Modules with a relate field in Contacts can be selected rather than created during the convert lead process.<br/><br/>'."\r\n"
+                            .'<b>Edit:</b> Modify the convert layout for this module.<br/><br/>'."\r\n"
                             .'<b>Delete:</b> Remove this module from the convert layout.<br/><br/>',
                         'editDropDownBtn' => 'Редактировать комбобокс',
                         'addDropDownBtn' => 'Добавить новый комбобокс',
@@ -14350,9 +14350,9 @@ return [PHP_INT_MAX, [
                     ],
                     'exportcustom' => [
                         'exportHelp' => 'Настройки, сделанные в Студии, могут быть экспортированы в виде отдельного пакета и установлены в другие экземпляры Suite с помощью <b>Загрузчика модулей</b>.<br><br> Прежде всего, укажите <b>Название пакета</b>. Вы также можете указать <b>Автора</b> и <b>Описание</b> пакета.<br><br>Выберите содержащие пользовательские настройки модули, которые вы желаете экспортировать(для выбора будут доступны только модули, содержащие пользовательские настройки).<br><br>Затем нажмите кнопку <b>Экспортировать</b> для создания zip-архива пакета, содержащего пользовательские настройки. Созданный архив может быть загружен в другие экземпляры системы с помощью <b>Загрузчика модулей</b>',
-                        'exportCustomBtn' => 'Click <b>Export</b> to create a .zip file for the package containing the customizations that you wish to export.'."\n",
+                        'exportCustomBtn' => 'Click <b>Export</b> to create a .zip file for the package containing the customizations that you wish to export.'."\r\n",
                         'name' => 'Это <b>Название</b> пакета. Это название будет отображаться в процессе установки.',
-                        'author' => 'The <b>Author</b> is the name of the entity that created the package. The Author can be either an individual or a company.<br><br>The Author will be displayed in Module Loader after the package is uploaded for installation in Studio.'."\n",
+                        'author' => 'The <b>Author</b> is the name of the entity that created the package. The Author can be either an individual or a company.<br><br>The Author will be displayed in Module Loader after the package is uploaded for installation in Studio.'."\r\n",
                         'description' => 'Это <b>Описание</b> пакета, которое будет отображено в Загрузчике модулей после загрузки пакета в Студии.',
                     ],
                     'studioWizard' => [

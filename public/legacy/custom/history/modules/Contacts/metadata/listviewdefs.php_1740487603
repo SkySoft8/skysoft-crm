@@ -1,6 +1,17 @@
 <?php
 $listViewDefs ['Contacts'] = 
 array (
+  'FULL_NAME' => 
+  array (
+    'type' => 'fullname',
+    'studio' => 
+    array (
+      'listview' => false,
+    ),
+    'label' => 'LBL_NAME',
+    'width' => '10%',
+    'default' => true,
+  ),
   'NAME' => 
   array (
     'width' => '20%',
@@ -68,6 +79,12 @@ array (
       0 => 'account_id',
     ),
   ),
+  'PHONE_WORK' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_OFFICE_PHONE',
+    'default' => true,
+  ),
   'EMAIL1' => 
   array (
     'width' => '15%',
@@ -75,12 +92,6 @@ array (
     'sortable' => false,
     'link' => true,
     'customCode' => '{$EMAIL1_LINK}',
-    'default' => true,
-  ),
-  'PHONE_WORK' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_OFFICE_PHONE',
     'default' => true,
   ),
   'ASSIGNED_USER_NAME' => 
