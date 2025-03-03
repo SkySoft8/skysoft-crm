@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-27 15:10:07
+/* Smarty version 4.5.3, created on 2025-03-03 15:09:45
   from 'C:\Apache24\htdocs\crm\public\legacy\themes\suite8\modules\Meetings\tpls\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67c0804fde9152_64303327',
+  'unifunc' => 'content_67c5c639e72874_29232885',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67c0804fde9152_64303327 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67c5c639e72874_29232885 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_include.php','function'=>'smarty_function_sugar_include',),));
 ?>
 {*

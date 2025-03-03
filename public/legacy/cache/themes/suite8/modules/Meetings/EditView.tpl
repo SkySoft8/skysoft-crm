@@ -93,6 +93,8 @@
 </div>
 <div class="panel-body panel-collapse collapse in panelContainer" id="detailpanel_-1" data-id="LBL_MEETING_INFORMATION">
 <div class="tab-content">
+<br />
+<b>Deprecated</b>:  Using unregistered function "intval" in a template is deprecated and will be removed in a future release. Use Smarty::registerPlugin to explicitly register a custom modifier. in <b>C:\Apache24\htdocs\crm\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php</b> on line <b>663</b><br />
 <!-- tab_panel_content.tpl -->
 <div class="row edit-view-row">
 
@@ -167,10 +169,10 @@ title=''  tabindex="-1"
 
 
 
-<div class="col-xs-12 col-sm-12 edit-view-row-item" data-field="date_end">
+<div class="col-xs-12 col-sm-6 edit-view-row-item edit-view-bordered" data-field="date_end">
 
 
-<div class="col-xs-12 col-sm-2 label" data-label="LBL_DATE_END">
+<div class="col-xs-12 col-sm-4 label" data-label="LBL_DATE_END">
 
 {minify}
 {capture name="label" assign="label"}{sugar_translate label='LBL_DATE_END' module='Meetings'}{/capture}
@@ -180,7 +182,7 @@ title=''  tabindex="-1"
 {/minify}
 </div>
 
-<div class="col-xs-12 col-sm-8 edit-view-field " type="datetimecombo" field="date_end" colspan='3' >
+<div class="col-xs-12 col-sm-8 edit-view-field " type="datetimecombo" field="date_end"  >
 {counter name="panelFieldCount" print=false}
 
 <table border="0" cellpadding="0" cellspacing="0" class="dateTime">
@@ -238,6 +240,11 @@ YAHOO.util.Event.onDOMReady(function()
 
 <!-- [/hide] -->
 </div>
+
+
+<div class="col-xs-12 col-sm-6 edit-view-row-item edit-view-bordered" data-field="">
+</div>
+<div class="clear"></div>
 <div class="clear"></div>
 </div>
 <div class="row edit-view-row">

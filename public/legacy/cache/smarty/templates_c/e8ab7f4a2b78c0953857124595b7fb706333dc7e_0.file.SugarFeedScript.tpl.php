@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-18 08:37:07
+/* Smarty version 4.5.3, created on 2025-03-03 13:46:16
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\SugarFeed\Dashlets\SugarFeedDashlet\SugarFeedScript.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67b446b3b061b2_39129528',
+  'unifunc' => 'content_67c5b2a82f97f1_59867755',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67b446b3b061b2_39129528 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67c5b2a82f97f1_59867755 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getjspath.php','function'=>'smarty_function_sugar_getjspath',),));
 ?>
 

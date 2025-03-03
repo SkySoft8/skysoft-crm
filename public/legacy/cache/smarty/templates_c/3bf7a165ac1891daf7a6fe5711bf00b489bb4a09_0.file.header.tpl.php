@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-27 15:10:07
+/* Smarty version 4.5.3, created on 2025-03-03 15:09:45
   from 'C:\Apache24\htdocs\crm\public\legacy\themes\suite8\include\EditView\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67c0804fe9e302_49118478',
+  'unifunc' => 'content_67c5c639f28749_57952273',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:themes/suite8/include/EditView/actions_buttons.tpl' => 1,
   ),
 ),false)) {
-function content_67c0804fe9e302_49118478 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67c5c639f28749_57952273 (Smarty_Internal_Template $_smarty_tpl) {
 ?>{*
 /**
  *

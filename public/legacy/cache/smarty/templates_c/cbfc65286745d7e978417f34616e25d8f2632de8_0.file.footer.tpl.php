@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-27 15:10:09
+/* Smarty version 4.5.3, created on 2025-03-03 15:09:47
   from 'C:\Apache24\htdocs\crm\public\legacy\themes\suite8\modules\Meetings\tpls\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67c080513df538_87555545',
+  'unifunc' => 'content_67c5c63ba4b952_74140960',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67c080513df538_87555545 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67c5c63ba4b952_74140960 (Smarty_Internal_Template $_smarty_tpl) {
 ?>{*
 /**
  *

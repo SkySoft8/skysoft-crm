@@ -1,5 +1,5 @@
 <?php
-// created: 2025-02-18 08:35:40
+// created: 2025-03-03 15:00:38
 $mod_strings = array (
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Дата создания',
@@ -44,7 +44,7 @@ $mod_strings = array (
   'LBL_PRIORITY' => 'Приоритет:',
   'LBL_DUE_DATE_AND_TIME' => 'Дата и время выполнения:',
   'LBL_START_DATE_AND_TIME' => 'Дата и время начала:',
-  'LBL_START_DATE' => 'Дата начала:',
+  'LBL_START_DATE' => 'Дата начала',
   'LBL_LIST_START_DATE' => 'Дата начала',
   'LBL_START_TIME' => 'Время начала:',
   'DATE_FORMAT' => '(гггг-мм-дд)',
@@ -72,4 +72,6 @@ $mod_strings = array (
   'LBL_EDITLAYOUT' => 'Изменить макет',
   'LBL_DATE_DUE' => 'Дата выполнения',
   'LBL_RELATED_TO' => 'Относится к:',
+  'LBL_SALES_STAGE' => 'Стадия продаж',
+  'LBL_PERSON_VIEW' => 'Вид лица',
 );

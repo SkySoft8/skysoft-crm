@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-18 08:38:53
+/* Smarty version 4.5.3, created on 2025-02-28 17:27:21
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\ModuleBuilder\tpls\wizard.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67b4471d7f2799_46825284',
+  'unifunc' => 'content_67c1f1f9293df9_96414032',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/ModuleBuilder/tpls/assistantJavascript.tpl' => 1,
   ),
 ),false)) {
-function content_67b4471d7f2799_46825284 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67c1f1f9293df9_96414032 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.counter.php','function'=>'smarty_function_counter',),));
 ?>
 <div class='wizard' width='100%' >

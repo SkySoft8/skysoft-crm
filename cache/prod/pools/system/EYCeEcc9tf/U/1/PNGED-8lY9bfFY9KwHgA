@@ -19,7 +19,7 @@ return [PHP_INT_MAX, [
             'email_reminder_time' => '60',
             'reminder_checked' => '0',
             'email_reminder_checked' => '0',
-            'timezone' => 'UTC',
+            'timezone' => 'Europe/Minsk',
             'ut' => '1',
             'currency' => [
                 'id' => '-99',
@@ -113,6 +113,124 @@ return [PHP_INT_MAX, [
                             'id' => 'a36123d0-036d-192c-d9db-67bc3f3e4264',
                         ],
                     ],
+                ],
+                'meetings-listview-show-sidebar-widgets' => false,
+                'meetings-listview-current-pagination-type' => 'pagination',
+                'meetings-listview-current-filters' => [
+                    'default' => [
+                        'key' => 'default',
+                        'module' => 'saved-search',
+                        'attributes' => [
+                            'contents' => '',
+                        ],
+                        'criteria' => [
+                            'name' => 'default',
+                            'filters' => [],
+                        ],
+                    ],
+                ],
+                'meetings-listview-current-sort' => [
+                    'orderBy' => '',
+                    'sortOrder' => 'NONE',
+                ],
+                'meetings-recordview-current-record-pagination' => [
+                    'pagination' => [
+                        'pageSize' => 20,
+                        'current' => 0,
+                        'previous' => -1,
+                        'next' => -1,
+                        'last' => 0,
+                        'total' => 1,
+                        'pageFirst' => 1,
+                        'pageLast' => 1,
+                    ],
+                    'recordIds' => [
+                        [
+                            'id' => 'a36123d0-036d-192c-d9db-67bc3f3e4264',
+                        ],
+                    ],
+                ],
+                'tasks-recordview-show-sidebar-widgets' => false,
+                'tasks-listview-show-sidebar-widgets' => false,
+                'tasks-listview-current-pagination-type' => 'pagination',
+                'tasks-listview-current-filters' => [
+                    'default' => [
+                        'key' => 'default',
+                        'module' => 'saved-search',
+                        'attributes' => [
+                            'contents' => '',
+                        ],
+                        'criteria' => [
+                            'name' => 'default',
+                            'filters' => [],
+                        ],
+                    ],
+                ],
+                'tasks-listview-current-sort' => [
+                    'orderBy' => '',
+                    'sortOrder' => 'DESC',
+                ],
+                'tasks-recordview-current-record-pagination' => [
+                    'pagination' => [
+                        'pageSize' => 20,
+                        'current' => 0,
+                        'previous' => -1,
+                        'next' => -1,
+                        'last' => -20,
+                        'total' => 0,
+                        'pageFirst' => 0,
+                        'pageLast' => 0,
+                    ],
+                    'recordIds' => [],
+                ],
+                'contacts-recordview-current-record-pagination' => [
+                    'pagination' => [
+                        'pageSize' => 20,
+                        'current' => 0,
+                        'previous' => -1,
+                        'next' => -1,
+                        'last' => -20,
+                        'total' => 0,
+                        'pageFirst' => 0,
+                        'pageLast' => 0,
+                    ],
+                    'recordIds' => [],
+                ],
+                'opportunities-recordview-current-record-pagination' => [
+                    'pagination' => [
+                        'pageSize' => 20,
+                        'current' => 0,
+                        'previous' => -1,
+                        'next' => -1,
+                        'last' => 0,
+                        'total' => 1,
+                        'pageFirst' => 1,
+                        'pageLast' => 1,
+                    ],
+                    'recordIds' => [
+                        [
+                            'id' => 'a36123d0-036d-192c-d9db-67bc3f3e4264',
+                        ],
+                    ],
+                ],
+                'opportunities-listview-show-sidebar-widgets' => true,
+                'opportunities-listview-current-pagination-type' => 'pagination',
+                'opportunities-listview-current-filters' => [
+                    'default' => [
+                        'key' => 'default',
+                        'module' => 'saved-search',
+                        'attributes' => [
+                            'contents' => '',
+                        ],
+                        'criteria' => [
+                            'name' => 'default',
+                            'filters' => [],
+                        ],
+                    ],
+                ],
+                'opportunities-listview-current-sort' => [
+                    'orderBy' => '',
+                    'sortOrder' => 'NONE',
                 ],
             ],
             'snooze_alert_timer' => '600',

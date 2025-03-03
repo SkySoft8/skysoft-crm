@@ -20,3 +20,37 @@ $app_list_strings['meeting_status_dom']=array (
   'completed' => 'Завершено',
   'planned' => 'Запланировано',
 );
+$app_list_strings['person_view_c_list']=array (
+  'general' => 'Общий',
+  'small_medium_buisness' => 'МСБ',
+  'large_or_statecorp' => 'Крупн. или госкорп.',
+  'gr_state_budget' => 'GR (госбюджет)',
+);
+$app_list_strings['person_view_c_list']=array (
+  'general' => 'Общий',
+  'small_medium_buisness' => 'МСБ',
+  'large_or_statecorp' => 'Крупн. или госкорп.',
+  'gr_state_budget' => 'GR (госбюджет)',
+);
+$app_list_strings['sales_stage_c_list']=array (
+  'not_sales' => 'Не продажи',
+  'cold_strategy' => 'Холодный стратег.',
+  'cold_start' => 'Холодный начат.',
+  'warm_task' => 'Теплый (задание)',
+  'hot_commercial' => 'Горячий (коммерческое)',
+  'project' => 'Проект',
+  'freezed' => 'В заморозке',
+);
+$app_list_strings['sales_stage_c_list']=array (
+  'not_sales' => 'Не продажи',
+  'cold_strategy' => 'Холодный стратег.',
+  'cold_start' => 'Холодный начат.',
+  'warm_task' => 'Теплый (задание)',
+  'hot_commercial' => 'Горячий (коммерческое)',
+  'project' => 'Проект',
+  'freezed' => 'В заморозке',
+);
+$app_list_strings['task_status_dom']=array (
+  'In Progress' => 'В процессе',
+  'Completed' => 'Завершена',
+);

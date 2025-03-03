@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-18 08:36:43
+/* Smarty version 4.5.3, created on 2025-02-28 17:27:14
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\SurveyResponses\tpls\detailquestionresponses.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67b4469b28c688_55827624',
+  'unifunc' => 'content_67c1f1f2430a21_64014420',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67b4469b28c688_55827624 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67c1f1f2430a21_64014420 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div>
     <table id="questionResponseTable" class="table table-bordered">
         <tr>
