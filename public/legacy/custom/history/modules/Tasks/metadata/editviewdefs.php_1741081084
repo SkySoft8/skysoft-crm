@@ -49,7 +49,7 @@ array (
           'panelDefault' => 'expanded',
         ),
       ),
-      'syncDetailEditViews' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -96,6 +96,16 @@ array (
         2 => 
         array (
           0 => 
+          array (
+            'name' => 'date_due',
+            'type' => 'datetimecombo',
+            'displayParams' => 
+            array (
+              'showNoneCheckbox' => true,
+              'showFormats' => true,
+            ),
+          ),
+          1 => 
           array (
             'name' => 'person_view_c',
             'studio' => 'visible',

@@ -683,9 +683,7 @@ return [PHP_INT_MAX, [
                         ],
                         'enable_range_search' => true,
                         'options' => 'date_range_search_dom',
-                        'required' => true,
-                        'inline_edit' => true,
-                        'merge_filter' => 'disabled',
+                        'required' => false,
                         'legacyGroup' => true,
                         'groupFields' => [
                             'date_start_flag' => [
@@ -714,9 +712,7 @@ return [PHP_INT_MAX, [
                                 ],
                                 'enable_range_search' => true,
                                 'options' => 'date_range_search_dom',
-                                'required' => true,
-                                'inline_edit' => true,
-                                'merge_filter' => 'disabled',
+                                'required' => false,
                             ],
                         ],
                         'metadata' => [
@@ -1400,7 +1396,7 @@ return [PHP_INT_MAX, [
                     'readonly' => true,
                     'fieldDefinition' => [
                         'inline_edit' => '1',
-                        'labelValue' => 'Вид лица',
+                        'labelValue' => 'ВИД ЛИДА',
                         'required' => false,
                         'source' => 'custom_fields',
                         'name' => 'person_view_c',
@@ -2277,9 +2273,7 @@ return [PHP_INT_MAX, [
                         ],
                         'enable_range_search' => true,
                         'options' => 'date_range_search_dom',
-                        'required' => true,
-                        'inline_edit' => true,
-                        'merge_filter' => 'disabled',
+                        'required' => false,
                         'legacyGroup' => true,
                         'groupFields' => [
                             'date_start_flag' => [
@@ -2308,9 +2302,7 @@ return [PHP_INT_MAX, [
                                 ],
                                 'enable_range_search' => true,
                                 'options' => 'date_range_search_dom',
-                                'required' => true,
-                                'inline_edit' => true,
-                                'merge_filter' => 'disabled',
+                                'required' => false,
                             ],
                         ],
                         'metadata' => [
@@ -2920,7 +2912,7 @@ return [PHP_INT_MAX, [
                     'readonly' => true,
                     'fieldDefinition' => [
                         'inline_edit' => '1',
-                        'labelValue' => 'Вид лица',
+                        'labelValue' => 'ВИД ЛИДА',
                         'required' => false,
                         'source' => 'custom_fields',
                         'name' => 'person_view_c',
@@ -3146,9 +3138,7 @@ return [PHP_INT_MAX, [
                     ],
                     'enable_range_search' => true,
                     'options' => 'date_range_search_dom',
-                    'required' => true,
-                    'inline_edit' => true,
-                    'merge_filter' => 'disabled',
+                    'required' => false,
                     'legacyGroup' => true,
                     'groupFields' => [
                         'date_start_flag' => [
@@ -3177,9 +3167,7 @@ return [PHP_INT_MAX, [
                             ],
                             'enable_range_search' => true,
                             'options' => 'date_range_search_dom',
-                            'required' => true,
-                            'inline_edit' => true,
-                            'merge_filter' => 'disabled',
+                            'required' => false,
                         ],
                     ],
                 ],
@@ -3448,7 +3436,7 @@ return [PHP_INT_MAX, [
                 'studio' => 'visible',
                 'fieldDefinition' => [
                     'inline_edit' => '1',
-                    'labelValue' => 'Вид лица',
+                    'labelValue' => 'ВИД ЛИДА',
                     'required' => false,
                     'source' => 'custom_fields',
                     'name' => 'person_view_c',
@@ -3985,9 +3973,7 @@ return [PHP_INT_MAX, [
                                     ],
                                     'enable_range_search' => true,
                                     'options' => 'date_range_search_dom',
-                                    'required' => true,
-                                    'inline_edit' => true,
-                                    'merge_filter' => 'disabled',
+                                    'required' => false,
                                     'legacyGroup' => true,
                                     'groupFields' => [
                                         'date_start_flag' => [
@@ -4016,9 +4002,7 @@ return [PHP_INT_MAX, [
                                             ],
                                             'enable_range_search' => true,
                                             'options' => 'date_range_search_dom',
-                                            'required' => true,
-                                            'inline_edit' => true,
-                                            'merge_filter' => 'disabled',
+                                            'required' => false,
                                         ],
                                     ],
                                 ],
@@ -5080,9 +5064,7 @@ return [PHP_INT_MAX, [
                                     ],
                                     'enable_range_search' => true,
                                     'options' => 'date_range_search_dom',
-                                    'required' => true,
-                                    'inline_edit' => true,
-                                    'merge_filter' => 'disabled',
+                                    'required' => false,
                                     'legacyGroup' => true,
                                     'groupFields' => [
                                         'date_start_flag' => [
@@ -5111,9 +5093,7 @@ return [PHP_INT_MAX, [
                                             ],
                                             'enable_range_search' => true,
                                             'options' => 'date_range_search_dom',
-                                            'required' => true,
-                                            'inline_edit' => true,
-                                            'merge_filter' => 'disabled',
+                                            'required' => false,
                                         ],
                                     ],
                                 ],
@@ -5188,7 +5168,7 @@ return [PHP_INT_MAX, [
                                 'studio' => 'visible',
                                 'fieldDefinition' => [
                                     'inline_edit' => '1',
-                                    'labelValue' => 'Вид лица',
+                                    'labelValue' => 'ВИД ЛИДА',
                                     'required' => false,
                                     'source' => 'custom_fields',
                                     'name' => 'person_view_c',
@@ -5595,9 +5575,7 @@ return [PHP_INT_MAX, [
                 ],
                 'enable_range_search' => true,
                 'options' => 'date_range_search_dom',
-                'required' => true,
-                'inline_edit' => true,
-                'merge_filter' => 'disabled',
+                'required' => false,
                 'legacyGroup' => true,
                 'groupFields' => [
                     'date_start_flag' => [
@@ -5626,9 +5604,7 @@ return [PHP_INT_MAX, [
                         ],
                         'enable_range_search' => true,
                         'options' => 'date_range_search_dom',
-                        'required' => true,
-                        'inline_edit' => true,
-                        'merge_filter' => 'disabled',
+                        'required' => false,
                     ],
                 ],
             ],
@@ -6006,7 +5982,7 @@ return [PHP_INT_MAX, [
             ],
             'person_view_c' => [
                 'inline_edit' => '1',
-                'labelValue' => 'Вид лица',
+                'labelValue' => 'ВИД ЛИДА',
                 'required' => false,
                 'source' => 'custom_fields',
                 'name' => 'person_view_c',

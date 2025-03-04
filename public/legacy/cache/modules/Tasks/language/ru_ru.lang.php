@@ -1,5 +1,5 @@
 <?php
-// created: 2025-03-03 15:00:38
+// created: 2025-03-04 13:17:34
 $mod_strings = array (
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Дата создания',
@@ -73,5 +73,5 @@ $mod_strings = array (
   'LBL_DATE_DUE' => 'Дата выполнения',
   'LBL_RELATED_TO' => 'Относится к:',
   'LBL_SALES_STAGE' => 'Стадия продаж',
-  'LBL_PERSON_VIEW' => 'Вид лица',
+  'LBL_PERSON_VIEW' => 'ВИД ЛИДА',
 );

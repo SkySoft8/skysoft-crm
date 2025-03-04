@@ -5670,7 +5670,7 @@ return [PHP_INT_MAX, [
                 'LBL_DATE_DUE' => 'Дата выполнения',
                 'LBL_RELATED_TO' => 'Относится к',
                 'LBL_SALES_STAGE' => 'Стадия продаж',
-                'LBL_PERSON_VIEW' => 'Вид лица',
+                'LBL_PERSON_VIEW' => 'ВИД ЛИДА',
             ],
             'home' => [
                 'LBL_MODULE_NAME' => 'SuiteCRM',

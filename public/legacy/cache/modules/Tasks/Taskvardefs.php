@@ -285,9 +285,7 @@
       ),
       'enable_range_search' => true,
       'options' => 'date_range_search_dom',
-      'required' => true,
-      'inline_edit' => true,
-      'merge_filter' => 'disabled',
+      'required' => false,
     ),
     'parent_type' => 
     array (
@@ -474,7 +472,7 @@
     'person_view_c' => 
     array (
       'inline_edit' => '1',
-      'labelValue' => 'Вид лица',
+      'labelValue' => 'ВИД ЛИДА',
       'required' => false,
       'source' => 'custom_fields',
       'name' => 'person_view_c',

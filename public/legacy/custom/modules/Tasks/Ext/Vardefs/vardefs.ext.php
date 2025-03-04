@@ -2,16 +2,14 @@
  //WARNING: The contents of this file are auto-generated
 
 
- // created: 2025-02-28 17:40:56
-$dictionary['Task']['fields']['date_start']['required']=true;
-$dictionary['Task']['fields']['date_start']['inline_edit']=true;
-$dictionary['Task']['fields']['date_start']['merge_filter']='disabled';
+ // created: 2025-03-04 09:26:55
+$dictionary['Task']['fields']['date_start']['required']=false;
 
  
 
- // created: 2025-03-03 15:00:30
+ // created: 2025-03-04 13:17:31
 $dictionary['Task']['fields']['person_view_c']['inline_edit']='1';
-$dictionary['Task']['fields']['person_view_c']['labelValue']='Вид лица';
+$dictionary['Task']['fields']['person_view_c']['labelValue']='ВИД ЛИДА';
 
  
 
