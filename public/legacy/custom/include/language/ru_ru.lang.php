@@ -54,3 +54,8 @@ $app_list_strings['task_status_dom']=array (
   'In Progress' => 'В процессе',
   'Completed' => 'Завершена',
 );
+$app_list_strings['project_status_dom']=array (
+  'Underway' => 'Реализуется',
+  'On_Hold' => 'Приостановлен',
+  'Completed' => 'Завершён',
+);

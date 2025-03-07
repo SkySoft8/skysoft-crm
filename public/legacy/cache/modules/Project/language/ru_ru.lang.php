@@ -1,5 +1,5 @@
 <?php
-// created: 2025-02-28 17:23:47
+// created: 2025-03-07 13:22:57
 $mod_strings = array (
   'LBL_SECURITYGROUPS' => 'Группы пользователей',
   'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Группы пользователей',
@@ -129,4 +129,5 @@ $mod_strings = array (
   'LBL_AOS_QUOTES_PROJECT' => 'Проекты-Предложения',
   'LBL_ASCENDING' => 'Восходящая',
   'LBL_DESCENDING' => 'Нисходящая',
+  'LBL_EDITVIEW_PANEL1' => 'Новая панель 1',
 );

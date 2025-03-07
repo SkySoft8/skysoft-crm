@@ -176,12 +176,16 @@ return [PHP_INT_MAX, [
                         'current' => 0,
                         'previous' => -1,
                         'next' => -1,
-                        'last' => -20,
-                        'total' => 0,
-                        'pageFirst' => 0,
-                        'pageLast' => 0,
+                        'last' => 0,
+                        'total' => 1,
+                        'pageFirst' => 1,
+                        'pageLast' => 1,
                     ],
-                    'recordIds' => [],
+                    'recordIds' => [
+                        [
+                            'id' => '4d596d50-7236-8133-2687-67cae5ce1f0c',
+                        ],
+                    ],
                 ],
                 'contacts-recordview-current-record-pagination' => [
                     'pagination' => [
@@ -231,6 +235,40 @@ return [PHP_INT_MAX, [
                 'opportunities-listview-current-sort' => [
                     'orderBy' => '',
                     'sortOrder' => 'NONE',
+                ],
+                'calls-recordview-current-record-pagination' => [
+                    'pagination' => [
+                        'pageSize' => 20,
+                        'current' => 0,
+                        'previous' => -1,
+                        'next' => -1,
+                        'last' => 0,
+                        'total' => 1,
+                        'pageFirst' => 1,
+                        'pageLast' => 1,
+                    ],
+                    'recordIds' => [
+                        [
+                            'id' => '4d596d50-7236-8133-2687-67cae5ce1f0c',
+                        ],
+                    ],
+                ],
+                'home-recordview-current-record-pagination' => [
+                    'pagination' => [
+                        'pageSize' => 20,
+                        'current' => 0,
+                        'previous' => -1,
+                        'next' => -1,
+                        'last' => 0,
+                        'total' => 1,
+                        'pageFirst' => 1,
+                        'pageLast' => 1,
+                    ],
+                    'recordIds' => [
+                        [
+                            'id' => '4d596d50-7236-8133-2687-67cae5ce1f0c',
+                        ],
+                    ],
                 ],
             ],
             'snooze_alert_timer' => '600',

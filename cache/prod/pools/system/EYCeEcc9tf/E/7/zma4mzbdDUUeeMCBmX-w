@@ -2994,8 +2994,6 @@ return [PHP_INT_MAX, [
                 100 => '100',
             ],
             'project_status_dom' => [
-                'Draft' => 'Черновик',
-                'In Review' => 'На рассмотрении',
                 'Underway' => 'Реализуется',
                 'On_Hold' => 'Приостановлен',
                 'Completed' => 'Завершён',
@@ -6030,6 +6028,7 @@ return [PHP_INT_MAX, [
                 'LBL_AOS_QUOTES_PROJECT' => 'Проекты-Предложения',
                 'LBL_ASCENDING' => 'Восходящая',
                 'LBL_DESCENDING' => 'Нисходящая',
+                'LBL_EDITVIEW_PANEL1' => 'Новая панель 1',
             ],
             'alerts' => [
                 'LBL_ID' => 'ID',
