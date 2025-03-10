@@ -7309,10 +7309,6 @@ return [PHP_INT_MAX, [
                     'newTab' => false,
                     'panelDefault' => 'expanded',
                 ],
-                'LBL_EDITVIEW_PANEL1' => [
-                    'newTab' => false,
-                    'panelDefault' => 'expanded',
-                ],
             ],
         ],
         'topWidget' => [
@@ -7520,15 +7516,20 @@ return [PHP_INT_MAX, [
                                 ],
                                 'type' => 'relate',
                             ],
+                            [
+                                'name' => 'description',
+                                'label' => 'LBL_DESCRIPTION',
+                                'comment' => 'Project description',
+                                'fieldDefinition' => [
+                                    'name' => 'description',
+                                    'vname' => 'LBL_DESCRIPTION',
+                                    'required' => false,
+                                    'type' => 'text',
+                                    'comment' => 'Project description',
+                                ],
+                                'type' => 'text',
+                            ],
                         ],
-                    ],
-                ],
-            ],
-            [
-                'key' => 'lbl_editview_panel1',
-                'rows' => [
-                    [
-                        'cols' => [],
                     ],
                 ],
             ],

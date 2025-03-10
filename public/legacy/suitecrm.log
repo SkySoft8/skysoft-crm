@@ -57,3 +57,5 @@ Fri Feb 28 17:04:52 2025 [29988][1][FATAL] ВНИМАНИЕ: В процессе
 Tue Mar  4 08:24:30 2025 [28148][1][FATAL] Email address save error
 Tue Mar  4 09:57:39 2025 [28148][1][FATAL] Email address save error
 Tue Mar  4 13:03:17 2025 [24444][1][FATAL] Email address save error
+Mon Mar 10 08:24:57 2025 [13224][1][FATAL] Exception handling in C:\Apache24\htdocs\crm\public\legacy\include\MVC\Controller\SugarController.php:397
+Mon Mar 10 08:24:57 2025 [13224][1][FATAL] Exception in Controller: Действие не определено: record

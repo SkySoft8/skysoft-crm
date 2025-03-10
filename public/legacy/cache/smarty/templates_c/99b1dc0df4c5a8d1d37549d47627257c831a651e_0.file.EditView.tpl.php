@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-03-07 13:26:40
+/* Smarty version 4.5.3, created on 2025-03-10 08:24:37
   from 'C:\Apache24\htdocs\crm\public\legacy\cache\themes\suite8\modules\Project\EditView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67caf4103cc0b0_94865035',
+  'unifunc' => 'content_67cea1c57c0a40_94074631',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '99b1dc0df4c5a8d1d37549d47627257c831a651e' => 
     array (
       0 => 'C:\\Apache24\\htdocs\\crm\\public\\legacy\\cache\\themes\\suite8\\modules\\Project\\EditView.tpl',
-      1 => 1741354000,
+      1 => 1741595077,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67caf4103cc0b0_94865035 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67cea1c57c0a40_94074631 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_include.php','function'=>'smarty_function_sugar_include',),1=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_translate.php','function'=>'smarty_function_sugar_translate',),2=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\block.minify.php','function'=>'smarty_block_minify',),3=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\modifier.strip_semicolon.php','function'=>'smarty_modifier_strip_semicolon',),4=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.counter.php','function'=>'smarty_function_counter',),5=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.html_options.php','function'=>'smarty_function_html_options',),6=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getimage.php','function'=>'smarty_function_sugar_getimage',),7=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getscript.php','function'=>'smarty_function_sugar_getscript',),8=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getjspath.php','function'=>'smarty_function_sugar_getjspath',),));
 ?>
 
@@ -402,10 +402,10 @@ weekNumbers:false
 
 
 
-<div class="col-xs-12 col-sm-12 edit-view-row-item" data-field="assigned_user_name">
+<div class="col-xs-12 col-sm-6 edit-view-row-item edit-view-bordered" data-field="assigned_user_name">
 
 
-<div class="col-xs-12 col-sm-2 label" data-label="LBL_ASSIGNED_USER_NAME">
+<div class="col-xs-12 col-sm-4 label" data-label="LBL_ASSIGNED_USER_NAME">
 
 <?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('minify', array());
 $_block_repeat=true;
@@ -424,7 +424,7 @@ echo smarty_block_minify(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 </div>
 
-<div class="col-xs-12 col-sm-8 edit-view-field " type="relate" field="assigned_user_name" colspan='3' >
+<div class="col-xs-12 col-sm-8 edit-view-field " type="relate" field="assigned_user_name"  >
 <?php echo smarty_function_counter(array('name'=>"panelFieldCount",'print'=>false),$_smarty_tpl);?>
 
 
@@ -486,36 +486,52 @@ _<?php echo $_smarty_tpl->tpl_vars['fields']->value['assigned_user_name']['name'
 
 <!-- [/hide] -->
 </div>
-<div class="clear"></div>
-</div>
-</div>
-</div>
-</div>
 
 
+<div class="col-xs-12 col-sm-6 edit-view-row-item edit-view-bordered" data-field="description">
 
 
-<div class="panel panel-default">
-<div class="panel-heading ">
-<a class="" role="button" data-toggle="collapse-edit" aria-expanded="false">
-<div class="col-xs-10 col-sm-11 col-md-11">
-<?php echo smarty_function_sugar_translate(array('label'=>'LBL_EDITVIEW_PANEL1','module'=>'Project'),$_smarty_tpl);?>
+<div class="col-xs-12 col-sm-4 label" data-label="LBL_DESCRIPTION">
 
-</div>
-</a>
-</div>
-<div class="panel-body panel-collapse collapse in panelContainer" id="detailpanel_0" data-id="LBL_EDITVIEW_PANEL1">
-<div class="tab-content">
-<!-- tab_panel_content.tpl -->
-<div class="row edit-view-row">
+<?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('minify', array());
+$_block_repeat=true;
+echo smarty_block_minify(array(), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();
+$_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, "label", "label", null);
+echo smarty_function_sugar_translate(array('label'=>'LBL_DESCRIPTION','module'=>'Project'),$_smarty_tpl);
+$_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);
+echo smarty_modifier_strip_semicolon($_smarty_tpl->tpl_vars['label']->value);?>
+:
 
-
-
-<div class="col-xs-12 col-sm-6 edit-view-row-item edit-view-bordered" data-field="">
+<?php $_block_repeat=false;
+echo smarty_block_minify(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
+}
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 </div>
 
+<div class="col-xs-12 col-sm-8 edit-view-field " type="text" field="description"  >
+<?php echo smarty_function_counter(array('name'=>"panelFieldCount",'print'=>false),$_smarty_tpl);?>
 
-<div class="col-xs-12 col-sm-6 edit-view-row-item edit-view-bordered" data-field="">
+
+<?php if (empty($_smarty_tpl->tpl_vars['fields']->value['description']['value'])) {
+$_smarty_tpl->_assignInScope('value', $_smarty_tpl->tpl_vars['fields']->value['description']['default_value']);
+} else {
+$_smarty_tpl->_assignInScope('value', $_smarty_tpl->tpl_vars['fields']->value['description']['value']);
+}?>
+<textarea  id='<?php echo $_smarty_tpl->tpl_vars['fields']->value['description']['name'];?>
+' name='<?php echo $_smarty_tpl->tpl_vars['fields']->value['description']['name'];?>
+'
+    rows="4"
+    cols="60"
+    title='' tabindex="0" 
+     ><?php echo $_smarty_tpl->tpl_vars['value']->value;?>
+</textarea>
+
+</div>
+<div class="edit-dotted-border"></div>
+
+<!-- [/hide] -->
 </div>
 <div class="clear"></div>
 <div class="clear"></div>

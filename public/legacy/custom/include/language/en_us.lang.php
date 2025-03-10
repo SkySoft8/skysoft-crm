@@ -59,3 +59,10 @@ $app_list_strings['project_status_dom']=array (
   'On_Hold' => 'On Hold',
   'Completed' => 'Completed',
 );
+
+$app_list_strings['project_task_status_options']=array (
+  'Not Started' => 'Not Started',
+  'In Progress' => 'In Progress',
+  'On_Check' => 'On check',
+  'Completed' => 'Completed',
+);
