@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-03-04 13:08:21
+/* Smarty version 4.5.3, created on 2025-03-14 14:41:10
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\Home\Dashlets\JotPadDashlet\JotPadDashlet.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67c6fb459bae00_24460044',
+  'unifunc' => 'content_67d44006584577_04930851',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67c6fb459bae00_24460044 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67d44006584577_04930851 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <div id='jotpad_<?php echo $_smarty_tpl->tpl_vars['id']->value;?>

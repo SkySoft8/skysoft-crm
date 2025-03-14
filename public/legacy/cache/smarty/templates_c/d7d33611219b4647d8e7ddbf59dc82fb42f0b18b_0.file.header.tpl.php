@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-28 17:24:04
+/* Smarty version 4.5.3, created on 2025-03-14 14:35:59
   from 'C:\Apache24\htdocs\crm\public\legacy\themes\suite8\tpls\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67c1f134b09f49_22351038',
+  'unifunc' => 'content_67d43ecf558de7_16028705',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:themes/suite8/tpls/_head.tpl' => 1,
   ),
 ),false)) {
-function content_67c1f134b09f49_22351038 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67d43ecf558de7_16028705 (Smarty_Internal_Template $_smarty_tpl) {
 if (file_exists('custom/themes/suite8/tpls/_head.tpl')) {?>
     <?php $_smarty_tpl->_subTemplateRender("file:custom/themes/suite8/tpls/_head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 } else { ?>

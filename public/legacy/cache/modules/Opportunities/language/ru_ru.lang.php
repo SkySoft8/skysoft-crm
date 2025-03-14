@@ -1,5 +1,5 @@
 <?php
-// created: 2025-02-28 17:23:48
+// created: 2025-03-14 16:14:05
 $mod_strings = array (
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Дата создания',
@@ -80,4 +80,6 @@ $mod_strings = array (
   'LBL_AOS_CONTRACTS' => 'Договоры',
   'LBL_AOS_QUOTES' => 'Предложения',
   'LBL_STATUSDEAL' => 'statusDeal',
+  'LBL_REFUSAL_REASON' => 'Причина отказа',
+  'LBL_DEAL_STATUS' => 'Статус сделки',
 );

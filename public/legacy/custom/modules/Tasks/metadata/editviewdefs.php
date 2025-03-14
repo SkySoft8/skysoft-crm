@@ -76,7 +76,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'date_start',
+            'name' => 'date_due',
             'type' => 'datetimecombo',
             'displayParams' => 
             array (

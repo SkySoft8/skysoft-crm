@@ -90,12 +90,19 @@ return [PHP_INT_MAX, [
                         'current' => 0,
                         'previous' => -1,
                         'next' => -1,
-                        'last' => -20,
-                        'total' => 0,
-                        'pageFirst' => 0,
-                        'pageLast' => 0,
+                        'last' => 0,
+                        'total' => 2,
+                        'pageFirst' => 1,
+                        'pageLast' => 2,
                     ],
-                    'recordIds' => [],
+                    'recordIds' => [
+                        [
+                            'id' => '2be78907-cf46-860f-da02-67d44824cfbf',
+                        ],
+                        [
+                            'id' => '4d596d50-7236-8133-2687-67cae5ce1f0c',
+                        ],
+                    ],
                 ],
                 'users-recordview-current-record-pagination' => [
                     'pagination' => [
@@ -206,16 +213,12 @@ return [PHP_INT_MAX, [
                         'current' => 0,
                         'previous' => -1,
                         'next' => -1,
-                        'last' => 0,
-                        'total' => 1,
-                        'pageFirst' => 1,
-                        'pageLast' => 1,
+                        'last' => -20,
+                        'total' => 0,
+                        'pageFirst' => 0,
+                        'pageLast' => 0,
                     ],
-                    'recordIds' => [
-                        [
-                            'id' => 'a36123d0-036d-192c-d9db-67bc3f3e4264',
-                        ],
-                    ],
+                    'recordIds' => [],
                 ],
                 'opportunities-listview-show-sidebar-widgets' => true,
                 'opportunities-listview-current-pagination-type' => 'pagination',
@@ -270,6 +273,27 @@ return [PHP_INT_MAX, [
                         ],
                     ],
                 ],
+                'planK_Planning-recordview-show-sidebar-widgets' => false,
+                'planK_Planning-listview-show-sidebar-widgets' => false,
+                'planK_Planning-listview-current-pagination-type' => 'pagination',
+                'planK_Planning-listview-current-filters' => [
+                    'default' => [
+                        'key' => 'default',
+                        'module' => 'saved-search',
+                        'attributes' => [
+                            'contents' => '',
+                        ],
+                        'criteria' => [
+                            'name' => 'default',
+                            'filters' => [],
+                        ],
+                    ],
+                ],
+                'planK_Planning-listview-current-sort' => [
+                    'orderBy' => '',
+                    'sortOrder' => 'NONE',
+                ],
+                'opportunities-recordview-show-sidebar-widgets' => false,
             ],
             'snooze_alert_timer' => '600',
             'language' => 'ru_ru',

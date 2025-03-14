@@ -1,5 +1,5 @@
 <?php
-// created: 2025-02-28 17:24:03
+// created: 2025-03-14 15:50:21
 $mod_strings = array (
   'LBL_MODULE_NAME' => 'SuiteCRM',
   'LBL_NEW_FORM_TITLE' => 'Создать контакт',

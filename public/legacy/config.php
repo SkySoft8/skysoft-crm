@@ -1,5 +1,5 @@
 <?php
-// created: 2025-02-17 11:02:11
+// created: 2025-03-14 15:50:20
 $sugar_config = array (
   'addAjaxBannedModules' => 
   array (
@@ -158,7 +158,7 @@ $sugar_config = array (
     'AOW_WorkFlow' => false,
   ),
   'default_module_favicon' => false,
-  'default_navigation_paradigm' => 'm',
+  'default_navigation_paradigm' => 'gm',
   'default_number_grouping_seperator' => ',',
   'default_password' => '',
   'default_permissions' => 
@@ -253,7 +253,7 @@ $sugar_config = array (
     'timeout' => 86400,
   ),
   'js_custom_version' => 1,
-  'js_lang_version' => 11,
+  'js_lang_version' => 12,
   'languages' => 
   array (
     'en_us' => 'English (US)',

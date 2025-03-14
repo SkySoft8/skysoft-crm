@@ -123,13 +123,12 @@ array (
         ),
         1 => 
         array (
-          0 => 'date_start',
+          0 => 'date_due',
           1 => 'status',
         ),
         2 => 
         array (
-          0 => 'date_due',
-          1 => 
+          0 => 
           array (
             'name' => 'person_view_c',
             'studio' => 'visible',

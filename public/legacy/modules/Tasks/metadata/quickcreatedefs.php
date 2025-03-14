@@ -99,24 +99,7 @@ array(
             ),
           ),
         ),
-         
-        array(
-           
-          array(
-            'name' => 'date_start',
-            'type' => 'datetimecombo',
-            'displayParams' =>
-            array(
-              'showNoneCheckbox' => true,
-              'showFormats' => true,
-            ),
-          ),
-           
-          array(
-            'name' => 'parent_name',
-            'label' => 'LBL_LIST_RELATED_TO',
-          ),
-        ),
+        
          
         array(
            

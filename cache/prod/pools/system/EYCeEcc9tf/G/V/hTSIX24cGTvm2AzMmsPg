@@ -47,6 +47,7 @@ return [PHP_INT_MAX, [
         'products',
         'documents',
         'project-templates',
+        'planK_Planning',
     ],
     'groupedTabs' => [
         [
@@ -56,6 +57,7 @@ return [PHP_INT_MAX, [
                 'accounts',
                 'contacts',
                 'opportunities',
+                'planK_Planning',
             ],
         ],
         [
@@ -2305,6 +2307,44 @@ return [PHP_INT_MAX, [
                     'quickAction' => true,
                     'type' => '',
                     'module' => 'import',
+                ],
+            ],
+        ],
+        'planK_Planning' => [
+            'path' => 'planK_Planning',
+            'defaultRoute' => './#/planK_Planning',
+            'name' => 'planK_Planning',
+            'labelKey' => 'planK_Planning',
+            'menu' => [
+                [
+                    'name' => 'Add',
+                    'labelKey' => 'LNK_NEW_RECORD',
+                    'url' => './#/planK_Planning/edit',
+                    'process' => '',
+                    'params' => [
+                        'return_module' => 'planK_Planning',
+                        'return_action' => 'DetailView',
+                    ],
+                    'icon' => 'plus',
+                    'actionLabelKey' => 'LBL_NEW',
+                    'quickAction' => true,
+                    'type' => 'create',
+                    'module' => 'planK_Planning',
+                ],
+                [
+                    'name' => 'View',
+                    'labelKey' => 'LNK_LIST',
+                    'url' => './#/planK_Planning/index',
+                    'process' => '',
+                    'params' => [
+                        'return_module' => 'planK_Planning',
+                        'return_action' => 'DetailView',
+                    ],
+                    'icon' => 'view',
+                    'actionLabelKey' => '',
+                    'quickAction' => false,
+                    'type' => '',
+                    'module' => 'planK_Planning',
                 ],
             ],
         ],

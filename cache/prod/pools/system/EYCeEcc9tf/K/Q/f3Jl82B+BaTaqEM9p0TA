@@ -5045,79 +5045,6 @@ return [PHP_INT_MAX, [
                     [
                         'cols' => [
                             [
-                                'name' => 'date_start',
-                                'label' => 'LBL_START_DATE',
-                                'fieldDefinition' => [
-                                    'name' => 'date_start',
-                                    'vname' => 'LBL_START_DATE',
-                                    'type' => 'datetime',
-                                    'dbType' => 'datetime',
-                                    'group' => 'date_start',
-                                    'validation' => [
-                                        'type' => 'isbefore',
-                                        'compareto' => 'date_due',
-                                        'blank' => false,
-                                    ],
-                                    'studio' => [
-                                        'required' => true,
-                                        'no_duplicate' => true,
-                                    ],
-                                    'enable_range_search' => true,
-                                    'options' => 'date_range_search_dom',
-                                    'required' => false,
-                                    'legacyGroup' => true,
-                                    'groupFields' => [
-                                        'date_start_flag' => [
-                                            'name' => 'date_start_flag',
-                                            'vname' => 'LBL_DATE_START_FLAG',
-                                            'type' => 'bool',
-                                            'group' => 'date_start',
-                                            'default' => 0,
-                                            'studio' => false,
-                                            'required' => false,
-                                        ],
-                                        'date_start' => [
-                                            'name' => 'date_start',
-                                            'vname' => 'LBL_START_DATE',
-                                            'type' => 'datetimecombo',
-                                            'dbType' => 'datetime',
-                                            'group' => 'date_start',
-                                            'validation' => [
-                                                'type' => 'isbefore',
-                                                'compareto' => 'date_due',
-                                                'blank' => false,
-                                            ],
-                                            'studio' => [
-                                                'required' => true,
-                                                'no_duplicate' => true,
-                                            ],
-                                            'enable_range_search' => true,
-                                            'options' => 'date_range_search_dom',
-                                            'required' => false,
-                                        ],
-                                    ],
-                                ],
-                                'type' => 'datetime',
-                            ],
-                            [
-                                'name' => 'status',
-                                'label' => 'LBL_STATUS',
-                                'fieldDefinition' => [
-                                    'name' => 'status',
-                                    'vname' => 'LBL_STATUS',
-                                    'type' => 'enum',
-                                    'options' => 'task_status_dom',
-                                    'len' => 100,
-                                    'required' => true,
-                                    'default' => 'Not Started',
-                                ],
-                                'type' => 'enum',
-                            ],
-                        ],
-                    ],
-                    [
-                        'cols' => [
-                            [
                                 'name' => 'date_due',
                                 'label' => 'LBL_DUE_DATE',
                                 'fieldDefinition' => [
@@ -5162,6 +5089,24 @@ return [PHP_INT_MAX, [
                                 ],
                                 'type' => 'datetime',
                             ],
+                            [
+                                'name' => 'status',
+                                'label' => 'LBL_STATUS',
+                                'fieldDefinition' => [
+                                    'name' => 'status',
+                                    'vname' => 'LBL_STATUS',
+                                    'type' => 'enum',
+                                    'options' => 'task_status_dom',
+                                    'len' => 100,
+                                    'required' => true,
+                                    'default' => 'Not Started',
+                                ],
+                                'type' => 'enum',
+                            ],
+                        ],
+                    ],
+                    [
+                        'cols' => [
                             [
                                 'name' => 'person_view_c',
                                 'label' => 'LBL_PERSON_VIEW',

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-02-28 17:23:57
+/* Smarty version 4.5.3, created on 2025-03-14 14:35:49
   from 'C:\Apache24\htdocs\crm\public\legacy\themes\suite8\tpls\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67c1f12d5f6286_13523474',
+  'unifunc' => 'content_67d43ec5948e26_34681294',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67c1f12d5f6286_13523474 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67d43ec5948e26_34681294 (Smarty_Internal_Template $_smarty_tpl) {
 ?></div>
 </div>
 <!-- END of container-fluid, pageContainer divs -->

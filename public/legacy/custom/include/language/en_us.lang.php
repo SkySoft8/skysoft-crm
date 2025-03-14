@@ -66,3 +66,60 @@ $app_list_strings['project_task_status_options']=array (
   'On_Check' => 'On check',
   'Completed' => 'Completed',
 );
+
+$app_list_strings['lead_source_dom']=array (
+  'Partner' => 'Partner',
+  'Conference' => 'Conference',
+  'tender' => 'Тендер',
+  'special_exhibition' => 'Спец. выставка',
+  'cold_calling_letter' => 'Холодный прозвон (письмо)',
+  'existed_client' => 'Существующий клиент',
+  'pr_activities' => 'PR-деятельность',
+  'ad' => 'Реклама',
+  'other' => 'Другое',
+);
+$app_list_strings['lead_source_dom']=array (
+  'Partner' => 'Partner',
+  'Conference' => 'Conference',
+  'tender' => 'Тендер',
+  'special_exhibition' => 'Спец. выставка',
+  'cold_calling_letter' => 'Холодный прозвон (письмо)',
+  'existed_client' => 'Существующий клиент',
+  'pr_activities' => 'PR-деятельность',
+  'ad' => 'Реклама',
+  'other' => 'Другое',
+);
+$app_list_strings['lead_source_dom']=array (
+  'Partner' => 'Partner',
+  'Conference' => 'Conference',
+  'tender' => 'Tender',
+  'special_exhibition' => 'Special exhibition',
+  'cold_calling_letter' => 'Cold calling (letter)',
+  'existed_client' => 'Existed client',
+  'pr_activities' => 'PR-activities',
+  'ad' => 'Ad',
+  'other' => 'Other',
+);
+$app_list_strings['refusal_reason_list']=array (
+  'deal_in_proccess' => 'Сделка в процесса',
+  'high_price' => 'Высокая цена',
+  'not_satisfied_quality_qualification' => 'Не устроило качество(квалификация)',
+  'changed_their_mind' => 'Передумали',
+  'non_financial' => 'Нет финансирования',
+  'success_closed' => 'Закрыто с успехом',
+  'other' => 'Другое',
+);
+$app_list_strings['refusal_reason_list']=array (
+  'deal_in_proccess' => 'Deal in proccess',
+  'high_price' => 'High price',
+  'not_satisfied_quality_qualification' => 'not satisfied with quality (qualification)',
+  'changed_their_mind' => 'Changed their mind',
+  'non_financial' => 'No finance',
+  'success_closed' => 'Successfully closed',
+  'other' => 'Other',
+);
+
+$app_list_strings['deal_status_list']=array (
+  'in_proccess' => 'In proccess',
+  'ended' => 'Ended',
+);

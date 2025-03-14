@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-03-04 13:08:22
+/* Smarty version 4.5.3, created on 2025-03-14 14:41:10
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\Home\Dashlets\JotPadDashlet\JotPadDashletScript.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67c6fb46350d21_16941858',
+  'unifunc' => 'content_67d440068452c9_13294926',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67c6fb46350d21_16941858 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67d440068452c9_13294926 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <?php echo '<script'; ?>

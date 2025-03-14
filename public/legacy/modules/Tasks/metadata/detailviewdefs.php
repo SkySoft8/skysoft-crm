@@ -152,15 +152,6 @@ array(
         ),
         1 =>
         array(
-          0 => 'date_start',
-          1 =>
-          array(
-            'name' => 'parent_name',
-            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
-          ),
-        ),
-        2 =>
-        array(
           0 => 'date_due',
           1 =>
           array(
@@ -168,11 +159,11 @@ array(
             'label' => 'LBL_CONTACT',
           ),
         ),
-        3 =>
+        2 =>
         array(
           0 => 'priority',
         ),
-        4 =>
+        3 =>
         array(
           0 => 'description',
         ),
