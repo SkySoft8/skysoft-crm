@@ -1,5 +1,5 @@
 <?php
-// created: 2025-03-14 15:50:32
+// created: 2025-03-17 10:56:55
 $mod_strings = array (
   'LBL_MODULE_NAME' => 'История',
   'LBL_MODULE_TITLE' => 'История: ГЛАВНАЯ',

@@ -1,8 +1,6 @@
 <?php
-// created: 2025-03-14 15:50:23
+// created: 2025-03-17 10:54:32
 $mod_strings = array (
-  'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
-  'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Date Created',
   'LBL_DATE_MODIFIED' => 'Date Modified',
@@ -10,7 +8,6 @@ $mod_strings = array (
   'LBL_MODIFIED_NAME' => 'Modified By Name',
   'LBL_CREATED' => 'Created By',
   'LBL_DESCRIPTION' => 'Body',
-  'LBL_ADDITIONAL_INFO' => 'Resolution',
   'LBL_DELETED' => 'Deleted',
   'LBL_NAME' => 'Title',
   'LBL_CREATED_USER' => 'Created by User',
@@ -18,6 +15,17 @@ $mod_strings = array (
   'LBL_LIST_NAME' => 'Name',
   'LBL_EDIT_BUTTON' => 'Edit',
   'LBL_REMOVE' => 'Remove',
+  'LBL_ASCENDING' => 'Ascending',
+  'LBL_DESCENDING' => 'Descending',
+  'LBL_OPT_IN' => 'Opt In',
+  'LBL_OPT_IN_PENDING_EMAIL_NOT_SENT' => 'Pending Confirm opt in, Confirm opt in not sent',
+  'LBL_OPT_IN_PENDING_EMAIL_SENT' => 'Pending Confirm opt in, Confirm opt in sent',
+  'LBL_OPT_IN_CONFIRMED' => 'Opted in',
+  'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
+  'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
+  'LBL_SECURITYGROUPS' => 'Security Groups',
+  'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Security Groups',
+  'LBL_ADDITIONAL_INFO' => 'Resolution',
   'LBL_LIST_FORM_TITLE' => 'Knowledge Base List',
   'LBL_MODULE_NAME' => 'Knowledge Base',
   'LBL_MODULE_TITLE' => 'Knowledge Base',

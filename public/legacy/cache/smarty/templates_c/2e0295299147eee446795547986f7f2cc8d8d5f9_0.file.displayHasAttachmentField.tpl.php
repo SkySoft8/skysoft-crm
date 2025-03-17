@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-03-14 14:41:08
+/* Smarty version 4.5.3, created on 2025-03-17 10:57:03
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\Emails\templates\displayHasAttachmentField.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67d4400484c9f8_39985971',
+  'unifunc' => 'content_67d7ffff357714_61479977',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67d4400484c9f8_39985971 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67d7ffff357714_61479977 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getimagepath.php','function'=>'smarty_function_sugar_getimagepath',),));
 ?>
 

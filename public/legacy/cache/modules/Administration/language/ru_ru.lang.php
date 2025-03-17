@@ -1,5 +1,5 @@
 <?php
-// created: 2025-03-14 15:50:20
+// created: 2025-03-17 10:54:30
 $mod_strings = array (
   'LBL_CAPTCHA_HELP_TEXT' => 'CAPTCHA (от англ. "Completely Automated Public Turing test to tell Computers and Humans Apart" - полностью автоматизированный публичный тест Тьюринга для различения компьютеров и людей.) Это тест с запросом к отправителю, с целью убедиться, что ответ не был сгенерирован компьютером автоматически. Для работы этой опции необходимо получить открытый и закрытый ключи с сайта reCAPTCHA: http://recaptcha.net/.',
   'CAPTCHA' => 'CAPTCHA',

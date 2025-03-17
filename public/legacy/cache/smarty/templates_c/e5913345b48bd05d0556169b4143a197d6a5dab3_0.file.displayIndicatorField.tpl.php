@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-03-14 14:41:08
+/* Smarty version 4.5.3, created on 2025-03-17 10:57:03
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\Emails\templates\displayIndicatorField.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67d44004642c90_92277068',
+  'unifunc' => 'content_67d7ffff0bd5a1_05821277',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67d44004642c90_92277068 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67d7ffff0bd5a1_05821277 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="email-indicator">
     <?php if (!empty($_smarty_tpl->tpl_vars['bean']->value)) {?>
