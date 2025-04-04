@@ -1,0 +1,200 @@
+Tue Jan 14 11:03:25 2025 [22304][1][SECURITY] OutboundEmail::checkSavePermissions - not logged in - skipping check
+Tue Jan 14 11:03:25 2025 [22304][1][FATAL] User update error: Temp User is not retrieved at ID 1, boolean given
+Tue Jan 14 11:03:25 2025 [22304][1][FATAL] Email address save error
+Tue Jan 14 11:03:33 2025 [22304][1][SECURITY] Invalid ext  logger_file_ext : ''.
+Tue Jan 14 11:03:33 2025 [22304][1][SECURITY] Setting logger_file_ext to '.log'.
+Tue Jan 14 11:03:33 2025 [22304][1][SECURITY] Setting logger_file_name to ''.
+Tue Jan 14 11:03:33 2025 [22304][1][SECURITY] Log file extension can't be blank.
+Tue Jan 14 11:03:33 2025 [22304][1][SECURITY] Setting logger_file_name to ''.
+Tue Jan 14 11:03:33 2025 [22304][1][SECURITY] Log file extension can't be blank.
+Tue Jan 14 11:03:48 2025 [22304][1][FATAL] Email address save error
+Tue Jan 14 11:06:32 2025 [22304][1][FATAL] log call at: modules/EmailMan/tpls/config.tpl - styleChecked is not set
+Tue Jan 14 11:06:34 2025 [22304][1][FATAL] log call at: modules/EmailMan/tpls/config.tpl - styleChecked is not set
+Tue Jan 14 11:08:14 2025 [22304][1][FATAL] Email address save error
+Tue Jan 14 11:32:39 2025 [22304][1][FATAL] Email address save error
+Tue Jan 14 15:42:07 2025 [32840][1][FATAL] Email address save error
+Wed Jan 15 14:47:16 2025 [32840][1][FATAL] Email address save error
+Wed Jan 15 14:56:23 2025 [32840][1][FATAL] Email address save error
+Mon Jan 27 11:18:30 2025 [8172][1][FATAL] Email address save error
+Mon Jan 27 11:19:16 2025 [8172][1][FATAL] ZIP Error(0): Status(9)
+Mon Jan 27 11:21:10 2025 [8172][1][FATAL] Email address save error
+Tue Feb  4 11:15:18 2025 [27296][1][FATAL] Email address save error
+Tue Feb  4 11:15:24 2025 [27296][1][FATAL] Email address save error
+Wed Feb  5 13:24:50 2025 [12780][1][FATAL] ВНИМАНИЕ: В процессе загрузки произошла ошибка, для решения вопроса свяжитесь с системным администратором.
+Mon Feb 10 09:01:33 2025 [18992][1][FATAL] Email address save error
+Mon Feb 17 10:25:08 2025 [7440][1][FATAL] Email address save error
+Mon Feb 17 10:45:01 2025 [7440][1][FATAL] Email address save error
+Mon Feb 17 10:49:39 2025 [7440][1][FATAL] Email address save error
+Mon Feb 17 11:05:09 2025 [7440][1][FATAL] Email address save error
+Mon Feb 17 11:09:22 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:22:23 2025 [7440][1][FATAL] ВНИМАНИЕ: В процессе загрузки произошла ошибка, для решения вопроса свяжитесь с системным администратором.
+Tue Feb 18 08:31:21 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:32:08 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:32:11 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:32:55 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:34:39 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:34:54 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:35:13 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:36:59 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:39:19 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:49:01 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:49:18 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:49:33 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:51:25 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:55:53 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:56:26 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:56:52 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 08:57:11 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 09:02:14 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 09:02:32 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 09:02:52 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 09:29:02 2025 [7440][1][FATAL] Email address save error
+Tue Feb 18 09:29:13 2025 [7440][1][FATAL] Email address save error
+Tue Feb 25 12:26:50 2025 [21420][1][FATAL] Email address save error
+Tue Feb 25 12:36:26 2025 [21420][1][FATAL] Email address save error
+Tue Feb 25 12:37:12 2025 [21420][1][FATAL] Email address save error
+Fri Feb 28 17:04:52 2025 [29988][1][FATAL] ВНИМАНИЕ: В процессе загрузки произошла ошибка, для решения вопроса свяжитесь с системным администратором.
+Tue Mar  4 08:24:30 2025 [28148][1][FATAL] Email address save error
+Tue Mar  4 09:57:39 2025 [28148][1][FATAL] Email address save error
+Tue Mar  4 13:03:17 2025 [24444][1][FATAL] Email address save error
+Mon Mar 10 08:24:57 2025 [13224][1][FATAL] Exception handling in C:\Apache24\htdocs\crm\public\legacy\include\MVC\Controller\SugarController.php:397
+Mon Mar 10 08:24:57 2025 [13224][1][FATAL] Exception in Controller: Действие не определено: record
+Fri Mar 14 12:32:02 2025 [7804][1][FATAL] Email address save error
+Fri Mar 14 13:02:24 2025 [7804][1][FATAL] Email address save error
+Fri Mar 14 13:02:59 2025 [7804][1][FATAL] Email address save error
+Fri Mar 14 14:28:15 2025 [7804][1][FATAL] Email address save error
+Fri Mar 14 14:28:57 2025 [7804][1][FATAL] Email address save error
+Fri Mar 14 14:41:57 2025 [24596][1][FATAL] Email address save error
+Fri Mar 14 15:54:32 2025 [24596][1][FATAL] Mysqli_query failed.
+Fri Mar 14 15:54:32 2025 [24596][1][FATAL]  Query Failed: SELECT opportunities.sales_stage, SUM(opportunities.amount_usdollar) as amount_usdollar FROM opportunities  LEFT JOIN opportunities_cstm ON opportunities.id = opportunities_cstm.id_c   LEFT JOIN  users jt0 ON opportunities.modified_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0  LEFT JOIN  users jt1 ON opportunities.created_by=jt1.id AND jt1.deleted=0
+
+ AND jt1.deleted=0  LEFT JOIN  users jt2 ON opportunities.assigned_user_id=jt2.id AND jt2.deleted=0
+
+ AND jt2.deleted=0  LEFT JOIN  accounts_opportunities jtl3 ON opportunities.id=jtl3.opportunity_id AND jtl3.deleted=0
+
+ LEFT JOIN  accounts accounts ON accounts.id=jtl3.account_id AND accounts.deleted=0
+ AND accounts.deleted=0  LEFT JOIN  campaigns jt4 ON opportunities.campaign_id=jt4.id AND jt4.deleted=0
+
+ AND jt4.deleted=0 where opportunities.deleted=0 AND opportunities.amount_usdollar is not null AND opportunities.sales_stage is not null  GROUP BY opportunities.sales_stage DESC: MySQL error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 12
+Fri Mar 21 15:29:43 2025 [24596][1][FATAL] Email address save error
+Mon Mar 24 11:51:49 2025 [6952][1][FATAL] Email address save error
+Tue Apr  1 13:10:55 2025 [6952][1][FATAL] ВНИМАНИЕ: В процессе загрузки произошла ошибка, для решения вопроса свяжитесь с системным администратором.
+Tue Apr  1 13:23:25 2025 [6952][1][FATAL] Email address save error
+Wed Apr  2 15:43:14 2025 [25884][1][FATAL] Email address save error
+Wed Apr  2 15:43:49 2025 [25884][1][FATAL] Email address save error
+Wed Apr  2 16:19:12 2025 [25884][1][FATAL] Email address save error
+Wed Apr  2 16:38:19 2025 [25884][1][FATAL] Email address save error
+Wed Apr  2 16:41:50 2025 [25884][1][FATAL] ВНИМАНИЕ: В процессе загрузки произошла ошибка, для решения вопроса свяжитесь с системным администратором.
+Wed Apr  2 16:44:03 2025 [25884][1][FATAL] ВНИМАНИЕ: В процессе загрузки произошла ошибка, для решения вопроса свяжитесь с системным администратором.
+Wed Apr  2 16:52:45 2025 [25884][1][FATAL] Email address save error
+Wed Apr  2 16:52:52 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:52:52 2025 [25884][1][FATAL]  Query Failed:  SELECT  aos_invoices.id , aos_invoices.name , aos_invoices.status , aos_invoices.total_amount , aos_invoices.currency_id , aos_invoices.due_date , aos_invoices.assigned_user_id  FROM aos_invoices  LEFT JOIN aos_invoices_cstm ON aos_invoices.id = aos_invoices_cstm.id_c  where ((aos_invoices.assigned_user_id = '1')) AND aos_invoices.deleted=0 ORDER BY aos_invoices.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.aos_invoices_cstm' doesn't exist
+Wed Apr  2 16:52:52 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:52:52 2025 [25884][1][FATAL]  Query Failed:  SELECT  tasks.id , tasks.assigned_user_id , tasks.name , tasks.status , tasks.date_due  , jt0.user_name assigned_user_name , jt0.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, tasks.created_by  FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c   LEFT JOIN  users jt0 ON tasks.assigned_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0 where ((tasks.assigned_user_id = '1')) AND tasks.deleted=0 ORDER BY tasks.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:52:53 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:52:53 2025 [25884][1][FATAL]  Query Failed:  SELECT  aos_invoices.id , aos_invoices.name , aos_invoices.status , aos_invoices.total_amount , aos_invoices.currency_id , aos_invoices.due_date , aos_invoices.assigned_user_id  FROM aos_invoices  LEFT JOIN aos_invoices_cstm ON aos_invoices.id = aos_invoices_cstm.id_c  where ((aos_invoices.assigned_user_id = '1')) AND aos_invoices.deleted=0 ORDER BY aos_invoices.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.aos_invoices_cstm' doesn't exist
+Wed Apr  2 16:52:53 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:52:53 2025 [25884][1][FATAL]  Query Failed:  SELECT  tasks.id , tasks.assigned_user_id , tasks.name , tasks.status , tasks.date_due  , jt0.user_name assigned_user_name , jt0.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, tasks.created_by  FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c   LEFT JOIN  users jt0 ON tasks.assigned_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0 where ((tasks.assigned_user_id = '1')) AND tasks.deleted=0 ORDER BY tasks.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:07 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:07 2025 [25884][1][FATAL]  Query Failed:  SELECT  aos_invoices.id , aos_invoices.name , aos_invoices.status , aos_invoices.total_amount , aos_invoices.currency_id , aos_invoices.due_date , aos_invoices.assigned_user_id  FROM aos_invoices  LEFT JOIN aos_invoices_cstm ON aos_invoices.id = aos_invoices_cstm.id_c  where ((aos_invoices.assigned_user_id = '1')) AND aos_invoices.deleted=0 ORDER BY aos_invoices.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.aos_invoices_cstm' doesn't exist
+Wed Apr  2 16:53:07 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:07 2025 [25884][1][FATAL]  Query Failed:  SELECT  tasks.id , tasks.assigned_user_id , tasks.name , tasks.status , tasks.date_due  , jt0.user_name assigned_user_name , jt0.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, tasks.created_by  FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c   LEFT JOIN  users jt0 ON tasks.assigned_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0 where ((tasks.assigned_user_id = '1')) AND tasks.deleted=0 ORDER BY tasks.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:08 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:08 2025 [25884][1][FATAL]  Query Failed:  SELECT  aos_invoices.id , aos_invoices.name , aos_invoices.status , aos_invoices.total_amount , aos_invoices.currency_id , aos_invoices.due_date , aos_invoices.assigned_user_id  FROM aos_invoices  LEFT JOIN aos_invoices_cstm ON aos_invoices.id = aos_invoices_cstm.id_c  where ((aos_invoices.assigned_user_id = '1')) AND aos_invoices.deleted=0 ORDER BY aos_invoices.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.aos_invoices_cstm' doesn't exist
+Wed Apr  2 16:53:08 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:08 2025 [25884][1][FATAL]  Query Failed:  SELECT  tasks.id , tasks.assigned_user_id , tasks.name , tasks.status , tasks.date_due  , jt0.user_name assigned_user_name , jt0.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, tasks.created_by  FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c   LEFT JOIN  users jt0 ON tasks.assigned_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0 where ((tasks.assigned_user_id = '1')) AND tasks.deleted=0 ORDER BY tasks.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL]  Query Failed: INSERT INTO tasks_cstm (id_c ,person_view_c ,sales_stage_c ) VALUES ('365d86b4-36fc-934a-6cac-67ed6ba4a23f' ,'general' ,'cold_strategy' ): MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Retrieving record by id tasks:365d86b4-36fc-934a-6cac-67ed6ba4a23f found  Query Failed: SELECT tasks.*,tasks_cstm.* FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c  WHERE tasks.id = '365d86b4-36fc-934a-6cac-67ed6ba4a23f' AND tasks.deleted=0 LIMIT 0,1: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Retrieving record by id tasks:365d86b4-36fc-934a-6cac-67ed6ba4a23f found  Query Failed: SELECT tasks.*,tasks_cstm.* FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c  WHERE tasks.id = '365d86b4-36fc-934a-6cac-67ed6ba4a23f' AND tasks.deleted=0 LIMIT 0,1: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Retrieving record by id tasks:365d86b4-36fc-934a-6cac-67ed6ba4a23f found  Query Failed: SELECT tasks.*,tasks_cstm.* FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c  WHERE tasks.id = '365d86b4-36fc-934a-6cac-67ed6ba4a23f' AND tasks.deleted=0 LIMIT 0,1: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Retrieving record by id tasks:365d86b4-36fc-934a-6cac-67ed6ba4a23f found  Query Failed: SELECT tasks.*,tasks_cstm.* FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c  WHERE tasks.id = '365d86b4-36fc-934a-6cac-67ed6ba4a23f' AND tasks.deleted=0 LIMIT 0,1: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Retrieving record by id tasks:365d86b4-36fc-934a-6cac-67ed6ba4a23f found  Query Failed: SELECT tasks.*,tasks_cstm.* FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c  WHERE tasks.id = '365d86b4-36fc-934a-6cac-67ed6ba4a23f' AND tasks.deleted=0 LIMIT 0,1: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Retrieving record by id tasks:365d86b4-36fc-934a-6cac-67ed6ba4a23f found  Query Failed: SELECT tasks.*,tasks_cstm.* FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c  WHERE tasks.id = '365d86b4-36fc-934a-6cac-67ed6ba4a23f' AND tasks.deleted=0 LIMIT 0,1: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Retrieving record by id tasks:365d86b4-36fc-934a-6cac-67ed6ba4a23f found  Query Failed: SELECT tasks.*,tasks_cstm.* FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c  WHERE tasks.id = '365d86b4-36fc-934a-6cac-67ed6ba4a23f' AND tasks.deleted=0 LIMIT 0,1: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Retrieving record by id tasks:365d86b4-36fc-934a-6cac-67ed6ba4a23f found  Query Failed: SELECT tasks.*,tasks_cstm.* FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c  WHERE tasks.id = '365d86b4-36fc-934a-6cac-67ed6ba4a23f' AND tasks.deleted=0 LIMIT 0,1: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Retrieving record by id tasks:365d86b4-36fc-934a-6cac-67ed6ba4a23f found  Query Failed: SELECT tasks.*,tasks_cstm.* FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c  WHERE tasks.id = '365d86b4-36fc-934a-6cac-67ed6ba4a23f' AND tasks.deleted=0 LIMIT 0,1: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Retrieving record by id tasks:365d86b4-36fc-934a-6cac-67ed6ba4a23f found  Query Failed: SELECT tasks.*,tasks_cstm.* FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c  WHERE tasks.id = '365d86b4-36fc-934a-6cac-67ed6ba4a23f' AND tasks.deleted=0 LIMIT 0,1: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Retrieving record by id tasks:365d86b4-36fc-934a-6cac-67ed6ba4a23f found  Query Failed: SELECT tasks.*,tasks_cstm.* FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c  WHERE tasks.id = '365d86b4-36fc-934a-6cac-67ed6ba4a23f' AND tasks.deleted=0 LIMIT 0,1: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Retrieving record by id tasks:365d86b4-36fc-934a-6cac-67ed6ba4a23f found  Query Failed: SELECT tasks.*,tasks_cstm.* FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c  WHERE tasks.id = '365d86b4-36fc-934a-6cac-67ed6ba4a23f' AND tasks.deleted=0 LIMIT 0,1: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:53:50 2025 [25884][1][FATAL] Retrieving record by id tasks:365d86b4-36fc-934a-6cac-67ed6ba4a23f found  Query Failed: SELECT tasks.*,tasks_cstm.* FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c  WHERE tasks.id = '365d86b4-36fc-934a-6cac-67ed6ba4a23f' AND tasks.deleted=0 LIMIT 0,1: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:54:39 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:54:39 2025 [25884][1][FATAL]  Query Failed:  SELECT  tasks.id , tasks.modified_user_id , tasks.created_by , tasks.assigned_user_id , tasks.parent_id , tasks.contact_id , tasks.name , tasks.date_entered , tasks.date_modified  , jt0.user_name modified_by_name , jt0.created_by modified_by_name_owner  , 'Users' modified_by_name_mod , jt1.user_name created_by_name , jt1.created_by created_by_name_owner  , 'Users' created_by_name_mod, tasks.description , tasks.deleted  , jt2.user_name assigned_user_name , jt2.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, tasks.status , tasks.date_due_flag , tasks.date_due , tasks.date_start_flag , tasks.date_start , tasks.parent_type  , LTRIM(RTRIM(CONCAT(IFNULL(contacts.first_name,''),' ',IFNULL(contacts.last_name,'')))) contact_name , contacts.assigned_user_id contact_name_owner  , 'Contacts' contact_name_mod, tasks.priority , tasks_cstm.person_view_c , tasks_cstm.sales_stage_c  FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c   LEFT JOIN  users jt0 ON tasks.modified_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0  LEFT JOIN  users jt1 ON tasks.created_by=jt1.id AND jt1.deleted=0
+
+ AND jt1.deleted=0  LEFT JOIN  users jt2 ON tasks.assigned_user_id=jt2.id AND jt2.deleted=0
+
+ AND jt2.deleted=0  LEFT JOIN  contacts contacts ON tasks.contact_id=contacts.id AND contacts.deleted=0
+
+ AND contacts.deleted=0 where tasks.deleted=0 LIMIT 0,21: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 16:55:02 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 16:55:02 2025 [25884][1][FATAL]  Query Failed:  SELECT  tasks.id , tasks.modified_user_id , tasks.created_by , tasks.assigned_user_id , tasks.parent_id , tasks.contact_id , tasks.name , tasks.date_entered , tasks.date_modified  , jt0.user_name modified_by_name , jt0.created_by modified_by_name_owner  , 'Users' modified_by_name_mod , jt1.user_name created_by_name , jt1.created_by created_by_name_owner  , 'Users' created_by_name_mod, tasks.description , tasks.deleted  , jt2.user_name assigned_user_name , jt2.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, tasks.status , tasks.date_due_flag , tasks.date_due , tasks.date_start_flag , tasks.date_start , tasks.parent_type  , LTRIM(RTRIM(CONCAT(IFNULL(contacts.first_name,''),' ',IFNULL(contacts.last_name,'')))) contact_name , contacts.assigned_user_id contact_name_owner  , 'Contacts' contact_name_mod, tasks.priority , tasks_cstm.person_view_c , tasks_cstm.sales_stage_c  FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c   LEFT JOIN  users jt0 ON tasks.modified_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0  LEFT JOIN  users jt1 ON tasks.created_by=jt1.id AND jt1.deleted=0
+
+ AND jt1.deleted=0  LEFT JOIN  users jt2 ON tasks.assigned_user_id=jt2.id AND jt2.deleted=0
+
+ AND jt2.deleted=0  LEFT JOIN  contacts contacts ON tasks.contact_id=contacts.id AND contacts.deleted=0
+
+ AND contacts.deleted=0 where tasks.deleted=0 LIMIT 0,21: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Wed Apr  2 17:02:31 2025 [25884][1][FATAL] Mysqli_query failed.
+Wed Apr  2 17:02:31 2025 [25884][1][FATAL]  Query Failed: SELECT opportunities.sales_stage, SUM(opportunities.amount_usdollar) as amount_usdollar FROM opportunities  LEFT JOIN opportunities_cstm ON opportunities.id = opportunities_cstm.id_c   LEFT JOIN  users jt0 ON opportunities.modified_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0  LEFT JOIN  users jt1 ON opportunities.created_by=jt1.id AND jt1.deleted=0
+
+ AND jt1.deleted=0  LEFT JOIN  users jt2 ON opportunities.assigned_user_id=jt2.id AND jt2.deleted=0
+
+ AND jt2.deleted=0  LEFT JOIN  accounts_opportunities jtl3 ON opportunities.id=jtl3.opportunity_id AND jtl3.deleted=0
+
+ LEFT JOIN  accounts accounts ON accounts.id=jtl3.account_id AND accounts.deleted=0
+ AND accounts.deleted=0  LEFT JOIN  campaigns jt4 ON opportunities.campaign_id=jt4.id AND jt4.deleted=0
+
+ AND jt4.deleted=0 where opportunities.deleted=0 AND opportunities.amount_usdollar is not null AND opportunities.sales_stage is not null  GROUP BY opportunities.sales_stage DESC: MySQL error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 12
+Wed Apr  2 17:05:35 2025 [25884][1][FATAL] Email address save error
+Wed Apr  2 17:06:35 2025 [25884][1][FATAL] error loading relationship project_resource
+Wed Apr  2 17:06:35 2025 [25884][1][FATAL] error loading relationship am_projecttemplates_resources
+Wed Apr  2 17:06:58 2025 [25884][1][FATAL] Invalid import file name
+Wed Apr  2 19:14:58 2025 [25884][1][FATAL] Email address save error
+Wed Apr  2 19:16:13 2025 [25884][1][FATAL] Email address save error
+Wed Apr  2 19:23:44 2025 [25884][1][FATAL] Email address save error
+Wed Apr  2 19:44:32 2025 [25884][1][FATAL] Email address save error
+Wed Apr  2 19:53:34 2025 [25884][1][FATAL] Email address save error
+Wed Apr  2 19:54:37 2025 [25884][1][FATAL] Email address save error
+Thu Apr  3 14:57:43 2025 [25884][1][FATAL] Email address save error
+Thu Apr  3 14:58:04 2025 [25884][1][FATAL] Mysqli_query failed.
+Thu Apr  3 14:58:04 2025 [25884][1][FATAL]  Query Failed: SELECT opportunities.sales_stage, SUM(opportunities.amount_usdollar) as amount_usdollar FROM opportunities  LEFT JOIN opportunities_cstm ON opportunities.id = opportunities_cstm.id_c   LEFT JOIN  users jt0 ON opportunities.modified_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0  LEFT JOIN  users jt1 ON opportunities.created_by=jt1.id AND jt1.deleted=0
+
+ AND jt1.deleted=0  LEFT JOIN  users jt2 ON opportunities.assigned_user_id=jt2.id AND jt2.deleted=0
+
+ AND jt2.deleted=0  LEFT JOIN  accounts_opportunities jtl3 ON opportunities.id=jtl3.opportunity_id AND jtl3.deleted=0
+
+ LEFT JOIN  accounts accounts ON accounts.id=jtl3.account_id AND accounts.deleted=0
+ AND accounts.deleted=0  LEFT JOIN  campaigns jt4 ON opportunities.campaign_id=jt4.id AND jt4.deleted=0
+
+ AND jt4.deleted=0 where opportunities.deleted=0 AND opportunities.amount_usdollar is not null AND opportunities.sales_stage is not null  GROUP BY opportunities.sales_stage DESC: MySQL error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 12

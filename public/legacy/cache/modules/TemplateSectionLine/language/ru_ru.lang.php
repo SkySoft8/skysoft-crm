@@ -1,0 +1,27 @@
+<?php
+// created: 2025-04-02 19:50:00
+$mod_strings = array (
+  'LBL_ID' => 'ID',
+  'LBL_DATE_ENTERED' => 'Дата создания',
+  'LBL_DATE_MODIFIED' => 'Дата изменения',
+  'LBL_MODIFIED' => 'Изменено',
+  'LBL_MODIFIED_NAME' => 'Изменено',
+  'LBL_CREATED' => 'Создано',
+  'LBL_DESCRIPTION' => 'Содержание',
+  'LBL_DELETED' => 'Удалено',
+  'LBL_NAME' => 'Название',
+  'LBL_CREATED_USER' => 'Создано',
+  'LBL_MODIFIED_USER' => 'Изменено',
+  'LBL_LIST_NAME' => 'Название',
+  'LBL_EDIT_BUTTON' => 'Править',
+  'LBL_REMOVE' => 'Удалить',
+  'LBL_ASCENDING' => 'Восходящая',
+  'LBL_DESCENDING' => 'Нисходящая',
+  'LBL_OPT_IN' => 'Подтвердить подписку',
+  'LBL_OPT_IN_PENDING_EMAIL_NOT_SENT' => 'Ожидание подтверждения подписки, письмо с запросом на подтверждение НЕ отправлено.',
+  'LBL_OPT_IN_PENDING_EMAIL_SENT' => 'Ожидание подтверждения подписки, отправлено письмо с запросом на подтверждение.',
+  'LBL_OPT_IN_CONFIRMED' => 'Двойное подтверждение подписки.',
+  'LBL_GRP' => 'Группа',
+  'LBL_ORD' => 'Расположение в списке',
+  'LBL_THUMBNAIL' => 'Эскиз',
+);

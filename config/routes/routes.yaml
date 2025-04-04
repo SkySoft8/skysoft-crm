@@ -1,0 +1,20 @@
+saml_metadata:
+  path: /saml/metadata
+  controller: Nbgrp\OneloginSamlBundle\Controller\Metadata
+  defaults: { idp: null }
+
+saml_acs:
+  path: /saml/acs
+  controller: Nbgrp\OneloginSamlBundle\Controller\AssertionConsumerService
+  defaults: { idp: null }
+
+saml_login:
+  path: /saml/login
+  controller: Nbgrp\OneloginSamlBundle\Controller\Login
+  defaults: { idp: null }
+
+saml_logout:
+  path: /saml/logout
+  controller: Nbgrp\OneloginSamlBundle\Controller\Logout
+  defaults: { idp: null }
+  methods: ['POST', 'GET']

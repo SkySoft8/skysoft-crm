@@ -1,0 +1,51 @@
+framework:
+  secret: "%secret%"
+
+parameters:
+  secret: '%env(APP_SECRET)%'
+  legacy.dir: '%kernel.project_dir%/public/legacy'
+  packages.upgrade.dir: '%kernel.project_dir%/tmp/package/upgrade'
+  legacy.path: '/legacy'
+  legacy.session_name: 'SCRMSESSID'
+  default_session_name: 'SCRMSESSID'
+  auth_type: '%env(AUTH_TYPE)%'
+  log.dir: '%kernel.logs_dir%'
+  log.main.default: '%kernel.environment%.log'
+  log.security.default: '%kernel.environment%.security.log'
+  log.deprecation.default: '%kernel.environment%.deprecation.log'
+  site.url: '%env(SITE_URL)%'
+  saml.autocreate.attributes_map: '%env(json:SAML_AUTOCREATE_ATTRIBUTES_MAP)%'
+
+services:
+  Symfony\Component\Ldap\Ldap:
+    arguments: [ '@Symfony\Component\Ldap\Adapter\ExtLdap\Adapter' ]
+    tags:
+      - ldap
+  Symfony\Component\Ldap\Adapter\ExtLdap\Adapter:
+    arguments:
+      - '%ldap.options%'
+
+imports:
+  - { resource: services/**/*.yaml }
+  - { resource: services/**/*.php }
+  - { resource: ../extensions/*/config/services/*.yaml }
+  - { resource: ../extensions/*/config/services/*.php }
+  - { resource: ../extensions/*/config/services/**/*.yaml }
+  - { resource: ../extensions/*/config/services/**/*.php }
+  - { resource: ../extensions/*/config/packages/*.yaml }
+  - { resource: ../extensions/*/config/packages/*.php }
+  - { resource: ../extensions/*/config/packages/**/*.yaml }
+  - { resource: ../extensions/*/config/packages/**/*.php }
+  - { resource: ../extensions/*/config/routes/*.yaml }
+  - { resource: ../extensions/*/config/routes/*.php }
+  - { resource: ../extensions/*/config/routes/**/*.yaml }
+  - { resource: ../extensions/*/config/routes/**/*.php }
+  - { resource: ../extensions/*/config/modules/*.yaml }
+  - { resource: ../extensions/*/config/modules/*.php }
+  - { resource: ../extensions/*/config/modules/**/*.yaml }
+  - { resource: ../extensions/*/config/modules/**/*.php }
+  - { resource: core_services.yaml }
+  - { resource: ../extensions/*/config/*.yaml }
+  - { resource: ../extensions/*/config/*.php }
+  - { resource: ../extensions/**/services.yaml }
+  - { resource: ../extensions/**/services.php }

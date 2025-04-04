@@ -1,0 +1,26 @@
+parameters:
+  legacy.cache_reset_actions:
+    Login:
+      - index
+    users:
+      - edit
+      - Wizard
+    administration:
+      - repair
+      - UpgradeWizard
+      - ConfigureTabs
+      - Locale
+      - PasswordManager
+      - ThemeSettings
+      - Languages
+    module-builder:
+      - index
+    configurator:
+      - edit
+    currencies:
+      - index
+    security-groups:
+      - index
+      - config
+    studio:
+      - wizard

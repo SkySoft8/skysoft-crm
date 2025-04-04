@@ -1,0 +1,100 @@
+<?php
+$viewdefs ['ProjectTask'] = 
+array (
+  'EditView' => 
+  array (
+    'templateMeta' => 
+    array (
+      'maxColumns' => '2',
+      'widths' => 
+      array (
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'modules/ProjectTask/ProjectTask.js',
+        ),
+      ),
+      'useTabs' => false,
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
+      'syncDetailEditViews' => true,
+    ),
+    'panels' => 
+    array (
+      'default' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'name',
+            'label' => 'LBL_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'status',
+            'customCode' => '<select name="{$fields.status.name}" id="{$fields.status.name}" title="" tabindex="s" onchange="update_percent_complete(this.value);">{if isset($fields.status.value) && $fields.status.value != ""}{html_options options=$fields.status.options selected=$fields.status.value}{else}{html_options options=$fields.status.options selected=$fields.status.default}{/if}</select>',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_start',
+          ),
+          1 => 
+          array (
+            'name' => 'date_finish',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'percent_complete',
+            'customCode' => '<input type="text" name="{$fields.percent_complete.name}" id="{$fields.percent_complete.name}" size="30" value="{$fields.percent_complete.value}" title="" tabindex="0" onChange="update_status(this.value);" /></tr>',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'project_name',
+            'label' => 'LBL_PROJECT_NAME',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 'assigned_user_name',
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+          ),
+        ),
+      ),
+    ),
+  ),
+);
+;
+?>

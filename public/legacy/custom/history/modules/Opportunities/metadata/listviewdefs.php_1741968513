@@ -1,0 +1,42 @@
+<?php
+$listViewDefs ['Opportunities'] = 
+array (
+);
+$viewdefs ['Opportunities'] ['ListView'] = 
+array (
+  'sidebarWidgets' => 
+  array (
+    'opportunities-by-sales-stage-price' => 
+    array (
+      'type' => 'chart',
+      'labelKey' => 'LBL_QUICK_CHARTS',
+      'options' => 
+      array (
+        'toggle' => true,
+        'headerTitle' => false,
+        'charts' => 
+        array (
+          0 => 
+          array (
+            'chartKey' => 'opportunities-by-sales-stage-price',
+            'chartType' => 'vertical-bar',
+            'statisticsType' => 'opportunities-by-sales-stage-price',
+            'labelKey' => 'PIPELINE_BY_SALES_STAGE',
+            'chartOptions' => 
+            array (
+            ),
+          ),
+        ),
+      ),
+      'acls' => 
+      array (
+        'Opportunities' => 
+        array (
+          0 => 'view',
+          1 => 'list',
+        ),
+      ),
+    ),
+  ),
+);
+?>
