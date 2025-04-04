@@ -120,9 +120,9 @@ $sugar_config = array (
   array (
     'db_host_name' => 'localhost',
     'db_host_instance' => '',
-    'db_user_name' => 'root',
+    'db_user_name' => 'crm',
     'db_password' => 'Etdcvg241',
-    'db_name' => 'crm2',
+    'db_name' => 'crm',
     'db_type' => 'mysql',
     'db_port' => '3306',
     'db_manager' => 'MysqliManager',
