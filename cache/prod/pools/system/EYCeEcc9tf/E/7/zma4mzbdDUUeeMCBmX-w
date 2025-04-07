@@ -5058,7 +5058,7 @@ return [PHP_INT_MAX, [
                 'freezed' => 'В заморозке',
             ],
             'refusal_reason_list' => [
-                'deal_in_proccess' => 'Сделка в процесса',
+                'deal_in_proccess' => 'Сделка в процессе',
                 'high_price' => 'Высокая цена',
                 'not_satisfied_quality_qualification' => 'Не устроило качество(квалификация)',
                 'changed_their_mind' => 'Передумали',

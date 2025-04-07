@@ -127,3 +127,12 @@ $app_list_strings['invoice_status_dom']=array (
   'Paid' => 'Оплачен',
   'Unpaid' => 'Не оплачен',
 );
+$app_list_strings['refusal_reason_list']=array (
+  'deal_in_proccess' => 'Deal in proccess',
+  'high_price' => 'High price',
+  'not_satisfied_quality_qualification' => 'not satisfied with quality (qualification)',
+  'changed_their_mind' => 'Changed their mind',
+  'non_financial' => 'No finance',
+  'success_closed' => 'Successfully closed',
+  'other' => 'Other',
+);

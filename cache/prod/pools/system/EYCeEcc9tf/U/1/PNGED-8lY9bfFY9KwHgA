@@ -262,9 +262,9 @@ return [PHP_INT_MAX, [
                         'previous' => -1,
                         'next' => -1,
                         'last' => 0,
-                        'total' => 8,
+                        'total' => 9,
                         'pageFirst' => 1,
-                        'pageLast' => 8,
+                        'pageLast' => 9,
                     ],
                     'recordIds' => [
                         [
@@ -272,6 +272,9 @@ return [PHP_INT_MAX, [
                         ],
                         [
                             'id' => '3c84f182-0cda-594b-0cd4-67dd30dafc50',
+                        ],
+                        [
+                            'id' => '4207ec34-84c8-accf-2c85-67efa7218618',
                         ],
                         [
                             'id' => '446bea0b-99df-e483-8d05-67d46e05680a',
