@@ -3,7 +3,7 @@ $listViewDefs ['Opportunities'] =
 array (
   'NAME' => 
   array (
-    'width' => '10%',
+    'width' => '30%',
     'label' => 'LBL_LIST_OPPORTUNITY_NAME',
     'link' => true,
     'default' => true,
@@ -16,7 +16,7 @@ array (
   ),
   'LEAD_SOURCE' => 
   array (
-    'width' => '10%',
+    'width' => '15%',
     'label' => 'LBL_LEAD_SOURCE',
     'default' => true,
   ),
@@ -33,7 +33,7 @@ array (
     'type' => 'currency',
     'label' => 'LBL_AMOUNT',
     'currency_format' => true,
-    'width' => '5%',
+    'width' => '10%',
     'default' => true,
   ),
   'DATE_CLOSED' => 
@@ -44,10 +44,16 @@ array (
   ),
   'ASSIGNED_USER_NAME' => 
   array (
-    'width' => '10%',
+    'width' => '5%',
     'label' => 'LBL_LIST_ASSIGNED_USER',
     'module' => 'Employees',
     'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+  'DATE_ENTERED' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_DATE_ENTERED',
     'default' => true,
   ),
 );

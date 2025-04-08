@@ -3,14 +3,14 @@ $listViewDefs ['Opportunities'] =
 array (
   'NAME' => 
   array (
-    'width' => '10%',
+    'width' => '15%',
     'label' => 'LBL_LIST_OPPORTUNITY_NAME',
     'link' => true,
     'default' => true,
   ),
   'SALES_STAGE' => 
   array (
-    'width' => '10%',
+    'width' => '5%',
     'label' => 'LBL_LIST_SALES_STAGE',
     'default' => true,
   ),
@@ -48,6 +48,12 @@ array (
     'label' => 'LBL_LIST_ASSIGNED_USER',
     'module' => 'Employees',
     'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+  'DATE_ENTERED' => 
+  array (
+    'width' => '5%',
+    'label' => 'LBL_DATE_ENTERED',
     'default' => true,
   ),
 );

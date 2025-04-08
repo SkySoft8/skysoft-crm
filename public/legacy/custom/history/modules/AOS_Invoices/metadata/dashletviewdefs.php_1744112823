@@ -1,12 +1,17 @@
 <?php
 $dashletData['AOS_InvoicesDashlet']['searchFields'] = array (
-  'status' => 
+  'date_entered' => 
+  array (
+    'default' => '',
+  ),
+  'billing_account' => 
   array (
     'default' => '',
   ),
   'assigned_user_id' => 
   array (
-    'default' => '',
+    'type' => 'assigned_user_name',
+    'default' => 'Дмитрий Нор',
   ),
 );
 $dashletData['AOS_InvoicesDashlet']['columns'] = array (

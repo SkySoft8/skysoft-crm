@@ -1,12 +1,17 @@
 <?php
 $dashletData['planK_PlanningDashlet']['searchFields'] = array (
-  'month' => 
+  'date_entered' => 
   array (
     'default' => '',
   ),
-  'year' => 
+  'date_modified' => 
   array (
     'default' => '',
+  ),
+  'assigned_user_id' => 
+  array (
+    'type' => 'assigned_user_name',
+    'default' => 'Дмитрий Нор',
   ),
 );
 $dashletData['planK_PlanningDashlet']['columns'] = array (

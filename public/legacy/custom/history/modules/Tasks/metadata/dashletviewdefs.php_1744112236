@@ -1,13 +1,5 @@
 <?php
 $dashletData['TasksDashlet']['searchFields'] = array (
-  'status' => 
-  array (
-    'default' => '',
-  ),
-  'date_due' => 
-  array (
-    'default' => '',
-  ),
 );
 $dashletData['TasksDashlet']['columns'] = array (
   'name' => 
