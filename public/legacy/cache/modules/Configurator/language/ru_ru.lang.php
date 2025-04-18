@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-02 19:50:38
+// created: 2025-04-18 14:23:25
 $mod_strings = array (
   'ADVANCED' => 'Дополнительные настройки',
   'DEFAULT_CURRENCY_ISO4217' => 'Код валюты - ISO 4217 ',

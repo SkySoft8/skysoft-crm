@@ -82,4 +82,6 @@ $mod_strings = array (
   'LBL_YEAR_PLAN' => ' Годовой план',
   'LBL_MONTH' => 'Месяц',
   'LBL_YEAR' => 'Год',
+  'LBL_PLAN_SUM' => 'Сумма (План)',
+  'LBL_TOTAL_SUMMARY' => 'Сумма (Итог)',
 );

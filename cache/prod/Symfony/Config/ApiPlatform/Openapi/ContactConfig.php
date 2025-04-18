@@ -14,7 +14,7 @@ class ContactConfig
     private $url;
     private $email;
     private $_usedProperties = [];
-
+    
     /**
      * The identifying name of the contact person/organization.
      * @default null
@@ -25,10 +25,10 @@ class ContactConfig
     {
         $this->_usedProperties['name'] = true;
         $this->name = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * The URL pointing to the contact information. MUST be in the format of a URL.
      * @default null
@@ -39,10 +39,10 @@ class ContactConfig
     {
         $this->_usedProperties['url'] = true;
         $this->url = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * The email address of the contact person/organization. MUST be in the format of an email address.
      * @default null
@@ -53,10 +53,10 @@ class ContactConfig
     {
         $this->_usedProperties['email'] = true;
         $this->email = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('name', $value)) {
@@ -64,24 +64,24 @@ class ContactConfig
             $this->name = $value['name'];
             unset($value['name']);
         }
-
+    
         if (array_key_exists('url', $value)) {
             $this->_usedProperties['url'] = true;
             $this->url = $value['url'];
             unset($value['url']);
         }
-
+    
         if (array_key_exists('email', $value)) {
             $this->_usedProperties['email'] = true;
             $this->email = $value['email'];
             unset($value['email']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -94,7 +94,7 @@ class ContactConfig
         if (isset($this->_usedProperties['email'])) {
             $output['email'] = $this->email;
         }
-
+    
         return $output;
     }
 

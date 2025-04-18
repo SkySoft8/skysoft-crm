@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-04-02 19:52:06
+/* Smarty version 4.5.3, created on 2025-04-18 14:23:42
   from 'C:\Apache24\htdocs\crm\public\legacy\themes\suite8\include\MySugar\tpls\actions_menu.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67ed956607fd78_38398732',
+  'unifunc' => 'content_6802606e206961_22190106',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1b5c5c80a7523fca3d22f6a55c4041deaf5dbe00' => 
     array (
       0 => 'C:\\Apache24\\htdocs\\crm\\public\\legacy\\themes\\suite8\\include\\MySugar\\tpls\\actions_menu.tpl',
-      1 => 1743515289,
+      1 => 1744976541,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67ed956607fd78_38398732 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6802606e206961_22190106 (Smarty_Internal_Template $_smarty_tpl) {
 ?><ul class="dropdown-menu tab-actions">
     <?php if (!$_smarty_tpl->tpl_vars['lock_homepage']->value) {?>
 

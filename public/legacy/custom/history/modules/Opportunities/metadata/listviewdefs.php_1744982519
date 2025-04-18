@@ -1,0 +1,91 @@
+<?php
+$listViewDefs ['Opportunities'] = 
+array (
+  'NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_LIST_OPPORTUNITY_NAME',
+    'link' => true,
+    'default' => true,
+  ),
+  'SALES_STAGE' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_LIST_SALES_STAGE',
+    'default' => true,
+  ),
+  'LEAD_SOURCE' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_LEAD_SOURCE',
+    'default' => true,
+  ),
+  'REFUSAL_REASON_C' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'studio' => 'visible',
+    'label' => 'LBL_REFUSAL_REASON',
+    'width' => '10%',
+  ),
+  'AMOUNT' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_AMOUNT',
+    'currency_format' => true,
+    'width' => '5%',
+    'default' => true,
+  ),
+  'DATE_CLOSED' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_LIST_DATE_CLOSED',
+    'default' => true,
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_LIST_ASSIGNED_USER',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+);
+$viewdefs ['Opportunities'] ['ListView'] = 
+array (
+  'sidebarWidgets' => 
+  array (
+    'opportunities-by-sales-stage-price' => 
+    array (
+      'type' => 'chart',
+      'labelKey' => 'LBL_QUICK_CHARTS',
+      'options' => 
+      array (
+        'toggle' => true,
+        'headerTitle' => false,
+        'charts' => 
+        array (
+          0 => 
+          array (
+            'chartKey' => 'opportunities-by-sales-stage-price',
+            'chartType' => 'vertical-bar',
+            'statisticsType' => 'opportunities-by-sales-stage-price',
+            'labelKey' => 'PIPELINE_BY_SALES_STAGE',
+            'chartOptions' => 
+            array (
+            ),
+          ),
+        ),
+      ),
+      'acls' => 
+      array (
+        'Opportunities' => 
+        array (
+          0 => 'view',
+          1 => 'list',
+        ),
+      ),
+    ),
+  ),
+);
+?>

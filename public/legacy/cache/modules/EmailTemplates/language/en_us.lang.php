@@ -1,8 +1,6 @@
 <?php
-// created: 2025-04-02 19:50:18
+// created: 2025-04-18 14:23:15
 $mod_strings = array (
-  'LBL_SECURITYGROUPS' => 'Security Groups',
-  'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Security Groups',
   'LBL_ADD_DOCUMENT' => 'Add a Document',
   'LBL_ADD_FILE' => 'Add a file',
   'LBL_ATTACHMENTS' => 'Attachments',

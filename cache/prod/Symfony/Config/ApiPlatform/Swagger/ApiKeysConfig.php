@@ -13,7 +13,7 @@ class ApiKeysConfig
     private $name;
     private $type;
     private $_usedProperties = [];
-
+    
     /**
      * The name of the header or query parameter containing the api key.
      * @default null
@@ -24,10 +24,10 @@ class ApiKeysConfig
     {
         $this->_usedProperties['name'] = true;
         $this->name = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Whether the api key should be a query parameter or a header.
      * @default null
@@ -38,10 +38,10 @@ class ApiKeysConfig
     {
         $this->_usedProperties['type'] = true;
         $this->type = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('name', $value)) {
@@ -49,18 +49,18 @@ class ApiKeysConfig
             $this->name = $value['name'];
             unset($value['name']);
         }
-
+    
         if (array_key_exists('type', $value)) {
             $this->_usedProperties['type'] = true;
             $this->type = $value['type'];
             unset($value['type']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -70,7 +70,7 @@ class ApiKeysConfig
         if (isset($this->_usedProperties['type'])) {
             $output['type'] = $this->type;
         }
-
+    
         return $output;
     }
 

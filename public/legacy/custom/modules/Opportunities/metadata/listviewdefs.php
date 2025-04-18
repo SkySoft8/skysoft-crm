@@ -20,6 +20,14 @@ array (
     'label' => 'LBL_LEAD_SOURCE',
     'default' => true,
   ),
+  'DEAL_STATUS_C' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'studio' => 'visible',
+    'label' => 'LBL_DEAL_STATUS',
+    'width' => '10%',
+  ),
   'REFUSAL_REASON_C' => 
   array (
     'type' => 'enum',
@@ -34,20 +42,6 @@ array (
     'label' => 'LBL_AMOUNT',
     'currency_format' => true,
     'width' => '5%',
-    'default' => true,
-  ),
-  'DATE_CLOSED' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_LIST_DATE_CLOSED',
-    'default' => true,
-  ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_LIST_ASSIGNED_USER',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
     'default' => true,
   ),
 );

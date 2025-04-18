@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-02 19:50:31
+// created: 2025-04-18 14:23:17
 $mod_strings = array (
   'LBL_OOTB_WORKFLOW' => 'Выполнять настроенные процессы',
   'LBL_OOTB_REPORTS' => 'Создавать отчёты по расписанию',

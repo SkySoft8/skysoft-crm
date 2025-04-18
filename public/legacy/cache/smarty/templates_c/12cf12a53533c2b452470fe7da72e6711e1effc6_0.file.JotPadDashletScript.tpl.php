@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-04-02 19:52:04
+/* Smarty version 4.5.3, created on 2025-04-18 14:23:40
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\Home\Dashlets\JotPadDashlet\JotPadDashletScript.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67ed9564a201f4_82670293',
+  'unifunc' => 'content_6802606cafbfd5_39992641',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '12cf12a53533c2b452470fe7da72e6711e1effc6' => 
     array (
       0 => 'C:\\Apache24\\htdocs\\crm\\public\\legacy\\modules\\Home\\Dashlets\\JotPadDashlet\\JotPadDashletScript.tpl',
-      1 => 1743515289,
+      1 => 1744976540,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67ed9564a201f4_82670293 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6802606cafbfd5_39992641 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <?php echo '<script'; ?>

@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-02 19:49:56
+// created: 2025-04-18 14:21:23
 $mod_strings = array (
   'LBL_SECURITYGROUPS' => 'Группы пользователей',
   'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Группы пользователей',

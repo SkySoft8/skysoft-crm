@@ -14,7 +14,7 @@ class SingleLogoutServiceConfig
     private $responseUrl;
     private $binding;
     private $_usedProperties = [];
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -24,10 +24,10 @@ class SingleLogoutServiceConfig
     {
         $this->_usedProperties['url'] = true;
         $this->url = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -37,10 +37,10 @@ class SingleLogoutServiceConfig
     {
         $this->_usedProperties['responseUrl'] = true;
         $this->responseUrl = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -50,10 +50,10 @@ class SingleLogoutServiceConfig
     {
         $this->_usedProperties['binding'] = true;
         $this->binding = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('url', $value)) {
@@ -61,24 +61,24 @@ class SingleLogoutServiceConfig
             $this->url = $value['url'];
             unset($value['url']);
         }
-
+    
         if (array_key_exists('responseUrl', $value)) {
             $this->_usedProperties['responseUrl'] = true;
             $this->responseUrl = $value['responseUrl'];
             unset($value['responseUrl']);
         }
-
+    
         if (array_key_exists('binding', $value)) {
             $this->_usedProperties['binding'] = true;
             $this->binding = $value['binding'];
             unset($value['binding']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -91,7 +91,7 @@ class SingleLogoutServiceConfig
         if (isset($this->_usedProperties['binding'])) {
             $output['binding'] = $this->binding;
         }
-
+    
         return $output;
     }
 

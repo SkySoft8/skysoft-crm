@@ -436,3 +436,88 @@ Tue Apr  8 11:58:52 2025 [6692][1][FATAL]  Query Failed: SELECT opportunities.sa
  AND accounts.deleted=0  LEFT JOIN  campaigns jt4 ON opportunities.campaign_id=jt4.id AND jt4.deleted=0
 
  AND jt4.deleted=0 where opportunities.deleted=0 AND opportunities.amount_usdollar is not null AND opportunities.sales_stage is not null  GROUP BY opportunities.sales_stage DESC: MySQL error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 12
+Fri Apr 18 11:49:52 2025 [11036][1][FATAL] Email address save error
+Fri Apr 18 11:50:25 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 11:50:25 2025 [11036][1][FATAL]  Query Failed:  SELECT  aos_invoices.id , aos_invoices.name , aos_invoices.status , aos_invoices.total_amount , aos_invoices.currency_id , aos_invoices.due_date , aos_invoices.assigned_user_id  FROM aos_invoices  LEFT JOIN aos_invoices_cstm ON aos_invoices.id = aos_invoices_cstm.id_c  where ((aos_invoices.assigned_user_id = '1')) AND aos_invoices.deleted=0 ORDER BY aos_invoices.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.aos_invoices_cstm' doesn't exist
+Fri Apr 18 11:50:25 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 11:50:25 2025 [11036][1][FATAL]  Query Failed:  SELECT  tasks.id , tasks.assigned_user_id , tasks.name , tasks.status , tasks.date_due  , jt0.user_name assigned_user_name , jt0.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, tasks.created_by  FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c   LEFT JOIN  users jt0 ON tasks.assigned_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0 where ((tasks.assigned_user_id = '1')) AND tasks.deleted=0 ORDER BY tasks.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Fri Apr 18 11:50:25 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 11:50:25 2025 [11036][1][FATAL]  Query Failed:  SELECT  opportunities.id ,opportunities_cstm.deal_status_c, opportunities.assigned_user_id  , jt0.user_name assigned_user_name , jt0.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, opportunities.created_by  FROM opportunities  LEFT JOIN opportunities_cstm ON opportunities.id = opportunities_cstm.id_c   LEFT JOIN  users jt0 ON opportunities.assigned_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0 where ((opportunities.assigned_user_id = '1')) AND opportunities.deleted=0 ORDER BY opportunities.date_entered DESC LIMIT 0,6: MySQL error 1054: Unknown column 'opportunities_cstm.deal_status_c' in 'field list'
+Fri Apr 18 11:50:28 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 11:50:28 2025 [11036][1][FATAL]  Query Failed:  SELECT  aos_invoices.id , aos_invoices.name , aos_invoices.status , aos_invoices.total_amount , aos_invoices.currency_id , aos_invoices.due_date , aos_invoices.assigned_user_id  FROM aos_invoices  LEFT JOIN aos_invoices_cstm ON aos_invoices.id = aos_invoices_cstm.id_c  where ((aos_invoices.assigned_user_id = '1')) AND aos_invoices.deleted=0 ORDER BY aos_invoices.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.aos_invoices_cstm' doesn't exist
+Fri Apr 18 11:50:28 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 11:50:28 2025 [11036][1][FATAL]  Query Failed:  SELECT  tasks.id , tasks.assigned_user_id , tasks.name , tasks.status , tasks.date_due  , jt0.user_name assigned_user_name , jt0.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, tasks.created_by  FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c   LEFT JOIN  users jt0 ON tasks.assigned_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0 where ((tasks.assigned_user_id = '1')) AND tasks.deleted=0 ORDER BY tasks.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Fri Apr 18 11:50:28 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 11:50:28 2025 [11036][1][FATAL]  Query Failed:  SELECT  opportunities.id ,opportunities_cstm.deal_status_c, opportunities.assigned_user_id  , jt0.user_name assigned_user_name , jt0.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, opportunities.created_by  FROM opportunities  LEFT JOIN opportunities_cstm ON opportunities.id = opportunities_cstm.id_c   LEFT JOIN  users jt0 ON opportunities.assigned_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0 where ((opportunities.assigned_user_id = '1')) AND opportunities.deleted=0 ORDER BY opportunities.date_entered DESC LIMIT 0,6: MySQL error 1054: Unknown column 'opportunities_cstm.deal_status_c' in 'field list'
+Fri Apr 18 11:50:59 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 11:50:59 2025 [11036][1][FATAL]  Query Failed:  SELECT  tasks.id , tasks.assigned_user_id , tasks.name , tasks.status , tasks.date_due  , jt0.user_name assigned_user_name , jt0.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, tasks.created_by  FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c   LEFT JOIN  users jt0 ON tasks.assigned_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0 where ((tasks.assigned_user_id = '1')) AND tasks.deleted=0 ORDER BY tasks.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Fri Apr 18 11:51:29 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 11:51:29 2025 [11036][1][FATAL]  Query Failed:  SELECT  tasks.id , tasks.assigned_user_id , tasks.name , tasks.status , tasks.date_due  , jt0.user_name assigned_user_name , jt0.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, tasks.created_by  FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c   LEFT JOIN  users jt0 ON tasks.assigned_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0 where ((tasks.assigned_user_id = '1')) AND tasks.deleted=0 ORDER BY tasks.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Fri Apr 18 11:51:59 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 11:51:59 2025 [11036][1][FATAL]  Query Failed:  SELECT  tasks.id , tasks.assigned_user_id , tasks.name , tasks.status , tasks.date_due  , jt0.user_name assigned_user_name , jt0.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, tasks.created_by  FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c   LEFT JOIN  users jt0 ON tasks.assigned_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0 where ((tasks.assigned_user_id = '1')) AND tasks.deleted=0 ORDER BY tasks.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Fri Apr 18 11:52:30 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 11:52:30 2025 [11036][1][FATAL]  Query Failed:  SELECT  tasks.id , tasks.assigned_user_id , tasks.name , tasks.status , tasks.date_due  , jt0.user_name assigned_user_name , jt0.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, tasks.created_by  FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c   LEFT JOIN  users jt0 ON tasks.assigned_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0 where ((tasks.assigned_user_id = '1')) AND tasks.deleted=0 ORDER BY tasks.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Fri Apr 18 11:53:02 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 11:53:02 2025 [11036][1][FATAL]  Query Failed:  SELECT  tasks.id , tasks.assigned_user_id , tasks.name , tasks.status , tasks.date_due  , jt0.user_name assigned_user_name , jt0.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, tasks.created_by  FROM tasks  LEFT JOIN tasks_cstm ON tasks.id = tasks_cstm.id_c   LEFT JOIN  users jt0 ON tasks.assigned_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0 where ((tasks.assigned_user_id = '1')) AND tasks.deleted=0 ORDER BY tasks.date_entered DESC LIMIT 0,6: MySQL error 1146: Table 'crm2.tasks_cstm' doesn't exist
+Fri Apr 18 11:54:36 2025 [11036][1][FATAL] Email address save error
+Fri Apr 18 12:58:55 2025 [11036][1][FATAL] UndeployedMetaDataImplementation->getFileName(): view type custom is not recognized
+Fri Apr 18 12:58:55 2025 [11036][1][FATAL] UndeployedMetaDataImplementation->getFileName(): view type custom is not recognized
+Fri Apr 18 12:59:56 2025 [11036][1][FATAL] UndeployedMetaDataImplementation->getFileName(): view type custom is not recognized
+Fri Apr 18 12:59:56 2025 [11036][1][FATAL] UndeployedMetaDataImplementation->getFileName(): view type custom is not recognized
+Fri Apr 18 13:19:32 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 13:19:32 2025 [11036][1][FATAL]  Query Failed: SELECT opportunities.sales_stage, SUM(opportunities.amount_usdollar) as amount_usdollar FROM opportunities  LEFT JOIN opportunities_cstm ON opportunities.id = opportunities_cstm.id_c   LEFT JOIN  users jt0 ON opportunities.modified_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0  LEFT JOIN  users jt1 ON opportunities.created_by=jt1.id AND jt1.deleted=0
+
+ AND jt1.deleted=0  LEFT JOIN  users jt2 ON opportunities.assigned_user_id=jt2.id AND jt2.deleted=0
+
+ AND jt2.deleted=0  LEFT JOIN  accounts_opportunities jtl3 ON opportunities.id=jtl3.opportunity_id AND jtl3.deleted=0
+
+ LEFT JOIN  accounts accounts ON accounts.id=jtl3.account_id AND accounts.deleted=0
+ AND accounts.deleted=0  LEFT JOIN  campaigns jt4 ON opportunities.campaign_id=jt4.id AND jt4.deleted=0
+
+ AND jt4.deleted=0 where opportunities.deleted=0 AND opportunities.amount_usdollar is not null AND opportunities.sales_stage is not null  GROUP BY opportunities.sales_stage DESC: MySQL error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 12
+Fri Apr 18 13:22:16 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 13:22:16 2025 [11036][1][FATAL]  Query Failed: SELECT opportunities.sales_stage, SUM(opportunities.amount_usdollar) as amount_usdollar FROM opportunities  LEFT JOIN opportunities_cstm ON opportunities.id = opportunities_cstm.id_c   LEFT JOIN  users jt0 ON opportunities.modified_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0  LEFT JOIN  users jt1 ON opportunities.created_by=jt1.id AND jt1.deleted=0
+
+ AND jt1.deleted=0  LEFT JOIN  users jt2 ON opportunities.assigned_user_id=jt2.id AND jt2.deleted=0
+
+ AND jt2.deleted=0  LEFT JOIN  accounts_opportunities jtl3 ON opportunities.id=jtl3.opportunity_id AND jtl3.deleted=0
+
+ LEFT JOIN  accounts accounts ON accounts.id=jtl3.account_id AND accounts.deleted=0
+ AND accounts.deleted=0  LEFT JOIN  campaigns jt4 ON opportunities.campaign_id=jt4.id AND jt4.deleted=0
+
+ AND jt4.deleted=0 where opportunities.deleted=0 AND opportunities.amount_usdollar is not null AND opportunities.sales_stage is not null  GROUP BY opportunities.sales_stage DESC: MySQL error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 12
+Fri Apr 18 14:23:10 2025 [11036][1][FATAL] Email address save error
+Fri Apr 18 14:24:17 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 14:24:17 2025 [11036][1][FATAL]  Query Failed:  SELECT  plank_planning.id , plank_planning.kp_total , plank_planning.project_total , plank_planning.total_summary , plank_planning.currency_id , plank_planning.assigned_user_id  FROM plank_planning  where ((plank_planning.assigned_user_id = '1')) AND plank_planning.deleted=0 ORDER BY plank_planning.date_entered DESC LIMIT 0,6: MySQL error 1054: Unknown column 'plank_planning.total_summary' in 'field list'
+Fri Apr 18 14:24:18 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 14:24:18 2025 [11036][1][FATAL]  Query Failed:  SELECT  plank_planning.id , plank_planning.kp_total , plank_planning.project_total , plank_planning.total_summary , plank_planning.currency_id , plank_planning.assigned_user_id  FROM plank_planning  where ((plank_planning.assigned_user_id = '1')) AND plank_planning.deleted=0 ORDER BY plank_planning.date_entered DESC LIMIT 0,6: MySQL error 1054: Unknown column 'plank_planning.total_summary' in 'field list'
+Fri Apr 18 14:24:36 2025 [11036][1][FATAL] Mysqli_query failed.
+Fri Apr 18 14:24:36 2025 [11036][1][FATAL]  Query Failed:  SELECT  plank_planning.id , plank_planning.modified_user_id , plank_planning.created_by , plank_planning.assigned_user_id , plank_planning.name , plank_planning.date_entered , plank_planning.date_modified  , jt0.user_name modified_by_name , jt0.created_by modified_by_name_owner  , 'Users' modified_by_name_mod , jt1.user_name created_by_name , jt1.created_by created_by_name_owner  , 'Users' created_by_name_mod, plank_planning.description , plank_planning.deleted  , jt2.user_name assigned_user_name , jt2.created_by assigned_user_name_owner  , 'Users' assigned_user_name_mod, plank_planning.planning_name , plank_planning.kp_total , plank_planning.project_total , plank_planning.year_plan , plank_planning.month , plank_planning.year , plank_planning.plan_sum , plank_planning.currency_id , plank_planning.total_summary  FROM plank_planning   LEFT JOIN  users jt0 ON plank_planning.modified_user_id=jt0.id AND jt0.deleted=0
+
+ AND jt0.deleted=0  LEFT JOIN  users jt1 ON plank_planning.created_by=jt1.id AND jt1.deleted=0
+
+ AND jt1.deleted=0  LEFT JOIN  users jt2 ON plank_planning.assigned_user_id=jt2.id AND jt2.deleted=0
+
+ AND jt2.deleted=0 where plank_planning.deleted=0 LIMIT 0,21: MySQL error 1054: Unknown column 'plank_planning.plan_sum' in 'field list'

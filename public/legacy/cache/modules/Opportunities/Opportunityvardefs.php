@@ -745,7 +745,7 @@
       'size' => '20',
       'options' => 'refusal_reason_list',
       'studio' => 'visible',
-      'dependency' => NULL,
+      'dependency' => false,
       'id' => 'Opportunitiesrefusal_reason_c',
       'custom_module' => 'Opportunities',
     ),

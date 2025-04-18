@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-04-02 19:50:48
+/* Smarty version 4.5.3, created on 2025-04-18 14:23:37
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\Reminders\tpls\reminders.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67ed9518e55c08_96773115',
+  'unifunc' => 'content_680260691bf042_34619219',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6f3d8a4ea5c727b912161a2e5f83574195935d6b' => 
     array (
       0 => 'C:\\Apache24\\htdocs\\crm\\public\\legacy\\modules\\Reminders\\tpls\\reminders.tpl',
-      1 => 1743515289,
+      1 => 1744976540,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67ed9518e55c08_96773115 (Smarty_Internal_Template $_smarty_tpl) {
+function content_680260691bf042_34619219 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.html_options.php','function'=>'smarty_function_html_options',),));
 ?>
 

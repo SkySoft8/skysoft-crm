@@ -18,7 +18,7 @@ class RequestedAttributesConfig
     private $friendlyName;
     private $attributeValue;
     private $_usedProperties = [];
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -28,10 +28,10 @@ class RequestedAttributesConfig
     {
         $this->_usedProperties['name'] = true;
         $this->name = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default false
      * @param ParamConfigurator|bool $value
@@ -41,10 +41,10 @@ class RequestedAttributesConfig
     {
         $this->_usedProperties['isRequired'] = true;
         $this->isRequired = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -54,10 +54,10 @@ class RequestedAttributesConfig
     {
         $this->_usedProperties['nameFormat'] = true;
         $this->nameFormat = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -67,10 +67,10 @@ class RequestedAttributesConfig
     {
         $this->_usedProperties['friendlyName'] = true;
         $this->friendlyName = $value;
-
+    
         return $this;
     }
-
+    
     public function attributeValue(array $value = []): \Symfony\Config\NbgrpOneloginSaml\OneloginSettingsConfig\Sp\AttributeConsumingService\RequestedAttributesConfig\AttributeValueConfig
     {
         if (null === $this->attributeValue) {
@@ -79,10 +79,10 @@ class RequestedAttributesConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "attributeValue()" has already been initialized. You cannot pass values the second time you call attributeValue().');
         }
-
+    
         return $this->attributeValue;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('name', $value)) {
@@ -90,36 +90,36 @@ class RequestedAttributesConfig
             $this->name = $value['name'];
             unset($value['name']);
         }
-
+    
         if (array_key_exists('isRequired', $value)) {
             $this->_usedProperties['isRequired'] = true;
             $this->isRequired = $value['isRequired'];
             unset($value['isRequired']);
         }
-
+    
         if (array_key_exists('nameFormat', $value)) {
             $this->_usedProperties['nameFormat'] = true;
             $this->nameFormat = $value['nameFormat'];
             unset($value['nameFormat']);
         }
-
+    
         if (array_key_exists('friendlyName', $value)) {
             $this->_usedProperties['friendlyName'] = true;
             $this->friendlyName = $value['friendlyName'];
             unset($value['friendlyName']);
         }
-
+    
         if (array_key_exists('attributeValue', $value)) {
             $this->_usedProperties['attributeValue'] = true;
             $this->attributeValue = new \Symfony\Config\NbgrpOneloginSaml\OneloginSettingsConfig\Sp\AttributeConsumingService\RequestedAttributesConfig\AttributeValueConfig($value['attributeValue']);
             unset($value['attributeValue']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -138,7 +138,7 @@ class RequestedAttributesConfig
         if (isset($this->_usedProperties['attributeValue'])) {
             $output['attributeValue'] = $this->attributeValue->toArray();
         }
-
+    
         return $output;
     }
 

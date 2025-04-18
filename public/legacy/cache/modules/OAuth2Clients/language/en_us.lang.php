@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-02 19:50:33
+// created: 2025-04-18 14:23:20
 $mod_strings = array (
   'LBL_MODULE_NAME' => 'OAuth2 Clients',
   'LBL_MODULE_TITLE' => 'OAuth2 Clients',

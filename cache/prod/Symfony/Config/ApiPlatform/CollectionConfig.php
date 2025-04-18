@@ -18,7 +18,7 @@ class CollectionConfig
     private $orderNullsComparison;
     private $pagination;
     private $_usedProperties = [];
-
+    
     /**
      * The name of the query parameter to filter on nullable field values.
      * @default 'exists'
@@ -29,10 +29,10 @@ class CollectionConfig
     {
         $this->_usedProperties['existsParameterName'] = true;
         $this->existsParameterName = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * The default order of results.
      * @default 'ASC'
@@ -43,10 +43,10 @@ class CollectionConfig
     {
         $this->_usedProperties['order'] = true;
         $this->order = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * The name of the query parameter to order results.
      * @default 'order'
@@ -57,10 +57,10 @@ class CollectionConfig
     {
         $this->_usedProperties['orderParameterName'] = true;
         $this->orderParameterName = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * The nulls comparison strategy.
      * @default null
@@ -71,10 +71,10 @@ class CollectionConfig
     {
         $this->_usedProperties['orderNullsComparison'] = true;
         $this->orderNullsComparison = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default {"enabled":true,"page_parameter_name":"page","enabled_parameter_name":"pagination","items_per_page_parameter_name":"itemsPerPage","partial_parameter_name":"partial"}
     */
@@ -86,10 +86,10 @@ class CollectionConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "pagination()" has already been initialized. You cannot pass values the second time you call pagination().');
         }
-
+    
         return $this->pagination;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('exists_parameter_name', $value)) {
@@ -97,36 +97,36 @@ class CollectionConfig
             $this->existsParameterName = $value['exists_parameter_name'];
             unset($value['exists_parameter_name']);
         }
-
+    
         if (array_key_exists('order', $value)) {
             $this->_usedProperties['order'] = true;
             $this->order = $value['order'];
             unset($value['order']);
         }
-
+    
         if (array_key_exists('order_parameter_name', $value)) {
             $this->_usedProperties['orderParameterName'] = true;
             $this->orderParameterName = $value['order_parameter_name'];
             unset($value['order_parameter_name']);
         }
-
+    
         if (array_key_exists('order_nulls_comparison', $value)) {
             $this->_usedProperties['orderNullsComparison'] = true;
             $this->orderNullsComparison = $value['order_nulls_comparison'];
             unset($value['order_nulls_comparison']);
         }
-
+    
         if (array_key_exists('pagination', $value)) {
             $this->_usedProperties['pagination'] = true;
             $this->pagination = new \Symfony\Config\ApiPlatform\Collection\PaginationConfig($value['pagination']);
             unset($value['pagination']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -145,7 +145,7 @@ class CollectionConfig
         if (isset($this->_usedProperties['pagination'])) {
             $output['pagination'] = $this->pagination->toArray();
         }
-
+    
         return $output;
     }
 

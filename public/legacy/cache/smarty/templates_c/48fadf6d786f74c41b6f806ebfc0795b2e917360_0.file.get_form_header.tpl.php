@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-04-02 19:50:19
+/* Smarty version 4.5.3, created on 2025-04-18 14:23:40
   from 'C:\Apache24\htdocs\crm\public\legacy\include\get_form_header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67ed94fb2df7e1_49428624',
+  'unifunc' => 'content_6802606c428e86_63627485',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '48fadf6d786f74c41b6f806ebfc0795b2e917360' => 
     array (
       0 => 'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\get_form_header.tpl',
-      1 => 1743515289,
+      1 => 1744976539,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67ed94fb2df7e1_49428624 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6802606c428e86_63627485 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_assignInScope('is_min_max', strpos($_smarty_tpl->tpl_vars['other_text']->value,"_search.gif"));
 if ($_smarty_tpl->tpl_vars['is_min_max']->value !== false) {?>
     <?php $_smarty_tpl->_assignInScope('form_title', ((string)$_smarty_tpl->tpl_vars['other_text']->value)." ".((string)$_smarty_tpl->tpl_vars['form_title']->value));

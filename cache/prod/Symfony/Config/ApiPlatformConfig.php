@@ -73,7 +73,7 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     private $jsonschemaFormats;
     private $defaults;
     private $_usedProperties = [];
-
+    
     /**
      * The title of the API.
      * @param ParamConfigurator|mixed $value
@@ -83,10 +83,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['title'] = true;
         $this->title = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * The description of the API.
      * @param ParamConfigurator|mixed $value
@@ -96,10 +96,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['description'] = true;
         $this->description = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * The version of the API.
      * @default '0.0.0'
@@ -110,10 +110,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['version'] = true;
         $this->version = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * If true, show Webby on the documentation page
      * @default true
@@ -124,10 +124,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['showWebby'] = true;
         $this->showWebby = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * If true API Platform uses Symfony event listeners instead of providers and processors.
      * @default null
@@ -138,10 +138,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['eventListenersBackwardCompatibilityLayer'] = true;
         $this->eventListenersBackwardCompatibilityLayer = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Uses Symfony event listeners instead of the ApiPlatform\Symfony\Controller\MainController.
      * @default null
@@ -152,10 +152,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['useSymfonyListeners'] = true;
         $this->useSymfonyListeners = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Specify a name converter to use.
      * @default null
@@ -166,10 +166,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['nameConverter'] = true;
         $this->nameConverter = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Specify an asset package name to use.
      * @default null
@@ -180,10 +180,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['assetPackage'] = true;
         $this->assetPackage = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Specify a path name generator to use.
      * @default 'api_platform.metadata.path_segment_name_generator.underscore'
@@ -194,10 +194,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['pathSegmentNameGenerator'] = true;
         $this->pathSegmentNameGenerator = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default {"serialize_payload_fields":[],"query_parameter_validation":true,"legacy_validation_exception":true}
     */
@@ -209,10 +209,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "validator()" has already been initialized. You cannot pass values the second time you call validator().');
         }
-
+    
         return $this->validator;
     }
-
+    
     /**
      * @default {"enabled":true,"fetch_partial":false,"max_joins":30,"force_eager":true}
     */
@@ -224,10 +224,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "eagerLoading()" has already been initialized. You cannot pass values the second time you call eagerLoading().');
         }
-
+    
         return $this->eagerLoading;
     }
-
+    
     /**
      * Allows to handle symfony exceptions.
      * @default false
@@ -238,10 +238,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['handleSymfonyErrors'] = true;
         $this->handleSymfonyErrors = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Enable the Swagger documentation and export.
      * @default true
@@ -252,10 +252,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['enableSwagger'] = true;
         $this->enableSwagger = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Enable Swagger UI
      * @default true
@@ -266,10 +266,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['enableSwaggerUi'] = true;
         $this->enableSwaggerUi = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Enable ReDoc
      * @default true
@@ -280,10 +280,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['enableReDoc'] = true;
         $this->enableReDoc = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Enable the entrypoint
      * @default true
@@ -294,10 +294,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['enableEntrypoint'] = true;
         $this->enableEntrypoint = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Enable the docs
      * @default true
@@ -308,10 +308,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['enableDocs'] = true;
         $this->enableDocs = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Enable the data collector and the WebProfilerBundle integration.
      * @default true
@@ -322,10 +322,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['enableProfiler'] = true;
         $this->enableProfiler = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Keep doctrine/inflector instead of symfony/string to generate plurals for routes.
      * @default true
@@ -336,10 +336,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['keepLegacyInflector'] = true;
         $this->keepLegacyInflector = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Enable security for Links (sub resources)
      * @default false
@@ -350,10 +350,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['enableLinkSecurity'] = true;
         $this->enableLinkSecurity = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default {"exists_parameter_name":"exists","order":"ASC","order_parameter_name":"order","order_nulls_comparison":null,"pagination":{"enabled":true,"page_parameter_name":"page","enabled_parameter_name":"pagination","items_per_page_parameter_name":"itemsPerPage","partial_parameter_name":"partial"}}
     */
@@ -365,10 +365,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "collection()" has already been initialized. You cannot pass values the second time you call collection().');
         }
-
+    
         return $this->collection;
     }
-
+    
     /**
      * @default {"paths":[]}
     */
@@ -380,10 +380,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "mapping()" has already been initialized. You cannot pass values the second time you call mapping().');
         }
-
+    
         return $this->mapping;
     }
-
+    
     /**
      * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
      *
@@ -393,10 +393,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['resourceClassDirectories'] = true;
         $this->resourceClassDirectories = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default {"enabled":true}
     */
@@ -408,10 +408,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "doctrine()" has already been initialized. You cannot pass values the second time you call doctrine().');
         }
-
+    
         return $this->doctrine;
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -424,20 +424,20 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         if (!\is_array($value)) {
             $this->_usedProperties['doctrineMongodbOdm'] = true;
             $this->doctrineMongodbOdm = $value;
-
+    
             return $this;
         }
-
+    
         if (!$this->doctrineMongodbOdm instanceof \Symfony\Config\ApiPlatform\DoctrineMongodbOdmConfig) {
             $this->_usedProperties['doctrineMongodbOdm'] = true;
             $this->doctrineMongodbOdm = new \Symfony\Config\ApiPlatform\DoctrineMongodbOdmConfig($value);
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "doctrineMongodbOdm()" has already been initialized. You cannot pass values the second time you call doctrineMongodbOdm().');
         }
-
+    
         return $this->doctrineMongodbOdm;
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -450,20 +450,20 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         if (!\is_array($value)) {
             $this->_usedProperties['oauth'] = true;
             $this->oauth = $value;
-
+    
             return $this;
         }
-
+    
         if (!$this->oauth instanceof \Symfony\Config\ApiPlatform\OauthConfig) {
             $this->_usedProperties['oauth'] = true;
             $this->oauth = new \Symfony\Config\ApiPlatform\OauthConfig($value);
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "oauth()" has already been initialized. You cannot pass values the second time you call oauth().');
         }
-
+    
         return $this->oauth;
     }
-
+    
     /**
      * @default {"enabled":true,"default_ide":"graphiql","graphiql":{"enabled":true},"graphql_playground":{"enabled":true},"introspection":{"enabled":true},"nesting_separator":"_","collection":{"pagination":{"enabled":true}}}
     */
@@ -475,10 +475,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "graphql()" has already been initialized. You cannot pass values the second time you call graphql().');
         }
-
+    
         return $this->graphql;
     }
-
+    
     /**
      * @default {"versions":[3],"api_keys":[],"swagger_ui_extra_configuration":[]}
     */
@@ -490,10 +490,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "swagger()" has already been initialized. You cannot pass values the second time you call swagger().');
         }
-
+    
         return $this->swagger;
     }
-
+    
     /**
      * @default {"public":null,"invalidation":{"enabled":false,"varnish_urls":[],"urls":[],"scoped_clients":[],"max_header_length":7500,"request_options":[],"purger":"api_platform.http_cache.purger.varnish","xkey":{"glue":" "}}}
     */
@@ -505,10 +505,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "httpCache()" has already been initialized. You cannot pass values the second time you call httpCache().');
         }
-
+    
         return $this->httpCache;
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -521,20 +521,20 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         if (!\is_array($value)) {
             $this->_usedProperties['mercure'] = true;
             $this->mercure = $value;
-
+    
             return $this;
         }
-
+    
         if (!$this->mercure instanceof \Symfony\Config\ApiPlatform\MercureConfig) {
             $this->_usedProperties['mercure'] = true;
             $this->mercure = new \Symfony\Config\ApiPlatform\MercureConfig($value);
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "mercure()" has already been initialized. You cannot pass values the second time you call mercure().');
         }
-
+    
         return $this->mercure;
     }
-
+    
     /**
      * @default {"enabled":true}
     */
@@ -546,10 +546,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "messenger()" has already been initialized. You cannot pass values the second time you call messenger().');
         }
-
+    
         return $this->messenger;
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -562,20 +562,20 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         if (!\is_array($value)) {
             $this->_usedProperties['elasticsearch'] = true;
             $this->elasticsearch = $value;
-
+    
             return $this;
         }
-
+    
         if (!$this->elasticsearch instanceof \Symfony\Config\ApiPlatform\ElasticsearchConfig) {
             $this->_usedProperties['elasticsearch'] = true;
             $this->elasticsearch = new \Symfony\Config\ApiPlatform\ElasticsearchConfig($value);
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "elasticsearch()" has already been initialized. You cannot pass values the second time you call elasticsearch().');
         }
-
+    
         return $this->elasticsearch;
     }
-
+    
     /**
      * @default {"contact":{"name":null,"url":null,"email":null},"termsOfService":null,"license":{"name":null,"url":null},"swagger_ui_extra_configuration":[],"overrideResponses":true}
     */
@@ -587,10 +587,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "openapi()" has already been initialized. You cannot pass values the second time you call openapi().');
         }
-
+    
         return $this->openapi;
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -603,20 +603,20 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         if (!\is_array($value)) {
             $this->_usedProperties['maker'] = true;
             $this->maker = $value;
-
+    
             return $this;
         }
-
+    
         if (!$this->maker instanceof \Symfony\Config\ApiPlatform\MakerConfig) {
             $this->_usedProperties['maker'] = true;
             $this->maker = new \Symfony\Config\ApiPlatform\MakerConfig($value);
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "maker()" has already been initialized. You cannot pass values the second time you call maker().');
         }
-
+    
         return $this->maker;
     }
-
+    
     /**
      * @return $this
      */
@@ -624,10 +624,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['exceptionToStatus'] = true;
         $this->exceptionToStatus[$exception_class] = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -640,20 +640,20 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         if (!\is_array($value)) {
             $this->_usedProperties['formats'] = true;
             $this->formats[$format] = $value;
-
+    
             return $this;
         }
-
+    
         if (!isset($this->formats[$format]) || !$this->formats[$format] instanceof \Symfony\Config\ApiPlatform\FormatsConfig) {
             $this->_usedProperties['formats'] = true;
             $this->formats[$format] = new \Symfony\Config\ApiPlatform\FormatsConfig($value);
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "formats()" has already been initialized. You cannot pass values the second time you call formats().');
         }
-
+    
         return $this->formats[$format];
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -667,20 +667,20 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         if (!\is_array($value)) {
             $this->_usedProperties['patchFormats'] = true;
             $this->patchFormats[$format] = $value;
-
+    
             return $this;
         }
-
+    
         if (!isset($this->patchFormats[$format]) || !$this->patchFormats[$format] instanceof \Symfony\Config\ApiPlatform\PatchFormatsConfig) {
             $this->_usedProperties['patchFormats'] = true;
             $this->patchFormats[$format] = new \Symfony\Config\ApiPlatform\PatchFormatsConfig($value);
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "patchFormats()" has already been initialized. You cannot pass values the second time you call patchFormats().');
         }
-
+    
         return $this->patchFormats[$format];
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -694,20 +694,20 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         if (!\is_array($value)) {
             $this->_usedProperties['docsFormats'] = true;
             $this->docsFormats[$format] = $value;
-
+    
             return $this;
         }
-
+    
         if (!isset($this->docsFormats[$format]) || !$this->docsFormats[$format] instanceof \Symfony\Config\ApiPlatform\DocsFormatsConfig) {
             $this->_usedProperties['docsFormats'] = true;
             $this->docsFormats[$format] = new \Symfony\Config\ApiPlatform\DocsFormatsConfig($value);
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "docsFormats()" has already been initialized. You cannot pass values the second time you call docsFormats().');
         }
-
+    
         return $this->docsFormats[$format];
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -721,20 +721,20 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         if (!\is_array($value)) {
             $this->_usedProperties['errorFormats'] = true;
             $this->errorFormats[$format] = $value;
-
+    
             return $this;
         }
-
+    
         if (!isset($this->errorFormats[$format]) || !$this->errorFormats[$format] instanceof \Symfony\Config\ApiPlatform\ErrorFormatsConfig) {
             $this->_usedProperties['errorFormats'] = true;
             $this->errorFormats[$format] = new \Symfony\Config\ApiPlatform\ErrorFormatsConfig($value);
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "errorFormats()" has already been initialized. You cannot pass values the second time you call errorFormats().');
         }
-
+    
         return $this->errorFormats[$format];
     }
-
+    
     /**
      * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
      *
@@ -744,10 +744,10 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $this->_usedProperties['jsonschemaFormats'] = true;
         $this->jsonschemaFormats = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -759,25 +759,25 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         if (!\is_array($value)) {
             $this->_usedProperties['defaults'] = true;
             $this->defaults = $value;
-
+    
             return $this;
         }
-
+    
         if (!$this->defaults instanceof \Symfony\Config\ApiPlatform\DefaultsConfig) {
             $this->_usedProperties['defaults'] = true;
             $this->defaults = new \Symfony\Config\ApiPlatform\DefaultsConfig($value);
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "defaults()" has already been initialized. You cannot pass values the second time you call defaults().');
         }
-
+    
         return $this->defaults;
     }
-
+    
     public function getExtensionAlias(): string
     {
         return 'api_platform';
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('title', $value)) {
@@ -785,252 +785,252 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
             $this->title = $value['title'];
             unset($value['title']);
         }
-
+    
         if (array_key_exists('description', $value)) {
             $this->_usedProperties['description'] = true;
             $this->description = $value['description'];
             unset($value['description']);
         }
-
+    
         if (array_key_exists('version', $value)) {
             $this->_usedProperties['version'] = true;
             $this->version = $value['version'];
             unset($value['version']);
         }
-
+    
         if (array_key_exists('show_webby', $value)) {
             $this->_usedProperties['showWebby'] = true;
             $this->showWebby = $value['show_webby'];
             unset($value['show_webby']);
         }
-
+    
         if (array_key_exists('event_listeners_backward_compatibility_layer', $value)) {
             $this->_usedProperties['eventListenersBackwardCompatibilityLayer'] = true;
             $this->eventListenersBackwardCompatibilityLayer = $value['event_listeners_backward_compatibility_layer'];
             unset($value['event_listeners_backward_compatibility_layer']);
         }
-
+    
         if (array_key_exists('use_symfony_listeners', $value)) {
             $this->_usedProperties['useSymfonyListeners'] = true;
             $this->useSymfonyListeners = $value['use_symfony_listeners'];
             unset($value['use_symfony_listeners']);
         }
-
+    
         if (array_key_exists('name_converter', $value)) {
             $this->_usedProperties['nameConverter'] = true;
             $this->nameConverter = $value['name_converter'];
             unset($value['name_converter']);
         }
-
+    
         if (array_key_exists('asset_package', $value)) {
             $this->_usedProperties['assetPackage'] = true;
             $this->assetPackage = $value['asset_package'];
             unset($value['asset_package']);
         }
-
+    
         if (array_key_exists('path_segment_name_generator', $value)) {
             $this->_usedProperties['pathSegmentNameGenerator'] = true;
             $this->pathSegmentNameGenerator = $value['path_segment_name_generator'];
             unset($value['path_segment_name_generator']);
         }
-
+    
         if (array_key_exists('validator', $value)) {
             $this->_usedProperties['validator'] = true;
             $this->validator = new \Symfony\Config\ApiPlatform\ValidatorConfig($value['validator']);
             unset($value['validator']);
         }
-
+    
         if (array_key_exists('eager_loading', $value)) {
             $this->_usedProperties['eagerLoading'] = true;
             $this->eagerLoading = new \Symfony\Config\ApiPlatform\EagerLoadingConfig($value['eager_loading']);
             unset($value['eager_loading']);
         }
-
+    
         if (array_key_exists('handle_symfony_errors', $value)) {
             $this->_usedProperties['handleSymfonyErrors'] = true;
             $this->handleSymfonyErrors = $value['handle_symfony_errors'];
             unset($value['handle_symfony_errors']);
         }
-
+    
         if (array_key_exists('enable_swagger', $value)) {
             $this->_usedProperties['enableSwagger'] = true;
             $this->enableSwagger = $value['enable_swagger'];
             unset($value['enable_swagger']);
         }
-
+    
         if (array_key_exists('enable_swagger_ui', $value)) {
             $this->_usedProperties['enableSwaggerUi'] = true;
             $this->enableSwaggerUi = $value['enable_swagger_ui'];
             unset($value['enable_swagger_ui']);
         }
-
+    
         if (array_key_exists('enable_re_doc', $value)) {
             $this->_usedProperties['enableReDoc'] = true;
             $this->enableReDoc = $value['enable_re_doc'];
             unset($value['enable_re_doc']);
         }
-
+    
         if (array_key_exists('enable_entrypoint', $value)) {
             $this->_usedProperties['enableEntrypoint'] = true;
             $this->enableEntrypoint = $value['enable_entrypoint'];
             unset($value['enable_entrypoint']);
         }
-
+    
         if (array_key_exists('enable_docs', $value)) {
             $this->_usedProperties['enableDocs'] = true;
             $this->enableDocs = $value['enable_docs'];
             unset($value['enable_docs']);
         }
-
+    
         if (array_key_exists('enable_profiler', $value)) {
             $this->_usedProperties['enableProfiler'] = true;
             $this->enableProfiler = $value['enable_profiler'];
             unset($value['enable_profiler']);
         }
-
+    
         if (array_key_exists('keep_legacy_inflector', $value)) {
             $this->_usedProperties['keepLegacyInflector'] = true;
             $this->keepLegacyInflector = $value['keep_legacy_inflector'];
             unset($value['keep_legacy_inflector']);
         }
-
+    
         if (array_key_exists('enable_link_security', $value)) {
             $this->_usedProperties['enableLinkSecurity'] = true;
             $this->enableLinkSecurity = $value['enable_link_security'];
             unset($value['enable_link_security']);
         }
-
+    
         if (array_key_exists('collection', $value)) {
             $this->_usedProperties['collection'] = true;
             $this->collection = new \Symfony\Config\ApiPlatform\CollectionConfig($value['collection']);
             unset($value['collection']);
         }
-
+    
         if (array_key_exists('mapping', $value)) {
             $this->_usedProperties['mapping'] = true;
             $this->mapping = new \Symfony\Config\ApiPlatform\MappingConfig($value['mapping']);
             unset($value['mapping']);
         }
-
+    
         if (array_key_exists('resource_class_directories', $value)) {
             $this->_usedProperties['resourceClassDirectories'] = true;
             $this->resourceClassDirectories = $value['resource_class_directories'];
             unset($value['resource_class_directories']);
         }
-
+    
         if (array_key_exists('doctrine', $value)) {
             $this->_usedProperties['doctrine'] = true;
             $this->doctrine = new \Symfony\Config\ApiPlatform\DoctrineConfig($value['doctrine']);
             unset($value['doctrine']);
         }
-
+    
         if (array_key_exists('doctrine_mongodb_odm', $value)) {
             $this->_usedProperties['doctrineMongodbOdm'] = true;
             $this->doctrineMongodbOdm = \is_array($value['doctrine_mongodb_odm']) ? new \Symfony\Config\ApiPlatform\DoctrineMongodbOdmConfig($value['doctrine_mongodb_odm']) : $value['doctrine_mongodb_odm'];
             unset($value['doctrine_mongodb_odm']);
         }
-
+    
         if (array_key_exists('oauth', $value)) {
             $this->_usedProperties['oauth'] = true;
             $this->oauth = \is_array($value['oauth']) ? new \Symfony\Config\ApiPlatform\OauthConfig($value['oauth']) : $value['oauth'];
             unset($value['oauth']);
         }
-
+    
         if (array_key_exists('graphql', $value)) {
             $this->_usedProperties['graphql'] = true;
             $this->graphql = new \Symfony\Config\ApiPlatform\GraphqlConfig($value['graphql']);
             unset($value['graphql']);
         }
-
+    
         if (array_key_exists('swagger', $value)) {
             $this->_usedProperties['swagger'] = true;
             $this->swagger = new \Symfony\Config\ApiPlatform\SwaggerConfig($value['swagger']);
             unset($value['swagger']);
         }
-
+    
         if (array_key_exists('http_cache', $value)) {
             $this->_usedProperties['httpCache'] = true;
             $this->httpCache = new \Symfony\Config\ApiPlatform\HttpCacheConfig($value['http_cache']);
             unset($value['http_cache']);
         }
-
+    
         if (array_key_exists('mercure', $value)) {
             $this->_usedProperties['mercure'] = true;
             $this->mercure = \is_array($value['mercure']) ? new \Symfony\Config\ApiPlatform\MercureConfig($value['mercure']) : $value['mercure'];
             unset($value['mercure']);
         }
-
+    
         if (array_key_exists('messenger', $value)) {
             $this->_usedProperties['messenger'] = true;
             $this->messenger = new \Symfony\Config\ApiPlatform\MessengerConfig($value['messenger']);
             unset($value['messenger']);
         }
-
+    
         if (array_key_exists('elasticsearch', $value)) {
             $this->_usedProperties['elasticsearch'] = true;
             $this->elasticsearch = \is_array($value['elasticsearch']) ? new \Symfony\Config\ApiPlatform\ElasticsearchConfig($value['elasticsearch']) : $value['elasticsearch'];
             unset($value['elasticsearch']);
         }
-
+    
         if (array_key_exists('openapi', $value)) {
             $this->_usedProperties['openapi'] = true;
             $this->openapi = new \Symfony\Config\ApiPlatform\OpenapiConfig($value['openapi']);
             unset($value['openapi']);
         }
-
+    
         if (array_key_exists('maker', $value)) {
             $this->_usedProperties['maker'] = true;
             $this->maker = \is_array($value['maker']) ? new \Symfony\Config\ApiPlatform\MakerConfig($value['maker']) : $value['maker'];
             unset($value['maker']);
         }
-
+    
         if (array_key_exists('exception_to_status', $value)) {
             $this->_usedProperties['exceptionToStatus'] = true;
             $this->exceptionToStatus = $value['exception_to_status'];
             unset($value['exception_to_status']);
         }
-
+    
         if (array_key_exists('formats', $value)) {
             $this->_usedProperties['formats'] = true;
             $this->formats = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\ApiPlatform\FormatsConfig($v) : $v, $value['formats']);
             unset($value['formats']);
         }
-
+    
         if (array_key_exists('patch_formats', $value)) {
             $this->_usedProperties['patchFormats'] = true;
             $this->patchFormats = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\ApiPlatform\PatchFormatsConfig($v) : $v, $value['patch_formats']);
             unset($value['patch_formats']);
         }
-
+    
         if (array_key_exists('docs_formats', $value)) {
             $this->_usedProperties['docsFormats'] = true;
             $this->docsFormats = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\ApiPlatform\DocsFormatsConfig($v) : $v, $value['docs_formats']);
             unset($value['docs_formats']);
         }
-
+    
         if (array_key_exists('error_formats', $value)) {
             $this->_usedProperties['errorFormats'] = true;
             $this->errorFormats = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\ApiPlatform\ErrorFormatsConfig($v) : $v, $value['error_formats']);
             unset($value['error_formats']);
         }
-
+    
         if (array_key_exists('jsonschema_formats', $value)) {
             $this->_usedProperties['jsonschemaFormats'] = true;
             $this->jsonschemaFormats = $value['jsonschema_formats'];
             unset($value['jsonschema_formats']);
         }
-
+    
         if (array_key_exists('defaults', $value)) {
             $this->_usedProperties['defaults'] = true;
             $this->defaults = \is_array($value['defaults']) ? new \Symfony\Config\ApiPlatform\DefaultsConfig($value['defaults']) : $value['defaults'];
             unset($value['defaults']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -1157,7 +1157,7 @@ class ApiPlatformConfig implements \Symfony\Component\Config\Builder\ConfigBuild
         if (isset($this->_usedProperties['defaults'])) {
             $output['defaults'] = $this->defaults instanceof \Symfony\Config\ApiPlatform\DefaultsConfig ? $this->defaults->toArray() : $this->defaults;
         }
-
+    
         return $output;
     }
 

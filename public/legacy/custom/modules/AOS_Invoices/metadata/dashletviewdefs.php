@@ -10,6 +10,14 @@ $dashletData['AOS_InvoicesDashlet']['searchFields'] = array (
   ),
 );
 $dashletData['AOS_InvoicesDashlet']['columns'] = array (
+  'name' => 
+  array (
+    'width' => '20%',
+    'label' => 'LBL_LIST_NAME',
+    'link' => true,
+    'default' => true,
+    'name' => 'name',
+  ),
   'status' => 
   array (
     'width' => '15%',
@@ -17,12 +25,29 @@ $dashletData['AOS_InvoicesDashlet']['columns'] = array (
     'default' => true,
     'name' => 'status',
   ),
-  'assigned_user_name' => 
+  'billing_account' => 
   array (
-    'width' => '8%',
-    'label' => 'LBL_LIST_ASSIGNED_USER',
-    'name' => 'assigned_user_name',
+    'width' => '20%',
+    'label' => 'LBL_BILLING_ACCOUNT',
+    'name' => 'billing_account',
     'default' => true,
+  ),
+  'total_amount' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_GRAND_TOTAL',
+    'currency_format' => true,
+    'default' => true,
+    'name' => 'total_amount',
+  ),
+  'paid_c' => 
+  array (
+    'type' => 'currency',
+    'default' => true,
+    'label' => 'LBL_PAID',
+    'currency_format' => true,
+    'width' => '10%',
+    'name' => 'paid_c',
   ),
   'number' => 
   array (
@@ -31,19 +56,11 @@ $dashletData['AOS_InvoicesDashlet']['columns'] = array (
     'default' => false,
     'name' => 'number',
   ),
-  'name' => 
+  'assigned_user_name' => 
   array (
-    'width' => '20%',
-    'label' => 'LBL_LIST_NAME',
-    'link' => true,
-    'default' => false,
-    'name' => 'name',
-  ),
-  'billing_account' => 
-  array (
-    'width' => '20%',
-    'label' => 'LBL_BILLING_ACCOUNT',
-    'name' => 'billing_account',
+    'width' => '8%',
+    'label' => 'LBL_LIST_ASSIGNED_USER',
+    'name' => 'assigned_user_name',
     'default' => false,
   ),
   'billing_contact' => 
@@ -52,23 +69,6 @@ $dashletData['AOS_InvoicesDashlet']['columns'] = array (
     'label' => 'LBL_BILLING_CONTACT',
     'name' => 'billing_contact',
     'default' => false,
-  ),
-  'paid_c' => 
-  array (
-    'type' => 'currency',
-    'default' => false,
-    'label' => 'LBL_PAID',
-    'currency_format' => true,
-    'width' => '10%',
-    'name' => 'paid_c',
-  ),
-  'total_amount' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_GRAND_TOTAL',
-    'currency_format' => true,
-    'default' => false,
-    'name' => 'total_amount',
   ),
   'invoice_date' => 
   array (

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-04-02 19:52:04
+/* Smarty version 4.5.3, created on 2025-04-18 14:23:40
   from 'C:\Apache24\htdocs\crm\public\legacy\themes\suite8\include\Dashlets\DashletHeader.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67ed956486e209_79186183',
+  'unifunc' => 'content_6802606c8f7290_27317120',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a2a1bc14798cf1979adc857df79e32a36159c6b3' => 
     array (
       0 => 'C:\\Apache24\\htdocs\\crm\\public\\legacy\\themes\\suite8\\include\\Dashlets\\DashletHeader.tpl',
-      1 => 1743515289,
+      1 => 1744976541,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67ed956486e209_79186183 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6802606c8f7290_27317120 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\modifier.replace.php','function'=>'smarty_modifier_replace',),1=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getimage.php','function'=>'smarty_function_sugar_getimage',),));
 ?>
 <div onmouseover="this.style.cursor = 'move';" id="dashlet_header_<?php echo $_smarty_tpl->tpl_vars['DASHLET_ID']->value;?>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-04-02 19:52:05
+/* Smarty version 4.5.3, created on 2025-04-18 14:23:41
   from 'C:\Apache24\htdocs\crm\public\legacy\include\Dashlets\DashletGenericAutoRefresh.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67ed956564edf2_69225813',
+  'unifunc' => 'content_6802606d836457_23017888',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8618515a8fef22b45831880a8c457a057672d368' => 
     array (
       0 => 'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Dashlets\\DashletGenericAutoRefresh.tpl',
-      1 => 1743515289,
+      1 => 1744976539,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67ed956564edf2_69225813 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6802606d836457_23017888 (Smarty_Internal_Template $_smarty_tpl) {
 ?><input type="hidden" id="<?php echo $_smarty_tpl->tpl_vars['dashletId']->value;?>
 _offset" name="<?php echo $_smarty_tpl->tpl_vars['dashletId']->value;?>
 _offset" value="0">

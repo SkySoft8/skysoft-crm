@@ -14,7 +14,7 @@ class ValidatorConfig
     private $queryParameterValidation;
     private $legacyValidationException;
     private $_usedProperties = [];
-
+    
     /**
      * Set to null to serialize all payload fields when a validation error is thrown, or set the fields you want to include explicitly.
      * @default array (
@@ -28,10 +28,10 @@ class ValidatorConfig
     {
         $this->_usedProperties['serializePayloadFields'] = true;
         $this->serializePayloadFields = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default true
      * @param ParamConfigurator|bool $value
@@ -41,10 +41,10 @@ class ValidatorConfig
     {
         $this->_usedProperties['queryParameterValidation'] = true;
         $this->queryParameterValidation = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Uses the legacy "%s" instead of "%s".
      * @default true
@@ -55,10 +55,10 @@ class ValidatorConfig
     {
         $this->_usedProperties['legacyValidationException'] = true;
         $this->legacyValidationException = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('serialize_payload_fields', $value)) {
@@ -66,24 +66,24 @@ class ValidatorConfig
             $this->serializePayloadFields = $value['serialize_payload_fields'];
             unset($value['serialize_payload_fields']);
         }
-
+    
         if (array_key_exists('query_parameter_validation', $value)) {
             $this->_usedProperties['queryParameterValidation'] = true;
             $this->queryParameterValidation = $value['query_parameter_validation'];
             unset($value['query_parameter_validation']);
         }
-
+    
         if (array_key_exists('legacy_validation_exception', $value)) {
             $this->_usedProperties['legacyValidationException'] = true;
             $this->legacyValidationException = $value['legacy_validation_exception'];
             unset($value['legacy_validation_exception']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -96,7 +96,7 @@ class ValidatorConfig
         if (isset($this->_usedProperties['legacyValidationException'])) {
             $output['legacy_validation_exception'] = $this->legacyValidationException;
         }
-
+    
         return $output;
     }
 

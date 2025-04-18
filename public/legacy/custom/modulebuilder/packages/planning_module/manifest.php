@@ -61,9 +61,9 @@ $manifest = array (
   'icon' => '',
   'is_uninstallable' => true,
   'name' => 'planning_module',
-  'published_date' => '2025-03-14 15:46:29',
+  'published_date' => '2025-04-18 13:17:16',
   'type' => 'module',
-  'version' => 1741967189,
+  'version' => 1744982236,
   'remove_tables' => 'prompt',
 );
 

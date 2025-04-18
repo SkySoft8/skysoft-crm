@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.3, created on 2025-04-02 19:50:49
+/* Smarty version 4.5.3, created on 2025-04-18 14:23:37
   from 'C:\Apache24\htdocs\crm\public\legacy\modules\AOP_Case_Updates\tpl\caseUpdateForm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67ed951969cbb8_50296626',
+  'unifunc' => 'content_680260699c6361_18447509',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cd63e471a373addc315748ddc8c1b252d961fe8a' => 
     array (
       0 => 'C:\\Apache24\\htdocs\\crm\\public\\legacy\\modules\\AOP_Case_Updates\\tpl\\caseUpdateForm.tpl',
-      1 => 1743515289,
+      1 => 1744976539,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67ed951969cbb8_50296626 (Smarty_Internal_Template $_smarty_tpl) {
+function content_680260699c6361_18447509 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Apache24\\htdocs\\crm\\public\\legacy\\include\\Smarty\\plugins\\function.sugar_getimage.php','function'=>'smarty_function_sugar_getimage',),));
 ?>
 <button id="addFileButton" class="button primary case-addbutton" type="button"><?php if (!empty($_smarty_tpl->tpl_vars['MOD']->value['LBL_ADD_CASE_FILE'])) {

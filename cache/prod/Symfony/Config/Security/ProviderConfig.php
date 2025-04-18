@@ -23,7 +23,7 @@ class ProviderConfig
     private $entity;
     private $saml;
     private $_usedProperties = [];
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -33,10 +33,10 @@ class ProviderConfig
     {
         $this->_usedProperties['id'] = true;
         $this->id = $value;
-
+    
         return $this;
     }
-
+    
     public function chain(array $value = []): \Symfony\Config\Security\ProviderConfig\ChainConfig
     {
         if (null === $this->chain) {
@@ -45,10 +45,10 @@ class ProviderConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "chain()" has already been initialized. You cannot pass values the second time you call chain().');
         }
-
+    
         return $this->chain;
     }
-
+    
     public function memory(array $value = []): \Symfony\Config\Security\ProviderConfig\MemoryConfig
     {
         if (null === $this->memory) {
@@ -57,10 +57,10 @@ class ProviderConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "memory()" has already been initialized. You cannot pass values the second time you call memory().');
         }
-
+    
         return $this->memory;
     }
-
+    
     public function ldap(array $value = []): \Symfony\Config\Security\ProviderConfig\LdapConfig
     {
         if (null === $this->ldap) {
@@ -69,10 +69,10 @@ class ProviderConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "ldap()" has already been initialized. You cannot pass values the second time you call ldap().');
         }
-
+    
         return $this->ldap;
     }
-
+    
     public function entity(array $value = []): \Symfony\Config\Security\ProviderConfig\EntityConfig
     {
         if (null === $this->entity) {
@@ -81,10 +81,10 @@ class ProviderConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "entity()" has already been initialized. You cannot pass values the second time you call entity().');
         }
-
+    
         return $this->entity;
     }
-
+    
     public function saml(array $value = []): \Symfony\Config\Security\ProviderConfig\SamlConfig
     {
         if (null === $this->saml) {
@@ -93,10 +93,10 @@ class ProviderConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "saml()" has already been initialized. You cannot pass values the second time you call saml().');
         }
-
+    
         return $this->saml;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('id', $value)) {
@@ -104,42 +104,42 @@ class ProviderConfig
             $this->id = $value['id'];
             unset($value['id']);
         }
-
+    
         if (array_key_exists('chain', $value)) {
             $this->_usedProperties['chain'] = true;
             $this->chain = new \Symfony\Config\Security\ProviderConfig\ChainConfig($value['chain']);
             unset($value['chain']);
         }
-
+    
         if (array_key_exists('memory', $value)) {
             $this->_usedProperties['memory'] = true;
             $this->memory = new \Symfony\Config\Security\ProviderConfig\MemoryConfig($value['memory']);
             unset($value['memory']);
         }
-
+    
         if (array_key_exists('ldap', $value)) {
             $this->_usedProperties['ldap'] = true;
             $this->ldap = new \Symfony\Config\Security\ProviderConfig\LdapConfig($value['ldap']);
             unset($value['ldap']);
         }
-
+    
         if (array_key_exists('entity', $value)) {
             $this->_usedProperties['entity'] = true;
             $this->entity = new \Symfony\Config\Security\ProviderConfig\EntityConfig($value['entity']);
             unset($value['entity']);
         }
-
+    
         if (array_key_exists('saml', $value)) {
             $this->_usedProperties['saml'] = true;
             $this->saml = new \Symfony\Config\Security\ProviderConfig\SamlConfig($value['saml']);
             unset($value['saml']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -161,7 +161,7 @@ class ProviderConfig
         if (isset($this->_usedProperties['saml'])) {
             $output['saml'] = $this->saml->toArray();
         }
-
+    
         return $output;
     }
 

@@ -13,7 +13,7 @@ class MappingConfig
     private $index;
     private $type;
     private $_usedProperties = [];
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -23,10 +23,10 @@ class MappingConfig
     {
         $this->_usedProperties['index'] = true;
         $this->index = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default '_doc'
      * @param ParamConfigurator|mixed $value
@@ -36,10 +36,10 @@ class MappingConfig
     {
         $this->_usedProperties['type'] = true;
         $this->type = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('index', $value)) {
@@ -47,18 +47,18 @@ class MappingConfig
             $this->index = $value['index'];
             unset($value['index']);
         }
-
+    
         if (array_key_exists('type', $value)) {
             $this->_usedProperties['type'] = true;
             $this->type = $value['type'];
             unset($value['type']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -68,7 +68,7 @@ class MappingConfig
         if (isset($this->_usedProperties['type'])) {
             $output['type'] = $this->type;
         }
-
+    
         return $output;
     }
 

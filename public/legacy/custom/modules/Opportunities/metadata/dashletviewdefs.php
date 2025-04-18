@@ -10,27 +10,19 @@ $dashletData['OpportunitiesDashlet']['searchFields'] = array (
   ),
 );
 $dashletData['OpportunitiesDashlet']['columns'] = array (
-  'deal_status_c' => 
+  'name' => 
   array (
-    'type' => 'enum',
+    'width' => '35%',
+    'label' => 'LBL_OPPORTUNITY_NAME',
+    'link' => true,
     'default' => true,
-    'studio' => 'visible',
-    'label' => 'LBL_DEAL_STATUS',
-    'width' => '10%',
-    'name' => 'deal_status_c',
-  ),
-  'assigned_user_name' => 
-  array (
-    'width' => '8%',
-    'label' => 'LBL_LIST_ASSIGNED_USER',
-    'name' => 'assigned_user_name',
-    'default' => true,
+    'name' => 'name',
   ),
   'amount_usdollar' => 
   array (
     'width' => '15%',
     'label' => 'LBL_AMOUNT_USDOLLAR',
-    'default' => false,
+    'default' => true,
     'currency_format' => true,
     'name' => 'amount_usdollar',
   ),
@@ -38,12 +30,26 @@ $dashletData['OpportunitiesDashlet']['columns'] = array (
   array (
     'width' => '15%',
     'label' => 'LBL_DATE_CLOSED',
-    'default' => false,
+    'default' => true,
     'defaultOrderColumn' => 
     array (
       'sortOrder' => 'ASC',
     ),
     'name' => 'date_closed',
+  ),
+  'sales_stage' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_SALES_STAGE',
+    'name' => 'sales_stage',
+    'default' => true,
+  ),
+  'assigned_user_name' => 
+  array (
+    'width' => '8%',
+    'label' => 'LBL_LIST_ASSIGNED_USER',
+    'name' => 'assigned_user_name',
+    'default' => true,
   ),
   'account_name' => 
   array (
@@ -54,14 +60,6 @@ $dashletData['OpportunitiesDashlet']['columns'] = array (
     'id' => 'account_id',
     'ACLTag' => 'ACCOUNT',
     'name' => 'account_name',
-  ),
-  'name' => 
-  array (
-    'width' => '35%',
-    'label' => 'LBL_OPPORTUNITY_NAME',
-    'link' => true,
-    'default' => false,
-    'name' => 'name',
   ),
   'opportunity_type' => 
   array (
@@ -77,12 +75,14 @@ $dashletData['OpportunitiesDashlet']['columns'] = array (
     'name' => 'lead_source',
     'default' => false,
   ),
-  'sales_stage' => 
+  'deal_status_c' => 
   array (
-    'width' => '15%',
-    'label' => 'LBL_SALES_STAGE',
-    'name' => 'sales_stage',
+    'type' => 'enum',
     'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_DEAL_STATUS',
+    'width' => '10%',
+    'name' => 'deal_status_c',
   ),
   'probability' => 
   array (

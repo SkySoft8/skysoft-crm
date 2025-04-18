@@ -91,10 +91,14 @@ array (
         array (
           0 => 
           array (
-            'name' => 'planned_sum',
-            'label' => 'LBL_PLANNED_SUM',
+            'name' => 'plan_sum',
+            'label' => 'LBL_PLAN_SUM',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'total_summary',
+            'label' => 'LBL_TOTAL_SUMMARY',
+          ),
         ),
         5 => 
         array (
