@@ -562,3 +562,4 @@ Wed Apr 23 14:25:09 2025 [7852][1][FATAL]  Query Failed:  SELECT  plank_planning
  AND jt1.deleted=0  LEFT JOIN  users jt2 ON plank_planning.assigned_user_id=jt2.id AND jt2.deleted=0
 
  AND jt2.deleted=0 where plank_planning.deleted=0 LIMIT 0,21: MySQL error 1054: Unknown column 'plank_planning.plan_sum' in 'field list'
+Fri May 23 12:00:41 2025 [8912][1][FATAL] Email address save error
