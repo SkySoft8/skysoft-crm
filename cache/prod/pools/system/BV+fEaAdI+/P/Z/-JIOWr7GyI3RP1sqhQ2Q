@@ -1,0 +1,16 @@
+<?php //6aa0fd94219284c5bc284e583bda4ccdb00490f2
+
+return [1749060657, static fn () => \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\RateLimiter\\Policy\\TokenBucket'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\RateLimiter\\Policy\\TokenBucket')),
+    ],
+    null,
+    [],
+    $o[0],
+    [
+        [
+            "\0\0\0".'username_ip_login-JfFvgjgC' => 4,
+            'P0Y0M0DT00H30M0S-1' => 1749051657.285928,
+        ],
+    ]
+)];
