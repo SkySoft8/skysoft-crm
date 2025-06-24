@@ -1,5 +1,5 @@
 <?php
-// created: 2025-06-24 08:16:24
+// created: 2025-06-24 08:26:02
 $mod_strings = array (
   'LBL_RECOVER_PASSWORD_SUCCESS' => 'If the provided user name and email are correct, you should receive an email with information to recover your password',
   'ERR_NO_2FACTOR_EMAIL_TMPL' => 'Two-factor email template is not set, please change settings on password management page.',

@@ -1261,37 +1261,22 @@ return [PHP_INT_MAX, [
                         'previous' => -1,
                         'next' => -1,
                         'last' => 0,
-                        'total' => 9,
+                        'total' => 4,
                         'pageFirst' => 1,
-                        'pageLast' => 9,
+                        'pageLast' => 4,
                     ],
                     'recordIds' => [
                         [
-                            'id' => '16ddfb08-f462-e66a-c579-67f57d2d2ee2',
+                            'id' => '1cf4248e-390b-813f-a526-67f0257c98ba',
                         ],
                         [
-                            'id' => '3415d2a7-e5cf-1c42-9624-67f57f16bd08',
+                            'id' => '2b65ad8c-023a-d6f4-7100-67f96a3d011e',
                         ],
                         [
-                            'id' => '3dfe8799-7076-d92b-fb9c-67f57e58e613',
+                            'id' => '41578f0d-8c21-3bf1-9b87-685a60890b43',
                         ],
                         [
-                            'id' => '58f33449-c0f5-b65b-efab-67fd5a660e47',
-                        ],
-                        [
-                            'id' => 'a7a5ee75-a73d-011f-0a02-67f582709d37',
-                        ],
-                        [
-                            'id' => 'bb16b03c-701d-e35d-305f-67f587a7cbb6',
-                        ],
-                        [
-                            'id' => 'dc45af37-5d92-7a13-13b1-67fd1429d524',
-                        ],
-                        [
-                            'id' => 'e80c121b-ef4c-0e1d-11ae-67f581042d0c',
-                        ],
-                        [
-                            'id' => 'e8bb50f3-59d4-761a-c9a4-67f58ede5ee1',
+                            'id' => 'b3a8f49a-57f8-99eb-38ed-67fc059f078a',
                         ],
                     ],
                 ],
@@ -1642,12 +1627,22 @@ return [PHP_INT_MAX, [
                         'current' => 0,
                         'previous' => -1,
                         'next' => -1,
-                        'last' => -20,
-                        'total' => 0,
-                        'pageFirst' => 0,
-                        'pageLast' => 0,
+                        'last' => 0,
+                        'total' => 3,
+                        'pageFirst' => 1,
+                        'pageLast' => 3,
                     ],
-                    'recordIds' => [],
+                    'recordIds' => [
+                        [
+                            'id' => '1cf4248e-390b-813f-a526-67f0257c98ba',
+                        ],
+                        [
+                            'id' => '2b65ad8c-023a-d6f4-7100-67f96a3d011e',
+                        ],
+                        [
+                            'id' => 'b3a8f49a-57f8-99eb-38ed-67fc059f078a',
+                        ],
+                    ],
                 ],
                 'contacts-recordview-show-sidebar-widgets' => false,
                 'invoices-recordview-current-record-pagination' => [
