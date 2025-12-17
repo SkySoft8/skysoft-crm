@@ -14,7 +14,7 @@ class OrganizationConfig
     private $displayname;
     private $url;
     private $_usedProperties = [];
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -24,10 +24,10 @@ class OrganizationConfig
     {
         $this->_usedProperties['name'] = true;
         $this->name = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -37,10 +37,10 @@ class OrganizationConfig
     {
         $this->_usedProperties['displayname'] = true;
         $this->displayname = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -50,10 +50,10 @@ class OrganizationConfig
     {
         $this->_usedProperties['url'] = true;
         $this->url = $value;
-    
+
         return $this;
     }
-    
+
     public function __construct(array $value = [])
     {
         if (array_key_exists('name', $value)) {
@@ -61,24 +61,24 @@ class OrganizationConfig
             $this->name = $value['name'];
             unset($value['name']);
         }
-    
+
         if (array_key_exists('displayname', $value)) {
             $this->_usedProperties['displayname'] = true;
             $this->displayname = $value['displayname'];
             unset($value['displayname']);
         }
-    
+
         if (array_key_exists('url', $value)) {
             $this->_usedProperties['url'] = true;
             $this->url = $value['url'];
             unset($value['url']);
         }
-    
+
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-    
+
     public function toArray(): array
     {
         $output = [];
@@ -91,7 +91,7 @@ class OrganizationConfig
         if (isset($this->_usedProperties['url'])) {
             $output['url'] = $this->url;
         }
-    
+
         return $output;
     }
 

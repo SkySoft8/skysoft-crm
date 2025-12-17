@@ -1,5 +1,4 @@
 <?php
-
 /**
  * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
  * Copyright (C) 2021 SalesAgility Ltd.
@@ -26,7 +25,7 @@
  * the words "Supercharged by SuiteCRM".
  */
 
-require_once __DIR__  . '/FieldMapperInterface.php';
+require_once __DIR__  .'/FieldMapperInterface.php';
 
 class AssignedUserMapper implements FieldMapperInterface
 {
@@ -57,14 +56,13 @@ class AssignedUserMapper implements FieldMapperInterface
             return;
         }
 
+        $container[$name] = get_user_name($bean->assigned_user_id);
+
         $assignedUser = BeanFactory::getBean('Users', $bean->assigned_user_id);
 
-        $userName = $assignedUser->user_name;
         if (!empty(showFullName())) {
-            $userName = $assignedUser->full_name;
+            $container['full_name'] = $assignedUser->full_name ?? '';
         }
-
-        $container[$name] = $assignedUser->full_name;
     }
 
     /**

@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 14:29:34
+// created: 2025-11-07 15:41:46
 $mod_strings = array (
   'LBL_MODULE_NAME' => 'Project',
   'LBL_MODULE_TITLE' => 'Projects: Home',
@@ -125,6 +125,7 @@ $mod_strings = array (
   'LBL_PROJECT_CONTACTS_1_FROM_CONTACTS_TITLE' => 'Project Contacts from Contacts Title',
   'LBL_AM_PROJECTTEMPLATES_PROJECT_1_FROM_PROJECT_TITLE' => 'Project Templates: Project from Project Title',
   'LBL_AOS_QUOTES_PROJECT' => 'Quotes: Project',
+  'LBL_TASKS_NOT_FOUND' => 'There are no Tasks to build the Gantt Table',
   'LBL_ASCENDING' => 'Ascending',
   'LBL_DESCENDING' => 'Descending',
 );

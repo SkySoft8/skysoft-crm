@@ -4,11 +4,1802 @@
 
 return [[
 
-'App__Module__Users__Entity__User__CLASSMETADATA__' => 0,
+'App__MediaObjects__Entity__ArchivedDocumentMediaObject__CLASSMETADATA__' => 0,
+'App__MediaObjects__Entity__PrivateDocumentMediaObject__CLASSMETADATA__' => 1,
+'App__MediaObjects__Entity__PrivateImageMediaObject__CLASSMETADATA__' => 2,
+'App__MediaObjects__Entity__PublicDocumentMediaObject__CLASSMETADATA__' => 3,
+'App__MediaObjects__Entity__PublicImageMediaObject__CLASSMETADATA__' => 4,
+'App__Module__Users__Entity__User__CLASSMETADATA__' => 5,
+'Vich__UploaderBundle__Entity__File__CLASSMETADATA__' => 6,
 
 ], [
 
 0 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+            clone ($p['Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator')),
+            clone ($p['Symfony\\Component\\Uid\\Factory\\UuidFactory'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Uid\\Factory\\UuidFactory')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'name' => [
+                    'App\\MediaObjects\\Entity\\ArchivedDocumentMediaObject',
+                ],
+                'namespace' => [
+                    'App\\MediaObjects\\Entity',
+                ],
+                'rootEntityName' => [
+                    'App\\MediaObjects\\Entity\\ArchivedDocumentMediaObject',
+                ],
+                'customGeneratorDefinition' => [
+                    [
+                        'class' => 'Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator',
+                    ],
+                ],
+                'customRepositoryClassName' => [
+                    'App\\MediaObjects\\Entity\\ArchivedDocumentMediaObject',
+                ],
+                'identifier' => [
+                    [
+                        'id',
+                    ],
+                ],
+                'generatorType' => [
+                    7,
+                ],
+                'fieldMappings' => [
+                    [
+                        'id' => [
+                            'fieldName' => 'id',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => false,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'id',
+                            'id' => true,
+                        ],
+                        'filePath' => [
+                            'fieldName' => 'filePath',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'file_path',
+                        ],
+                        'size' => [
+                            'fieldName' => 'size',
+                            'type' => 'integer',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'size',
+                        ],
+                        'mimeType' => [
+                            'fieldName' => 'mimeType',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'mime_type',
+                        ],
+                        'originalName' => [
+                            'fieldName' => 'originalName',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'original_name',
+                        ],
+                        'dimensions' => [
+                            'fieldName' => 'dimensions',
+                            'type' => 'json',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'columnName' => 'dimensions',
+                        ],
+                        'parentType' => [
+                            'fieldName' => 'parentType',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 100,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'parent_type',
+                        ],
+                        'parentId' => [
+                            'fieldName' => 'parentId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'parent_id',
+                        ],
+                        'parentField' => [
+                            'fieldName' => 'parentField',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'parent_field',
+                        ],
+                        'temporary' => [
+                            'fieldName' => 'temporary',
+                            'type' => 'boolean',
+                            'scale' => null,
+                            'length' => 1,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => 0,
+                            ],
+                            'columnName' => 'temporary',
+                        ],
+                        'name' => [
+                            'fieldName' => 'name',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'name',
+                        ],
+                        'dateEntered' => [
+                            'fieldName' => 'dateEntered',
+                            'type' => 'datetime',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'date_entered',
+                        ],
+                        'dateModified' => [
+                            'fieldName' => 'dateModified',
+                            'type' => 'datetime',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'date_modified',
+                        ],
+                        'modifiedUserId' => [
+                            'fieldName' => 'modifiedUserId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'modified_user_id',
+                        ],
+                        'createdBy' => [
+                            'fieldName' => 'createdBy',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'created_by',
+                        ],
+                        'description' => [
+                            'fieldName' => 'description',
+                            'type' => 'standard_text',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'description',
+                        ],
+                        'deleted' => [
+                            'fieldName' => 'deleted',
+                            'type' => 'boolean',
+                            'scale' => null,
+                            'length' => 1,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => 0,
+                            ],
+                            'columnName' => 'deleted',
+                        ],
+                        'assignedUserId' => [
+                            'fieldName' => 'assignedUserId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'assigned_user_id',
+                        ],
+                    ],
+                ],
+                'fieldNames' => [
+                    [
+                        'id' => 'id',
+                        'file_path' => 'filePath',
+                        'size' => 'size',
+                        'mime_type' => 'mimeType',
+                        'original_name' => 'originalName',
+                        'dimensions' => 'dimensions',
+                        'parent_type' => 'parentType',
+                        'parent_id' => 'parentId',
+                        'parent_field' => 'parentField',
+                        'temporary' => 'temporary',
+                        'name' => 'name',
+                        'date_entered' => 'dateEntered',
+                        'date_modified' => 'dateModified',
+                        'modified_user_id' => 'modifiedUserId',
+                        'created_by' => 'createdBy',
+                        'description' => 'description',
+                        'deleted' => 'deleted',
+                        'assigned_user_id' => 'assignedUserId',
+                    ],
+                ],
+                'columnNames' => [
+                    [
+                        'id' => 'id',
+                        'filePath' => 'file_path',
+                        'size' => 'size',
+                        'mimeType' => 'mime_type',
+                        'originalName' => 'original_name',
+                        'dimensions' => 'dimensions',
+                        'parentType' => 'parent_type',
+                        'parentId' => 'parent_id',
+                        'parentField' => 'parent_field',
+                        'temporary' => 'temporary',
+                        'name' => 'name',
+                        'dateEntered' => 'date_entered',
+                        'dateModified' => 'date_modified',
+                        'modifiedUserId' => 'modified_user_id',
+                        'createdBy' => 'created_by',
+                        'description' => 'description',
+                        'deleted' => 'deleted',
+                        'assignedUserId' => 'assigned_user_id',
+                    ],
+                ],
+                'table' => [
+                    [
+                        'name' => 'archived_documents_media_objects',
+                    ],
+                ],
+                'idGenerator' => [
+                    $o[1],
+                ],
+            ],
+            'Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator' => [
+                'protoFactory' => [
+                    1 => $o[2],
+                ],
+                'factory' => [
+                    1 => $o[2],
+                ],
+            ],
+            'Symfony\\Component\\Uid\\Factory\\UuidFactory' => [
+                'defaultClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV6',
+                ],
+                'timeBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV6',
+                ],
+                'nameBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV5',
+                ],
+                'randomBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV4',
+                ],
+                'timeBasedNode' => [
+                    2 => null,
+                ],
+                'nameBasedNamespace' => [
+                    2 => null,
+                ],
+            ],
+        ],
+        $o[0],
+        []
+    );
+},
+1 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+            clone ($p['Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator')),
+            clone ($p['Symfony\\Component\\Uid\\Factory\\UuidFactory'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Uid\\Factory\\UuidFactory')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'name' => [
+                    'App\\MediaObjects\\Entity\\PrivateDocumentMediaObject',
+                ],
+                'namespace' => [
+                    'App\\MediaObjects\\Entity',
+                ],
+                'rootEntityName' => [
+                    'App\\MediaObjects\\Entity\\PrivateDocumentMediaObject',
+                ],
+                'customGeneratorDefinition' => [
+                    [
+                        'class' => 'Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator',
+                    ],
+                ],
+                'customRepositoryClassName' => [
+                    'App\\MediaObjects\\Repository\\PrivateImageMediaObjectRepository',
+                ],
+                'identifier' => [
+                    [
+                        'id',
+                    ],
+                ],
+                'generatorType' => [
+                    7,
+                ],
+                'fieldMappings' => [
+                    [
+                        'id' => [
+                            'fieldName' => 'id',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => false,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'id',
+                            'id' => true,
+                        ],
+                        'filePath' => [
+                            'fieldName' => 'filePath',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'file_path',
+                        ],
+                        'size' => [
+                            'fieldName' => 'size',
+                            'type' => 'integer',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'size',
+                        ],
+                        'mimeType' => [
+                            'fieldName' => 'mimeType',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'mime_type',
+                        ],
+                        'originalName' => [
+                            'fieldName' => 'originalName',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'original_name',
+                        ],
+                        'dimensions' => [
+                            'fieldName' => 'dimensions',
+                            'type' => 'json',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'columnName' => 'dimensions',
+                        ],
+                        'parentType' => [
+                            'fieldName' => 'parentType',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 100,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'parent_type',
+                        ],
+                        'parentId' => [
+                            'fieldName' => 'parentId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'parent_id',
+                        ],
+                        'parentField' => [
+                            'fieldName' => 'parentField',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'parent_field',
+                        ],
+                        'temporary' => [
+                            'fieldName' => 'temporary',
+                            'type' => 'boolean',
+                            'scale' => null,
+                            'length' => 1,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => 0,
+                            ],
+                            'columnName' => 'temporary',
+                        ],
+                        'name' => [
+                            'fieldName' => 'name',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'name',
+                        ],
+                        'dateEntered' => [
+                            'fieldName' => 'dateEntered',
+                            'type' => 'datetime',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'date_entered',
+                        ],
+                        'dateModified' => [
+                            'fieldName' => 'dateModified',
+                            'type' => 'datetime',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'date_modified',
+                        ],
+                        'modifiedUserId' => [
+                            'fieldName' => 'modifiedUserId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'modified_user_id',
+                        ],
+                        'createdBy' => [
+                            'fieldName' => 'createdBy',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'created_by',
+                        ],
+                        'description' => [
+                            'fieldName' => 'description',
+                            'type' => 'standard_text',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'description',
+                        ],
+                        'deleted' => [
+                            'fieldName' => 'deleted',
+                            'type' => 'boolean',
+                            'scale' => null,
+                            'length' => 1,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => 0,
+                            ],
+                            'columnName' => 'deleted',
+                        ],
+                        'assignedUserId' => [
+                            'fieldName' => 'assignedUserId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'assigned_user_id',
+                        ],
+                    ],
+                ],
+                'fieldNames' => [
+                    [
+                        'id' => 'id',
+                        'file_path' => 'filePath',
+                        'size' => 'size',
+                        'mime_type' => 'mimeType',
+                        'original_name' => 'originalName',
+                        'dimensions' => 'dimensions',
+                        'parent_type' => 'parentType',
+                        'parent_id' => 'parentId',
+                        'parent_field' => 'parentField',
+                        'temporary' => 'temporary',
+                        'name' => 'name',
+                        'date_entered' => 'dateEntered',
+                        'date_modified' => 'dateModified',
+                        'modified_user_id' => 'modifiedUserId',
+                        'created_by' => 'createdBy',
+                        'description' => 'description',
+                        'deleted' => 'deleted',
+                        'assigned_user_id' => 'assignedUserId',
+                    ],
+                ],
+                'columnNames' => [
+                    [
+                        'id' => 'id',
+                        'filePath' => 'file_path',
+                        'size' => 'size',
+                        'mimeType' => 'mime_type',
+                        'originalName' => 'original_name',
+                        'dimensions' => 'dimensions',
+                        'parentType' => 'parent_type',
+                        'parentId' => 'parent_id',
+                        'parentField' => 'parent_field',
+                        'temporary' => 'temporary',
+                        'name' => 'name',
+                        'dateEntered' => 'date_entered',
+                        'dateModified' => 'date_modified',
+                        'modifiedUserId' => 'modified_user_id',
+                        'createdBy' => 'created_by',
+                        'description' => 'description',
+                        'deleted' => 'deleted',
+                        'assignedUserId' => 'assigned_user_id',
+                    ],
+                ],
+                'table' => [
+                    [
+                        'name' => 'private_documents_media_objects',
+                    ],
+                ],
+                'idGenerator' => [
+                    $o[1],
+                ],
+            ],
+            'Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator' => [
+                'protoFactory' => [
+                    1 => $o[2],
+                ],
+                'factory' => [
+                    1 => $o[2],
+                ],
+            ],
+            'Symfony\\Component\\Uid\\Factory\\UuidFactory' => [
+                'defaultClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV6',
+                ],
+                'timeBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV6',
+                ],
+                'nameBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV5',
+                ],
+                'randomBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV4',
+                ],
+                'timeBasedNode' => [
+                    2 => null,
+                ],
+                'nameBasedNamespace' => [
+                    2 => null,
+                ],
+            ],
+        ],
+        $o[0],
+        []
+    );
+},
+2 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+            clone ($p['Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator')),
+            clone ($p['Symfony\\Component\\Uid\\Factory\\UuidFactory'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Uid\\Factory\\UuidFactory')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'name' => [
+                    'App\\MediaObjects\\Entity\\PrivateImageMediaObject',
+                ],
+                'namespace' => [
+                    'App\\MediaObjects\\Entity',
+                ],
+                'rootEntityName' => [
+                    'App\\MediaObjects\\Entity\\PrivateImageMediaObject',
+                ],
+                'customGeneratorDefinition' => [
+                    [
+                        'class' => 'Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator',
+                    ],
+                ],
+                'customRepositoryClassName' => [
+                    'App\\MediaObjects\\Repository\\PrivateImageMediaObjectRepository',
+                ],
+                'identifier' => [
+                    [
+                        'id',
+                    ],
+                ],
+                'generatorType' => [
+                    7,
+                ],
+                'fieldMappings' => [
+                    [
+                        'id' => [
+                            'fieldName' => 'id',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => false,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'id',
+                            'id' => true,
+                        ],
+                        'filePath' => [
+                            'fieldName' => 'filePath',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'file_path',
+                        ],
+                        'size' => [
+                            'fieldName' => 'size',
+                            'type' => 'integer',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'size',
+                        ],
+                        'mimeType' => [
+                            'fieldName' => 'mimeType',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'mime_type',
+                        ],
+                        'originalName' => [
+                            'fieldName' => 'originalName',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'original_name',
+                        ],
+                        'dimensions' => [
+                            'fieldName' => 'dimensions',
+                            'type' => 'json',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'columnName' => 'dimensions',
+                        ],
+                        'parentType' => [
+                            'fieldName' => 'parentType',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 100,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'parent_type',
+                        ],
+                        'parentId' => [
+                            'fieldName' => 'parentId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'parent_id',
+                        ],
+                        'parentField' => [
+                            'fieldName' => 'parentField',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'parent_field',
+                        ],
+                        'temporary' => [
+                            'fieldName' => 'temporary',
+                            'type' => 'boolean',
+                            'scale' => null,
+                            'length' => 1,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => 0,
+                            ],
+                            'columnName' => 'temporary',
+                        ],
+                        'name' => [
+                            'fieldName' => 'name',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'name',
+                        ],
+                        'dateEntered' => [
+                            'fieldName' => 'dateEntered',
+                            'type' => 'datetime',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'date_entered',
+                        ],
+                        'dateModified' => [
+                            'fieldName' => 'dateModified',
+                            'type' => 'datetime',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'date_modified',
+                        ],
+                        'modifiedUserId' => [
+                            'fieldName' => 'modifiedUserId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'modified_user_id',
+                        ],
+                        'createdBy' => [
+                            'fieldName' => 'createdBy',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'created_by',
+                        ],
+                        'description' => [
+                            'fieldName' => 'description',
+                            'type' => 'standard_text',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'description',
+                        ],
+                        'deleted' => [
+                            'fieldName' => 'deleted',
+                            'type' => 'boolean',
+                            'scale' => null,
+                            'length' => 1,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => 0,
+                            ],
+                            'columnName' => 'deleted',
+                        ],
+                        'assignedUserId' => [
+                            'fieldName' => 'assignedUserId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'assigned_user_id',
+                        ],
+                    ],
+                ],
+                'fieldNames' => [
+                    [
+                        'id' => 'id',
+                        'file_path' => 'filePath',
+                        'size' => 'size',
+                        'mime_type' => 'mimeType',
+                        'original_name' => 'originalName',
+                        'dimensions' => 'dimensions',
+                        'parent_type' => 'parentType',
+                        'parent_id' => 'parentId',
+                        'parent_field' => 'parentField',
+                        'temporary' => 'temporary',
+                        'name' => 'name',
+                        'date_entered' => 'dateEntered',
+                        'date_modified' => 'dateModified',
+                        'modified_user_id' => 'modifiedUserId',
+                        'created_by' => 'createdBy',
+                        'description' => 'description',
+                        'deleted' => 'deleted',
+                        'assigned_user_id' => 'assignedUserId',
+                    ],
+                ],
+                'columnNames' => [
+                    [
+                        'id' => 'id',
+                        'filePath' => 'file_path',
+                        'size' => 'size',
+                        'mimeType' => 'mime_type',
+                        'originalName' => 'original_name',
+                        'dimensions' => 'dimensions',
+                        'parentType' => 'parent_type',
+                        'parentId' => 'parent_id',
+                        'parentField' => 'parent_field',
+                        'temporary' => 'temporary',
+                        'name' => 'name',
+                        'dateEntered' => 'date_entered',
+                        'dateModified' => 'date_modified',
+                        'modifiedUserId' => 'modified_user_id',
+                        'createdBy' => 'created_by',
+                        'description' => 'description',
+                        'deleted' => 'deleted',
+                        'assignedUserId' => 'assigned_user_id',
+                    ],
+                ],
+                'table' => [
+                    [
+                        'name' => 'private_images_media_objects',
+                    ],
+                ],
+                'idGenerator' => [
+                    $o[1],
+                ],
+            ],
+            'Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator' => [
+                'protoFactory' => [
+                    1 => $o[2],
+                ],
+                'factory' => [
+                    1 => $o[2],
+                ],
+            ],
+            'Symfony\\Component\\Uid\\Factory\\UuidFactory' => [
+                'defaultClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV6',
+                ],
+                'timeBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV6',
+                ],
+                'nameBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV5',
+                ],
+                'randomBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV4',
+                ],
+                'timeBasedNode' => [
+                    2 => null,
+                ],
+                'nameBasedNamespace' => [
+                    2 => null,
+                ],
+            ],
+        ],
+        $o[0],
+        []
+    );
+},
+3 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+            clone ($p['Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator')),
+            clone ($p['Symfony\\Component\\Uid\\Factory\\UuidFactory'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Uid\\Factory\\UuidFactory')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'name' => [
+                    'App\\MediaObjects\\Entity\\PublicDocumentMediaObject',
+                ],
+                'namespace' => [
+                    'App\\MediaObjects\\Entity',
+                ],
+                'rootEntityName' => [
+                    'App\\MediaObjects\\Entity\\PublicDocumentMediaObject',
+                ],
+                'customGeneratorDefinition' => [
+                    [
+                        'class' => 'Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator',
+                    ],
+                ],
+                'customRepositoryClassName' => [
+                    'App\\MediaObjects\\Repository\\PublicDocumentMediaObjectRepository',
+                ],
+                'identifier' => [
+                    [
+                        'id',
+                    ],
+                ],
+                'generatorType' => [
+                    7,
+                ],
+                'fieldMappings' => [
+                    [
+                        'id' => [
+                            'fieldName' => 'id',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => false,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'id',
+                            'id' => true,
+                        ],
+                        'filePath' => [
+                            'fieldName' => 'filePath',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'file_path',
+                        ],
+                        'size' => [
+                            'fieldName' => 'size',
+                            'type' => 'integer',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'size',
+                        ],
+                        'mimeType' => [
+                            'fieldName' => 'mimeType',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'mime_type',
+                        ],
+                        'originalName' => [
+                            'fieldName' => 'originalName',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'original_name',
+                        ],
+                        'dimensions' => [
+                            'fieldName' => 'dimensions',
+                            'type' => 'json',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'columnName' => 'dimensions',
+                        ],
+                        'parentType' => [
+                            'fieldName' => 'parentType',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 100,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'parent_type',
+                        ],
+                        'parentId' => [
+                            'fieldName' => 'parentId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'parent_id',
+                        ],
+                        'parentField' => [
+                            'fieldName' => 'parentField',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'parent_field',
+                        ],
+                        'temporary' => [
+                            'fieldName' => 'temporary',
+                            'type' => 'boolean',
+                            'scale' => null,
+                            'length' => 1,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => 0,
+                            ],
+                            'columnName' => 'temporary',
+                        ],
+                        'name' => [
+                            'fieldName' => 'name',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'name',
+                        ],
+                        'dateEntered' => [
+                            'fieldName' => 'dateEntered',
+                            'type' => 'datetime',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'date_entered',
+                        ],
+                        'dateModified' => [
+                            'fieldName' => 'dateModified',
+                            'type' => 'datetime',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'date_modified',
+                        ],
+                        'modifiedUserId' => [
+                            'fieldName' => 'modifiedUserId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'modified_user_id',
+                        ],
+                        'createdBy' => [
+                            'fieldName' => 'createdBy',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'created_by',
+                        ],
+                        'description' => [
+                            'fieldName' => 'description',
+                            'type' => 'standard_text',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'description',
+                        ],
+                        'deleted' => [
+                            'fieldName' => 'deleted',
+                            'type' => 'boolean',
+                            'scale' => null,
+                            'length' => 1,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => 0,
+                            ],
+                            'columnName' => 'deleted',
+                        ],
+                        'assignedUserId' => [
+                            'fieldName' => 'assignedUserId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'assigned_user_id',
+                        ],
+                    ],
+                ],
+                'fieldNames' => [
+                    [
+                        'id' => 'id',
+                        'file_path' => 'filePath',
+                        'size' => 'size',
+                        'mime_type' => 'mimeType',
+                        'original_name' => 'originalName',
+                        'dimensions' => 'dimensions',
+                        'parent_type' => 'parentType',
+                        'parent_id' => 'parentId',
+                        'parent_field' => 'parentField',
+                        'temporary' => 'temporary',
+                        'name' => 'name',
+                        'date_entered' => 'dateEntered',
+                        'date_modified' => 'dateModified',
+                        'modified_user_id' => 'modifiedUserId',
+                        'created_by' => 'createdBy',
+                        'description' => 'description',
+                        'deleted' => 'deleted',
+                        'assigned_user_id' => 'assignedUserId',
+                    ],
+                ],
+                'columnNames' => [
+                    [
+                        'id' => 'id',
+                        'filePath' => 'file_path',
+                        'size' => 'size',
+                        'mimeType' => 'mime_type',
+                        'originalName' => 'original_name',
+                        'dimensions' => 'dimensions',
+                        'parentType' => 'parent_type',
+                        'parentId' => 'parent_id',
+                        'parentField' => 'parent_field',
+                        'temporary' => 'temporary',
+                        'name' => 'name',
+                        'dateEntered' => 'date_entered',
+                        'dateModified' => 'date_modified',
+                        'modifiedUserId' => 'modified_user_id',
+                        'createdBy' => 'created_by',
+                        'description' => 'description',
+                        'deleted' => 'deleted',
+                        'assignedUserId' => 'assigned_user_id',
+                    ],
+                ],
+                'table' => [
+                    [
+                        'name' => 'public_documents_media_objects',
+                    ],
+                ],
+                'idGenerator' => [
+                    $o[1],
+                ],
+            ],
+            'Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator' => [
+                'protoFactory' => [
+                    1 => $o[2],
+                ],
+                'factory' => [
+                    1 => $o[2],
+                ],
+            ],
+            'Symfony\\Component\\Uid\\Factory\\UuidFactory' => [
+                'defaultClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV6',
+                ],
+                'timeBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV6',
+                ],
+                'nameBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV5',
+                ],
+                'randomBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV4',
+                ],
+                'timeBasedNode' => [
+                    2 => null,
+                ],
+                'nameBasedNamespace' => [
+                    2 => null,
+                ],
+            ],
+        ],
+        $o[0],
+        []
+    );
+},
+4 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+            clone ($p['Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator')),
+            clone ($p['Symfony\\Component\\Uid\\Factory\\UuidFactory'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Uid\\Factory\\UuidFactory')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'name' => [
+                    'App\\MediaObjects\\Entity\\PublicImageMediaObject',
+                ],
+                'namespace' => [
+                    'App\\MediaObjects\\Entity',
+                ],
+                'rootEntityName' => [
+                    'App\\MediaObjects\\Entity\\PublicImageMediaObject',
+                ],
+                'customGeneratorDefinition' => [
+                    [
+                        'class' => 'Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator',
+                    ],
+                ],
+                'customRepositoryClassName' => [
+                    'App\\MediaObjects\\Repository\\PublicImageMediaObjectRepository',
+                ],
+                'identifier' => [
+                    [
+                        'id',
+                    ],
+                ],
+                'generatorType' => [
+                    7,
+                ],
+                'fieldMappings' => [
+                    [
+                        'id' => [
+                            'fieldName' => 'id',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => false,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'id',
+                            'id' => true,
+                        ],
+                        'filePath' => [
+                            'fieldName' => 'filePath',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'file_path',
+                        ],
+                        'size' => [
+                            'fieldName' => 'size',
+                            'type' => 'integer',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'size',
+                        ],
+                        'mimeType' => [
+                            'fieldName' => 'mimeType',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'mime_type',
+                        ],
+                        'originalName' => [
+                            'fieldName' => 'originalName',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'original_name',
+                        ],
+                        'dimensions' => [
+                            'fieldName' => 'dimensions',
+                            'type' => 'json',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'columnName' => 'dimensions',
+                        ],
+                        'parentType' => [
+                            'fieldName' => 'parentType',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 100,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'parent_type',
+                        ],
+                        'parentId' => [
+                            'fieldName' => 'parentId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'parent_id',
+                        ],
+                        'parentField' => [
+                            'fieldName' => 'parentField',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'parent_field',
+                        ],
+                        'temporary' => [
+                            'fieldName' => 'temporary',
+                            'type' => 'boolean',
+                            'scale' => null,
+                            'length' => 1,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => 0,
+                            ],
+                            'columnName' => 'temporary',
+                        ],
+                        'name' => [
+                            'fieldName' => 'name',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'name',
+                        ],
+                        'dateEntered' => [
+                            'fieldName' => 'dateEntered',
+                            'type' => 'datetime',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'date_entered',
+                        ],
+                        'dateModified' => [
+                            'fieldName' => 'dateModified',
+                            'type' => 'datetime',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'date_modified',
+                        ],
+                        'modifiedUserId' => [
+                            'fieldName' => 'modifiedUserId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'modified_user_id',
+                        ],
+                        'createdBy' => [
+                            'fieldName' => 'createdBy',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'created_by',
+                        ],
+                        'description' => [
+                            'fieldName' => 'description',
+                            'type' => 'standard_text',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => null,
+                            ],
+                            'columnName' => 'description',
+                        ],
+                        'deleted' => [
+                            'fieldName' => 'deleted',
+                            'type' => 'boolean',
+                            'scale' => null,
+                            'length' => 1,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'default' => 0,
+                            ],
+                            'columnName' => 'deleted',
+                        ],
+                        'assignedUserId' => [
+                            'fieldName' => 'assignedUserId',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 36,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'options' => [
+                                'fixed' => true,
+                            ],
+                            'columnName' => 'assigned_user_id',
+                        ],
+                    ],
+                ],
+                'fieldNames' => [
+                    [
+                        'id' => 'id',
+                        'file_path' => 'filePath',
+                        'size' => 'size',
+                        'mime_type' => 'mimeType',
+                        'original_name' => 'originalName',
+                        'dimensions' => 'dimensions',
+                        'parent_type' => 'parentType',
+                        'parent_id' => 'parentId',
+                        'parent_field' => 'parentField',
+                        'temporary' => 'temporary',
+                        'name' => 'name',
+                        'date_entered' => 'dateEntered',
+                        'date_modified' => 'dateModified',
+                        'modified_user_id' => 'modifiedUserId',
+                        'created_by' => 'createdBy',
+                        'description' => 'description',
+                        'deleted' => 'deleted',
+                        'assigned_user_id' => 'assignedUserId',
+                    ],
+                ],
+                'columnNames' => [
+                    [
+                        'id' => 'id',
+                        'filePath' => 'file_path',
+                        'size' => 'size',
+                        'mimeType' => 'mime_type',
+                        'originalName' => 'original_name',
+                        'dimensions' => 'dimensions',
+                        'parentType' => 'parent_type',
+                        'parentId' => 'parent_id',
+                        'parentField' => 'parent_field',
+                        'temporary' => 'temporary',
+                        'name' => 'name',
+                        'dateEntered' => 'date_entered',
+                        'dateModified' => 'date_modified',
+                        'modifiedUserId' => 'modified_user_id',
+                        'createdBy' => 'created_by',
+                        'description' => 'description',
+                        'deleted' => 'deleted',
+                        'assignedUserId' => 'assigned_user_id',
+                    ],
+                ],
+                'table' => [
+                    [
+                        'name' => 'public_images_media_objects',
+                    ],
+                ],
+                'idGenerator' => [
+                    $o[1],
+                ],
+            ],
+            'Symfony\\Bridge\\Doctrine\\IdGenerator\\UuidGenerator' => [
+                'protoFactory' => [
+                    1 => $o[2],
+                ],
+                'factory' => [
+                    1 => $o[2],
+                ],
+            ],
+            'Symfony\\Component\\Uid\\Factory\\UuidFactory' => [
+                'defaultClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV6',
+                ],
+                'timeBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV6',
+                ],
+                'nameBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV5',
+                ],
+                'randomBasedClass' => [
+                    2 => 'Symfony\\Component\\Uid\\UuidV4',
+                ],
+                'timeBasedNode' => [
+                    2 => null,
+                ],
+                'nameBasedNamespace' => [
+                    2 => null,
+                ],
+            ],
+        ],
+        $o[0],
+        []
+    );
+},
+5 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
@@ -46,7 +1837,6 @@ return [[
                             'precision' => null,
                             'options' => [
                                 'fixed' => true,
-                                'collation' => 'utf8_general_ci',
                             ],
                             'columnName' => 'id',
                             'id' => true,
@@ -59,9 +1849,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'user_name',
                         ],
                         'userHash' => [
@@ -72,16 +1859,13 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'user_hash',
                         ],
                         'systemGeneratedPassword' => [
                             'fieldName' => 'systemGeneratedPassword',
                             'type' => 'boolean',
                             'scale' => null,
-                            'length' => null,
+                            'length' => 1,
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
@@ -105,21 +1889,18 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'authenticate_id',
                         ],
                         'sugarLogin' => [
                             'fieldName' => 'sugarLogin',
                             'type' => 'boolean',
                             'scale' => null,
-                            'length' => null,
+                            'length' => 1,
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
                             'options' => [
-                                'default' => '1',
+                                'default' => 1,
                             ],
                             'columnName' => 'sugar_login',
                         ],
@@ -131,9 +1912,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'first_name',
                         ],
                         'lastName' => [
@@ -144,21 +1922,18 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'last_name',
                         ],
                         'isAdmin' => [
                             'fieldName' => 'isAdmin',
                             'type' => 'boolean',
                             'scale' => null,
-                            'length' => null,
+                            'length' => 1,
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
                             'options' => [
-                                'default' => '0',
+                                'default' => 0,
                             ],
                             'columnName' => 'is_admin',
                         ],
@@ -166,12 +1941,12 @@ return [[
                             'fieldName' => 'externalAuthOnly',
                             'type' => 'boolean',
                             'scale' => null,
-                            'length' => null,
+                            'length' => 1,
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
                             'options' => [
-                                'default' => '0',
+                                'default' => 0,
                             ],
                             'columnName' => 'external_auth_only',
                         ],
@@ -179,12 +1954,12 @@ return [[
                             'fieldName' => 'receiveNotifications',
                             'type' => 'boolean',
                             'scale' => null,
-                            'length' => null,
+                            'length' => 1,
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
                             'options' => [
-                                'default' => '1',
+                                'default' => 1,
                             ],
                             'columnName' => 'receive_notifications',
                         ],
@@ -196,9 +1971,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'description',
                         ],
                         'dateEntered' => [
@@ -231,7 +2003,6 @@ return [[
                             'precision' => null,
                             'options' => [
                                 'fixed' => true,
-                                'collation' => 'utf8_general_ci',
                             ],
                             'columnName' => 'modified_user_id',
                         ],
@@ -245,7 +2016,6 @@ return [[
                             'precision' => null,
                             'options' => [
                                 'fixed' => true,
-                                'collation' => 'utf8_general_ci',
                             ],
                             'columnName' => 'created_by',
                         ],
@@ -257,9 +2027,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'title',
                         ],
                         'photo' => [
@@ -270,9 +2037,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'photo',
                         ],
                         'department' => [
@@ -283,9 +2047,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'department',
                         ],
                         'phoneHome' => [
@@ -296,9 +2057,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'phone_home',
                         ],
                         'phoneMobile' => [
@@ -309,9 +2067,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'phone_mobile',
                         ],
                         'phoneWork' => [
@@ -322,9 +2077,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'phone_work',
                         ],
                         'phoneOther' => [
@@ -335,9 +2087,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'phone_other',
                         ],
                         'phoneFax' => [
@@ -348,9 +2097,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'phone_fax',
                         ],
                         'status' => [
@@ -361,9 +2107,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'status',
                         ],
                         'addressStreet' => [
@@ -374,9 +2117,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'address_street',
                         ],
                         'addressCity' => [
@@ -387,9 +2127,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'address_city',
                         ],
                         'addressState' => [
@@ -400,9 +2137,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'address_state',
                         ],
                         'addressCountry' => [
@@ -413,9 +2147,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'address_country',
                         ],
                         'addressPostalcode' => [
@@ -426,16 +2157,13 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'address_postalcode',
                         ],
                         'deleted' => [
                             'fieldName' => 'deleted',
                             'type' => 'boolean',
                             'scale' => null,
-                            'length' => null,
+                            'length' => 1,
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
@@ -445,12 +2173,12 @@ return [[
                             'fieldName' => 'portalOnly',
                             'type' => 'boolean',
                             'scale' => null,
-                            'length' => null,
+                            'length' => 1,
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
                             'options' => [
-                                'default' => '0',
+                                'default' => 0,
                             ],
                             'columnName' => 'portal_only',
                         ],
@@ -458,12 +2186,12 @@ return [[
                             'fieldName' => 'showOnEmployees',
                             'type' => 'boolean',
                             'scale' => null,
-                            'length' => null,
+                            'length' => 1,
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
                             'options' => [
-                                'default' => '1',
+                                'default' => 1,
                             ],
                             'columnName' => 'show_on_employees',
                         ],
@@ -475,9 +2203,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'employee_status',
                         ],
                         'messengerId' => [
@@ -488,9 +2213,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'messenger_id',
                         ],
                         'messengerType' => [
@@ -501,9 +2223,6 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'messenger_type',
                         ],
                         'reportsToId' => [
@@ -516,7 +2235,6 @@ return [[
                             'precision' => null,
                             'options' => [
                                 'fixed' => true,
-                                'collation' => 'utf8_general_ci',
                             ],
                             'columnName' => 'reports_to_id',
                         ],
@@ -524,7 +2242,7 @@ return [[
                             'fieldName' => 'isGroup',
                             'type' => 'boolean',
                             'scale' => null,
-                            'length' => null,
+                            'length' => 1,
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
@@ -548,10 +2266,37 @@ return [[
                             'unique' => false,
                             'nullable' => true,
                             'precision' => null,
-                            'options' => [
-                                'collation' => 'utf8_general_ci',
-                            ],
                             'columnName' => 'factor_auth_interface',
+                        ],
+                        'totpSecret' => [
+                            'fieldName' => 'totpSecret',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'columnName' => 'totp_secret',
+                        ],
+                        'isTotpEnabled' => [
+                            'fieldName' => 'isTotpEnabled',
+                            'type' => 'boolean',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'columnName' => 'is_totp_enabled',
+                        ],
+                        'backupCodes' => [
+                            'fieldName' => 'backupCodes',
+                            'type' => 'json',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'columnName' => 'backup_codes',
                         ],
                     ],
                 ],
@@ -598,6 +2343,9 @@ return [[
                         'is_group' => 'isGroup',
                         'factor_auth' => 'factorAuth',
                         'factor_auth_interface' => 'factorAuthInterface',
+                        'totp_secret' => 'totpSecret',
+                        'is_totp_enabled' => 'isTotpEnabled',
+                        'backup_codes' => 'backupCodes',
                     ],
                 ],
                 'columnNames' => [
@@ -643,6 +2391,9 @@ return [[
                         'isGroup' => 'is_group',
                         'factorAuth' => 'factor_auth',
                         'factorAuthInterface' => 'factor_auth_interface',
+                        'totpSecret' => 'totp_secret',
+                        'isTotpEnabled' => 'is_totp_enabled',
+                        'backupCodes' => 'backup_codes',
                     ],
                 ],
                 'table' => [
@@ -669,6 +2420,93 @@ return [[
                                 ],
                             ],
                         ],
+                    ],
+                ],
+                'idGenerator' => [
+                    $o[1],
+                ],
+            ],
+        ],
+        $o[0],
+        []
+    );
+},
+6 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+            clone ($p['Doctrine\\ORM\\Id\\AssignedGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\AssignedGenerator')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'name' => [
+                    'Vich\\UploaderBundle\\Entity\\File',
+                ],
+                'namespace' => [
+                    'Vich\\UploaderBundle\\Entity',
+                ],
+                'rootEntityName' => [
+                    'Vich\\UploaderBundle\\Entity\\File',
+                ],
+                'isEmbeddedClass' => [
+                    true,
+                ],
+                'fieldMappings' => [
+                    [
+                        'name' => [
+                            'fieldName' => 'name',
+                            'nullable' => true,
+                            'type' => 'string',
+                            'columnName' => 'name',
+                        ],
+                        'originalName' => [
+                            'fieldName' => 'originalName',
+                            'columnName' => 'original_name',
+                            'nullable' => true,
+                            'type' => 'string',
+                        ],
+                        'mimeType' => [
+                            'fieldName' => 'mimeType',
+                            'columnName' => 'mime_type',
+                            'nullable' => true,
+                            'type' => 'string',
+                        ],
+                        'size' => [
+                            'fieldName' => 'size',
+                            'type' => 'integer',
+                            'nullable' => true,
+                            'columnName' => 'size',
+                        ],
+                        'dimensions' => [
+                            'fieldName' => 'dimensions',
+                            'type' => 'simple_array',
+                            'nullable' => true,
+                            'columnName' => 'dimensions',
+                        ],
+                    ],
+                ],
+                'fieldNames' => [
+                    [
+                        'name' => 'name',
+                        'original_name' => 'originalName',
+                        'mime_type' => 'mimeType',
+                        'size' => 'size',
+                        'dimensions' => 'dimensions',
+                    ],
+                ],
+                'columnNames' => [
+                    [
+                        'name' => 'name',
+                        'originalName' => 'original_name',
+                        'mimeType' => 'mime_type',
+                        'size' => 'size',
+                        'dimensions' => 'dimensions',
+                    ],
+                ],
+                'table' => [
+                    [
+                        'name' => 'file',
                     ],
                 ],
                 'idGenerator' => [

@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 15:02:24
+// created: 2025-11-19 09:05:50
 $mod_strings = array (
   'LBL_MODULE_NAME' => 'Версии документа',
   'LNK_NEW_DOCUMENT' => 'Создать документ',

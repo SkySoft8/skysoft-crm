@@ -1,15 +1,15 @@
 <?php
 $dashletData['TasksDashlet']['searchFields'] = array (
-  'status' => 
-  array (
-    'default' => '',
-  ),
-  'date_due' => 
-  array (
-    'default' => '',
-  ),
 );
 $dashletData['TasksDashlet']['columns'] = array (
+  'set_complete' => 
+  array (
+    'width' => '1%',
+    'label' => 'LBL_LIST_CLOSE',
+    'default' => true,
+    'sortable' => false,
+    'name' => 'set_complete',
+  ),
   'name' => 
   array (
     'width' => '40%',
@@ -17,65 +17,6 @@ $dashletData['TasksDashlet']['columns'] = array (
     'link' => true,
     'default' => true,
     'name' => 'name',
-  ),
-  'status' => 
-  array (
-    'width' => '8%',
-    'label' => 'LBL_STATUS',
-    'default' => true,
-    'name' => 'status',
-  ),
-  'person_view_c' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'label' => 'LBL_PERSON_VIEW',
-    'width' => '10%',
-  ),
-  'sales_stage_c' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'label' => 'LBL_SALES_STAGE',
-    'width' => '10%',
-  ),
-  'date_due' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_DUE_DATE',
-    'default' => true,
-    'name' => 'date_due',
-  ),
-  'assigned_user_name' => 
-  array (
-    'width' => '8%',
-    'label' => 'LBL_LIST_ASSIGNED_USER',
-    'name' => 'assigned_user_name',
-    'default' => true,
-  ),
-  'set_complete' => 
-  array (
-    'width' => '1%',
-    'label' => 'LBL_LIST_CLOSE',
-    'default' => false,
-    'sortable' => false,
-    'name' => 'set_complete',
-  ),
-  'time_start' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_START_TIME',
-    'default' => false,
-    'name' => 'time_start',
-  ),
-  'priority' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_PRIORITY',
-    'default' => false,
-    'name' => 'priority',
   ),
   'parent_name' => 
   array (
@@ -91,8 +32,36 @@ $dashletData['TasksDashlet']['columns'] = array (
       0 => 'parent_id',
       1 => 'parent_type',
     ),
-    'default' => false,
+    'default' => true,
     'name' => 'parent_name',
+  ),
+  'priority' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_PRIORITY',
+    'default' => true,
+    'name' => 'priority',
+  ),
+  'status' => 
+  array (
+    'width' => '8%',
+    'label' => 'LBL_STATUS',
+    'default' => true,
+    'name' => 'status',
+  ),
+  'date_due' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_DUE_DATE',
+    'default' => true,
+    'name' => 'date_due',
+  ),
+  'time_start' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_START_TIME',
+    'default' => false,
+    'name' => 'time_start',
   ),
   'date_entered' => 
   array (
@@ -114,6 +83,13 @@ $dashletData['TasksDashlet']['columns'] = array (
     'label' => 'Создано',
     'sortable' => false,
     'name' => 'created_by',
+    'default' => false,
+  ),
+  'assigned_user_name' => 
+  array (
+    'width' => '8%',
+    'label' => 'LBL_LIST_ASSIGNED_USER',
+    'name' => 'assigned_user_name',
     'default' => false,
   ),
   'contact_name' => 

@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
- * Copyright (C) 2021 SalesAgility Ltd.
+ * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
+ * Copyright (C) 2021 SuiteCRM Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -26,7 +26,12 @@
 
 import {Component, computed, inject, Input, OnDestroy, OnInit, signal, Signal} from '@angular/core';
 import {FieldComponentInterface} from './field.interface';
-import {AttributeDependency, Field, isVoid, ObjectMap, Record, ViewMode} from 'common';
+import {AttributeDependency} from '../../common/record/field.model';
+import {ObjectMap} from '../../common/types/object-map';
+import {isVoid} from '../../common/utils/value-utils';
+import {Field} from '../../common/record/field.model';
+import {ViewMode} from '../../common/views/view.model';
+import {Record} from '../../common/record/record.model';
 import {BehaviorSubject, Observable, Subscription} from 'rxjs';
 import {DataTypeFormatter} from '../../services/formatters/data-type.formatter.service';
 import {debounceTime} from 'rxjs/operators';
@@ -85,7 +90,8 @@ export class BaseFieldComponent implements FieldComponentInterface, OnInit, OnDe
         const defaultValueModes = this?.field?.defaultValueModes ?? [];
         if (defaultValueModes.includes(this.originalMode as ViewMode)) {
             const fieldHandler = this.fieldHandlerRegistry.get(this.record.module, this.field.type);
-            fieldHandler.initDefaultValue(this.field, this.record);
+            fieldHandler.initDefaultValue(this.field, this.record, true);
+            fieldHandler.initDefaultValueObject(this.field, this.record);
         }
     }
 
@@ -141,17 +147,18 @@ export class BaseFieldComponent implements FieldComponentInterface, OnInit, OnDe
             if (this.field.valueChanges$ && ((this.dependentFields && Object.keys(this.dependentFields).length) || this.dependentAttributes.length)) {
                 this.subs.push(this.field.valueChanges$.pipe(debounceTime(500)).subscribe((data) => {
                     Object.keys(this.dependentFields).forEach(fieldKey => {
-                        const dependentField = this.dependentFields[fieldKey];
+                        const dependentFieldKey = this.dependentFields[fieldKey];
                         const field = this.record.fields[fieldKey] || null;
+                        const dependentField = this.record.fields[dependentFieldKey.field] || null;
                         if (!field) {
                             return;
                         }
 
                         if (this.field.previousValue != data.value) {
-                            const types = dependentField.type ?? [];
+                            const types = dependentFieldKey.type ?? [];
 
                             if (types.includes('logic')) {
-                                this.logic.runLogic(field, this.originalMode as ViewMode, this.record, 'onValueChange');
+                                this.logic.runLogic(field, this.originalMode as ViewMode, this.record, 'onDependencyChange', dependentField);
                             }
 
                             if (types.includes('displayLogic')) {
@@ -169,7 +176,7 @@ export class BaseFieldComponent implements FieldComponentInterface, OnInit, OnDe
                             return;
                         }
 
-                        this.logic.runLogic(attribute, this.mode as ViewMode, this.record, 'onValueChange');
+                        this.logic.runLogic(attribute, this.mode as ViewMode, this.record, 'onAttributeChange');
                     });
 
                 }));
@@ -207,7 +214,7 @@ export class BaseFieldComponent implements FieldComponentInterface, OnInit, OnDe
     protected addFieldDependency(fieldKey: string, dependentFields: ObjectMap, dependentAttributes: AttributeDependency[]): void {
         const field = this.record.fields[fieldKey];
         const name = this.field.name || this.field.definition.name || '';
-        if (fieldKey === name || !field) {
+        if (!field) {
             return;
         }
 
@@ -298,9 +305,7 @@ export class BaseFieldComponent implements FieldComponentInterface, OnInit, OnDe
         if (this.field && this.field.formControl) {
             this.subs.push(this.field.formControl.valueChanges.subscribe(value => {
 
-                if (!isVoid(value)) {
-                    value = value.trim();
-                } else {
+                if (isVoid(value)) {
                     value = '';
                 }
 

@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 15:02:23
+// created: 2025-11-19 09:05:50
 $mod_strings = array (
   'LBL_LIST_ID' => 'ID списка адресатов',
   'LBL_ID' => 'ID',
@@ -13,6 +13,7 @@ $mod_strings = array (
   'LBL_DELETED' => 'Удалено',
   'LBL_MODULE_NAME' => 'Журнал маркет. кампании',
   'LBL_LIST_RECIPIENT_EMAIL' => 'E-mail получателя',
+  'LBL_LIST_TRACKER_URL' => 'URL трекера',
   'LBL_LIST_RECIPIENT_NAME' => 'Имя получателя',
   'LBL_ARCHIVED' => 'Архив',
   'LBL_HITS' => 'Хиты',

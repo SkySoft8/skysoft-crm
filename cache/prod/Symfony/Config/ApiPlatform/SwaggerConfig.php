@@ -16,7 +16,7 @@ class SwaggerConfig
     private $apiKeys;
     private $swaggerUiExtraConfiguration;
     private $_usedProperties = [];
-    
+
     /**
      * @param ParamConfigurator|list<ParamConfigurator|mixed>|mixed $value
      *
@@ -26,10 +26,10 @@ class SwaggerConfig
     {
         $this->_usedProperties['versions'] = true;
         $this->versions = $value;
-    
+
         return $this;
     }
-    
+
     public function apiKeys(string $key, array $value = []): \Symfony\Config\ApiPlatform\Swagger\ApiKeysConfig
     {
         if (!isset($this->apiKeys[$key])) {
@@ -38,10 +38,10 @@ class SwaggerConfig
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "apiKeys()" has already been initialized. You cannot pass values the second time you call apiKeys().');
         }
-    
+
         return $this->apiKeys[$key];
     }
-    
+
     /**
      * To pass extra configuration to Swagger UI, like docExpansion or filter.
      * @default array (
@@ -55,10 +55,10 @@ class SwaggerConfig
     {
         $this->_usedProperties['swaggerUiExtraConfiguration'] = true;
         $this->swaggerUiExtraConfiguration = $value;
-    
+
         return $this;
     }
-    
+
     public function __construct(array $value = [])
     {
         if (array_key_exists('versions', $value)) {
@@ -66,24 +66,24 @@ class SwaggerConfig
             $this->versions = $value['versions'];
             unset($value['versions']);
         }
-    
+
         if (array_key_exists('api_keys', $value)) {
             $this->_usedProperties['apiKeys'] = true;
             $this->apiKeys = array_map(fn ($v) => new \Symfony\Config\ApiPlatform\Swagger\ApiKeysConfig($v), $value['api_keys']);
             unset($value['api_keys']);
         }
-    
+
         if (array_key_exists('swagger_ui_extra_configuration', $value)) {
             $this->_usedProperties['swaggerUiExtraConfiguration'] = true;
             $this->swaggerUiExtraConfiguration = $value['swagger_ui_extra_configuration'];
             unset($value['swagger_ui_extra_configuration']);
         }
-    
+
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-    
+
     public function toArray(): array
     {
         $output = [];
@@ -96,7 +96,7 @@ class SwaggerConfig
         if (isset($this->_usedProperties['swaggerUiExtraConfiguration'])) {
             $output['swagger_ui_extra_configuration'] = $this->swaggerUiExtraConfiguration;
         }
-    
+
         return $output;
     }
 

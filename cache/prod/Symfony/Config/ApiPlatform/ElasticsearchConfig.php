@@ -16,7 +16,7 @@ class ElasticsearchConfig
     private $hosts;
     private $mapping;
     private $_usedProperties = [];
-    
+
     /**
      * @default false
      * @param ParamConfigurator|bool $value
@@ -26,10 +26,10 @@ class ElasticsearchConfig
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @param ParamConfigurator|list<ParamConfigurator|mixed>|mixed $value
      *
@@ -39,10 +39,10 @@ class ElasticsearchConfig
     {
         $this->_usedProperties['hosts'] = true;
         $this->hosts = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @deprecated The "mapping" option is deprecated. Configure an ApiPlatform\Elasticsearch\State\Options as $stateOptions.
     */
@@ -54,10 +54,10 @@ class ElasticsearchConfig
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "mapping()" has already been initialized. You cannot pass values the second time you call mapping().');
         }
-    
+
         return $this->mapping[$resource_class];
     }
-    
+
     public function __construct(array $value = [])
     {
         if (array_key_exists('enabled', $value)) {
@@ -65,24 +65,24 @@ class ElasticsearchConfig
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
-    
+
         if (array_key_exists('hosts', $value)) {
             $this->_usedProperties['hosts'] = true;
             $this->hosts = $value['hosts'];
             unset($value['hosts']);
         }
-    
+
         if (array_key_exists('mapping', $value)) {
             $this->_usedProperties['mapping'] = true;
             $this->mapping = array_map(fn ($v) => new \Symfony\Config\ApiPlatform\Elasticsearch\MappingConfig($v), $value['mapping']);
             unset($value['mapping']);
         }
-    
+
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-    
+
     public function toArray(): array
     {
         $output = [];
@@ -95,7 +95,7 @@ class ElasticsearchConfig
         if (isset($this->_usedProperties['mapping'])) {
             $output['mapping'] = array_map(fn ($v) => $v->toArray(), $this->mapping);
         }
-    
+
         return $output;
     }
 

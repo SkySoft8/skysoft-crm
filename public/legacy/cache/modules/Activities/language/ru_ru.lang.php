@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 15:02:23
+// created: 2025-11-19 09:05:49
 $mod_strings = array (
   'LBL_MODULE_NAME' => 'Мероприятия',
   'LBL_MODULE_TITLE' => 'Мероприятия - ГЛАВНАЯ',
@@ -38,7 +38,7 @@ $mod_strings = array (
   'LNK_NEW_MEETING' => 'Назначить встречу',
   'LNK_NEW_TASK' => 'Создать задачу',
   'LNK_NEW_NOTE' => 'Создать заметку или вложение',
-  'LNK_NEW_EMAIL' => 'Создать архивный E-mail',
+  'LNK_NEW_EMAIL' => 'Отправить E-mail',
   'LNK_CALL_LIST' => 'Звонки',
   'LNK_MEETING_LIST' => 'Встречи',
   'LNK_TASK_LIST' => 'Задачи',

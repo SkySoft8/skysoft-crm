@@ -31,7 +31,7 @@ class SecurityConfig
     private $encryptionAlgorithm;
     private $lowercaseUrlencoding;
     private $_usedProperties = [];
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -41,10 +41,10 @@ class SecurityConfig
     {
         $this->_usedProperties['nameIdEncrypted'] = true;
         $this->nameIdEncrypted = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -54,10 +54,10 @@ class SecurityConfig
     {
         $this->_usedProperties['authnRequestsSigned'] = true;
         $this->authnRequestsSigned = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -67,10 +67,10 @@ class SecurityConfig
     {
         $this->_usedProperties['logoutRequestSigned'] = true;
         $this->logoutRequestSigned = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -80,10 +80,10 @@ class SecurityConfig
     {
         $this->_usedProperties['logoutResponseSigned'] = true;
         $this->logoutResponseSigned = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -93,10 +93,10 @@ class SecurityConfig
     {
         $this->_usedProperties['signMetadata'] = true;
         $this->signMetadata = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -106,10 +106,10 @@ class SecurityConfig
     {
         $this->_usedProperties['wantMessagesSigned'] = true;
         $this->wantMessagesSigned = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -119,10 +119,10 @@ class SecurityConfig
     {
         $this->_usedProperties['wantAssertionsEncrypted'] = true;
         $this->wantAssertionsEncrypted = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -132,10 +132,10 @@ class SecurityConfig
     {
         $this->_usedProperties['wantAssertionsSigned'] = true;
         $this->wantAssertionsSigned = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -145,10 +145,10 @@ class SecurityConfig
     {
         $this->_usedProperties['wantNameId'] = true;
         $this->wantNameId = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -158,10 +158,10 @@ class SecurityConfig
     {
         $this->_usedProperties['wantNameIdEncrypted'] = true;
         $this->wantNameIdEncrypted = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -172,10 +172,10 @@ class SecurityConfig
     {
         $this->_usedProperties['requestedAuthnContext'] = true;
         $this->requestedAuthnContext = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -185,10 +185,10 @@ class SecurityConfig
     {
         $this->_usedProperties['wantXMLValidation'] = true;
         $this->wantXMLValidation = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -198,10 +198,10 @@ class SecurityConfig
     {
         $this->_usedProperties['relaxDestinationValidation'] = true;
         $this->relaxDestinationValidation = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -211,10 +211,10 @@ class SecurityConfig
     {
         $this->_usedProperties['destinationStrictlyMatches'] = true;
         $this->destinationStrictlyMatches = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -224,10 +224,10 @@ class SecurityConfig
     {
         $this->_usedProperties['allowRepeatAttributeName'] = true;
         $this->allowRepeatAttributeName = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -237,10 +237,10 @@ class SecurityConfig
     {
         $this->_usedProperties['rejectUnsolicitedResponsesWithInResponseTo'] = true;
         $this->rejectUnsolicitedResponsesWithInResponseTo = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|'http://www.w3.org/2000/09/xmldsig#rsa-sha1'|'http://www.w3.org/2000/09/xmldsig#dsa-sha1'|'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'|'http://www.w3.org/2001/04/xmldsig-more#rsa-sha384'|'http://www.w3.org/2001/04/xmldsig-more#rsa-sha512' $value
@@ -250,10 +250,10 @@ class SecurityConfig
     {
         $this->_usedProperties['signatureAlgorithm'] = true;
         $this->signatureAlgorithm = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|'http://www.w3.org/2000/09/xmldsig#sha1'|'http://www.w3.org/2001/04/xmlenc#sha256'|'http://www.w3.org/2001/04/xmldsig-more#sha384'|'http://www.w3.org/2001/04/xmlenc#sha512' $value
@@ -263,10 +263,10 @@ class SecurityConfig
     {
         $this->_usedProperties['digestAlgorithm'] = true;
         $this->digestAlgorithm = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|'http://www.w3.org/2001/04/xmlenc#tripledes-cbc'|'http://www.w3.org/2001/04/xmlenc#aes128-cbc'|'http://www.w3.org/2001/04/xmlenc#aes192-cbc'|'http://www.w3.org/2001/04/xmlenc#aes256-cbc'|'http://www.w3.org/2009/xmlenc11#aes128-gcm'|'http://www.w3.org/2009/xmlenc11#aes192-gcm'|'http://www.w3.org/2009/xmlenc11#aes256-gcm' $value
@@ -276,10 +276,10 @@ class SecurityConfig
     {
         $this->_usedProperties['encryptionAlgorithm'] = true;
         $this->encryptionAlgorithm = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -289,10 +289,10 @@ class SecurityConfig
     {
         $this->_usedProperties['lowercaseUrlencoding'] = true;
         $this->lowercaseUrlencoding = $value;
-    
+
         return $this;
     }
-    
+
     public function __construct(array $value = [])
     {
         if (array_key_exists('nameIdEncrypted', $value)) {
@@ -300,126 +300,126 @@ class SecurityConfig
             $this->nameIdEncrypted = $value['nameIdEncrypted'];
             unset($value['nameIdEncrypted']);
         }
-    
+
         if (array_key_exists('authnRequestsSigned', $value)) {
             $this->_usedProperties['authnRequestsSigned'] = true;
             $this->authnRequestsSigned = $value['authnRequestsSigned'];
             unset($value['authnRequestsSigned']);
         }
-    
+
         if (array_key_exists('logoutRequestSigned', $value)) {
             $this->_usedProperties['logoutRequestSigned'] = true;
             $this->logoutRequestSigned = $value['logoutRequestSigned'];
             unset($value['logoutRequestSigned']);
         }
-    
+
         if (array_key_exists('logoutResponseSigned', $value)) {
             $this->_usedProperties['logoutResponseSigned'] = true;
             $this->logoutResponseSigned = $value['logoutResponseSigned'];
             unset($value['logoutResponseSigned']);
         }
-    
+
         if (array_key_exists('signMetadata', $value)) {
             $this->_usedProperties['signMetadata'] = true;
             $this->signMetadata = $value['signMetadata'];
             unset($value['signMetadata']);
         }
-    
+
         if (array_key_exists('wantMessagesSigned', $value)) {
             $this->_usedProperties['wantMessagesSigned'] = true;
             $this->wantMessagesSigned = $value['wantMessagesSigned'];
             unset($value['wantMessagesSigned']);
         }
-    
+
         if (array_key_exists('wantAssertionsEncrypted', $value)) {
             $this->_usedProperties['wantAssertionsEncrypted'] = true;
             $this->wantAssertionsEncrypted = $value['wantAssertionsEncrypted'];
             unset($value['wantAssertionsEncrypted']);
         }
-    
+
         if (array_key_exists('wantAssertionsSigned', $value)) {
             $this->_usedProperties['wantAssertionsSigned'] = true;
             $this->wantAssertionsSigned = $value['wantAssertionsSigned'];
             unset($value['wantAssertionsSigned']);
         }
-    
+
         if (array_key_exists('wantNameId', $value)) {
             $this->_usedProperties['wantNameId'] = true;
             $this->wantNameId = $value['wantNameId'];
             unset($value['wantNameId']);
         }
-    
+
         if (array_key_exists('wantNameIdEncrypted', $value)) {
             $this->_usedProperties['wantNameIdEncrypted'] = true;
             $this->wantNameIdEncrypted = $value['wantNameIdEncrypted'];
             unset($value['wantNameIdEncrypted']);
         }
-    
+
         if (array_key_exists('requestedAuthnContext', $value)) {
             $this->_usedProperties['requestedAuthnContext'] = true;
             $this->requestedAuthnContext = $value['requestedAuthnContext'];
             unset($value['requestedAuthnContext']);
         }
-    
+
         if (array_key_exists('wantXMLValidation', $value)) {
             $this->_usedProperties['wantXMLValidation'] = true;
             $this->wantXMLValidation = $value['wantXMLValidation'];
             unset($value['wantXMLValidation']);
         }
-    
+
         if (array_key_exists('relaxDestinationValidation', $value)) {
             $this->_usedProperties['relaxDestinationValidation'] = true;
             $this->relaxDestinationValidation = $value['relaxDestinationValidation'];
             unset($value['relaxDestinationValidation']);
         }
-    
+
         if (array_key_exists('destinationStrictlyMatches', $value)) {
             $this->_usedProperties['destinationStrictlyMatches'] = true;
             $this->destinationStrictlyMatches = $value['destinationStrictlyMatches'];
             unset($value['destinationStrictlyMatches']);
         }
-    
+
         if (array_key_exists('allowRepeatAttributeName', $value)) {
             $this->_usedProperties['allowRepeatAttributeName'] = true;
             $this->allowRepeatAttributeName = $value['allowRepeatAttributeName'];
             unset($value['allowRepeatAttributeName']);
         }
-    
+
         if (array_key_exists('rejectUnsolicitedResponsesWithInResponseTo', $value)) {
             $this->_usedProperties['rejectUnsolicitedResponsesWithInResponseTo'] = true;
             $this->rejectUnsolicitedResponsesWithInResponseTo = $value['rejectUnsolicitedResponsesWithInResponseTo'];
             unset($value['rejectUnsolicitedResponsesWithInResponseTo']);
         }
-    
+
         if (array_key_exists('signatureAlgorithm', $value)) {
             $this->_usedProperties['signatureAlgorithm'] = true;
             $this->signatureAlgorithm = $value['signatureAlgorithm'];
             unset($value['signatureAlgorithm']);
         }
-    
+
         if (array_key_exists('digestAlgorithm', $value)) {
             $this->_usedProperties['digestAlgorithm'] = true;
             $this->digestAlgorithm = $value['digestAlgorithm'];
             unset($value['digestAlgorithm']);
         }
-    
+
         if (array_key_exists('encryption_algorithm', $value)) {
             $this->_usedProperties['encryptionAlgorithm'] = true;
             $this->encryptionAlgorithm = $value['encryption_algorithm'];
             unset($value['encryption_algorithm']);
         }
-    
+
         if (array_key_exists('lowercaseUrlencoding', $value)) {
             $this->_usedProperties['lowercaseUrlencoding'] = true;
             $this->lowercaseUrlencoding = $value['lowercaseUrlencoding'];
             unset($value['lowercaseUrlencoding']);
         }
-    
+
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-    
+
     public function toArray(): array
     {
         $output = [];
@@ -483,7 +483,7 @@ class SecurityConfig
         if (isset($this->_usedProperties['lowercaseUrlencoding'])) {
             $output['lowercaseUrlencoding'] = $this->lowercaseUrlencoding;
         }
-    
+
         return $output;
     }
 

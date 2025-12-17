@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
- * Copyright (C) 2021 SalesAgility Ltd.
+ * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
+ * Copyright (C) 2021 SuiteCRM Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -27,7 +27,10 @@
 import {Injectable} from '@angular/core';
 import {BaseActionManager} from '../../services/actions/base-action-manager.service';
 import {FieldLogicActionData, FieldLogicActionHandlerMap} from './field-logic.action';
-import {Action, ActionContext, Field, ModeActions, Record, ViewMode} from 'common';
+import {Action, ActionContext, ModeActions} from '../../common/actions/action.model';
+import {Field} from '../../common/record/field.model';
+import {Record} from '../../common/record/record.model';
+import {ViewMode} from '../../common/views/view.model';
 import {FieldLogicDisplayTypeAction} from './display-type/field-logic-display-type.action';
 import {EmailPrimarySelectAction} from './email-primary-select/email-primary-select.action';
 import {RequiredAction} from './required/required.action';
@@ -37,6 +40,7 @@ import {UpdateFlexRelateModuleAction} from './update-flex-relate-module/update-f
 import {UpdateValueAction} from './update-value/update-value.action';
 import {UpdateValueBackendAction} from './update-value-backend/update-value-backend.action';
 import {DisplayTypeBackendAction} from './display-type-backend/display-type-backend.action';
+import {UpdateEmailSignatureAction} from "./update-email-signature/update-email-signature.action";
 
 @Injectable({
     providedIn: 'root'
@@ -61,7 +65,8 @@ export class FieldLogicManager extends BaseActionManager<FieldLogicActionData> {
         updateValue: UpdateValueAction,
         updateFlexRelateModule: UpdateFlexRelateModuleAction,
         updateValueBackend: UpdateValueBackendAction,
-        dislayTypeBackend: DisplayTypeBackendAction
+        dislayTypeBackend: DisplayTypeBackendAction,
+        updateEmailSignature: UpdateEmailSignatureAction
     ) {
         super();
         displayType.modes.forEach(mode => this.actions[mode][displayType.key] = displayType);
@@ -73,6 +78,7 @@ export class FieldLogicManager extends BaseActionManager<FieldLogicActionData> {
         updateValue.modes.forEach(mode => this.actions[mode][updateValue.key] = updateValue);
         updateValueBackend.modes.forEach(mode => this.actions[mode][updateValueBackend.key] = updateValueBackend);
         dislayTypeBackend.modes.forEach(mode => this.actions[mode][dislayTypeBackend.key] = dislayTypeBackend);
+        updateEmailSignature.modes.forEach(mode => this.actions[mode][updateEmailSignature.key] = updateEmailSignature);
     }
 
     /**
@@ -81,15 +87,16 @@ export class FieldLogicManager extends BaseActionManager<FieldLogicActionData> {
      * @param {object} mode
      * @param {object} record
      * @param triggeringStatus
+     * @param dependentField
      */
-    runLogic(field: Field, mode: ViewMode, record: Record, triggeringStatus: string = ''): void {
+    runLogic(field: Field, mode: ViewMode, record: Record, triggeringStatus: string = '', dependentField: Field = {} as Field): void {
         if (!field.logic) {
             return;
         }
 
         const actions = Object.keys(field.logic).map(key => field.logic[key]);
 
-        const modeActions = this.parseModeActions(actions, mode, triggeringStatus);
+        const modeActions = this.parseModeActions(actions, mode, triggeringStatus, dependentField);
         const context = {
             record,
             field,
@@ -143,8 +150,9 @@ export class FieldLogicManager extends BaseActionManager<FieldLogicActionData> {
      * @param declaredActions
      * @param mode
      * @param triggeringStatus
+     * @param fieldDependent
      */
-    protected parseModeActions(declaredActions: Action[], mode: ViewMode, triggeringStatus: string) {
+    protected parseModeActions(declaredActions: Action[], mode: ViewMode, triggeringStatus: string, fieldDependent: Field) {
         if (!declaredActions) {
             return [];
         }
@@ -174,14 +182,36 @@ export class FieldLogicManager extends BaseActionManager<FieldLogicActionData> {
         }
 
         const actions = [];
-        const defaultTriggeringStatus = ['onValueChange'];
+        const defaultTriggeringStatus = ['onDependencyChange'];
 
         availableActions[mode].forEach(action => {
 
-            const frontendActionTriggeringStatus = this?.actions[mode][action.key]?.getTriggeringStatus() ?? null;
-            const actionTriggeringStatus = action?.triggeringStatus ?? frontendActionTriggeringStatus ?? defaultTriggeringStatus;
+            const dependentFieldsKeys = Object.values(action?.params?.fieldDependencies ?? {});
 
-            if(triggeringStatus && !actionTriggeringStatus.includes(triggeringStatus)) {
+            const frontendActionTriggeringStatus = this?.actions[mode][action.key]?.getTriggeringStatus() ?? null;
+
+            let actionTriggeringStatus = action?.triggeringStatus ?? frontendActionTriggeringStatus ?? defaultTriggeringStatus;
+
+            if (actionTriggeringStatus.includes('onValueChange')) {
+                actionTriggeringStatus = actionTriggeringStatus.filter(value => value !== 'onValueChange');
+                actionTriggeringStatus = ['onAnyLogic', ...actionTriggeringStatus];
+            }
+
+            if (actionTriggeringStatus.includes('onAnyLogic') && triggeringStatus !== 'onFieldInitialize') {
+                actions.push(action);
+                return;
+            }
+
+            if (triggeringStatus && !actionTriggeringStatus.includes(triggeringStatus)) {
+                return;
+            }
+
+            if (triggeringStatus === 'onFieldInitialize' && actionTriggeringStatus.includes('onFieldInitialize')) {
+                actions.push(action);
+                return;
+            }
+
+            if (actionTriggeringStatus.includes('onDependencyChange') && !dependentFieldsKeys?.includes(fieldDependent.name)) {
                 return;
             }
 

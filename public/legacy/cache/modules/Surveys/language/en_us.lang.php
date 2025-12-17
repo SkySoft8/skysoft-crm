@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 14:29:35
+// created: 2025-11-07 15:41:48
 $mod_strings = array (
   'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
   'LBL_ADD_OPTION' => 'Add new option',
@@ -68,4 +68,5 @@ $mod_strings = array (
   'LBL_SUBMIT' => 'Submit',
   'LBL_STARS' => 'Stars',
   'LBL_SURVEY_CLOSE_RESPONSE' => 'Thanks for your interest but this survey is now closed.',
+  'LBL_SURVEY_THANKS' => 'Thanks for completing this survey.',
 );

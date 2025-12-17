@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 15:02:31
+// created: 2025-11-19 09:06:03
 $mod_strings = array (
   'LBL_ID' => 'ID',
   'LBL_TRACKER_KEY' => 'Код трекера',

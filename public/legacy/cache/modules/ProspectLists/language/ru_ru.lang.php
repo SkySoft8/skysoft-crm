@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 14:26:00
+// created: 2025-11-19 09:05:42
 $mod_strings = array (
   'LBL_ASSIGNED_TO_ID' => 'Ответственный(ая)',
   'LBL_ASSIGNED_TO_NAME' => 'Ответственный(ая)',
@@ -34,7 +34,7 @@ $mod_strings = array (
   'LNK_NEW_PROSPECT' => 'Создать адресата',
   'LNK_PROSPECT_LIST' => 'Адресаты',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакты',
-  'LBL_LEADS_SUBPANEL_TITLE' => 'Предварительные контакты',
+  'LBL_LEADS_SUBPANEL_TITLE' => 'Предварит. контакты',
   'LBL_PROSPECTS_SUBPANEL_TITLE' => 'Адресаты',
   'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Контрагенты',
   'LBL_COPY_PREFIX' => 'Копия для',

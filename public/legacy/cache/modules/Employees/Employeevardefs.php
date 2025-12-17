@@ -836,6 +836,21 @@
       'type' => 'enum',
       'options' => 'user_factor_auth_interface_dom',
     ),
+    'totp_secret' => 
+    array (
+      'name' => 'totp_secret',
+      'type' => 'varchar',
+    ),
+    'is_totp_enabled' => 
+    array (
+      'name' => 'is_totp_enabled',
+      'type' => 'bool',
+    ),
+    'backup_codes' => 
+    array (
+      'name' => 'backup_codes',
+      'type' => 'text',
+    ),
   ),
   'indices' => 
   array (

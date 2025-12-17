@@ -94,6 +94,7 @@ trait IndexingStatisticsTrait
      *
      * @param float $end
      * @param float $start
+     * @throws \Exception
      */
     private function statistics($end, $start)
     {
@@ -111,8 +112,7 @@ trait IndexingStatisticsTrait
 
         if ($this->indexedRecordsCount > 100) {
             $estimation = $elapsed / $this->indexedRecordsCount * 200000;
-            CarbonInterval::setLocale('en');
-            $estimationString = CarbonInterval::seconds((int) round($estimation))->cascade()->forHumans(true);
+            $estimationString = $this->formatInterval($estimation);
             $fieldsSpeed = $this->indexedFieldsCount / $elapsed;
             $this->logger->debug(sprintf('Average speed is %01.3F fields/s', $fieldsSpeed));
             $this->logger->debug("It would take ~$estimationString for 200,000 records, assuming a linear expansion");

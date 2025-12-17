@@ -165,6 +165,7 @@
       'required' => false,
       'reportable' => false,
       'source' => 'non-db',
+      'massupdate' => false,
     ),
     'date_time_start' => 
     array (
@@ -190,6 +191,7 @@
       'len' => '100',
       'required' => true,
       'reportable' => false,
+      'massupdate' => false,
     ),
     'adv_interval' => 
     array (
@@ -199,6 +201,7 @@
       'required' => false,
       'reportable' => false,
       'source' => 'non-db',
+      'massupdate' => false,
     ),
     'time_from' => 
     array (
@@ -223,6 +226,7 @@
       'type' => 'datetime',
       'required' => false,
       'reportable' => false,
+      'massupdate' => false,
     ),
     'status' => 
     array (

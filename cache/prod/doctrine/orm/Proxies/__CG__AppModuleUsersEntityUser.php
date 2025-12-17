@@ -7,7 +7,7 @@ namespace Proxies\__CG__\App\Module\Users\Entity;
  */
 class User extends \App\Module\Users\Entity\User implements \Doctrine\ORM\Proxy\InternalProxy
 {
-     use \Symfony\Component\VarExporter\LazyGhostTrait {
+    use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as __load;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -22,6 +22,7 @@ class User extends \App\Module\Users\Entity\User implements \Doctrine\ORM\Proxy\
         "\0".parent::class."\0".'addressState' => [parent::class, 'addressState', null],
         "\0".parent::class."\0".'addressStreet' => [parent::class, 'addressStreet', null],
         "\0".parent::class."\0".'authenticateId' => [parent::class, 'authenticateId', null],
+        "\0".parent::class."\0".'backupCodes' => [parent::class, 'backupCodes', null],
         "\0".parent::class."\0".'createdBy' => [parent::class, 'createdBy', null],
         "\0".parent::class."\0".'dateEntered' => [parent::class, 'dateEntered', null],
         "\0".parent::class."\0".'dateModified' => [parent::class, 'dateModified', null],
@@ -36,6 +37,7 @@ class User extends \App\Module\Users\Entity\User implements \Doctrine\ORM\Proxy\
         "\0".parent::class."\0".'id' => [parent::class, 'id', null],
         "\0".parent::class."\0".'isAdmin' => [parent::class, 'isAdmin', null],
         "\0".parent::class."\0".'isGroup' => [parent::class, 'isGroup', null],
+        "\0".parent::class."\0".'isTotpEnabled' => [parent::class, 'isTotpEnabled', null],
         "\0".parent::class."\0".'lastName' => [parent::class, 'lastName', null],
         "\0".parent::class."\0".'messengerId' => [parent::class, 'messengerId', null],
         "\0".parent::class."\0".'messengerType' => [parent::class, 'messengerType', null],
@@ -55,6 +57,7 @@ class User extends \App\Module\Users\Entity\User implements \Doctrine\ORM\Proxy\
         "\0".parent::class."\0".'sugarLogin' => [parent::class, 'sugarLogin', null],
         "\0".parent::class."\0".'systemGeneratedPassword' => [parent::class, 'systemGeneratedPassword', null],
         "\0".parent::class."\0".'title' => [parent::class, 'title', null],
+        "\0".parent::class."\0".'totpSecret' => [parent::class, 'totpSecret', null],
         "\0".parent::class."\0".'userHash' => [parent::class, 'userHash', null],
         "\0".parent::class."\0".'user_name' => [parent::class, 'user_name', null],
         'addressCity' => [parent::class, 'addressCity', null],
@@ -63,6 +66,7 @@ class User extends \App\Module\Users\Entity\User implements \Doctrine\ORM\Proxy\
         'addressState' => [parent::class, 'addressState', null],
         'addressStreet' => [parent::class, 'addressStreet', null],
         'authenticateId' => [parent::class, 'authenticateId', null],
+        'backupCodes' => [parent::class, 'backupCodes', null],
         'createdBy' => [parent::class, 'createdBy', null],
         'dateEntered' => [parent::class, 'dateEntered', null],
         'dateModified' => [parent::class, 'dateModified', null],
@@ -77,6 +81,7 @@ class User extends \App\Module\Users\Entity\User implements \Doctrine\ORM\Proxy\
         'id' => [parent::class, 'id', null],
         'isAdmin' => [parent::class, 'isAdmin', null],
         'isGroup' => [parent::class, 'isGroup', null],
+        'isTotpEnabled' => [parent::class, 'isTotpEnabled', null],
         'lastName' => [parent::class, 'lastName', null],
         'messengerId' => [parent::class, 'messengerId', null],
         'messengerType' => [parent::class, 'messengerType', null],
@@ -96,9 +101,10 @@ class User extends \App\Module\Users\Entity\User implements \Doctrine\ORM\Proxy\
         'sugarLogin' => [parent::class, 'sugarLogin', null],
         'systemGeneratedPassword' => [parent::class, 'systemGeneratedPassword', null],
         'title' => [parent::class, 'title', null],
+        'totpSecret' => [parent::class, 'totpSecret', null],
         'userHash' => [parent::class, 'userHash', null],
         'user_name' => [parent::class, 'user_name', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

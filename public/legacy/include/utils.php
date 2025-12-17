@@ -193,6 +193,7 @@ function make_sugar_config(&$sugar_config)
             'special_query_modules' => array('AOR_Reports', 'Export', 'Import', 'Administration', 'Sync'),
             'default_limit' => 1000,
         ),
+        'test_email_limit' => 50,
         'require_accounts' => empty($requireAccounts) ? true : $requireAccounts,
         'rss_cache_time' => empty($RSS_CACHE_TIME) ? '10800' : $RSS_CACHE_TIME,
         'session_dir' => $session_dir, // this must be set!!
@@ -289,6 +290,9 @@ function make_sugar_config(&$sugar_config)
             'max_cron_runtime' => 60, // max runtime for cron jobs
             'min_cron_interval' => 30, // minimal interval between cron jobs
         ),
+        'campaign_emails_per_run_default' => 50,
+        'campaign_marketing_items_per_run_default' => 3,
+        'trackers_enabled' => true,
         'strict_id_validation' => false,
         'legacy_email_behaviour' => false,
         'snooze_alert_timer' => 600,
@@ -300,7 +304,8 @@ function make_sugar_config(&$sugar_config)
             '110', '143', '993', '995'
         ],
         'web_to_lead_allowed_redirect_hosts' => [],
-        'trusted_hosts' => []
+        'trusted_hosts' => [],
+        'installed' => true
     );
 }
 
@@ -411,9 +416,10 @@ function get_sugar_config_defaults(): array
         'email_default_editor' => 'html',
         'email_default_client' => 'sugar',
         'email_default_delete_attachments' => true,
-        'email_warning_notifications' => true,
+        'email_warning_notifications' => false,
         'email_enable_auto_send_opt_in' => false,
         'email_enable_confirm_opt_in' => SugarEmailAddress::COI_STAT_DISABLED,
+        'test_email_limit' => 50,
         'filter_module_fields' => [
             'Users' => [
                 'show_on_employees',
@@ -464,6 +470,8 @@ function get_sugar_config_defaults(): array
         'subpanel_max_height' => 620,
         'lock_default_user_name' => false,
         'log_memory_usage' => false,
+        'max_temp_file_lifetime' => '72 hour',
+        'max_temp_file_batch_per_table' => '50',
         'oauth2_encryption_key' => base64_encode(random_bytes(32)),
         'portal_view' => 'single_user',
         'pdf' => [
@@ -593,6 +601,9 @@ function get_sugar_config_defaults(): array
             'max_cron_runtime' => 30, // max runtime for cron jobs
             'min_cron_interval' => 30, // minimal interval between cron jobs
         ],
+        'campaign_emails_per_run_default' => 50,
+        'campaign_marketing_items_per_run_default' => 3,
+        'trackers_enabled' => true,
         'strict_id_validation' => false,
         'id_validation_pattern' => '/^[a-zA-Z0-9_-]*$/i',
         'session_gc' => [
@@ -610,7 +621,8 @@ function get_sugar_config_defaults(): array
             '110', '143', '993', '995'
         ],
         'web_to_lead_allowed_redirect_hosts' => [],
-        'trusted_hosts' => []
+        'trusted_hosts' => [],
+        'installed' => true
     ];
 
     if (!is_object($locale)) {
@@ -1763,29 +1775,7 @@ function is_guid($guid)
  */
 function create_guid()
 {
-    $microTime = microtime();
-    list($a_dec, $a_sec) = explode(' ', $microTime);
-
-    $dec_hex = dechex($a_dec * 1000000);
-    $sec_hex = dechex($a_sec);
-
-    ensure_length($dec_hex, 5);
-    ensure_length($sec_hex, 6);
-
-    $guid = '';
-    $guid .= $dec_hex;
-    $guid .= create_guid_section(3);
-    $guid .= '-';
-    $guid .= create_guid_section(4);
-    $guid .= '-';
-    $guid .= create_guid_section(4);
-    $guid .= '-';
-    $guid .= create_guid_section(4);
-    $guid .= '-';
-    $guid .= $sec_hex;
-    $guid .= create_guid_section(6);
-
-    return $guid;
+    return uuid_create();
 }
 
 function create_guid_section($characters)
@@ -2119,7 +2109,10 @@ function sugar_die($error_message, $exit_code = 1)
 {
     global $focus;
     sugar_cleanup();
-    echo $error_message;
+
+    if (!empty($GLOBALS['disable_echos'])) {
+        echo $error_message;
+    }
     throw new Exception($error_message, $exit_code);
 }
 
@@ -2415,7 +2408,7 @@ function clean_xss($str, $cleanImg = true)
         $sugar_config['email_xss'] = getDefaultXssTags();
     }
 
-    $xsstags = unserialize(base64_decode($sugar_config['email_xss']));
+    $xsstags = unserialize(base64_decode($sugar_config['email_xss']), ['allowed_classes' => false]);
 
     // cn: bug 13079 - "on\w" matched too many non-events (cONTact, strONG, etc.)
     $jsEvents = 'onblur|onfocus|oncontextmenu|onresize|onscroll|onunload|ondblclick|onclick|';
@@ -3172,8 +3165,7 @@ function get_emails_by_assign_or_link($params)
     // directly assigned emails
     $return_array['join'][] = "
         SELECT
-            eb.email_id,
-            'direct' source
+            eb.email_id
         FROM
             emails_beans eb
         WHERE
@@ -3185,8 +3177,7 @@ function get_emails_by_assign_or_link($params)
     // Related by directly by email
     $return_array['join'][] = "
         SELECT DISTINCT
-            eear.email_id,
-            'relate' source
+            eear.email_id
         FROM
             emails_email_addr_rel eear
         INNER JOIN
@@ -3208,8 +3199,7 @@ function get_emails_by_assign_or_link($params)
         // Assigned to contacts
         $return_array['join'][] = "
             SELECT DISTINCT
-                eb.email_id,
-                'contact' source
+                eb.email_id
             FROM
                 emails_beans eb
             $rel_join AND link_bean.id = eb.bean_id
@@ -3220,8 +3210,7 @@ function get_emails_by_assign_or_link($params)
         // Related by email to linked contact
         $return_array['join'][] = "
             SELECT DISTINCT
-                eear.email_id,
-                'relate_contact' source
+                eear.email_id
             FROM
                 emails_email_addr_rel eear
             INNER JOIN
@@ -3245,10 +3234,20 @@ function get_emails_by_assign_or_link($params)
 
     if ($bean->object_name == 'Case' && !empty($bean->case_number)) {
         $where = str_replace('%1', $bean->case_number, (string) $bean->getEmailSubjectMacro());
-        $return_array['where'] .= "\n AND (email_ids.source = 'direct' OR emails.name LIKE '%$where%')";
+        $return_array['where'] .= "\n AND (emails.name LIKE '%$where%')";
     }
 
     return $return_array;
+}
+
+function getUpcomingEmails($bean) {
+    $query = [];
+    $query['select'] = " ";
+    $query['from'] = " FROM emailman";
+    $query['join'] = " ";
+    $query['where'] = " WHERE emailman.deleted = '0' AND email_marketing.deleted = '0' AND emailman.related_id = " . $bean->db->quoted($bean->id);
+
+    return $query;
 }
 
 /**
@@ -3761,10 +3760,12 @@ function sugar_cleanup($exit = false)
         //this is not an ajax call and the user preference error flag is set, so reset the flag and print js to flash message
         $err_mess = $app_strings['ERROR_USER_PREFS'];
         $_SESSION['USER_PREFRENCE_ERRORS'] = false;
-        echo "
-		<script>
-			ajaxStatus.flashStatus('$err_mess',7000);
-		</script>";
+        if (!empty($GLOBALS['disable_echos'])) {
+            echo "
+            <script>
+                ajaxStatus.flashStatus('$err_mess',7000);
+            </script>";
+        }
     }
 
     pre_login_check();
@@ -3863,14 +3864,13 @@ function display_stack_trace($textOnly = false)
 {
     $stack = debug_backtrace();
 
-    echo "\n\n display_stack_trace caller, file: " . $stack[0]['file'] . ' line#: ' . $stack[0]['line'];
+    $out = "\n\n display_stack_trace caller, file: " . $stack[0]['file'] . ' line#: ' . $stack[0]['line'];
 
     if (!$textOnly) {
-        echo '<br>';
+        $out .= '<br>';
     }
 
     $first = true;
-    $out = '';
 
     foreach ($stack as $item) {
         $file = '';
@@ -3920,11 +3920,10 @@ function display_stack_trace($textOnly = false)
         }
     }
 
-    echo $out;
     return $out;
 }
 
-function StackTraceErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
+function StackTraceErrorHandler($errno, $errstr, $errfile, $errline, $errcontext = null)
 {
     $error_msg = " $errstr occurred in <b>$errfile</b> on line $errline [" . date('Y-m-d H:i:s') . ']';
 
@@ -3979,9 +3978,10 @@ function StackTraceErrorHandler($errno, $errstr, $errfile, $errline, $errcontext
             $halt_script = false;
             break;
     }
+
     $error_msg = '<b>[' . $type . ']</b> ' . $error_msg;
-    echo $error_msg;
     $trace = display_stack_trace();
+
     ErrorMessage::log("Catch an error: $error_msg \nTrace info:\n" . $trace);
     if ($halt_script) {
         exit(1);
@@ -5304,6 +5304,10 @@ function sugar_ucfirst($string, $charset = 'UTF-8')
  */
 function unencodeMultienum($string)
 {
+    if (is_null($string)){
+        $string = [];
+    }
+
     if (is_array($string)) {
         return $string;
     }
@@ -5996,7 +6000,7 @@ function sugar_unserialize($value)
         return false;
     }
 
-    return unserialize($value);
+    return unserialize($value, ['allowed_classes' => false]);
 }
 
 define('DEFAULT_UTIL_SUITE_ENCODING', 'UTF-8');
@@ -6257,6 +6261,44 @@ function isTrue($value): bool {
  */
 function isFalse($value): bool {
     return $value === false || $value === 'false' || $value === 0 || $value === '0';
+}
+
+/**
+ * Check if a value is empty for data/filter contexts
+ *
+ * Unlike PHP's empty() function, this treats boolean false, 0, and '0' as non-empty values.
+ * This is crucial for properly handling checkbox filters and other boolean/numeric fields
+ * where false/zero are valid, meaningful values that should not be filtered out.
+ *
+ * @param mixed $value The value to check
+ * @return bool True if the value is empty, false otherwise
+ */
+function isEmptyValue(mixed $value): bool
+{
+    // Handle null and undefined values
+    if ($value === null) {
+        return true;
+    }
+
+    // Handle arrays
+    if (is_array($value)) {
+        return count($value) === 0;
+    }
+
+    // Handle objects - objects are considered non-empty values
+    // Objects represent intentional data structures that should be preserved
+    if (is_object($value)) {
+        return false;
+    }
+
+    // Handle strings (trim whitespace)
+    if (is_string($value)) {
+        return trim($value) === '';
+    }
+
+    // Handle boolean, numeric, and other scalar values
+    // Important: '0', 0, false are NOT considered empty for data filtering
+    return false;
 }
 
 /**

@@ -20,9 +20,21 @@ $dictionary['Task']['fields']['priority']['merge_filter']='disabled';
 
  
 
- // created: 2025-04-02 16:09:53
+ // created: 2025-02-28 16:38:55
 $dictionary['Task']['fields']['sales_stage_c']['inline_edit']='1';
 $dictionary['Task']['fields']['sales_stage_c']['labelValue']='Стадия продаж';
+
+ 
+
+ // created: 2025-06-04 17:22:52
+$dictionary['Task']['fields']['sale_stage_task_c']['inline_edit']='1';
+$dictionary['Task']['fields']['sale_stage_task_c']['labelValue']='Стадия продаж';
+
+ 
+
+ // created: 2025-06-04 17:24:07
+$dictionary['Task']['fields']['view_lid_c']['inline_edit']='1';
+$dictionary['Task']['fields']['view_lid_c']['labelValue']='Вид ЛИДА';
 
  
 ?>

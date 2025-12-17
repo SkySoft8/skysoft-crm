@@ -1,0 +1,1034 @@
+<?php //resource_metadata_collection_111b267f236e3150118715018fc9c250
+
+return [PHP_INT_MAX, static fn () => \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['ApiPlatform\\Metadata\\ApiResource'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\ApiResource')),
+        clone ($p['ApiPlatform\\Metadata\\Operations'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Operations')),
+        clone ($p['ApiPlatform\\Metadata\\Get'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Get')),
+        clone ($p['ApiPlatform\\Metadata\\Link'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Link')),
+        clone ($p['ApiPlatform\\Metadata\\Put'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Put')),
+        clone $p['ApiPlatform\\Metadata\\Link'],
+        clone ($p['ApiPlatform\\Metadata\\GetCollection'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\GetCollection')),
+        clone $p['ApiPlatform\\Metadata\\Link'],
+        clone ($p['ApiPlatform\\Metadata\\GraphQl\\Query'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\GraphQl\\Query')),
+        clone ($p['ApiPlatform\\Metadata\\Parameters'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Parameters')),
+        clone ($p['ApiPlatform\\Metadata\\GraphQl\\QueryCollection'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\GraphQl\\QueryCollection')),
+        clone $p['ApiPlatform\\Metadata\\Parameters'],
+        clone ($p['ApiPlatform\\Metadata\\GraphQl\\Mutation'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\GraphQl\\Mutation')),
+        clone $p['ApiPlatform\\Metadata\\Parameters'],
+    ],
+    null,
+    [
+        'ApiPlatform\\Metadata\\ApiResource' => [
+            'shortName' => [
+                'Process',
+            ],
+            'class' => [
+                'App\\Process\\Entity\\Process',
+            ],
+            'description' => [
+                null,
+            ],
+            'urlGenerationStrategy' => [
+                null,
+            ],
+            'deprecationReason' => [
+                null,
+            ],
+            'normalizationContext' => [
+                null,
+            ],
+            'denormalizationContext' => [
+                null,
+            ],
+            'collectDenormalizationErrors' => [
+                null,
+            ],
+            'validationContext' => [
+                null,
+            ],
+            'filters' => [
+                null,
+            ],
+            'elasticsearch' => [
+                null,
+            ],
+            'order' => [
+                null,
+            ],
+            'fetchPartial' => [
+                null,
+            ],
+            'forceEager' => [
+                null,
+            ],
+            'paginationEnabled' => [
+                null,
+            ],
+            'paginationType' => [
+                null,
+            ],
+            'paginationItemsPerPage' => [
+                null,
+            ],
+            'paginationMaximumItemsPerPage' => [
+                null,
+            ],
+            'paginationPartial' => [
+                null,
+            ],
+            'paginationClientEnabled' => [
+                null,
+            ],
+            'paginationClientItemsPerPage' => [
+                null,
+            ],
+            'paginationClientPartial' => [
+                null,
+            ],
+            'paginationFetchJoinCollection' => [
+                null,
+            ],
+            'paginationUseOutputWalkers' => [
+                null,
+            ],
+            'security' => [
+                null,
+            ],
+            'securityMessage' => [
+                null,
+            ],
+            'securityPostDenormalize' => [
+                null,
+            ],
+            'securityPostDenormalizeMessage' => [
+                null,
+            ],
+            'securityPostValidation' => [
+                null,
+            ],
+            'securityPostValidationMessage' => [
+                null,
+            ],
+            'stateOptions' => [
+                null,
+            ],
+            'queryParameterValidationEnabled' => [
+                null,
+            ],
+            'extraProperties' => [
+                [
+                    'standard_put' => true,
+                    'rfc_7807_compliant_errors' => true,
+                ],
+            ],
+            'operations' => [
+                $o[1],
+            ],
+            'uriTemplate' => [
+                null,
+            ],
+            'types' => [
+                null,
+            ],
+            'formats' => [
+                null,
+            ],
+            'inputFormats' => [
+                null,
+            ],
+            'outputFormats' => [
+                null,
+            ],
+            'uriVariables' => [
+                [
+                    'id' => $o[7],
+                ],
+            ],
+            'routePrefix' => [
+                null,
+            ],
+            'defaults' => [
+                null,
+            ],
+            'requirements' => [
+                null,
+            ],
+            'options' => [
+                null,
+            ],
+            'stateless' => [
+                true,
+            ],
+            'sunset' => [
+                null,
+            ],
+            'acceptPatch' => [
+                null,
+            ],
+            'status' => [
+                null,
+            ],
+            'host' => [
+                null,
+            ],
+            'schemes' => [
+                null,
+            ],
+            'condition' => [
+                null,
+            ],
+            'controller' => [
+                null,
+            ],
+            'headers' => [
+                null,
+            ],
+            'cacheHeaders' => [
+                [
+                    'vary' => [
+                        'Content-Type',
+                        'Authorization',
+                        'Origin',
+                    ],
+                ],
+            ],
+            'hydraContext' => [
+                null,
+            ],
+            'openapiContext' => [
+                null,
+            ],
+            'openapi' => [
+                null,
+            ],
+            'paginationViaCursor' => [
+                null,
+            ],
+            'compositeIdentifier' => [
+                null,
+            ],
+            'exceptionToStatus' => [
+                null,
+            ],
+            'links' => [
+                null,
+            ],
+            'graphQlOperations' => [
+                [
+                    'item_query' => $o[8],
+                    'collection_query' => $o[10],
+                    'create' => $o[12],
+                ],
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Operations' => [
+            'operations' => [
+                1 => [
+                    [
+                        '_api_/processes/{id}{._format}_get',
+                        $o[2],
+                    ],
+                    [
+                        '_api_/processes/{id}{._format}_put',
+                        $o[4],
+                    ],
+                    [
+                        '_api_/processes{._format}_get_collection',
+                        $o[6],
+                    ],
+                ],
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Operation' => [
+            'shortName' => [
+                2 => 'Process',
+                4 => 'Process',
+                6 => 'Process',
+                8 => 'Process',
+                10 => 'Process',
+                12 => 'Process',
+            ],
+            'class' => [
+                2 => 'App\\Process\\Entity\\Process',
+                4 => 'App\\Process\\Entity\\Process',
+                6 => 'App\\Process\\Entity\\Process',
+                8 => 'App\\Process\\Entity\\Process',
+                10 => 'App\\Process\\Entity\\Process',
+                12 => 'App\\Process\\Entity\\Process',
+            ],
+            'description' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => 'Creates a Process.',
+            ],
+            'urlGenerationStrategy' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'deprecationReason' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'normalizationContext' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'denormalizationContext' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'collectDenormalizationErrors' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'validationContext' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'filters' => [
+                2 => [],
+                4 => [],
+                6 => [],
+                8 => [],
+                10 => [],
+                12 => [],
+            ],
+            'elasticsearch' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'order' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'fetchPartial' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'forceEager' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'paginationEnabled' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'paginationType' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'paginationItemsPerPage' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'paginationMaximumItemsPerPage' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'paginationPartial' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'paginationClientEnabled' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'paginationClientItemsPerPage' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'paginationClientPartial' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'paginationFetchJoinCollection' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'paginationUseOutputWalkers' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'security' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'securityMessage' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'securityPostDenormalize' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'securityPostDenormalizeMessage' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'securityPostValidation' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'securityPostValidationMessage' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'provider' => [
+                2 => 'App\\Process\\DataProvider\\ProcessStateProvider',
+                6 => 'App\\Process\\DataProvider\\ProcessStateProvider',
+                8 => 'App\\Process\\DataProvider\\ProcessStateProvider',
+                10 => 'App\\Process\\DataProvider\\ProcessStateProvider',
+            ],
+            'stateOptions' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                12 => null,
+            ],
+            'extraProperties' => [
+                2 => [
+                    'standard_put' => true,
+                    'rfc_7807_compliant_errors' => true,
+                ],
+                4 => [
+                    'standard_put' => true,
+                    'rfc_7807_compliant_errors' => true,
+                ],
+                6 => [
+                    'standard_put' => true,
+                    'rfc_7807_compliant_errors' => true,
+                ],
+                8 => [
+                    'standard_put' => true,
+                    'rfc_7807_compliant_errors' => true,
+                    'stateless' => true,
+                    'cache_headers' => [
+                        'vary' => [
+                            'Content-Type',
+                            'Authorization',
+                            'Origin',
+                        ],
+                    ],
+                ],
+                10 => [
+                    'standard_put' => true,
+                    'rfc_7807_compliant_errors' => true,
+                    'stateless' => true,
+                    'cache_headers' => [
+                        'vary' => [
+                            'Content-Type',
+                            'Authorization',
+                            'Origin',
+                        ],
+                    ],
+                ],
+                12 => [
+                    'standard_put' => true,
+                    'rfc_7807_compliant_errors' => true,
+                    'stateless' => true,
+                    'cache_headers' => [
+                        'vary' => [
+                            'Content-Type',
+                            'Authorization',
+                            'Origin',
+                        ],
+                    ],
+                ],
+            ],
+            'read' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'deserialize' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'validate' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'write' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'serialize' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'priority' => [
+                2 => 0,
+                4 => 1,
+                6 => 2,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'name' => [
+                2 => '_api_/processes/{id}{._format}_get',
+                4 => '_api_/processes/{id}{._format}_put',
+                6 => '_api_/processes{._format}_get_collection',
+                8 => 'item_query',
+                10 => 'collection_query',
+                12 => 'create',
+            ],
+            'processor' => [
+                4 => 'App\\Process\\DataPersister\\ProcessProcessor',
+                12 => 'App\\Process\\DataPersister\\ProcessProcessor',
+            ],
+            'paginationViaCursor' => [
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Metadata' => [
+            'queryParameterValidationEnabled' => [
+                2 => null,
+                4 => null,
+                6 => null,
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'parameters' => [
+                8 => $o[9],
+                10 => $o[11],
+                12 => $o[13],
+            ],
+        ],
+        'ApiPlatform\\Metadata\\HttpOperation' => [
+            'paginationViaCursor' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'method' => [
+                2 => 'GET',
+                4 => 'PUT',
+                6 => 'GET',
+            ],
+            'uriTemplate' => [
+                2 => '/processes/{id}{._format}',
+                4 => '/processes/{id}{._format}',
+                6 => '/processes{._format}',
+            ],
+            'types' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'inputFormats' => [
+                2 => [
+                    'multipart' => [
+                        'multipart/form-data',
+                    ],
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                    'json' => [
+                        'application/json',
+                    ],
+                ],
+                4 => [
+                    'multipart' => [
+                        'multipart/form-data',
+                    ],
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                    'json' => [
+                        'application/json',
+                    ],
+                ],
+                6 => [
+                    'multipart' => [
+                        'multipart/form-data',
+                    ],
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                    'json' => [
+                        'application/json',
+                    ],
+                ],
+            ],
+            'outputFormats' => [
+                2 => [
+                    'multipart' => [
+                        'multipart/form-data',
+                    ],
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                    'json' => [
+                        'application/json',
+                    ],
+                ],
+                4 => [
+                    'multipart' => [
+                        'multipart/form-data',
+                    ],
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                    'json' => [
+                        'application/json',
+                    ],
+                ],
+                6 => [
+                    'multipart' => [
+                        'multipart/form-data',
+                    ],
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                    'json' => [
+                        'application/json',
+                    ],
+                ],
+            ],
+            'uriVariables' => [
+                2 => [
+                    'id' => $o[3],
+                ],
+                4 => [
+                    'id' => $o[5],
+                ],
+            ],
+            'routePrefix' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'routeName' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'defaults' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'requirements' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'options' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'stateless' => [
+                2 => true,
+                4 => true,
+                6 => true,
+            ],
+            'sunset' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'acceptPatch' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'host' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'schemes' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'condition' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'controller' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'headers' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'cacheHeaders' => [
+                2 => [
+                    'vary' => [
+                        'Content-Type',
+                        'Authorization',
+                        'Origin',
+                    ],
+                ],
+                4 => [
+                    'vary' => [
+                        'Content-Type',
+                        'Authorization',
+                        'Origin',
+                    ],
+                ],
+                6 => [
+                    'vary' => [
+                        'Content-Type',
+                        'Authorization',
+                        'Origin',
+                    ],
+                ],
+            ],
+            'hydraContext' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'openapiContext' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'openapi' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'exceptionToStatus' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'links' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+            'errors' => [
+                2 => null,
+                4 => null,
+                6 => null,
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Parameter' => [
+            'key' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'schema' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'openApi' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'provider' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'filter' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'property' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'description' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'required' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'priority' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'hydra' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'constraints' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'security' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'securityMessage' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'extraProperties' => [
+                3 => [],
+                5 => [],
+                7 => [],
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Link' => [
+            'parameterName' => [
+                3 => 'id',
+                5 => 'id',
+                7 => 'id',
+            ],
+            'fromProperty' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'toProperty' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'fromClass' => [
+                3 => 'App\\Process\\Entity\\Process',
+                5 => 'App\\Process\\Entity\\Process',
+                7 => 'App\\Process\\Entity\\Process',
+            ],
+            'toClass' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'identifiers' => [
+                3 => [
+                    'id',
+                ],
+                5 => [
+                    'id',
+                ],
+                7 => [
+                    'id',
+                ],
+            ],
+            'compositeIdentifier' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'expandedValue' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+            'securityObjectName' => [
+                3 => null,
+                5 => null,
+                7 => null,
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Put' => [
+            'allowCreate' => [
+                4 => null,
+            ],
+        ],
+        'ApiPlatform\\Metadata\\GetCollection' => [
+            'itemUriTemplate' => [
+                6 => null,
+            ],
+        ],
+        'ApiPlatform\\Metadata\\GraphQl\\Operation' => [
+            'resolver' => [
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'args' => [
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'extraArgs' => [
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'links' => [
+                8 => [],
+                10 => [],
+                12 => [],
+            ],
+            'validateAfterResolver' => [
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'securityAfterResolver' => [
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+            'securityMessageAfterResolver' => [
+                8 => null,
+                10 => null,
+                12 => null,
+            ],
+        ],
+        'ApiPlatform\\Metadata\\GraphQl\\Query' => [
+            'nested' => [
+                8 => null,
+                10 => null,
+            ],
+        ],
+        'ApiPlatform\\Metadata\\GraphQl\\QueryCollection' => [
+            'stateOptions' => [
+                10 => null,
+            ],
+        ],
+    ],
+    [
+        $o[0],
+    ],
+    []
+)];

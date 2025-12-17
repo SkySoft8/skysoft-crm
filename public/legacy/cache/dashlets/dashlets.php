@@ -1,5 +1,5 @@
 <?php
-// created: 2025-05-23 12:01:18
+// created: 2025-11-07 15:19:39
 $dashletsFiles = array (
   'MyAccountsDashlet' => 
   array (
@@ -318,13 +318,6 @@ $dashletsFiles = array (
     'class' => 'OutboundEmailAccountsDashlet',
     'meta' => 'modules/OutboundEmailAccounts/Dashlets/OutboundEmailAccountsDashlet/OutboundEmailAccountsDashlet.meta.php',
     'module' => 'OutboundEmailAccounts',
-  ),
-  'planK_PlanningDashlet' => 
-  array (
-    'file' => 'modules/planK_Planning/Dashlets/planK_PlanningDashlet/planK_PlanningDashlet.php',
-    'class' => 'planK_PlanningDashlet',
-    'meta' => 'modules/planK_Planning/Dashlets/planK_PlanningDashlet/planK_PlanningDashlet.meta.php',
-    'module' => 'planK_Planning',
   ),
   'MyProjectDashlet' => 
   array (

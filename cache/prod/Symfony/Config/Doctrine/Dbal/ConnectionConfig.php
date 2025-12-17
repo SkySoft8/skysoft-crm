@@ -65,7 +65,7 @@ class ConnectionConfig
     private $slaves;
     private $replicas;
     private $_usedProperties = [];
-    
+
     /**
      * A URL with connection information; any parameter value parsed from this string will override explicitly set parameters
      * @default null
@@ -76,10 +76,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['url'] = true;
         $this->url = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -89,10 +89,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['dbname'] = true;
         $this->dbname = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Defaults to "localhost" at runtime.
      * @default null
@@ -103,10 +103,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['host'] = true;
         $this->host = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Defaults to null at runtime.
      * @default null
@@ -117,10 +117,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['port'] = true;
         $this->port = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Defaults to "root" at runtime.
      * @default null
@@ -131,10 +131,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['user'] = true;
         $this->user = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Defaults to null at runtime.
      * @default null
@@ -145,10 +145,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['password'] = true;
         $this->password = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -159,10 +159,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['overrideUrl'] = true;
         $this->overrideUrl = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -172,10 +172,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['dbnameSuffix'] = true;
         $this->dbnameSuffix = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -185,10 +185,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['applicationName'] = true;
         $this->applicationName = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -198,10 +198,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['charset'] = true;
         $this->charset = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -211,10 +211,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['path'] = true;
         $this->path = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -224,10 +224,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['memory'] = true;
         $this->memory = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * The unix socket to use for MySQL
      * @default null
@@ -238,10 +238,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['unixSocket'] = true;
         $this->unixSocket = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * True to use as persistent connection for the ibm_db2 driver
      * @default null
@@ -252,10 +252,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['persistent'] = true;
         $this->persistent = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * The protocol to use for the ibm_db2 driver (default to TCPIP if omitted)
      * @default null
@@ -266,10 +266,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['protocol'] = true;
         $this->protocol = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * True to use SERVICE_NAME as connection parameter instead of SID for Oracle
      * @default null
@@ -280,10 +280,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['service'] = true;
         $this->service = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Overrules dbname parameter if given and used as SERVICE_NAME or SID connection parameter for Oracle depending on the service parameter.
      * @default null
@@ -294,10 +294,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['servicename'] = true;
         $this->servicename = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * The session mode to use for the oci8 driver
      * @default null
@@ -308,10 +308,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['sessionMode'] = true;
         $this->sessionMode = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * The name of a running database server to connect to for SQL Anywhere.
      * @default null
@@ -322,10 +322,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['server'] = true;
         $this->server = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Override the default database (postgres) to connect to for PostgreSQL connexion.
      * @default null
@@ -336,10 +336,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['defaultDbname'] = true;
         $this->defaultDbname = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Determines whether or with what priority a SSL TCP/IP connection will be negotiated with the server for PostgreSQL.
      * @default null
@@ -350,10 +350,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['sslmode'] = true;
         $this->sslmode = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * The name of a file containing SSL certificate authority (CA) certificate(s). If the file exists, the server's certificate will be verified to be signed by one of these authorities.
      * @default null
@@ -364,10 +364,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['sslrootcert'] = true;
         $this->sslrootcert = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * The path to the SSL client certificate file for PostgreSQL.
      * @default null
@@ -378,10 +378,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['sslcert'] = true;
         $this->sslcert = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * The path to the SSL client key file for PostgreSQL.
      * @default null
@@ -392,10 +392,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['sslkey'] = true;
         $this->sslkey = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * The file name of the SSL certificate revocation list for PostgreSQL.
      * @default null
@@ -406,10 +406,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['sslcrl'] = true;
         $this->sslcrl = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * True to use a pooled server with the oci8/pdo_oracle driver
      * @default null
@@ -420,10 +420,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['pooled'] = true;
         $this->pooled = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Configuring MultipleActiveResultSets for the pdo_sqlsrv driver
      * @default null
@@ -434,10 +434,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['multipleActiveResultSets'] = true;
         $this->multipleActiveResultSets = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Use savepoints for nested transactions
      * @default null
@@ -448,10 +448,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['useSavepoints'] = true;
         $this->useSavepoints = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Optional parameter, complete whether to add the INSTANCE_NAME parameter in the connection. It is generally used to connect to an Oracle RAC server to select the name of a particular instance.
      * @default null
@@ -462,10 +462,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['instancename'] = true;
         $this->instancename = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Complete Easy Connect connection descriptor, see https://docs.oracle.com/database/121/NETAG/naming.htm.When using this option, you will still need to provide the user and password parameters, but the other parameters will no longer be used. Note that when using this parameter, the getHost and getPort methods from Doctrine\DBAL\Connection will no longer function as expected.
      * @default null
@@ -476,10 +476,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['connectstring'] = true;
         $this->connectstring = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default 'pdo_mysql'
      * @param ParamConfigurator|mixed $value
@@ -489,10 +489,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['driver'] = true;
         $this->driver = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -503,10 +503,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['platformService'] = true;
         $this->platformService = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -516,10 +516,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['autoCommit'] = true;
         $this->autoCommit = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -529,10 +529,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['schemaFilter'] = true;
         $this->schemaFilter = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default false
      * @param ParamConfigurator|bool $value
@@ -542,10 +542,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['logging'] = true;
         $this->logging = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default false
      * @param ParamConfigurator|bool $value
@@ -555,10 +555,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['profiling'] = true;
         $this->profiling = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Enables collecting backtraces when profiling is enabled
      * @default false
@@ -569,10 +569,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['profilingCollectBacktrace'] = true;
         $this->profilingCollectBacktrace = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Enables collecting schema errors when profiling is enabled
      * @default true
@@ -583,10 +583,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['profilingCollectSchemaErrors'] = true;
         $this->profilingCollectSchemaErrors = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -596,10 +596,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['disableTypeComments'] = true;
         $this->disableTypeComments = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -609,10 +609,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['serverVersion'] = true;
         $this->serverVersion = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -622,10 +622,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['driverClass'] = true;
         $this->driverClass = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -635,10 +635,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['wrapperClass'] = true;
         $this->wrapperClass = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -649,10 +649,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['keepSlave'] = true;
         $this->keepSlave = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -662,10 +662,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['keepReplica'] = true;
         $this->keepReplica = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
@@ -673,10 +673,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['options'] = true;
         $this->options[$key] = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
@@ -684,10 +684,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['mappingTypes'] = true;
         $this->mappingTypes[$name] = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
@@ -695,10 +695,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['defaultTableOptions'] = true;
         $this->defaultTableOptions[$name] = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default 'doctrine.dbal.legacy_schema_manager_factory'
      * @param ParamConfigurator|mixed $value
@@ -708,10 +708,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['schemaManagerFactory'] = true;
         $this->schemaManagerFactory = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -721,10 +721,10 @@ class ConnectionConfig
     {
         $this->_usedProperties['resultCache'] = true;
         $this->resultCache = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @template TValue
      * @param TValue $value
@@ -737,20 +737,20 @@ class ConnectionConfig
         if (!\is_array($value)) {
             $this->_usedProperties['slaves'] = true;
             $this->slaves[$name] = $value;
-    
+
             return $this;
         }
-    
+
         if (!isset($this->slaves[$name]) || !$this->slaves[$name] instanceof \Symfony\Config\Doctrine\Dbal\ConnectionConfig\SlaveConfig) {
             $this->_usedProperties['slaves'] = true;
             $this->slaves[$name] = new \Symfony\Config\Doctrine\Dbal\ConnectionConfig\SlaveConfig($value);
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "slave()" has already been initialized. You cannot pass values the second time you call slave().');
         }
-    
+
         return $this->slaves[$name];
     }
-    
+
     /**
      * @template TValue
      * @param TValue $value
@@ -762,20 +762,20 @@ class ConnectionConfig
         if (!\is_array($value)) {
             $this->_usedProperties['replicas'] = true;
             $this->replicas[$name] = $value;
-    
+
             return $this;
         }
-    
+
         if (!isset($this->replicas[$name]) || !$this->replicas[$name] instanceof \Symfony\Config\Doctrine\Dbal\ConnectionConfig\ReplicaConfig) {
             $this->_usedProperties['replicas'] = true;
             $this->replicas[$name] = new \Symfony\Config\Doctrine\Dbal\ConnectionConfig\ReplicaConfig($value);
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "replica()" has already been initialized. You cannot pass values the second time you call replica().');
         }
-    
+
         return $this->replicas[$name];
     }
-    
+
     public function __construct(array $value = [])
     {
         if (array_key_exists('url', $value)) {
@@ -783,312 +783,312 @@ class ConnectionConfig
             $this->url = $value['url'];
             unset($value['url']);
         }
-    
+
         if (array_key_exists('dbname', $value)) {
             $this->_usedProperties['dbname'] = true;
             $this->dbname = $value['dbname'];
             unset($value['dbname']);
         }
-    
+
         if (array_key_exists('host', $value)) {
             $this->_usedProperties['host'] = true;
             $this->host = $value['host'];
             unset($value['host']);
         }
-    
+
         if (array_key_exists('port', $value)) {
             $this->_usedProperties['port'] = true;
             $this->port = $value['port'];
             unset($value['port']);
         }
-    
+
         if (array_key_exists('user', $value)) {
             $this->_usedProperties['user'] = true;
             $this->user = $value['user'];
             unset($value['user']);
         }
-    
+
         if (array_key_exists('password', $value)) {
             $this->_usedProperties['password'] = true;
             $this->password = $value['password'];
             unset($value['password']);
         }
-    
+
         if (array_key_exists('override_url', $value)) {
             $this->_usedProperties['overrideUrl'] = true;
             $this->overrideUrl = $value['override_url'];
             unset($value['override_url']);
         }
-    
+
         if (array_key_exists('dbname_suffix', $value)) {
             $this->_usedProperties['dbnameSuffix'] = true;
             $this->dbnameSuffix = $value['dbname_suffix'];
             unset($value['dbname_suffix']);
         }
-    
+
         if (array_key_exists('application_name', $value)) {
             $this->_usedProperties['applicationName'] = true;
             $this->applicationName = $value['application_name'];
             unset($value['application_name']);
         }
-    
+
         if (array_key_exists('charset', $value)) {
             $this->_usedProperties['charset'] = true;
             $this->charset = $value['charset'];
             unset($value['charset']);
         }
-    
+
         if (array_key_exists('path', $value)) {
             $this->_usedProperties['path'] = true;
             $this->path = $value['path'];
             unset($value['path']);
         }
-    
+
         if (array_key_exists('memory', $value)) {
             $this->_usedProperties['memory'] = true;
             $this->memory = $value['memory'];
             unset($value['memory']);
         }
-    
+
         if (array_key_exists('unix_socket', $value)) {
             $this->_usedProperties['unixSocket'] = true;
             $this->unixSocket = $value['unix_socket'];
             unset($value['unix_socket']);
         }
-    
+
         if (array_key_exists('persistent', $value)) {
             $this->_usedProperties['persistent'] = true;
             $this->persistent = $value['persistent'];
             unset($value['persistent']);
         }
-    
+
         if (array_key_exists('protocol', $value)) {
             $this->_usedProperties['protocol'] = true;
             $this->protocol = $value['protocol'];
             unset($value['protocol']);
         }
-    
+
         if (array_key_exists('service', $value)) {
             $this->_usedProperties['service'] = true;
             $this->service = $value['service'];
             unset($value['service']);
         }
-    
+
         if (array_key_exists('servicename', $value)) {
             $this->_usedProperties['servicename'] = true;
             $this->servicename = $value['servicename'];
             unset($value['servicename']);
         }
-    
+
         if (array_key_exists('sessionMode', $value)) {
             $this->_usedProperties['sessionMode'] = true;
             $this->sessionMode = $value['sessionMode'];
             unset($value['sessionMode']);
         }
-    
+
         if (array_key_exists('server', $value)) {
             $this->_usedProperties['server'] = true;
             $this->server = $value['server'];
             unset($value['server']);
         }
-    
+
         if (array_key_exists('default_dbname', $value)) {
             $this->_usedProperties['defaultDbname'] = true;
             $this->defaultDbname = $value['default_dbname'];
             unset($value['default_dbname']);
         }
-    
+
         if (array_key_exists('sslmode', $value)) {
             $this->_usedProperties['sslmode'] = true;
             $this->sslmode = $value['sslmode'];
             unset($value['sslmode']);
         }
-    
+
         if (array_key_exists('sslrootcert', $value)) {
             $this->_usedProperties['sslrootcert'] = true;
             $this->sslrootcert = $value['sslrootcert'];
             unset($value['sslrootcert']);
         }
-    
+
         if (array_key_exists('sslcert', $value)) {
             $this->_usedProperties['sslcert'] = true;
             $this->sslcert = $value['sslcert'];
             unset($value['sslcert']);
         }
-    
+
         if (array_key_exists('sslkey', $value)) {
             $this->_usedProperties['sslkey'] = true;
             $this->sslkey = $value['sslkey'];
             unset($value['sslkey']);
         }
-    
+
         if (array_key_exists('sslcrl', $value)) {
             $this->_usedProperties['sslcrl'] = true;
             $this->sslcrl = $value['sslcrl'];
             unset($value['sslcrl']);
         }
-    
+
         if (array_key_exists('pooled', $value)) {
             $this->_usedProperties['pooled'] = true;
             $this->pooled = $value['pooled'];
             unset($value['pooled']);
         }
-    
+
         if (array_key_exists('MultipleActiveResultSets', $value)) {
             $this->_usedProperties['multipleActiveResultSets'] = true;
             $this->multipleActiveResultSets = $value['MultipleActiveResultSets'];
             unset($value['MultipleActiveResultSets']);
         }
-    
+
         if (array_key_exists('use_savepoints', $value)) {
             $this->_usedProperties['useSavepoints'] = true;
             $this->useSavepoints = $value['use_savepoints'];
             unset($value['use_savepoints']);
         }
-    
+
         if (array_key_exists('instancename', $value)) {
             $this->_usedProperties['instancename'] = true;
             $this->instancename = $value['instancename'];
             unset($value['instancename']);
         }
-    
+
         if (array_key_exists('connectstring', $value)) {
             $this->_usedProperties['connectstring'] = true;
             $this->connectstring = $value['connectstring'];
             unset($value['connectstring']);
         }
-    
+
         if (array_key_exists('driver', $value)) {
             $this->_usedProperties['driver'] = true;
             $this->driver = $value['driver'];
             unset($value['driver']);
         }
-    
+
         if (array_key_exists('platform_service', $value)) {
             $this->_usedProperties['platformService'] = true;
             $this->platformService = $value['platform_service'];
             unset($value['platform_service']);
         }
-    
+
         if (array_key_exists('auto_commit', $value)) {
             $this->_usedProperties['autoCommit'] = true;
             $this->autoCommit = $value['auto_commit'];
             unset($value['auto_commit']);
         }
-    
+
         if (array_key_exists('schema_filter', $value)) {
             $this->_usedProperties['schemaFilter'] = true;
             $this->schemaFilter = $value['schema_filter'];
             unset($value['schema_filter']);
         }
-    
+
         if (array_key_exists('logging', $value)) {
             $this->_usedProperties['logging'] = true;
             $this->logging = $value['logging'];
             unset($value['logging']);
         }
-    
+
         if (array_key_exists('profiling', $value)) {
             $this->_usedProperties['profiling'] = true;
             $this->profiling = $value['profiling'];
             unset($value['profiling']);
         }
-    
+
         if (array_key_exists('profiling_collect_backtrace', $value)) {
             $this->_usedProperties['profilingCollectBacktrace'] = true;
             $this->profilingCollectBacktrace = $value['profiling_collect_backtrace'];
             unset($value['profiling_collect_backtrace']);
         }
-    
+
         if (array_key_exists('profiling_collect_schema_errors', $value)) {
             $this->_usedProperties['profilingCollectSchemaErrors'] = true;
             $this->profilingCollectSchemaErrors = $value['profiling_collect_schema_errors'];
             unset($value['profiling_collect_schema_errors']);
         }
-    
+
         if (array_key_exists('disable_type_comments', $value)) {
             $this->_usedProperties['disableTypeComments'] = true;
             $this->disableTypeComments = $value['disable_type_comments'];
             unset($value['disable_type_comments']);
         }
-    
+
         if (array_key_exists('server_version', $value)) {
             $this->_usedProperties['serverVersion'] = true;
             $this->serverVersion = $value['server_version'];
             unset($value['server_version']);
         }
-    
+
         if (array_key_exists('driver_class', $value)) {
             $this->_usedProperties['driverClass'] = true;
             $this->driverClass = $value['driver_class'];
             unset($value['driver_class']);
         }
-    
+
         if (array_key_exists('wrapper_class', $value)) {
             $this->_usedProperties['wrapperClass'] = true;
             $this->wrapperClass = $value['wrapper_class'];
             unset($value['wrapper_class']);
         }
-    
+
         if (array_key_exists('keep_slave', $value)) {
             $this->_usedProperties['keepSlave'] = true;
             $this->keepSlave = $value['keep_slave'];
             unset($value['keep_slave']);
         }
-    
+
         if (array_key_exists('keep_replica', $value)) {
             $this->_usedProperties['keepReplica'] = true;
             $this->keepReplica = $value['keep_replica'];
             unset($value['keep_replica']);
         }
-    
+
         if (array_key_exists('options', $value)) {
             $this->_usedProperties['options'] = true;
             $this->options = $value['options'];
             unset($value['options']);
         }
-    
+
         if (array_key_exists('mapping_types', $value)) {
             $this->_usedProperties['mappingTypes'] = true;
             $this->mappingTypes = $value['mapping_types'];
             unset($value['mapping_types']);
         }
-    
+
         if (array_key_exists('default_table_options', $value)) {
             $this->_usedProperties['defaultTableOptions'] = true;
             $this->defaultTableOptions = $value['default_table_options'];
             unset($value['default_table_options']);
         }
-    
+
         if (array_key_exists('schema_manager_factory', $value)) {
             $this->_usedProperties['schemaManagerFactory'] = true;
             $this->schemaManagerFactory = $value['schema_manager_factory'];
             unset($value['schema_manager_factory']);
         }
-    
+
         if (array_key_exists('result_cache', $value)) {
             $this->_usedProperties['resultCache'] = true;
             $this->resultCache = $value['result_cache'];
             unset($value['result_cache']);
         }
-    
+
         if (array_key_exists('slaves', $value)) {
             $this->_usedProperties['slaves'] = true;
             $this->slaves = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\Doctrine\Dbal\ConnectionConfig\SlaveConfig($v) : $v, $value['slaves']);
             unset($value['slaves']);
         }
-    
+
         if (array_key_exists('replicas', $value)) {
             $this->_usedProperties['replicas'] = true;
             $this->replicas = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\Doctrine\Dbal\ConnectionConfig\ReplicaConfig($v) : $v, $value['replicas']);
             unset($value['replicas']);
         }
-    
+
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-    
+
     public function toArray(): array
     {
         $output = [];
@@ -1245,7 +1245,7 @@ class ConnectionConfig
         if (isset($this->_usedProperties['replicas'])) {
             $output['replicas'] = array_map(fn ($v) => $v instanceof \Symfony\Config\Doctrine\Dbal\ConnectionConfig\ReplicaConfig ? $v->toArray() : $v, $this->replicas);
         }
-    
+
         return $output;
     }
 

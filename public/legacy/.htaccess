@@ -1,26 +1,29 @@
 # BEGIN SUITECRM RESTRICTIONS
-RedirectMatch 403 (?i).*\.log$
-RedirectMatch 403 (?i)/+not_imported_.*\.txt
-RedirectMatch 403 (?i)/+(soap|cache|xtemplate|data|examples|include|log4php|metadata|modules|vendor)/+.*\.(php|tpl|phar)
-RedirectMatch 403 (?i)/+emailmandelivery\.php
-RedirectMatch 403 (?i)/+.git
-RedirectMatch 403 (?i)/+.cache/
-RedirectMatch 403 (?i)/+tests
-RedirectMatch 403 (?i)/+RoboFile\.php
-RedirectMatch 403 (?i)/+composer\.json
-RedirectMatch 403 (?i)/+composer\.lock
-RedirectMatch 403 (?i)/+upload
-RedirectMatch 403 (?i)/+custom/+blowfish
-RedirectMatch 403 (?i)/+cache/+diagnostic
-RedirectMatch 403 (?i)/+files\.md5$
+RedirectMatch 403 .*\.log$
+RedirectMatch 403 /+not_imported_.*\.txt
+RedirectMatch 403 /+(soap|cache|xtemplate|data|examples|include|log4php|metadata|modules|vendor)/+.*\.(php|tpl|phar)
+RedirectMatch 403 /+emailmandelivery\.php
+RedirectMatch 403 /+.git
+RedirectMatch 403 /+.cache/
+RedirectMatch 403 /+tests
+RedirectMatch 403 /+RoboFile\.php
+RedirectMatch 403 /+composer\.json
+RedirectMatch 403 /+composer\.lock
+RedirectMatch 403 /+upload
+RedirectMatch 403 /+custom/+blowfish
+RedirectMatch 403 /+cache/+diagnostic
+RedirectMatch 403 /+files\.md5$
 
 <IfModule mod_rewrite.c>
+    Options +SymLinksIfOwnerMatch
     Options -Indexes
     Options -MultiViews
     RewriteEngine On
     RewriteBase /crm/public/index.php/public/legacy
     RewriteRule ^cache/jsLanguage/(.._..).js$ index.php?entryPoint=jslang&modulename=app_strings&lang=$1 [L,QSA]
     RewriteRule ^cache/jsLanguage/(\w*)/(.._..).js$ index.php?entryPoint=jslang&modulename=$1&lang=$2 [L,QSA]
+
+    RewriteRule ^ep/(.*?)$ index.php?entryPoint=$1 [L,QSA]
 
     # --------- DEPRECATED --------
     RewriteRule ^api/(.*)$ - [env=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

@@ -1,0 +1,57 @@
+<?php //App_Metadata_Entity_ModuleMetadata
+
+return [PHP_INT_MAX, static fn () => \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Metadata\\Entity\\ModuleMetadata',
+                'recordView',
+                'recordModal',
+                'editView',
+                'extra',
+                'listView',
+                'search',
+                'subpanel',
+                'massUpdate',
+                'recentlyViewed',
+                'favorites',
+                'id',
+                'subPanel',
+            ],
+            'attributesMetadata' => [
+                [
+                    'recordView' => $o[1],
+                    'recordModal' => $o[2],
+                    'editView' => $o[3],
+                    'extra' => $o[4],
+                    'listView' => $o[5],
+                    'search' => $o[6],
+                    'subpanel' => $o[7],
+                    'massUpdate' => $o[8],
+                    'recentlyViewed' => $o[9],
+                    'favorites' => $o[10],
+                    'id' => $o[11],
+                    'subPanel' => $o[12],
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+)];

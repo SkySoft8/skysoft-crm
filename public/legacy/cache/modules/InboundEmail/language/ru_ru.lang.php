@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 14:26:02
+// created: 2025-11-19 09:05:52
 $mod_strings = array (
   'LBL_SECURITYGROUPS' => 'Группы пользователей',
   'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Группы пользователей',
@@ -27,9 +27,9 @@ $mod_strings = array (
   'LBL_ASSIGN_TO_GROUP_FOLDER_DESC' => 'Автоматически импортировать в систему все входящие электронные письма.',
   'LBL_FILTER_DOMAIN' => 'Не отправлять автоответ на этот домен',
   'LBL_FIND_SSL_WARN' => 'Тестирование SSL может занять продолжительное время. Пожалуйста, подождите...',
-  'LBL_FROM_ADDR' => 'С адреса',
+  'LBL_FROM_ADDR' => 'Адрес отправителя',
   'LBL_FROM_ADDR_DESC' => ' Указанный здесь электронный адрес может не отображаться в поле <b><От></b> отправляемого письма из-за возможных ограничений, налагаемых почтовым провайдером. В этом случае будет использоваться адрес сервера исходящей почты.',
-  'LBL_FROM_NAME' => 'От имени',
+  'LBL_FROM_NAME' => 'Имя отправителя',
   'LBL_GROUP_QUEUE' => 'Приписать к группе',
   'LBL_HOME' => 'Home',
   'LBL_LIST_MAILBOX_TYPE' => 'Действие',
@@ -154,7 +154,7 @@ $mod_strings = array (
   'LBL_EXTERNAL_OAUTH_CONNECTION_NAME' => 'Внешнее подключение OAuth',
   'LNK_EXTERNAL_OAUTH_CONNECTIONS' => 'Внешние подключения OAuth',
   'LBL_TYPE' => 'Тип',
-  'LBL_AUTH_TYPE' => 'Тип авторизации',
+  'LBL_AUTH_TYPE' => 'Аутентификация',
   'LBL_IS_DEFAULT' => 'По умолчанию',
   'LBL_SIGNATURE' => 'Подпись',
   'LBL_OWNER_NAME' => 'Владелец',

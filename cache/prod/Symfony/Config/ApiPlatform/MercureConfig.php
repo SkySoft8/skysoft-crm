@@ -14,7 +14,7 @@ class MercureConfig
     private $hubUrl;
     private $includeType;
     private $_usedProperties = [];
-    
+
     /**
      * @default false
      * @param ParamConfigurator|bool $value
@@ -24,10 +24,10 @@ class MercureConfig
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * The URL sent in the Link HTTP header. If not set, will default to the URL for MercureBundle's default hub.
      * @default null
@@ -38,10 +38,10 @@ class MercureConfig
     {
         $this->_usedProperties['hubUrl'] = true;
         $this->hubUrl = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Always include @type in updates (including delete ones).
      * @default false
@@ -52,10 +52,10 @@ class MercureConfig
     {
         $this->_usedProperties['includeType'] = true;
         $this->includeType = $value;
-    
+
         return $this;
     }
-    
+
     public function __construct(array $value = [])
     {
         if (array_key_exists('enabled', $value)) {
@@ -63,24 +63,24 @@ class MercureConfig
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
-    
+
         if (array_key_exists('hub_url', $value)) {
             $this->_usedProperties['hubUrl'] = true;
             $this->hubUrl = $value['hub_url'];
             unset($value['hub_url']);
         }
-    
+
         if (array_key_exists('include_type', $value)) {
             $this->_usedProperties['includeType'] = true;
             $this->includeType = $value['include_type'];
             unset($value['include_type']);
         }
-    
+
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-    
+
     public function toArray(): array
     {
         $output = [];
@@ -93,7 +93,7 @@ class MercureConfig
         if (isset($this->_usedProperties['includeType'])) {
             $output['include_type'] = $this->includeType;
         }
-    
+
         return $output;
     }
 

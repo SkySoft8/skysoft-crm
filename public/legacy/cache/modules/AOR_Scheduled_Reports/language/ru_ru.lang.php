@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 14:26:04
+// created: 2025-11-19 09:05:46
 $mod_strings = array (
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Дата создания',
@@ -31,6 +31,7 @@ $mod_strings = array (
   'LBL_ASSIGNED_USER' => 'Ответственный(ая):',
   'LBL_EMAIL_RECIPIENTS' => 'Получатели:',
   'NTC_DELETE_CONFIRMATION' => 'Вы действительно хотите удалить эту запись?',
+  'NTC_SNOOZE_CONFIRMATION' => 'Вы действительно хотите отложить уведомление?',
   'LBL_LIST_FORM_TITLE' => 'Отчёты по расписанию',
   'LBL_MODULE_NAME' => 'Отчёты по расписанию',
   'LBL_MODULE_TITLE' => 'Отчёты по расписанию',

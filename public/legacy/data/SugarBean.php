@@ -2489,9 +2489,6 @@ class SugarBean
             $this->save_relationship_changes($isUpdate);
             $GLOBALS['saving_relationships'] = false;
         }
-        if ($isUpdate && !$this->update_date_entered) {
-            unset($this->date_entered);
-        }
         // call the custom business logic
         $custom_logic_arguments = [];
         $custom_logic_arguments['check_notify'] = $check_notify;
@@ -2533,7 +2530,15 @@ class SugarBean
         $this->_sendNotifications($check_notify);
 
         if ($isUpdate) {
+            $tmp_date_entered = $this->date_entered;
+            if (!empty($this->fetched_row['date_entered'])) {
+                $tmp_date_entered = $this->fetched_row['date_entered'];
+            }
+            if (!$this->update_date_entered) {
+                unset($this->date_entered);
+            }
             $this->db->update($this);
+            $this->date_entered = $tmp_date_entered;
         } else {
             $this->db->insert($this);
         }
@@ -2642,6 +2647,11 @@ class SugarBean
                 }
                 if (isset($def['dbType'])) {
                     $type .= $def['dbType'];
+                }
+
+                $purifyHtml = $def['metadata']['purifyHtml'] ?? true;
+                if ($purifyHtml === false) {
+                    return;
                 }
 
                 // Trim name & varchar type values on save when the value is not null
@@ -4497,6 +4507,7 @@ class SugarBean
      * populate the upper limit on ListViews.
      *
      * @param string $query Select query string
+     * @param mixed $alias
      * @return string count query
      *
      * Internal function, do not override.
@@ -4515,6 +4526,10 @@ class SugarBean
             } else {
                 $star = 'DISTINCT ' . $this->table_name . '.id';
             }
+        }
+
+        if (is_array($alias)) {
+            $alias = $alias[0];
         }
 
         // change the select expression to 'count(*)'

@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 14:26:02
+// created: 2025-11-19 09:05:53
 $mod_strings = array (
   'LBL_MODULE_TITLE' => 'Мои сохранённые фильтры',
   'LBL_SEARCH_FORM_TITLE' => 'Мои сохранённые фильтры : Фильтр',
@@ -16,4 +16,5 @@ $mod_strings = array (
   'LBL_DESCENDING' => 'Нисходящая',
   'LBL_MODIFY_CURRENT_FILTER' => 'Выбранный фильтр',
   'LBL_CREATED_BY' => 'Кем создано',
+  'LBL_QUICK_FILTER' => 'Быстрый фильтр',
 );

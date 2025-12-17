@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 15:02:29
+// created: 2025-11-07 15:41:56
 $mod_strings = array (
   'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
   'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
@@ -31,6 +31,7 @@ $mod_strings = array (
   'LBL_TYPE' => 'Type',
   'LBL_CONNECTOR' => 'Connector',
   'LBL_REDIRECT_URI' => 'Redirect URI',
+  'LBL_REDIRECT_URI_TYPE' => 'Redirect URI Type',
   'LBL_CLIENT_ID' => 'Client Id',
   'LBL_CLIENT_SECRET' => 'Client Secret',
   'LBL_SCOPE' => 'Scope',

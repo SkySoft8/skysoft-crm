@@ -19,7 +19,7 @@ class OpenapiConfig
     private $swaggerUiExtraConfiguration;
     private $overrideResponses;
     private $_usedProperties = [];
-    
+
     /**
      * @default {"name":null,"url":null,"email":null}
     */
@@ -31,10 +31,10 @@ class OpenapiConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "contact()" has already been initialized. You cannot pass values the second time you call contact().');
         }
-    
+
         return $this->contact;
     }
-    
+
     /**
      * A URL to the Terms of Service for the API. MUST be in the format of a URL.
      * @default null
@@ -45,10 +45,10 @@ class OpenapiConfig
     {
         $this->_usedProperties['termsOfService'] = true;
         $this->termsOfService = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * @default {"name":null,"url":null}
     */
@@ -60,10 +60,10 @@ class OpenapiConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "license()" has already been initialized. You cannot pass values the second time you call license().');
         }
-    
+
         return $this->license;
     }
-    
+
     /**
      * To pass extra configuration to Swagger UI, like docExpansion or filter.
      * @default array (
@@ -77,10 +77,10 @@ class OpenapiConfig
     {
         $this->_usedProperties['swaggerUiExtraConfiguration'] = true;
         $this->swaggerUiExtraConfiguration = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * Whether API Platform adds automatic responses to the OpenAPI documentation.
      * @default true
@@ -91,10 +91,10 @@ class OpenapiConfig
     {
         $this->_usedProperties['overrideResponses'] = true;
         $this->overrideResponses = $value;
-    
+
         return $this;
     }
-    
+
     public function __construct(array $value = [])
     {
         if (array_key_exists('contact', $value)) {
@@ -102,36 +102,36 @@ class OpenapiConfig
             $this->contact = new \Symfony\Config\ApiPlatform\Openapi\ContactConfig($value['contact']);
             unset($value['contact']);
         }
-    
+
         if (array_key_exists('termsOfService', $value)) {
             $this->_usedProperties['termsOfService'] = true;
             $this->termsOfService = $value['termsOfService'];
             unset($value['termsOfService']);
         }
-    
+
         if (array_key_exists('license', $value)) {
             $this->_usedProperties['license'] = true;
             $this->license = new \Symfony\Config\ApiPlatform\Openapi\LicenseConfig($value['license']);
             unset($value['license']);
         }
-    
+
         if (array_key_exists('swagger_ui_extra_configuration', $value)) {
             $this->_usedProperties['swaggerUiExtraConfiguration'] = true;
             $this->swaggerUiExtraConfiguration = $value['swagger_ui_extra_configuration'];
             unset($value['swagger_ui_extra_configuration']);
         }
-    
+
         if (array_key_exists('overrideResponses', $value)) {
             $this->_usedProperties['overrideResponses'] = true;
             $this->overrideResponses = $value['overrideResponses'];
             unset($value['overrideResponses']);
         }
-    
+
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-    
+
     public function toArray(): array
     {
         $output = [];
@@ -150,7 +150,7 @@ class OpenapiConfig
         if (isset($this->_usedProperties['overrideResponses'])) {
             $output['overrideResponses'] = $this->overrideResponses;
         }
-    
+
         return $output;
     }
 

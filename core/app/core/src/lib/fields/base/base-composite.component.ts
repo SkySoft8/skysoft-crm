@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
- * Copyright (C) 2021 SalesAgility Ltd.
+ * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
+ * Copyright (C) 2021 SuiteCRM Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -29,10 +29,12 @@ import {BaseFieldComponent} from './base-field.component';
 import {DataTypeFormatter} from '../../services/formatters/data-type.formatter.service';
 import {StandardFieldRegistry} from '../standard-field.registry';
 import {RecordManager} from '../../services/record/record.manager';
-import {emptyObject, Field, FieldAttribute, FieldDefinition} from 'common';
+import {emptyObject} from '../../common/utils/object-utils';
+import {Field, FieldAttribute, FieldDefinition} from '../../common/record/field.model';
 import set from 'lodash-es/set';
 import {FieldLogicManager} from '../field-logic/field-logic.manager';
 import {FieldLogicDisplayManager} from '../field-logic-display/field-logic-display.manager';
+import {CompositeAttributeTypeOverrideRegistry} from "../composite/composite-attribute-type-override.registry";
 
 @Component({template: ''})
 export class BaseComposite extends BaseFieldComponent implements OnInit, OnDestroy {
@@ -42,7 +44,8 @@ export class BaseComposite extends BaseFieldComponent implements OnInit, OnDestr
         protected registry: StandardFieldRegistry,
         protected recordManager: RecordManager,
         protected logic: FieldLogicManager,
-        protected logicDisplay: FieldLogicDisplayManager
+        protected logicDisplay: FieldLogicDisplayManager,
+        protected attributeTypeOverrideRegistry: CompositeAttributeTypeOverrideRegistry
     ) {
         super(typeFormatter, logic, logicDisplay);
     }
@@ -61,6 +64,8 @@ export class BaseComposite extends BaseFieldComponent implements OnInit, OnDestr
 
         const displayType = (definition && definition.displayType) || '';
 
+        type = this.attributeTypeOverrideRegistry.getType(module, this?.field?.name ?? '', type, this?.originalMode ?? '')
+
         return this.registry.getDisplayType(module, type, displayType, this.getMode(), this.field.name);
     }
 
@@ -73,7 +78,7 @@ export class BaseComposite extends BaseFieldComponent implements OnInit, OnDestr
         const fields: Field[] = [];
 
         this.field.definition.layout.forEach(name => {
-            if (!this.field.attributes[name] || this.field.attributes[name].display === 'none') {
+            if (!this.field.attributes[name] || this.field.attributes[name]?.display() === 'none') {
                 return;
             }
             fields.push(this.field.attributes[name]);

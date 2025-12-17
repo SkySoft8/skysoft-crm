@@ -181,13 +181,8 @@ array (
         ),
         3 => 
         array (
-          0 => 
-          array (
-            'name' => 'deal_status_c',
-            'studio' => 'visible',
-            'label' => 'LBL_DEAL_STATUS',
-          ),
-          1 => 'lead_source',
+          0 => 'lead_source',
+          1 => '',
         ),
         4 => 
         array (
@@ -196,12 +191,10 @@ array (
             'name' => 'description',
             'nl2br' => true,
           ),
-          1 => 
-          array (
-            'name' => 'refusal_reason_c',
-            'studio' => 'visible',
-            'label' => 'LBL_REFUSAL_REASON',
-          ),
+        ),
+        5 => 
+        array (
+          0 => '',
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 

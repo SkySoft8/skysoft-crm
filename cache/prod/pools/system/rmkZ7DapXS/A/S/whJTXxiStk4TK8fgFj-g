@@ -1,0 +1,73 @@
+<?php //App.MediaObjects.Entity.ArchivedDocumentMediaObject
+
+return [PHP_INT_MAX, static fn () => \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        (($f = &\Symfony\Component\VarExporter\Internal\Registry::$factories)['Symfony\\Component\\Validator\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::f('Symfony\\Component\\Validator\\Mapping\\ClassMetadata'))(),
+        ($f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::f('Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'))(),
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Validator\\Constraints\\NotNull'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\NotNull')),
+        clone ($p['App\\MediaObjects\\Validator\\UploadValidator\\UploadConstraint'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('App\\MediaObjects\\Validator\\UploadValidator\\UploadConstraint')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\MediaObjects\\Entity\\ArchivedDocumentMediaObject',
+                'file',
+            ],
+            'defaultGroup' => [
+                'ArchivedDocumentMediaObject',
+            ],
+            'members' => [
+                [
+                    'file' => [
+                        $o[1],
+                    ],
+                ],
+            ],
+            'properties' => [
+                [
+                    'file' => $o[1],
+                ],
+            ],
+            'constraints' => [
+                1 => [
+                    $o[2],
+                    $o[3],
+                ],
+            ],
+            'constraintsByGroup' => [
+                1 => [
+                    'Default' => [
+                        $o[2],
+                        $o[3],
+                    ],
+                    'ArchivedDocumentMediaObject' => [
+                        $o[2],
+                        $o[3],
+                    ],
+                ],
+            ],
+            'class' => [
+                1 => 'App\\MediaObjects\\Entity\\ArchivedDocumentMediaObject',
+            ],
+            'property' => [
+                1 => 'file',
+            ],
+            'groups' => [
+                2 => [
+                    'Default',
+                    'ArchivedDocumentMediaObject',
+                ],
+                [
+                    'Default',
+                    'ArchivedDocumentMediaObject',
+                ],
+            ],
+            'storageType' => [
+                3 => 'archived-documents',
+            ],
+        ],
+    ],
+    $o[0],
+    []
+)];

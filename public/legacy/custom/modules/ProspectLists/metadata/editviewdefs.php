@@ -60,7 +60,7 @@ function toggle_domain_name(list_type)  {ldelim}
           'panelDefault' => 'expanded',
         ),
       ),
-      'syncDetailEditViews' => true,
+      'syncDetailEditViews' => false,
     ),
     'panels' => 
     array (
@@ -76,11 +76,7 @@ function toggle_domain_name(list_type)  {ldelim}
               'required' => true,
             ),
           ),
-          1 => '',
-        ),
-        1 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'list_type',
             'displayParams' => 
@@ -89,9 +85,8 @@ function toggle_domain_name(list_type)  {ldelim}
               'javascript' => 'onchange="toggle_domain_name(this);"',
             ),
           ),
-          1 => '',
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (

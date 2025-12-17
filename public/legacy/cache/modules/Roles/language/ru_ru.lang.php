@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 15:02:24
+// created: 2025-11-19 09:05:51
 $mod_strings = array (
   'LBL_ROLE' => 'Роль: ',
   'LBL_LANGUAGE' => 'Язык: ',

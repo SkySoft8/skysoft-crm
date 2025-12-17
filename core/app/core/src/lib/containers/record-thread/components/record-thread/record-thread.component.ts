@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
- * Copyright (C) 2021 SalesAgility Ltd.
+ * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
+ * Copyright (C) 2021 SuiteCRM Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -32,7 +32,10 @@ import {RecordThreadConfig} from './record-thread.model';
 import {map, take, tap} from 'rxjs/operators';
 import {RecordThreadItemConfig} from '../record-thread-item/record-thread-item.model';
 import {RecordThreadItemStore} from '../../store/record-thread/record-thread-item.store';
-import {AttributeMap, ButtonInterface, isVoid, Record, ViewMode} from 'common';
+import {isVoid} from '../../../../common/utils/value-utils';
+import {Record, AttributeMap} from '../../../../common/record/record.model';
+import {ViewMode} from '../../../../common/views/view.model';
+import {ButtonInterface} from '../../../../common/components/button/button.model';
 import {RecordThreadItemStoreFactory} from '../../store/record-thread/record-thread-item.store.factory';
 import {RecordManager} from '../../../../services/record/record.manager';
 import {MessageService} from '../../../../services/message/message.service';

@@ -183,6 +183,10 @@
       'name' => 'prospects',
       'vname' => 'LBL_PROSPECTS',
       'type' => 'link',
+      'metadata' => 
+      array (
+        'member' => true,
+      ),
       'relationship' => 'prospect_list_prospects',
       'source' => 'non-db',
     ),
@@ -191,6 +195,10 @@
       'name' => 'contacts',
       'vname' => 'LBL_CONTACTS',
       'type' => 'link',
+      'metadata' => 
+      array (
+        'member' => true,
+      ),
       'relationship' => 'prospect_list_contacts',
       'source' => 'non-db',
     ),
@@ -199,6 +207,10 @@
       'name' => 'leads',
       'vname' => 'LBL_LEADS',
       'type' => 'link',
+      'metadata' => 
+      array (
+        'member' => true,
+      ),
       'relationship' => 'prospect_list_leads',
       'source' => 'non-db',
     ),
@@ -207,6 +219,10 @@
       'name' => 'accounts',
       'vname' => 'LBL_ACCOUNTS',
       'type' => 'link',
+      'metadata' => 
+      array (
+        'member' => true,
+      ),
       'relationship' => 'prospect_list_accounts',
       'source' => 'non-db',
     ),
@@ -223,6 +239,10 @@
       'name' => 'users',
       'vname' => 'LBL_USERS',
       'type' => 'link',
+      'metadata' => 
+      array (
+        'member' => true,
+      ),
       'relationship' => 'prospect_list_users',
       'source' => 'non-db',
     ),
@@ -269,6 +289,15 @@
       'fields' => 
       array (
         0 => 'name',
+      ),
+    ),
+    2 => 
+    array (
+      'name' => 'idx_list_type',
+      'type' => 'index',
+      'fields' => 
+      array (
+        0 => 'list_type',
       ),
     ),
   ),

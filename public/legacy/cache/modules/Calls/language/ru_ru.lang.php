@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 14:26:01
+// created: 2025-11-19 09:05:39
 $mod_strings = array (
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Дата создания',
@@ -81,7 +81,7 @@ $mod_strings = array (
   'LNK_SELECT_ACCOUNT' => 'Выбор контрагента',
   'LNK_NEW_ACCOUNT' => 'Новый контрагент',
   'LNK_NEW_OPPORTUNITY' => 'Новая сделка',
-  'LBL_LEADS_SUBPANEL_TITLE' => 'Предварительные контакты',
+  'LBL_LEADS_SUBPANEL_TITLE' => 'Предварит. контакты',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакты',
   'LBL_USERS_SUBPANEL_TITLE' => 'Пользователи',
   'LBL_OUTLOOK_ID' => 'ID Outlook',

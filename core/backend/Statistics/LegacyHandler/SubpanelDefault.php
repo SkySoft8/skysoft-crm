@@ -1,13 +1,13 @@
 <?php
 /**
- * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
- * Copyright (C) 2021 SalesAgility Ltd.
+ * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
+ * Copyright (C) 2021 SuiteCRM Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -60,6 +60,7 @@ class SubpanelDefault extends SubpanelDataQueryHandler implements StatisticsProv
     public function getData(array $query): Statistic
     {
 
+        $count = 0;
         $subpanel = $query['params']['subpanel'] ?? $query['key'];
 
         [$module, $id] = $this->extractContext($query);
@@ -80,18 +81,28 @@ class SubpanelDefault extends SubpanelDataQueryHandler implements StatisticsProv
 
         if (!empty($queries['isDatasourceFunction'])) {
             $dbQuery = $queries['isDatasourceFunction']['countQuery'];
-
+            $result = $this->fetchRow($dbQuery);
+            foreach ($result as $i => $value) {
+                $count = $value;
+            }
         } else {
-            $parts = $queries[0];
-            $parts['select'] = 'SELECT COUNT(*) as value';
-
-            $dbQuery = $this->joinQueryParts($parts);
+            foreach($queries as $query) {
+                $parts = $query;
+                $parts['select'] = 'SELECT COUNT(*) as value';
+                $dbQuery = $this->joinQueryParts($parts);
+                $result = $this->fetchRow($dbQuery);
+                $count = $count + $result['value'];
+            }
         }
 
-        $result = $this->fetchRow($dbQuery);
+        if ($count === 0){
+            $count = "0";
+        }
+
+        $result['value'] = $count;
+
         $statistic = $this->buildSingleValueResponse(self::KEY, 'int', $result);
 
-        $this->addMetadata($statistic, ['tooltip_title_key' => 'LBL_DEFAULT_TOTAL_TOOLTIP']);
         $this->addMetadata($statistic, ['descriptionKey' => 'LBL_DEFAULT_TOTAL']);
         $this->close();
 

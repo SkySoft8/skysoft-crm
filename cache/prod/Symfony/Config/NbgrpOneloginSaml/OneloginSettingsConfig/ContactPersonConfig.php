@@ -21,7 +21,7 @@ class ContactPersonConfig
     private $billing;
     private $other;
     private $_usedProperties = [];
-    
+
     public function technical(array $value = []): \Symfony\Config\NbgrpOneloginSaml\OneloginSettingsConfig\ContactPerson\TechnicalConfig
     {
         if (null === $this->technical) {
@@ -30,10 +30,10 @@ class ContactPersonConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "technical()" has already been initialized. You cannot pass values the second time you call technical().');
         }
-    
+
         return $this->technical;
     }
-    
+
     public function support(array $value = []): \Symfony\Config\NbgrpOneloginSaml\OneloginSettingsConfig\ContactPerson\SupportConfig
     {
         if (null === $this->support) {
@@ -42,10 +42,10 @@ class ContactPersonConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "support()" has already been initialized. You cannot pass values the second time you call support().');
         }
-    
+
         return $this->support;
     }
-    
+
     public function administrative(array $value = []): \Symfony\Config\NbgrpOneloginSaml\OneloginSettingsConfig\ContactPerson\AdministrativeConfig
     {
         if (null === $this->administrative) {
@@ -54,10 +54,10 @@ class ContactPersonConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "administrative()" has already been initialized. You cannot pass values the second time you call administrative().');
         }
-    
+
         return $this->administrative;
     }
-    
+
     public function billing(array $value = []): \Symfony\Config\NbgrpOneloginSaml\OneloginSettingsConfig\ContactPerson\BillingConfig
     {
         if (null === $this->billing) {
@@ -66,10 +66,10 @@ class ContactPersonConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "billing()" has already been initialized. You cannot pass values the second time you call billing().');
         }
-    
+
         return $this->billing;
     }
-    
+
     public function other(array $value = []): \Symfony\Config\NbgrpOneloginSaml\OneloginSettingsConfig\ContactPerson\OtherConfig
     {
         if (null === $this->other) {
@@ -78,10 +78,10 @@ class ContactPersonConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "other()" has already been initialized. You cannot pass values the second time you call other().');
         }
-    
+
         return $this->other;
     }
-    
+
     public function __construct(array $value = [])
     {
         if (array_key_exists('technical', $value)) {
@@ -89,36 +89,36 @@ class ContactPersonConfig
             $this->technical = new \Symfony\Config\NbgrpOneloginSaml\OneloginSettingsConfig\ContactPerson\TechnicalConfig($value['technical']);
             unset($value['technical']);
         }
-    
+
         if (array_key_exists('support', $value)) {
             $this->_usedProperties['support'] = true;
             $this->support = new \Symfony\Config\NbgrpOneloginSaml\OneloginSettingsConfig\ContactPerson\SupportConfig($value['support']);
             unset($value['support']);
         }
-    
+
         if (array_key_exists('administrative', $value)) {
             $this->_usedProperties['administrative'] = true;
             $this->administrative = new \Symfony\Config\NbgrpOneloginSaml\OneloginSettingsConfig\ContactPerson\AdministrativeConfig($value['administrative']);
             unset($value['administrative']);
         }
-    
+
         if (array_key_exists('billing', $value)) {
             $this->_usedProperties['billing'] = true;
             $this->billing = new \Symfony\Config\NbgrpOneloginSaml\OneloginSettingsConfig\ContactPerson\BillingConfig($value['billing']);
             unset($value['billing']);
         }
-    
+
         if (array_key_exists('other', $value)) {
             $this->_usedProperties['other'] = true;
             $this->other = new \Symfony\Config\NbgrpOneloginSaml\OneloginSettingsConfig\ContactPerson\OtherConfig($value['other']);
             unset($value['other']);
         }
-    
+
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-    
+
     public function toArray(): array
     {
         $output = [];
@@ -137,7 +137,7 @@ class ContactPersonConfig
         if (isset($this->_usedProperties['other'])) {
             $output['other'] = $this->other->toArray();
         }
-    
+
         return $output;
     }
 

@@ -1,5 +1,5 @@
 <?php
-// created: 2025-04-23 14:29:33
+// created: 2025-11-19 09:05:51
 $mod_strings = array (
   'LBL_CAPTCHA_HELP_TEXT' => 'CAPTCHA (от англ. "Completely Automated Public Turing test to tell Computers and Humans Apart" - полностью автоматизированный публичный тест Тьюринга для различения компьютеров и людей.) Это тест с запросом к отправителю, с целью убедиться, что ответ не был сгенерирован компьютером автоматически. Для работы этой опции необходимо получить открытый и закрытый ключи с сайта reCAPTCHA: http://recaptcha.net/.',
   'CAPTCHA' => 'CAPTCHA',
@@ -220,6 +220,9 @@ $mod_strings = array (
   'LBL_LANGUAGES' => 'Управление доступом к языковым пакетам',
   'LBL_LICENSE' => 'Лицензия',
   'LBL_LDAP_TITLE' => 'LDAP-аутентификация',
+  'LBL_LDAP_LEGACY_WARNING' => 'ВНИМАНИЕ',
+  'LBL_LDAP_LEGACY_WARNING_MORE' => 'Эти настройки LDAP используются только при аутентификации через API v4. Для входа в систему через LDAP необходимо прописать соответствующие параметры в файле env.local. <br>См. раздел
+<a href="https://docs.suitecrm.com/ru/8.x/admin/configuration/ldap-configuration/" target="_blank">Настройка LDAP</a> в руководстве администратора.',
   'LBL_LDAP_ENABLE' => 'Включить LDAP-аутентификацию',
   'LBL_LDAP_HELP_TXT' => 'При включении LDAP-аутентификации управление паролями осуществляется только через LDAP. Настройки системы управления паролями SuiteCRM не будут учитываться.',
   'LBL_LDAP_SERVER_HOSTNAME' => 'Сервер:',
@@ -346,7 +349,7 @@ $mod_strings = array (
   'LBL_PASSWORD_EDIT_TEMPLATE' => 'Изменить',
   'LBL_PASSWORD_GENERATE_TEMPLATE_MSG' => 'Шаблон письма, содержащий автоматически сгенерированный пароль',
   'LBL_PASSWORD_LOST_TEMPLATE_MSG' => 'Шаблон письма, содержащий автоматически сгенерированную ссылку сброса пароля',
-  'LBL_TWO_FACTOR_AUTH_EMAIL_TPL' => 'Шаблон письма, содержащий код для двухфакторной аутентификации',
+  'LBL_TWO_FACTOR_AUTH_EMAIL_TPL' => 'Шаблон письма, содержащий код для двухэтапной аутентификации',
   'LBL_PASSWORD_SYST_GENERATED_PWD_ON' => 'Включить автоматическое создание паролей',
   'LBL_PASSWORD_SYST_GENERATED_PWD_HELP' => 'Когда данная опция включена, пользователям будет высылаться письмо, содержащее автоматически сгенерированную ссылку. Открыв данную ссылку пользователь попадёт на страницу, где сможет ввести новое значение пароля. Для работы этой опции необходимо следующее: 1) В настройках E-mail должен быть корректно настроен сервер исходящей почты.<br>2) Учётные записи пользователей должны содержать корректную информацию об их электронных адресах.',
   'LBL_PASSWORD_EXP_AFTER' => 'Пароль недействителен после',
@@ -461,7 +464,7 @@ $mod_strings = array (
   'LBL_STATUS' => 'Статус ',
   'LBL_TOOLS_DESC' => 'Создание и редактирование макетов модулей, управление стандартными и пользовательскими полями, настройка закладок. ',
   'LBL_STUDIO_DESC' => 'Настройка существующих модулей: изменение макетов, добавление комбобоксов и пользовательских полей',
-  'LBL_STUDIO_TITLE' => 'Инструментарий разработчика',
+  'LBL_STUDIO_TITLE' => 'Инструменты разработчика',
   'LBL_STUDIO' => 'Студия',
   'LBL_SUITE_SCHEDULER_TITLE' => 'Планировщик',
   'LBL_SUITE_SCHEDULER' => 'Настройка плановых заданий',
@@ -804,7 +807,6 @@ $mod_strings = array (
   'LBL_AOS_PRODUCTS' => 'Товары',
   'LBL_AOS_DAYS' => 'дней',
   'LBL_CHANGE_SETTINGS' => 'Настройка параметров договоров, счетов, предложений',
-  'LBL_CHANGE_SETTINGS_AOD' => 'Настройка параметров полнотекстового поиска',
   'LBL_CHANGE_SETTINGS_AOP' => 'Настройка параметров портала',
   'LBL_MANAGE_SECURITYGROUPS_TITLE' => 'Создание Групп пользователей',
   'LBL_MANAGE_SECURITYGROUPS' => 'Создание Групп пользователей и включение в них Пользователей и Ролей',
@@ -847,7 +849,7 @@ $mod_strings = array (
   'LBL_ELASTIC_SEARCH' => 'Elasticsearch',
   'LBL_ELASTIC_SEARCH_SETTINGS' => 'Настройка Elasticsearch',
   'LBL_ELASTIC_SEARCH_SETTINGS_DESC' => 'Настройка параметров Elasticsearch',
-  'LBL_ELASTIC_SEARCH_SETTINGS_HELP' => 'Для работы Elasticsearch требуется настроенный сервер. Более подробная информация указана в <a href="https://docs.suitecrm.com/ru/admin/administration-panel/search/Elasticsearch/set-up-Elasticsearch/">документации</a>.',
+  'LBL_ELASTIC_SEARCH_SETTINGS_HELP' => 'Для работы Elasticsearch требуется настроенный сервер. Более подробная информация указана в <a href="https://docs.suitecrm.com/ru/admin/administration-panel/search/elasticsearch/set-up-elasticsearch/">документации</a>.',
   'LBL_ELASTIC_SEARCH_GENERAL' => 'Основные настройки',
   'LBL_ELASTIC_SEARCH_ENABLE' => 'Включить Elasticsearch',
   'LBL_ELASTIC_SEARCH_TEST_CONNECTION' => 'Проверить подключение к поисковому серверу',
@@ -884,7 +886,6 @@ $mod_strings = array (
   'LBL_SEARCH_MODULES_HELP' => 'Выбор модулей, в которых будет осуществляться поиск',
   'LBL_SEARCH_WRAPPER_ENGINES' => 'Поисковые движки',
   'LBL_BASIC_SEARCH_ENGINE' => 'Стандартный поиск',
-  'LBL_BASIC_AND_AOD_ENGINE' => 'Стандартный поиск + полнотекстовый поиск',
   'LBL_ELASTIC_SEARCH_ENGINE' => 'Расширенный поиск с использованием Elasticsearch',
   'LBL_SIMPLE_SQL_SEARCH_ENGINE' => 'Стандартный поиск',
   'LBL_PDF_HEADER' => 'Настройки PDF',

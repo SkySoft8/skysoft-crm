@@ -94,3 +94,7 @@
 [2025-01-14 11:02:56] install.log.INFO: Running curl for Api [] []
 [2025-01-14 11:02:56] install.log.INFO: Calling Graphql api [] []
 [2025-01-14 11:02:57] install.log.INFO:  [] []
+[2025-10-16 07:39:25] install.log.DEBUG: Hook called: ::server_round_trip [] []
+[2025-10-16 07:39:25] install.log.DEBUG: Calling MySQLi::disconnect() [] []
+[2025-10-16 07:42:28] install.log.DEBUG: Hook called: ::server_round_trip [] []
+[2025-10-16 07:42:28] install.log.DEBUG: Calling MySQLi::disconnect() [] []

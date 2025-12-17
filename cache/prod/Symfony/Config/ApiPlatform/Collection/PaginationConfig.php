@@ -16,7 +16,7 @@ class PaginationConfig
     private $itemsPerPageParameterName;
     private $partialParameterName;
     private $_usedProperties = [];
-    
+
     /**
      * @default true
      * @param ParamConfigurator|bool $value
@@ -26,10 +26,10 @@ class PaginationConfig
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * The default name of the parameter handling the page number.
      * @default 'page'
@@ -40,10 +40,10 @@ class PaginationConfig
     {
         $this->_usedProperties['pageParameterName'] = true;
         $this->pageParameterName = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * The name of the query parameter to enable or disable pagination.
      * @default 'pagination'
@@ -54,10 +54,10 @@ class PaginationConfig
     {
         $this->_usedProperties['enabledParameterName'] = true;
         $this->enabledParameterName = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * The name of the query parameter to set the number of items per page.
      * @default 'itemsPerPage'
@@ -68,10 +68,10 @@ class PaginationConfig
     {
         $this->_usedProperties['itemsPerPageParameterName'] = true;
         $this->itemsPerPageParameterName = $value;
-    
+
         return $this;
     }
-    
+
     /**
      * The name of the query parameter to enable or disable partial pagination.
      * @default 'partial'
@@ -82,10 +82,10 @@ class PaginationConfig
     {
         $this->_usedProperties['partialParameterName'] = true;
         $this->partialParameterName = $value;
-    
+
         return $this;
     }
-    
+
     public function __construct(array $value = [])
     {
         if (array_key_exists('enabled', $value)) {
@@ -93,36 +93,36 @@ class PaginationConfig
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
-    
+
         if (array_key_exists('page_parameter_name', $value)) {
             $this->_usedProperties['pageParameterName'] = true;
             $this->pageParameterName = $value['page_parameter_name'];
             unset($value['page_parameter_name']);
         }
-    
+
         if (array_key_exists('enabled_parameter_name', $value)) {
             $this->_usedProperties['enabledParameterName'] = true;
             $this->enabledParameterName = $value['enabled_parameter_name'];
             unset($value['enabled_parameter_name']);
         }
-    
+
         if (array_key_exists('items_per_page_parameter_name', $value)) {
             $this->_usedProperties['itemsPerPageParameterName'] = true;
             $this->itemsPerPageParameterName = $value['items_per_page_parameter_name'];
             unset($value['items_per_page_parameter_name']);
         }
-    
+
         if (array_key_exists('partial_parameter_name', $value)) {
             $this->_usedProperties['partialParameterName'] = true;
             $this->partialParameterName = $value['partial_parameter_name'];
             unset($value['partial_parameter_name']);
         }
-    
+
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-    
+
     public function toArray(): array
     {
         $output = [];
@@ -141,7 +141,7 @@ class PaginationConfig
         if (isset($this->_usedProperties['partialParameterName'])) {
             $output['partial_parameter_name'] = $this->partialParameterName;
         }
-    
+
         return $output;
     }
 
