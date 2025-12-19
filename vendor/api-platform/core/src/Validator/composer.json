@@ -3,10 +3,8 @@
     "description": "API Platform validator component",
     "type": "library",
     "keywords": [
-        "validator",
-        "API",
-        "REST",
-        "GraphQL"
+        "Validator",
+        "API"
     ],
     "homepage": "https://api-platform.com",
     "license": "MIT",
@@ -23,8 +21,8 @@
     ],
     "require": {
         "php": ">=8.1",
-        "api-platform/metadata": "^3.4 || ^4.0",
-        "symfony/web-link": "^6.4 || ^7.1"
+        "api-platform/metadata": "*@dev || ^3.1",
+        "symfony/web-link": "^6.4 || ^7.0"
     },
     "require-dev": {
         "phpspec/prophecy-phpunit": "^2.0",
@@ -51,15 +49,10 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "4.0.x-dev",
-            "dev-3.4": "3.4.x-dev"
+            "dev-main": "3.3.x-dev"
         },
         "symfony": {
-            "require": "^6.4 || ^7.1"
-        },
-        "thanks": {
-            "name": "api-platform/api-platform",
-            "url": "https://github.com/api-platform/api-platform"
+            "require": "^6.4"
         }
     },
     "scripts": {

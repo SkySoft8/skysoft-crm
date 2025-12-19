@@ -1,5 +1,5 @@
 <?php
-// created: 2025-11-07 15:42:00
+// created: 2025-04-23 15:02:33
 $mod_strings = array (
   'LBL_EDIT_LAYOUT' => 'Edit Layout',
   'LBL_EDIT_FIELDS' => 'Edit Custom Fields',
@@ -30,8 +30,6 @@ $mod_strings = array (
   'LBL_SW_EDIT_PORTAL' => 'Edit Portal',
   'LBL_SW_REPAIR_CUSTOMFIELDS' => 'Repair Custom Fields',
   'LBL_SW_MIGRATE_CUSTOMFIELDS' => 'Migrate Custom Fields',
-  'LBL_REBUILD_JAVASCRIPT_LANG_DESC_SHORT' => 'Rebuilds javascript versions of language files',
-  'LBL_REBUILD_JAVASCRIPT_LANG_DESC' => 'Removing javascript versions of language files, will rebuild when needed.',
   'LBL_MB_DELETE' => 'Delete',
   'LBL_ED_CREATE_DROPDOWN' => 'Create a Drop Down',
   'LBL_DROPDOWN_NAME' => 'Dropdown Name:',

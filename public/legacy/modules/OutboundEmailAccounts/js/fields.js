@@ -38,256 +38,144 @@
  */
 var outboundEmailFields = function () {
 
-    var requiredLabelTemplate = '<span class="required">*</span>';
-    var validationMessageTemplate = '<div class="required validation-message">Missing required field: $FIELD_NAME</div>';
-
-    var getValidationDefinition = function (formName, field) {
-        if (validate[formName]) {
-            for (i = 0; i < validate[formName].length; i++) {
-                if (validate[formName][i][nameIndex] == field) {
-                    return validate[formName][i];
-                }
-            }
-        }
-        return null;
+  var getDefaultFieldGetter = function () {
+    return function (field$) {
+      return (field$ && field$.val()) || '';
     };
+  };
 
-    var configureValidation = function (formName, field, required) {
+  var getDefaultFieldSetter = function () {
+    return function (field$, value) {
+      if (!field$) {
+        return;
+      }
 
-        var definition = getValidationDefinition(formName, field);
-
-        if (!definition) {
-            return;
-        }
-        var isRequired = true;
-
-        if (!required) {
-            isRequired = false;
-        }
-
-        definition[requiredIndex] = isRequired;
+      field$.val(value);
+      field$.change();
     };
+  };
 
-    var addRequiredIndicator = function ($label) {
-        var $indicator = $label.find('.required');
-
-        if ($indicator.length < 1) {
-            $label.append($(requiredLabelTemplate));
-        }
-    };
-
-    var removeRequiredIndicator = function ($label) {
-        var $indicator = $label.find('.required');
-
-        if ($indicator.length > 0) {
-            $indicator.remove();
-        }
-    };
-
-    var getDefaultFieldGetter = function () {
-        return function (field$) {
-            return (field$ && field$.val()) || '';
-        };
-    };
-
-    var getDefaultFieldSetter = function () {
-        return function (field$, value) {
-            if (!field$) {
-                return;
-            }
-
-            field$.val(value);
-            field$.change();
-        };
-    };
-
-    return {
-        fields: {
-            'record': {
-                type: 'varchar',
-                getField$: function (field) {
-                    return $('input[name=' + field + ']') || null;
-                }
-            },
-            'mail_smtpssl': {
-                type: 'varchar'
-            },
-            'mail_smtppass': {
-                type: 'varchar',
-            },
-            'owner_name': {
-                type: 'varchar'
-            },
-            'type': {
-                type: 'varchar'
-            },
-            'mail_smtpport': {
-                type: 'varchar'
-            },
-            'mail_smtpauth_req': {
-                type: 'checkbox'
-            },
-            'auth_type': {
-                type: 'varchar'
-            },
-            'external_oauth_connection_name': {
-                type: 'varchar',
-                getField$: function (field) {
-                    return $('input[name=' + field + ']') || null;
-                }
-            },
-            'external_oauth_connection_id': {
-                type: 'varchar',
-                getField$: function (field) {
-                    return $('input[name=' + field + ']') || null;
-                }
-            },
-        },
-
-        getters: {
-            default: getDefaultFieldGetter(),
-            varchar: getDefaultFieldGetter(),
-            checkbox: function (field$) {
-                return (field$ && field$.prop('checked')) || false;
-            }
-        },
-
-        setters: {
-            default: getDefaultFieldSetter(),
-            varchar: getDefaultFieldSetter(),
-            checkbox: function (field$, value) {
-                if (!field$) {
-                    return;
-                }
-
-                field$.prop('checked', !!value);
-            }
-        },
-
-        setValue: function (field, value) {
-            var field$ = this.getField$(field);
-            if (!field$) {
-                return null;
-            }
-
-            var setter = this.getValueSetter(field);
-            if (!setter) {
-                return null;
-            }
-
-            return setter(field$, value);
-        },
-
-        getValue: function (field) {
-            var field$ = this.getField$(field);
-            if (!field$) {
-                return null;
-            }
-
-            var getter = this.getValueGetter(field);
-            if (!getter) {
-                return null;
-            }
-
-            return getter(field$);
-        },
-
-        getData: function (field, dataKey) {
-            var field$ = this.getField$(field);
-            if (!field$) {
-                return null;
-            }
-
-            return field$.data(dataKey);
-        },
-
-        hide: function (field) {
-            var field$ = this.getFieldCell$(field);
-
-            if (!field$ || !field$.length) {
-                return;
-            }
-
-            field$.hide();
-        },
-
-        show: function (field) {
-            var field$ = this.getFieldCell$(field);
-
-            if (!field$ || !field$.length) {
-                return;
-            }
-
-            field$.show();
-        },
-
-
+  return {
+    fields: {
+      'record': {
+        type: 'varchar',
         getField$: function (field) {
-            var handler = (this.fields[field] && this.fields[field].getField$) || null;
+          return $('input[name=' + field + ']') || null;
+        }
+      },
+      'mail_smtpssl': {
+        type: 'varchar'
+      },
+      'owner_name': {
+        type: 'varchar'
+      },
+      'type': {
+        type: 'varchar'
+      },
+      'mail_smtpport': {
+        type: 'varchar'
+      },
+      'mail_smtpauth_req': {
+        type: 'checkbox'
+      },
+    },
 
-            if (handler) {
-                return handler(field);
-            }
+    getters: {
+      default: getDefaultFieldGetter(),
+      varchar: getDefaultFieldGetter(),
+      checkbox: function (field$) {
+        return (field$ && field$.prop('checked')) || false;
+      }
+    },
 
-            return $('#' + field) || null;
-        },
+    setters: {
+      default: getDefaultFieldSetter(),
+      varchar: getDefaultFieldSetter(),
+      checkbox: function (field$, value) {
+        if (!field$) {
+          return;
+        }
 
-        getFieldCell$: function (field) {
-            return $('[data-field="' + field + '"]') || null;
-        },
+        field$.prop('checked', !!value);
+      }
+    },
 
-        getFieldType: function (field) {
-            return (this.fields[field] && this.fields[field].type) || 'varchar';
-        },
+    setValue: function (field, value) {
+      var field$ = this.getField$(field);
+      if (!field$) {
+        return null;
+      }
 
-        getValueGetter: function (field) {
-            var handler = (this.fields[field] && this.fields[field].getter) || null;
+      var setter = this.getValueSetter(field);
+      if (!setter) {
+        return null;
+      }
 
-            if (handler) {
-                return handler;
-            }
+      return setter(field$, value);
+    },
 
-            var type = this.getFieldType(field);
-            return this.getters[type] || this.getters['default'];
-        },
+    getValue: function (field) {
+      var field$ = this.getField$(field);
+      if (!field$) {
+        return null;
+      }
 
-        getValueSetter: function (field) {
-            var handler = (this.fields[field] && this.fields[field].setter) || null;
+      var getter = this.getValueGetter(field);
+      if (!getter) {
+        return null;
+      }
 
-            if (handler) {
-                return handler;
-            }
+      return getter(field$);
+    },
 
-            var type = this.getFieldType(field);
-            return this.setters[type] || this.setters['default'];
-        },
+    hide: function (field) {
+      var field$ = this.getFieldCell$(field);
 
-        setRequired: function (field, fieldType, formName, required) {
+      if (!field$ || !field$.length) {
+        return;
+      }
 
-            var $editView = $('#EditView');
-            if (!$editView || !$editView.length) {
-                return;
-            }
-            configureValidation(this.formName, this.name, required);
+      field$.hide();
+    },
 
-            this.setRequiredIndicator(field, required);
+    show: function (field) {
+      var field$ = this.getFieldCell$(field);
 
-            if (required) {
-                addToValidate(formName, field, fieldType, true, SUGAR.language.get('OutboundEmailAccounts', "LBL_" + field.toUpperCase()));
-            } else {
-                removeFromValidate(formName, field);
-            }
+      if (!field$ || !field$.length) {
+        return;
+      }
 
-        },
+      field$.show();
+    },
 
-        setRequiredIndicator: function (field, required) {
-            var $label = this.getFieldCell$(field).find('.label');
-            if (required) {
-                addRequiredIndicator($label);
-            } else {
-                removeRequiredIndicator($label);
-            }
-        },
 
-    };
+    getField$: function (field) {
+      var handler = (this.fields[field] && this.fields[field].getField$) || null;
+
+      if (handler) {
+        return handler(field);
+      }
+
+      return $('#' + field) || null;
+    },
+
+    getFieldCell$: function (field) {
+      return $('[data-field="' + field + '"]') || null;
+    },
+
+    getFieldType: function (field) {
+      return (this.fields[field] && this.fields[field].type) || 'varchar';
+    },
+
+    getValueGetter: function (field) {
+      var type = this.getFieldType(field);
+      return this.getters[type] || this.getters['default'];
+    },
+
+    getValueSetter: function (field) {
+      var type = this.getFieldType(field);
+      return this.setters[type] || this.setters['default'];
+    }
+
+  };
 }();

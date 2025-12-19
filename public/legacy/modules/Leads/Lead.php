@@ -631,10 +631,6 @@ class Lead extends Person implements EmailInterface
         return array();
     }
 
-    public function getUpcomingEmails() {
-        return getUpcomingEmails($this);
-    }
-
     /**
      * Returns query to find the related meetings created pre-5.1
      *

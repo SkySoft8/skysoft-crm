@@ -253,9 +253,6 @@ class Prospect extends Person implements EmailInterface
         }
     }
 
-    public function getUpcomingEmails() {
-        return getUpcomingEmails($this);
-    }
 
     public function get_unlinked_email_query($type=array())
     {

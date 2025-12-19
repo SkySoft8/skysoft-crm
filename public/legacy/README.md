@@ -1,74 +1,88 @@
-<a href="https://suitecrm.com">
-  <img width="180px" height="41px" src="https://suitecrm.com/wp-content/uploads/2017/12/logo.png" align="right" />
-</a>
+Russian RAPIRA language pack and manual for SuiteCRM
+=========================================
 
-# SuiteCRM 7.14.8
++ Здесь находится самая актуальная версия языковых файлов для [SuiteCRM][suitecrm] версии 7.x (форка безвременно почившего [SugarCRM CE][sugar]), с учётом последних дополнений и исправлений
++ Обновление языковых файлов проще всего сделать через установку языкового пакета ([ссылка на последний актуальный перевод для SuiteCRM][langpack]); процесс установки/обновления пакета русификации SuiteCRM описан ниже
++ Перевод Руководства пользователя и администратора SuiteCRM осуществляется [здесь][man-adoc]
++ Обсуждение русификации интерфейса и перевода документации по SuiteCRM доступно на [официальном форуме][forum]
 
-[![Build Status](https://travis-ci.org/salesagility/SuiteCRM.svg?branch=hotfix)](https://travis-ci.org/salesagility/SuiteCRM)
-[![codecov](https://codecov.io/gh/salesagility/SuiteCRM/branch/hotfix/graph/badge.svg)](https://codecov.io/gh/salesagility/SuiteCRM/branch/hotfix)
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/suitecrm/Lobby)
-[![LICENSE](https://img.shields.io/github/license/suitecrm/suitecrm.svg)](https://github.com/salesagility/suitecrm/blob/hotfix/LICENSE.txt)
-[![GitHub contributors](https://img.shields.io/github/contributors/salesagility/suitecrm)](https://github.com/salesagility/SuiteCRM/graphs/contributors)
-[![Twitter](https://img.shields.io/twitter/follow/suitecrm.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=suitecrm)
+------------------------------------------------
 
-[Website](https://suitecrm.com) | 
-[Demo](https://suitecrm.com/demo/) |
-[Maintainers](https://salesagility.com) |
-[Contributors](https://github.com/salesagility/SuiteCRM/graphs/contributors) |
-[Community & Forum](https://suitecrm.com/suitecrm/forum) |
-[Partners](https://suitecrm.com/about/about-us/partners/) |
-[Extensions Directory](https://store.suitecrm.com/) |
-[Translations](https://crowdin.com/project/suitecrmtranslations) | [Code of Conduct](https://docs.suitecrm.com/community/code-of-conduct/)
+**Обратите внимание: в версии 7.10.10 и последующих используется значительно обновлённый языковой пакет. 
+Если вы используете предыдущие версии SuiteCRM - загружайте [соответствующие](https://github.com/likhobory/SuiteCRM7RU/releases) языковые пакеты.**
 
-[SuiteCRM](https://suitecrm.com) is the award-winning open-source, enterprise-ready Customer Relationship Management (CRM) software application.
+------------------------------------------------
+<b>Что нового в SuiteCRM 7.14</b>    (история всех основных изменений содержится в файле [HISTORY.TXT][history])
 
-Our vision is to be the most adopted open source enterprise CRM in the world, giving users full control of their data and freedom to own and customise their business solution.
+В этой версии нет изменений функционала.  
+Добавлена поддержка PHP версий 8.1 и 8.2 (PHP версий 8.0 и более ранних не поддерживается).
 
-Try out a free fully working [SuiteCRM demo available here](https://suitecrm.com/demo/)
+<b>Что нового в SuiteCRM 7.13</b>    
 
-### Contribute [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/salesagility/SuiteCRM/issues)
+Обновлён алгоритм выбора учётной записи отправителя при создании электронных писем.  
+Добавлена возможность создания подписи в учётных записях исходящей почты.  
 
-There are lots of ways to [contribute](https://docs.suitecrm.com/community/) to SuiteCRM
+Добавлен модуль для настройки внешних OAUTH-подключений.  
+Добавлен модуль для настройки внешних OAUTH-провайдеров.  
 
-* [Submit bug](https://docs.suitecrm.com/community/raising-issues/) reports and help us [verify fixes](https://docs.suitecrm.com/community/contributing-code/test-pull-requests/) as they are pushed up
-* Review and collaborate [source code](https://github.com/salesagility/SuiteCRM/pulls) changes
-* Join and engage with other SuiteCRM users and developers on the [forums](https://suitecrm.com/suitecrm/forum)
-* [Contribute bug fixes](https://docs.suitecrm.com/community/contributing-code/bugs/)
-* Help [translate](https://docs.suitecrm.com/community/contributing-to-docs/contributing-to-translation/) language packs
-* [Write and improve](https://docs.suitecrm.com/community/contributing-to-docs/) SuiteCRM documentation
-* Signing CLA - Only needs to be done once for all PRs and contributions.
+Обновлён модуль входящей почты:
+ - Настройка персональной, групповой учётной записи и учётной записи для обработки возвращаемой почты теперь происходит в стандартной Форме редактирования (настройки входящей почты в профиле пользователя перемещены в меню модуля 'Пользователи')
+ - возможность назначения Групп пользователей входящим письмам
+ - возможность указания типа авторизации  (Базовая/OAUTH) при создании/редактировании учётной записи входящей почты
+ - возможность выбора внешнего OAUTH-подключения в настройках учётной записи входящей почты
+ 
+Обновлён модуль исходящей почты:
+ - Настройка персональной учётной записи теперь происходит в стандартной Форме редактирования (настройки исходящей почты в профиле пользователя перемещены в меню модуля 'Пользователи')
+ - возможность назначения Групп пользователей исходящим письмам  
+ 
+Добавлен [ACL Access Logic Hook](https://github.com/salesagility/SuiteCRM/pull/9846).
 
+Ссылки на описание нововведений доступны на [официальном форуме](https://suitecrm.com/suitecrm/forum/suitecrm-forum-russian-general-discussion/17973-suitecrm#60692).
 
-### Code Contributors
+------------------------------------------------
 
-This project exists thanks to all the people who [contribute](https://github.com/salesagility/SuiteCRM/graphs/contributors) and more.
-<a href="https://github.com/salesagility/SuiteCRM/graphs/contributors"><img src="https://opencollective.com/SuiteCRM/contributors.svg?avatarHeight=36&width=890&button=false" /></a>
+<b>Русский язык в SuiteCRM: установка языкового пакета</b>
 
-You wanna buy the **core team** a coffee :coffee: or beer :beer:?
-Then consider a small [donation](https://opencollective.com/SuiteCRM/contribute) to help fuel our activities :heart:
+Все действия по установке дополнительных пакетов (не только языковых) производятся через панель администратора.
 
-### Security ###
+1. Входим в систему с правами администратора.
+2. В правом верхнем меню выбираем пункт <b>Администрирование</b> (Admin) для входа в раздел администратора системы.
+3. В разделе администратора выбираем <b>Загрузчик модулей</b> (Module Loader).
+4. Если в SuiteCRM уже был установлен пакет русификации, то его рекомендуется удалить (кнопка  <b>Деинсталлировать</b>).
+5. Загружаем архив с языковым пакетом и далее следуем шагам, описанным в мастере.
+6. После того как мастер сообщит об успешной установке пакета, рекомендуется выполнить быстрое восстановление: Администрирование->Восстановление->Быстрое восстановление (Admin->Repair->Quick Repair and Rebuild).
+7. Выходим из системы (Logout) и на странице ввода логина/пароля выбираем необходимый язык интерфейса системы.
+8. Вновь входим в систему.
 
-We take security seriously here at SuiteCRM so if you have discovered a security risk report it by
-emailing [security@suitecrm.com](mailto:security@suitecrm.com). This will be delivered to the product team who handle security issues.
-Please don't disclose security bugs publicly until they have been handled by the security team.
+Установленный язык можно указать в качестве языка по умолчанию. Для этого в панели администрирования в подразделе <b>Региональные настройки</b> выберите соответствующий языковой пакет (Admin->Locale Settings->Default Language).
 
-Your email will be acknowledged within 24 hours during the business week (Mon - Fri), and you’ll receive a more
-detailed response to your email within 72 hours during the business week (Mon - Fri) indicating the next steps in
-handling your report.
+------------------------------------------------
 
-### Roadmap ### 
+<b>Документация к SuiteCRM</b>
 
-View the [Roadmap](https://suitecrm.com/roadmap/) and [LTS](https://suitecrm.com/lts/) for details on our planned features and future direction.
+[Официальная][man-ru] русскоязычная документация не обновляется с 2022 года, актуальная информация по установке,
+ настройке и использованию SuiteCRM сейчас располагается [здесь][man-ru-netlify].
+ 
+Разница между актуальной и официальной версией описана в [этом][pr-582] запросе на слияние.
 
-### Support ###
+Пользователям, не знакомым с SuiteCRM, в первую очередь рекомендуются к прочтению раздел [Начало работы][getting-started], 
+описывающий основные технические требования, необходимые для работы в системе, и раздел  
+[Описание пользовательского интерфейса][ui], знакомящий с основными настройками системы. 
+В описании присутствует масса перекрёстных ссылок, позволяющих быстро перейти к подробному описанию рассматриваемого функционала.
 
-SuiteCRM is an open-source project. If you require help with support then please use our [support forum](https://suitecrm.com/suitecrm/forum/). By using the forums the knowledge is shared with everyone in the community. Our developer and community team members answer questions on the forum daily but it also allows the other members of the community to contribute. If you would like customisations to specifically fit your SuiteCRM needs then please visit the [website](https://suitecrm.com/).
+            
+[langpack]: https://github.com/likhobory/SuiteCRM7RU/blob/ver.7.14/rapira-suite_pack_russian.zip?raw=true
+[man-adoc]: https://github.com/likhobory/SuiteDocs/blob/master/README.ru.adoc
+[man-ru]: https://docs.suitecrm.com/ru
+[man-ru-netlify]: https://russian-rapira-suitecrm-docs.netlify.app/ru   
 
-### License [![AGPLv3](https://img.shields.io/github/license/suitecrm/suitecrm.svg)](./LICENSE.txt)
+[pr-582]: https://github.com/salesagility/SuiteDocs/pull/582
 
-SuiteCRM is published under the AGPLv3 license.
+[getting-started]: https://russian-rapira-suitecrm-docs.netlify.app/ru/user/introduction/getting-started
+[ui]: https://russian-rapira-suitecrm-docs.netlify.app/ru/user/introduction/user-interface
 
-
-
+[suitecrm]: https://github.com/salesagility/SuiteCRM
+[forum]: https://community.suitecrm.com/t/topic/11657
+[sugar]: https://ru.wikipedia.org/wiki/SugarCRM
+[history]: https://github.com/likhobory/SuiteCRM7RU/blob/master/HISTORY.TXT
 

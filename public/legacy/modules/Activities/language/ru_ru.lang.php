@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -71,7 +67,7 @@ $mod_strings = array(
 'LNK_NEW_MEETING' => 'Назначить встречу' ,
 'LNK_NEW_TASK' => 'Создать задачу' ,
 'LNK_NEW_NOTE' => 'Создать заметку или вложение' ,
-'LNK_NEW_EMAIL' => 'Отправить E-mail' ,
+'LNK_NEW_EMAIL' => 'Создать архивный E-mail' ,
 'LNK_CALL_LIST' => 'Звонки' ,
 'LNK_MEETING_LIST' => 'Встречи' ,
 'LNK_TASK_LIST' => 'Задачи' ,

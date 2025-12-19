@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -25,8 +25,7 @@
  */
 
 import {AfterViewInit, Component, ElementRef, HostListener, signal, ViewChild, WritableSignal} from '@angular/core';
-import {Field, FieldDefinition} from '../../common/record/field.model';
-import {ViewMode} from '../../common/views/view.model';
+import {Field, FieldDefinition, ViewMode} from 'common';
 import {BaseFieldComponent} from '../base/base-field.component';
 import {FieldLogicManager} from '../field-logic/field-logic.manager';
 import {DataTypeFormatter} from '../../services/formatters/data-type.formatter.service';
@@ -46,7 +45,6 @@ export class GroupFieldComponent extends BaseFieldComponent implements AfterView
     @ViewChild('wrapper') wrapper: ElementRef;
     direction: WritableSignal<string> = signal<string>('');
     hasValidConfig: boolean;
-    fieldModes: {[key: string]: string} = {};
     protected recalculateDirectionBuffer = new Subject<boolean>();
     protected recalculateDirectionBuffer$: Observable<any> = this.recalculateDirectionBuffer.asObservable();
 
@@ -68,7 +66,7 @@ export class GroupFieldComponent extends BaseFieldComponent implements AfterView
     ngOnInit(): void {
         super.ngOnInit();
 
-        this.subs.push(this.recalculateDirectionBuffer$.pipe().subscribe(() => {
+        this.subs.push(this.recalculateDirectionBuffer$.pipe(debounceTime(50)).subscribe(() => {
             this.calculateDirection();
         }));
 
@@ -85,12 +83,12 @@ export class GroupFieldComponent extends BaseFieldComponent implements AfterView
         this.triggerRecalculateDirection();
     }
 
-    getComponentType(name:string, type: string, definition: FieldDefinition): any {
+    getComponentType(type: string, definition: FieldDefinition): any {
         let module = (this.record && this.record.module) || 'default';
 
         const displayType = (definition && definition.displayType) || '';
 
-        return this.registry.getDisplayType(module, type, displayType, this.fieldModes[name] ?? this.mode, this.field.name);
+        return this.registry.getDisplayType(module, type, displayType, this.mode, this.field.name);
     }
 
     /**
@@ -101,23 +99,13 @@ export class GroupFieldComponent extends BaseFieldComponent implements AfterView
     getFields(): Field[] {
         const fields: Field[] = [];
 
-        const fieldModes= {...this.fieldModes};
-
         this.field.definition.layout.forEach(name => {
-            if (!this.record.fields[name] || this.record.fields[name]?.display() === 'none') {
+            if (!this.record.fields[name] || this.record.fields[name].display === 'none') {
                 return;
-            }
-
-            fieldModes[name] = this.mode;
-
-            if (this.record?.fields[name]?.readonly) {
-                fieldModes[name] = 'detail' as ViewMode;
             }
 
             fields.push(this.record.fields[name]);
         });
-
-        this.fieldModes = fieldModes;
 
         return fields;
     }

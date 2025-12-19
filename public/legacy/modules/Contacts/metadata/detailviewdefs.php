@@ -304,10 +304,7 @@ $viewdefs ['Contacts'] =
                                                 'name' => 'full_name',
                                                 'label' => 'LBL_NAME',
                                             ),
-                                        1 => array(
-                                            'name' => 'assigned_user_name',
-                                            'label' => 'LBL_ASSIGNED_TO_NAME',
-                                        ),
+                                        1 => '',
                                     ),
                                 1 =>
                                     array(
@@ -343,7 +340,11 @@ $viewdefs ['Contacts'] =
                                                 'name' => 'account_name',
                                                 'label' => 'LBL_ACCOUNT_NAME',
                                             ),
-                                        1 => ''
+                                        1 =>
+                                            array(
+                                                'name' => 'phone_fax',
+                                                'label' => 'LBL_FAX_PHONE',
+                                            ),
                                     ),
                                 4 =>
                                     array(
@@ -353,7 +354,6 @@ $viewdefs ['Contacts'] =
                                                 'studio' => 'false',
                                                 'label' => 'LBL_EMAIL_ADDRESS',
                                             ),
-                                        1 => ''
                                     ),
                                 5 =>
                                     array(
@@ -388,6 +388,14 @@ $viewdefs ['Contacts'] =
                                             ),
                                         1 => '',
                                     ),
+                                7 =>
+                                    array(
+                                        0 =>
+                                            array(
+                                                'name' => 'assigned_user_name',
+                                                'label' => 'LBL_ASSIGNED_TO_NAME',
+                                            ),
+                                    ),
                             ),
                         'LBL_PANEL_ADVANCED' =>
                             array(
@@ -399,7 +407,6 @@ $viewdefs ['Contacts'] =
                                                 'comment' => 'How did the contact come about',
                                                 'label' => 'LBL_LEAD_SOURCE',
                                             ),
-                                        1 => ''
                                     ),
                                 1 =>
                                     array(

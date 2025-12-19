@@ -105,12 +105,12 @@ array(
           'options' => [
               'statistics' => [
                   [
-                      'endLabelKey' => 'LBL_AVERAGE_CLOSED_WON_PER_YEAR',
+                      'labelKey' => 'LBL_AVERAGE_CLOSED_WON_PER_YEAR',
                       'type' => 'accounts-won-opportunity-amount-by-year',
                       'hideValueIfEmpty' => true
                   ],
                   [
-                      'endLabelKey' => 'LBL_OPPORTUNITIES_TOTAL',
+                      'labelKey' => 'LBL_OPPORTUNITIES_TOTAL',
                       'type' => 'opportunities',
                       'hideValueIfEmpty' => true
                   ],
@@ -180,8 +180,9 @@ array(
           ),
           1 =>
           array(
-              'name' => 'assigned_user_name',
-              'label' => 'LBL_ASSIGNED_TO',
+            'name' => 'phone_office',
+            'comment' => 'The office phone number',
+            'label' => 'LBL_PHONE_OFFICE',
           ),
         ),
         1 =>
@@ -198,9 +199,9 @@ array(
           ),
           1 =>
           array(
-              'name' => 'phone_office',
-              'comment' => 'The office phone number',
-              'label' => 'LBL_PHONE_OFFICE',
+            'name' => 'phone_fax',
+            'comment' => 'The fax phone number of this company',
+            'label' => 'LBL_FAX',
           ),
         ),
         2 =>
@@ -211,7 +212,6 @@ array(
             'studio' => 'false',
             'label' => 'LBL_EMAIL',
           ),
-          1 => '',
         ),
         3 =>
         array(
@@ -244,7 +244,14 @@ array(
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
           ),
-          1 => ''
+        ),
+        5 =>
+        array(
+          0 =>
+          array(
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
         ),
       ),
       'LBL_PANEL_ADVANCED' =>
@@ -286,12 +293,10 @@ array(
             'name' => 'parent_name',
             'label' => 'LBL_MEMBER_OF',
           ),
-          1 => '',
         ),
         3 =>
         array(
           0 => 'campaign_name',
-          1 => '',
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' =>

@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -31,7 +31,6 @@ import {FieldModule} from '../../fields/field.module';
 import {FieldGridModule} from '../field-grid/field-grid.module';
 import {ImageModule} from '../image/image.module';
 import {ActionGroupMenuModule} from '../action-group-menu/action-group-menu.module';
-import {DynamicLabelModule} from "../dynamic-label/dynamic-label.module";
 
 
 @NgModule({
@@ -44,8 +43,7 @@ import {DynamicLabelModule} from "../dynamic-label/dynamic-label.module";
         FieldModule,
         FieldGridModule,
         ImageModule,
-        ActionGroupMenuModule,
-        DynamicLabelModule
+        ActionGroupMenuModule
     ]
 })
 export class FieldLayoutModule {

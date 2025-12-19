@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace ApiPlatform\Metadata\Util;
 
 use ApiPlatform\Metadata\ApiFilter;
-use Symfony\Component\String\UnicodeString;
 
 /**
  * Generates a service id for a generic filter.
@@ -134,6 +133,6 @@ trait AttributeFilterExtractorTrait
     {
         $suffix = null !== $filterId ? '_'.$filterId : $filterId;
 
-        return 'annotated_'.(new UnicodeString(str_replace('\\', '', $reflectionClass->getName().(new \ReflectionClass($filterClass))->getName().$suffix)))->snake()->toString();
+        return 'annotated_'.Inflector::tableize(str_replace('\\', '', $reflectionClass->getName().(new \ReflectionClass($filterClass))->getName().$suffix));
     }
 }

@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -113,7 +109,6 @@ $mod_strings = array(
 'LNK_NEW_APPOINTMENT' => 'Назначить встречу/звонок' ,
 'LNK_IMPORT_PROSPECTS' => 'Импорт адресатов',
 'NTC_DELETE_CONFIRMATION' => 'Вы действительно хотите удалить эту запись?' ,
-'NTC_SNOOZE_CONFIRMATION' => 'Вы действительно хотите отложить уведомление?',
 'NTC_REMOVE_CONFIRMATION' => 'Вы действительно хотите удалить этот контакт из данного обращения?' ,
 'ERR_DELETE_RECORD' => 'Для удаления контакта вы должны указать номер записи.' ,
 'LBL_SALUTATION' => 'Приветствие' ,
@@ -135,7 +130,7 @@ $mod_strings = array(
 'LNK_NEW_CONTACT' => 'Новый контакт' ,
 'LBL_CREATED_CONTACT' => 'Создан новый контакт' ,
 'LBL_CAMPAIGNS' => 'Рассылки' ,
-'LBL_CAMPAIGN_LIST_SUBPANEL_TITLE' => 'Маркет. кампании адресата' ,
+'LBL_CAMPAIGN_LIST_SUBPANEL_TITLE' => 'Маркетинговые кампании, проведённые с участием адресата' ,
 'LBL_TRACKER_KEY' => 'Ключ трекера' ,
 'LBL_LEAD_ID' => 'ID предварительного контакта' ,
 'LBL_CONVERTED_LEAD' => 'Преобразованный предварительный контакт' ,

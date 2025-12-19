@@ -81,7 +81,7 @@ class SubpanelDataPort
         require_once 'include/SubPanel/SubPanelDefinitions.php';
 
         $spd = new SubPanelDefinitions($parentBean);
-        if (empty($mapped['collection_basic'])){
+        if (!isset($mapped['collection_basic']) || empty($mapped['collection_basic'])){
             $aSubPanelObject = $spd->load_subpanel($subpanel);
         } else {
             $collection = $mapped['collection_basic'];

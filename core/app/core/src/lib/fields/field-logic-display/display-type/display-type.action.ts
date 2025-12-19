@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2023 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2023 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -26,11 +26,8 @@
 
 import {Injectable} from '@angular/core';
 import {FieldLogicDisplayActionData, FieldLogicDisplayActionHandler} from '../field-logic-display.action';
-import {Action} from '../../../common/actions/action.model';
-import {StringArrayMap} from '../../../common/types/string-map';
-import {ViewMode} from '../../../common/views/view.model';
+import {Action, StringArrayMap, StringArrayMatrix, ViewMode} from 'common';
 import {ActiveFieldsChecker} from "../../../services/condition-operators/active-fields-checker.service";
-import {ObjectArrayMatrix} from "../../../common/types/object-map";
 
 
 @Injectable({
@@ -56,7 +53,7 @@ export class DisplayTypeAction extends FieldLogicDisplayActionHandler {
         const activeOnFields: StringArrayMap = (action.params && action.params.activeOnFields) || {} as StringArrayMap;
         const relatedFields: string[] = Object.keys(activeOnFields);
 
-        const activeOnAttributes: ObjectArrayMatrix = (action.params && action.params.activeOnAttributes) || {} as ObjectArrayMatrix;
+        const activeOnAttributes: StringArrayMatrix = (action.params && action.params.activeOnAttributes) || {} as StringArrayMatrix;
         const relatedAttributesFields: string[] = Object.keys(activeOnAttributes);
 
         if (!relatedFields.length && !relatedAttributesFields.length) {

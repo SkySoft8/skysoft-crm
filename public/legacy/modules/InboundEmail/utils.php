@@ -90,10 +90,6 @@ function getUserSignature(
         $owner = BeanFactory::getBean('Users', $createdBy);
     }
 
-    if (!$owner || $owner->id === null) {
-        return '';
-    }
-
     $defaultSignatureId = $owner->getPreference('signature_default') ?? '';
 
     $isEditView = $view === 'EditView' || $view === 'MassUpdate' || $view === 'QuickCreate' || $view === 'ConvertLead';
@@ -108,7 +104,7 @@ function getUserSignature(
         return '';
     }
 
-    $emailSignatures = $owner->getPreference('account_signatures', 'Emails') ?? '';
+    $emailSignatures = $owner->getPreference('account_signatures', 'Emails');
     $emailSignatures = sugar_unserialize(base64_decode($emailSignatures));
 
     $signatureId = $emailSignatures[$inboundEmailId] ?? '';

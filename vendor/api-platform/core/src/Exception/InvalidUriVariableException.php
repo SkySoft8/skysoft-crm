@@ -17,8 +17,6 @@ namespace ApiPlatform\Exception;
  * Identifier is not valid exception.
  *
  * @author Antoine Bluchet <soyuka@gmail.com>
- *
- * @deprecated use ApiPlatform\Metadata\Exception\InvalidUriVariableException
  */
 class InvalidUriVariableException extends \Exception implements ExceptionInterface
 {

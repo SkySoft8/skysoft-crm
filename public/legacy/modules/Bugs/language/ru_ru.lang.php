@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -78,7 +74,6 @@ $mod_strings = array(
 'LBL_LIST_ACCOUNT_NAME' => 'Контрагент' ,
 'LBL_LIST_PHONE' => 'Тел.' ,
 'NTC_DELETE_CONFIRMATION' => 'Вы действительно хотите удалить этот контакт из данной ошибки?' ,
-'NTC_SNOOZE_CONFIRMATION' => 'Вы действительно хотите отложить уведомление?',
 
 'LBL_DEFAULT_SUBPANEL_TITLE' => 'Ошибки' ,
 'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Мероприятия' ,

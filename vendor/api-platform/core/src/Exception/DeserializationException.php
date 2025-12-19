@@ -20,8 +20,6 @@ use Symfony\Component\Serializer\Exception\ExceptionInterface as SerializerExcep
  *
  * @author Samuel ROZE <samuel.roze@gmail.com>
  * @author Kévin Dunglas <dunglas@gmail.com>
- *
- * @deprecated
  */
 class DeserializationException extends \Exception implements ExceptionInterface, SerializerExceptionInterface
 {

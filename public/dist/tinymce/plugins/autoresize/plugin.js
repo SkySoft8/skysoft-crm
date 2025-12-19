@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 7.4.1 (TBD)
+ * TinyMCE version 6.8.3 (2024-02-08)
  */
 
 (function () {
@@ -20,6 +20,12 @@
     };
 
     var global$1 = tinymce.util.Tools.resolve('tinymce.PluginManager');
+
+    const constant = value => {
+      return () => {
+        return value;
+      };
+    };
 
     var global = tinymce.util.Tools.resolve('tinymce.Env');
 
@@ -99,19 +105,10 @@
       } else {
         toggleScrolling(editor, false);
       }
-      const old = oldSize.get();
-      if (old.set) {
-        editor.dom.setStyles(editor.getDoc().documentElement, { 'min-height': 0 });
-        editor.dom.setStyles(editor.getBody(), { 'min-height': 'inherit' });
-      }
-      if (resizeHeight !== old.totalHeight && (contentHeight - resizeBottomMargin !== old.contentHeight || !old.set)) {
-        const deltaSize = resizeHeight - old.totalHeight;
+      if (resizeHeight !== oldSize.get()) {
+        const deltaSize = resizeHeight - oldSize.get();
         dom.setStyle(editor.getContainer(), 'height', resizeHeight + 'px');
-        oldSize.set({
-          totalHeight: resizeHeight,
-          contentHeight,
-          set: true
-        });
+        oldSize.set(resizeHeight);
         fireResizeEditor(editor);
         if (global.browser.isSafari() && (global.os.isMacOS() || global.os.isiOS())) {
           const win = editor.getWin();
@@ -126,8 +123,11 @@
       }
     };
     const setup = (editor, oldSize) => {
-      const getExtraMarginBottom = () => getAutoResizeBottomMargin(editor);
+      let getExtraMarginBottom = () => getAutoResizeBottomMargin(editor);
+      let resizeCounter;
+      let sizeAfterFirstResize;
       editor.on('init', e => {
+        resizeCounter = 0;
         const overflowPadding = getAutoResizeOverflowPadding(editor);
         const dom = editor.dom;
         dom.setStyles(editor.getDoc().documentElement, { height: 'auto' });
@@ -144,9 +144,26 @@
           });
         }
         resize(editor, oldSize, e, getExtraMarginBottom);
+        resizeCounter += 1;
       });
       editor.on('NodeChange SetContent keyup FullscreenStateChanged ResizeContent', e => {
-        resize(editor, oldSize, e, getExtraMarginBottom);
+        if (resizeCounter === 1) {
+          sizeAfterFirstResize = editor.getContainer().offsetHeight;
+          resize(editor, oldSize, e, getExtraMarginBottom);
+          resizeCounter += 1;
+        } else if (resizeCounter === 2) {
+          const isLooping = sizeAfterFirstResize < editor.getContainer().offsetHeight;
+          if (isLooping) {
+            const dom = editor.dom;
+            const doc = editor.getDoc();
+            dom.setStyles(doc.documentElement, { 'min-height': 0 });
+            dom.setStyles(editor.getBody(), { 'min-height': 'inherit' });
+          }
+          getExtraMarginBottom = isLooping ? constant(0) : getExtraMarginBottom;
+          resizeCounter += 1;
+        } else {
+          resize(editor, oldSize, e, getExtraMarginBottom);
+        }
       });
     };
 
@@ -163,11 +180,7 @@
           editor.options.set('resize', false);
         }
         if (!editor.inline) {
-          const oldSize = Cell({
-            totalHeight: 0,
-            contentHeight: 0,
-            set: false
-          });
+          const oldSize = Cell(0);
           register(editor, oldSize);
           setup(editor, oldSize);
         }

@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -61,9 +57,9 @@ $mod_strings = array(
 'LBL_ASSIGN_TO_GROUP_FOLDER_DESC' => 'Автоматически импортировать в систему все входящие электронные письма.',
 'LBL_FILTER_DOMAIN' => 'Не отправлять автоответ на этот домен' ,
 'LBL_FIND_SSL_WARN' => 'Тестирование SSL может занять продолжительное время. Пожалуйста, подождите...' ,
-'LBL_FROM_ADDR' => 'Адрес отправителя' ,
+'LBL_FROM_ADDR' => 'С адреса' ,
 'LBL_FROM_ADDR_DESC' => ' Указанный здесь электронный адрес может не отображаться в поле <b><От></b> отправляемого письма из-за возможных ограничений, налагаемых почтовым провайдером. В этом случае будет использоваться адрес сервера исходящей почты.',
-'LBL_FROM_NAME' => 'Имя отправителя' ,
+'LBL_FROM_NAME' => 'От имени' ,
 'LBL_GROUP_QUEUE' => 'Приписать к группе' ,
 'LBL_HOME' => 'Home',
 'LBL_LIST_MAILBOX_TYPE' => 'Действие' ,
@@ -159,43 +155,55 @@ $mod_strings = array(
 'LNK_SENT_EMAIL_LIST' => 'Отправленные',
 'LBL_EDIT_LAYOUT' => 'Изменить макет' /*for 508 compliance fix*/,
 'LBL_TYPE_DIFFERENT' => 'Внешнее подключение OAuth должно быть того же типа, что и учётная запись входящей почты',
-
 	
 'LBL_MODIFIED_BY' => 'Изменено',
 'LBL_SERVICE' => 'Сервис',
 'LBL_STORED_OPTIONS' => 'Сохранённые параметры',
 'LBL_GROUP_ID' => 'ID группы',
+
 'LBL_OUTBOUND_CONFIGURATION' => 'Настройки исходящей почты',
 'LBL_CONNECTION_CONFIGURATION' => 'Настройки сервера',
 'LBL_AUTO_REPLY_CONFIGURATION' => 'Настройки стандартного автоответа',
 'LBL_CASE_CONFIGURATION' => 'Настройки Обращения',
 'LBL_GROUP_CONFIGURATION' => 'Настройки группы',
+
 'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Группы пользователей',
+
+
 'LBL_OUTBOUND_EMAIL_ACCOUNT' => 'Учётная запись исходящей почты',
 'LBL_OUTBOUND_EMAIL_ACCOUNT_ID' => 'ID учётной записи исходящей почты',
 'LBL_OUTBOUND_EMAIL_ACCOUNT_NAME' => 'Учётная запись исходящей почты',
+
 'LBL_AUTOREPLY_EMAIL_TEMPLATE' => 'Шаблон стандартного автооответа',
 'LBL_AUTOREPLY_EMAIL_TEMPLATE_ID' => 'ID шаблона стандартного автоответа',
 'LBL_AUTOREPLY_EMAIL_TEMPLATE_NAME' => 'Шаблон стандартного автооответа',
+
 'LBL_CASE_EMAIL_TEMPLATE' => 'Шаблон автоответа при создании нового Обращения',
 'LBL_CASE_EMAIL_TEMPLATE_ID' => 'ID шаблона при создании нового Обращения',
 'LBL_CASE_EMAIL_TEMPLATE_NAME' => 'Шаблон автоответа при создании нового Обращения',
+
 'LBL_PROTOCOL' => 'Протокол',
 'LBL_CONNECTION_STRING' => 'Строка подключения',
 'LBL_DISTRIB_METHOD' => 'Метод назначения',
 'LBL_DISTRIB_OPTIONS' => 'Параметры назначения',
+
 'LBL_DISTRIBUTION_USER' => 'Назначенный пользователь',
 'LBL_DISTRIBUTION_USER_ID' => 'ID назначенного пользователя',
 'LBL_DISTRIBUTION_USER_NAME' => 'Назначенный пользователь',
+
 'LBL_EXTERNAL_OAUTH_CONNECTION' => 'Внешнее подключение OAuth',
 'LBL_EXTERNAL_OAUTH_CONNECTION_ID' => 'ID внешнего подключения OAuth',
 'LBL_EXTERNAL_OAUTH_CONNECTION_NAME' => 'Внешнее подключение OAuth',
 'LNK_EXTERNAL_OAUTH_CONNECTIONS' => 'Внешние подключения OAuth',
+
 'LBL_TYPE' => 'Тип',
-'LBL_AUTH_TYPE' => 'Аутентификация',
+'LBL_AUTH_TYPE' => 'Тип авторизации',
 'LBL_IS_DEFAULT' => 'По умолчанию',
 'LBL_SIGNATURE' => 'Подпись',
+
 'LBL_OWNER_NAME' => 'Владелец',
+
 'LBL_SET_AS_DEFAULT_BUTTON' => 'Установить по умолчанию',
+
 'LBL_MOVE_MESSAGES_TO_TRASH_AFTER_IMPORT' => 'Перемещать сообщения в Корзину после импорта',
 );

@@ -98,7 +98,7 @@
          $default_dropdowns = $my_list_strings[$vardef['options']];
      } else {
          //since we do not have a default value then we should assign the first one.
-         $key = $dropdowns[0];
+         $key = $dropdowns[1];
          $default_dropdowns = $my_list_strings[$key];
      }
     

@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -25,20 +25,16 @@
  */
 
 import {
+    ChangeDetectorRef,
     Component,
     computed,
     HostBinding,
     Input,
-    OnDestroy,
-    OnInit,
-    signal,
+    OnInit, signal,
     Signal,
-    Type,
-    WritableSignal
+    Type
 } from '@angular/core';
-import {Record} from '../../common/record/record.model';
-import {Field} from '../../common/record/field.model';
-import {EDITABLE_VIEW_MODES, ViewMode} from '../../common/views/view.model';
+import {EDITABLE_VIEW_MODES, Field, Record, StringMap, ViewMode} from 'common';
 import {Router} from '@angular/router';
 import {ModuleNameMapper} from '../../services/navigation/module-name-mapper/module-name-mapper.service';
 import {ModuleNavigation} from '../../services/navigation/module-navigation/module-navigation.service';
@@ -46,17 +42,13 @@ import {DynamicLabelService} from '../../services/language/dynamic-label.service
 import {
     LinkRouteAsyncActionService
 } from '../../services/navigation/link-route-async-action/link-route-async-action.service';
-import {Subscription} from "rxjs";
-import {ControlEvent, TouchedChangeEvent} from "@angular/forms";
-import {ActiveFieldsChecker} from "../../services/condition-operators/active-fields-checker.service";
-import {deepClone} from "../../common/utils/object-utils";
 
 @Component({
     selector: 'scrm-dynamic-field',
     templateUrl: './dynamic-field.component.html',
     styleUrls: []
 })
-export class DynamicFieldComponent implements OnInit, OnDestroy {
+export class DynamicFieldComponent implements OnInit {
 
     @Input('mode') mode: string;
     @Input('originalMode') originalMode: string;
@@ -70,10 +62,7 @@ export class DynamicFieldComponent implements OnInit, OnDestroy {
     @HostBinding('class') class = 'dynamic-field';
 
     isInvalid: Signal<boolean> = signal(false);
-    touched: WritableSignal<boolean> = signal(false);
-    activeFootnotes: WritableSignal<any[]> = signal([]);
     validateOnlyOnSubmit: boolean = false;
-    protected subs: Subscription[] = [];
 
     constructor(
         protected navigation: ModuleNavigation,
@@ -81,16 +70,21 @@ export class DynamicFieldComponent implements OnInit, OnDestroy {
         protected router: Router,
         protected dynamicLabelService: DynamicLabelService,
         protected linkRouteAsyncActionService: LinkRouteAsyncActionService,
-        protected activeFieldsChecker: ActiveFieldsChecker
+        private cd: ChangeDetectorRef
     ) {
     }
 
     get getRelateLink(): string {
-        let linkModule = this.getLinkModule();
+        let linkModule = this.field.definition.module;
+
+        if (this.field.definition.type_name === 'parent_type') {
+            linkModule = this.record.attributes.parent_type;
+        }
 
         if (this.field.definition.id_name && linkModule) {
+            const moduleName = this.moduleNameMapper.toFrontend(linkModule);
             return this.navigation.getRecordRouterLink(
-                linkModule,
+                moduleName,
                 this.record.attributes[this.field.definition.id_name]
             );
         }
@@ -98,68 +92,19 @@ export class DynamicFieldComponent implements OnInit, OnDestroy {
         return '';
     }
 
-    protected getLinkModule(): string {
-        let linkModule = this.field.definition.module ?? this.record.attributes[this.field.definition.type_name];
-
-        if (this.field.definition.type_name === 'parent_type') {
-            linkModule = this.record.attributes.parent_type;
-        }
-
-        if (linkModule) {
-            linkModule = this.moduleNameMapper.toFrontend(linkModule);
-        }
-        return linkModule ?? '';
-    }
-
     ngOnInit(): void {
         this.setHostClass();
+        this.cd.detectChanges();
         this.validateOnlyOnSubmit = this.record?.metadata?.validateOnlyOnSubmit;
 
-        if (this.record?.validationTriggered) {
+        if(this.record?.validationTriggered) {
             this.isInvalid = computed(() => {
-                if (this.validateOnlyOnSubmit && this.record?.validationTriggered() && this.field.formControl?.invalid) {
+                if(this.validateOnlyOnSubmit && this.record?.validationTriggered() && this.field.formControl?.invalid) {
                     return true;
                 }
                 return false;
             })
         }
-
-        if (this?.field?.formControl?.touched) {
-            this.touched.set(this.field.formControl.touched)
-        }
-
-        if (this?.field?.formControl?.events) {
-            this.subs.push(this.field.formControl.events.subscribe((event: ControlEvent) => {
-                if (!(event instanceof TouchedChangeEvent)) {
-                    return;
-                }
-
-                const touched = event?.touched ?? null;
-
-                if (touched === null) {
-                    return;
-                }
-
-                if (event.touched && !this.touched()) {
-                    this.touched.set(event.touched);
-                    return;
-                }
-
-                if (!event.touched && this.touched()) {
-                    this.touched.set(event.touched);
-                    return;
-                }
-
-
-            }));
-        }
-
-        this.initHelpFootnotes();
-    }
-
-    ngOnDestroy() {
-        this.subs.forEach(sub => sub.unsubscribe());
-        this.subs = [];
     }
 
     isLink(): boolean {
@@ -173,12 +118,7 @@ export class DynamicFieldComponent implements OnInit, OnDestroy {
         }
 
         if (this.type === 'relate') {
-            let linkModule = this.getLinkModule();
-            return this.navigation?.hasAccessToModule(linkModule) ?? false
-        }
-
-        if (this?.record?.module && !this.navigation?.hasAccessToModule(this?.record?.module)) {
-            return false;
+            return true;
         }
 
         return !!(this?.field?.metadata && this?.field?.metadata?.link);
@@ -205,12 +145,22 @@ export class DynamicFieldComponent implements OnInit, OnDestroy {
         const fieldMetadata = this?.field?.metadata ?? null;
         const linkRoute = fieldMetadata.linkRoute ?? null;
         if (fieldMetadata && linkRoute) {
-            return this.dynamicLabelService.parse(linkRoute, {}, this.record.fields, this.record.attributes);
+            return this.dynamicLabelService.parse(linkRoute, {}, this.record.fields);
         }
 
         return this.navigation.getRecordRouterLink(this.record.module, this.record.id);
     }
 
+    getMessageContext(item: any, record: Record): StringMap {
+        const context = item && item.message && item.message.context || {};
+        context.module = (record && record.module) || '';
+
+        return context;
+    }
+
+    getMessageLabelKey(item: any): string {
+        return (item && item.message && item.message.labelKey) || '';
+    }
 
     onClick(): boolean {
 
@@ -247,78 +197,6 @@ export class DynamicFieldComponent implements OnInit, OnDestroy {
         }
 
         this.class = classes.join(' ');
-    }
-
-    protected initHelpFootnotes(): void {
-
-        const footnotes = this?.field?.definition?.footnotes ?? [];
-        if (!footnotes.length) {
-            this.activeFootnotes.set([]);
-            return;
-        }
-
-        this.initActiveFootnotes();
-        this.subs.push(this.field.valueChanges$.subscribe(() => {
-            this.initActiveFootnotes();
-        }));
-
-    }
-
-    protected initActiveFootnotes() {
-        const footnotes = this?.field?.definition?.footnotes ?? [];
-
-        const activeFootnotes: any[] = [];
-        const defaultFootnotes: any[] = [];
-        footnotes.forEach((footnote) => {
-
-            const activeFootnote = this.initFootnote(footnote);
-            if (!activeFootnote) {
-                return;
-            }
-
-            if (activeFootnote?.default) {
-                defaultFootnotes.push(activeFootnote);
-                return;
-            }
-
-            if (!activeFootnote?.activeOn) {
-                activeFootnotes.push(activeFootnote);
-                return;
-            }
-
-            const isActive = this.activeFieldsChecker.isValueActive(this.record, this.field, footnote.activeOn);
-            if (isActive) {
-                activeFootnotes.push(activeFootnote);
-            }
-        });
-
-        if (!activeFootnotes?.length && defaultFootnotes.length) {
-            this.activeFootnotes.set(defaultFootnotes);
-            return;
-        }
-
-        this.activeFootnotes.set(activeFootnotes);
-    }
-
-    protected initFootnote(footnote: any): any {
-        const displayModes = footnote?.displayModes ?? [];
-        if (!displayModes?.length) {
-            return null;
-        }
-
-        if (!displayModes.includes(this.originalMode)) {
-            return null;
-        }
-
-        const footnoteEntry = deepClone(footnote);
-        footnoteEntry.context = footnote?.context ?? {};
-        footnoteEntry.context.module = this.record?.module ?? '';
-
-        return footnoteEntry;
-    }
-
-    getErrorPosition(): string {
-        return this?.field?.metadata?.errorPosition ?? 'bottom';
     }
 
 }

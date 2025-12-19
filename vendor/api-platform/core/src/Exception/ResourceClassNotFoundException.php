@@ -17,8 +17,6 @@ namespace ApiPlatform\Exception;
  * Resource class not found exception.
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
- *
- * @deprecated use ApiPlatform\Metadata\Exception\ResourceClassNotFoundException
  */
 class ResourceClassNotFoundException extends \Exception implements ExceptionInterface
 {

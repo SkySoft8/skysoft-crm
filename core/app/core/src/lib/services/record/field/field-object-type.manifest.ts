@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2024 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2024 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -25,13 +25,11 @@
  */
 
 import {FieldObjectTypeMap} from "./field-object.model";
-import {BaseField} from '../../../common/record/field.model';
+import {BaseField} from 'common';
 import {MultiEnumField} from "./types/multi-enum.value-object-type";
-import {BoolField} from "./types/bool.value-object-type";
 
 
 export const baseObjectFieldsTypeMap: FieldObjectTypeMap = {
     'default': BaseField,
-    'multienum': MultiEnumField,
-    'bool': BoolField
+    'multienum': MultiEnumField
 };

@@ -22,8 +22,6 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
  * Security stage of GraphQL resolvers.
  *
  * @author Alan Poulain <contact@alanpoulain.eu>
- *
- * @deprecated
  */
 final class SecurityStage implements SecurityStageInterface
 {

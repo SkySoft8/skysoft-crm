@@ -32,9 +32,7 @@ class Gantt
         $this->end_date = $end_date;
         $this->tasks = $tasks;
         //draw the grid
-        if (!empty($this->tasks)){
-            $this->draw($this->start_date, $this->end_date, $this->tasks);
-        }
+        $this->draw($this->start_date, $this->end_date, $this->tasks);
     }
 
     public function draw($start_date, $end_date, $tasks)
@@ -218,7 +216,7 @@ class Gantt
         $aResult = array();
 
         foreach ($period as $dt) {
-            $aResult[$dt->format('Y')][date("%B", $dt->getTimestamp())][$dt->format('j')] = date("%a", $dt->getTimestamp());
+            $aResult[$dt->format('Y')][strftime("%B", $dt->getTimestamp())][$dt->format('j')] = strftime("%a", $dt->getTimestamp());
         }
 
         return $aResult;

@@ -25,9 +25,5 @@ use Doctrine\ORM\QueryBuilder;
  */
 interface QueryCollectionExtensionInterface
 {
-    /**
-     * @param class-string         $resourceClass
-     * @param array<string, mixed> $context
-     */
     public function applyToCollection(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, ?Operation $operation = null, array $context = []): void;
 }

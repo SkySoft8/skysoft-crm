@@ -205,7 +205,7 @@ class AOR_Report extends Basic
             $field = BeanFactory::newBean('AOR_Fields');
             $field->retrieve($row['id']);
 
-            $path = unserialize(base64_decode($field->module_path),['allowed_classes' => false]);
+            $path = unserialize(base64_decode($field->module_path));
 
             $field_bean = new $beanList[$this->report_module]();
 
@@ -311,7 +311,7 @@ class AOR_Report extends Basic
             $GLOBALS['log']->fatal('ambiguous group display for report ' . $this->id);
         } else {
             if ($rowsCount == 1) {
-                $rows[0]['module_path'] = unserialize(base64_decode($rows[0]['module_path']),['allowed_classes' => false]);
+                $rows[0]['module_path'] = unserialize(base64_decode($rows[0]['module_path']));
                 if (!$rows[0]['module_path'][0]) {
                     $module = new $beanList[$this->report_module]();
                     $rows[0]['field_id_name'] = $module->field_defs[$rows[0]['field']]['id_name'] ? $module->field_defs[$rows[0]['field']]['id_name'] : $module->field_defs[$rows[0]['field']]['name'];
@@ -440,7 +440,7 @@ class AOR_Report extends Basic
 
             $field_label = str_replace(' ', '_', (string) $field->label);
 
-            $path = unserialize(base64_decode($field->module_path),['allowed_classes' => false]);
+            $path = unserialize(base64_decode($field->module_path));
 
             $field_module = $module;
             $table_alias = $field_module->table_name;
@@ -670,7 +670,7 @@ class AOR_Report extends Basic
             $field = BeanFactory::newBean('AOR_Fields');
             $field->retrieve($row['id']);
 
-            $path = unserialize(base64_decode($field->module_path),['allowed_classes' => false]);
+            $path = unserialize(base64_decode($field->module_path));
 
             $field_bean = new $beanList[$this->report_module]();
 
@@ -802,9 +802,6 @@ class AOR_Report extends Basic
                     if ($att['link'] && $links) {
                         $html .= "<a href='" . $sugar_config['site_url'] . "/index.php?module=" . $att['module'] . "&action=DetailView&record=" . $row[$att['alias'] . '_id'] . "'>";
                     }
-                    if (!isset($row[$name])){
-                        continue;
-                    }
 
                     $currency_id = isset($row[$att['alias'] . '_currency_id']) ? $row[$att['alias'] . '_currency_id'] : '';
 
@@ -905,7 +902,7 @@ class AOR_Report extends Basic
                 // End
             }
 
-            $path = unserialize(base64_decode($field->module_path),['allowed_classes' => false]);
+            $path = unserialize(base64_decode($field->module_path));
 
             $field_bean = new $beanList[$this->report_module]();
 
@@ -1047,7 +1044,7 @@ class AOR_Report extends Basic
             $field = BeanFactory::newBean('AOR_Fields');
             $field->retrieve($row['id']);
 
-            $path = unserialize(base64_decode($field->module_path),['allowed_classes' => false]);
+            $path = unserialize(base64_decode($field->module_path));
             $field_bean = new $beanList[$this->report_module]();
             $field_module = $this->report_module;
             $field_alias = $field_bean->table_name;
@@ -1240,7 +1237,7 @@ class AOR_Report extends Basic
 
                 $field->label = str_replace(' ', '_', (string) $field->label) . $i;
 
-                $path = unserialize(base64_decode($field->module_path),['allowed_classes' => false]);
+                $path = unserialize(base64_decode($field->module_path));
 
                 $field_module = $module;
                 $table_alias = $field_module->table_name;
@@ -1263,50 +1260,48 @@ class AOR_Report extends Basic
                         $field_module = $new_field_module;
                     }
                 }
-                $data = $field_module->field_defs[$field->field] ?? [];
+                $data = $field_module->field_defs[$field->field];
 
-                if (!empty($data)){
-                    if ($data['type'] == 'relate' && isset($data['id_name'])) {
-                        $field->field = $data['id_name'];
-                        $data_new = $field_module->field_defs[$field->field];
-                        if (isset($data_new['source']) && $data_new['source'] == 'non-db' && $data_new['type'] != 'link' && isset($data['link'])) {
-                            $data_new['type'] = 'link';
-                            $data_new['relationship'] = $data['link'];
-                        }
-                        $data = $data_new;
+                if ($data['type'] == 'relate' && isset($data['id_name'])) {
+                    $field->field = $data['id_name'];
+                    $data_new = $field_module->field_defs[$field->field];
+                    if (isset($data_new['source']) && $data_new['source'] == 'non-db' && $data_new['type'] != 'link' && isset($data['link'])) {
+                        $data_new['type'] = 'link';
+                        $data_new['relationship'] = $data['link'];
                     }
+                    $data = $data_new;
+                }
 
-                    if ($data['type'] == 'link' && $data['source'] == 'non-db') {
-                        $new_field_module = new $beanList[getRelatedModule(
-                            $field_module->module_dir,
-                            $data['relationship']
-                        )];
-                        $table_alias = $data['relationship'];
-                        $query = $this->build_report_query_join(
-                            $data['relationship'],
-                            $table_alias,
-                            $oldAlias,
-                            $field_module,
-                            'relationship',
-                            $query,
-                            $new_field_module
-                        );
-                        $field_module = $new_field_module;
-                        $field->field = 'id';
-                    }
+                if ($data['type'] == 'link' && $data['source'] == 'non-db') {
+                    $new_field_module = new $beanList[getRelatedModule(
+                        $field_module->module_dir,
+                        $data['relationship']
+                    )];
+                    $table_alias = $data['relationship'];
+                    $query = $this->build_report_query_join(
+                        $data['relationship'],
+                        $table_alias,
+                        $oldAlias,
+                        $field_module,
+                        'relationship',
+                        $query,
+                        $new_field_module
+                    );
+                    $field_module = $new_field_module;
+                    $field->field = 'id';
+                }
 
-                    if ($data['type'] == 'currency' && isset($field_module->field_defs['currency_id']) && !stripos((string) $field->field,'_USD')) {
-                        if ((isset($field_module->field_defs['currency_id']['source']) && $field_module->field_defs['currency_id']['source'] == 'custom_fields')) {
-                            $query['select'][$table_alias . '_currency_id'] = $this->db->quoteIdentifier($table_alias . '_cstm') . ".currency_id AS '" . $table_alias . "_currency_id'";
-                            $query['second_group_by'][] = $this->db->quoteIdentifier($table_alias . '_cstm') . ".currency_id";
-                        } else {
-                            $query['select'][$table_alias . '_currency_id'] = $this->db->quoteIdentifier($table_alias) . ".currency_id AS '" . $table_alias . "_currency_id'";
-                            $query['second_group_by'][] = $this->db->quoteIdentifier($table_alias) . ".currency_id";
-                        }
+                if ($data['type'] == 'currency' && isset($field_module->field_defs['currency_id']) && !stripos((string) $field->field,'_USD')) {
+                    if ((isset($field_module->field_defs['currency_id']['source']) && $field_module->field_defs['currency_id']['source'] == 'custom_fields')) {
+                        $query['select'][$table_alias . '_currency_id'] = $this->db->quoteIdentifier($table_alias . '_cstm') . ".currency_id AS '" . $table_alias . "_currency_id'";
+                        $query['second_group_by'][] = $this->db->quoteIdentifier($table_alias . '_cstm') . ".currency_id";
+                    } else {
+                        $query['select'][$table_alias . '_currency_id'] = $this->db->quoteIdentifier($table_alias) . ".currency_id AS '" . $table_alias . "_currency_id'";
+                        $query['second_group_by'][] = $this->db->quoteIdentifier($table_alias) . ".currency_id";
                     }
                 }
 
-                if (!empty($data) && (isset($data['source']) && $data['source'] == 'custom_fields')) {
+                if ((isset($data['source']) && $data['source'] == 'custom_fields')) {
                     $select_field = $this->db->quoteIdentifier($table_alias . '_cstm') . '.' . $field->field;
                     $query = $this->build_report_query_join(
                         $table_alias . '_cstm',
@@ -1321,7 +1316,7 @@ class AOR_Report extends Basic
                 }
                 $select_field_db = $select_field;
 
-                if ($field->format && isset($data['type']) && in_array($data['type'], array('date', 'datetime', 'datetimecombo'))) {
+                if ($field->format && in_array($data['type'], array('date', 'datetime', 'datetimecombo'))) {
                     if (in_array($data['type'], array('datetime', 'datetimecombo'))) {
                         $select_field = $this->db->convert($select_field, 'add_tz_offset');
                     }
@@ -1338,11 +1333,10 @@ class AOR_Report extends Basic
                     unset($query['id_select'][$table_alias]);
                 }
 
-                if ($field->field_function != null) {
-                    $unique = $field->group_by == 1 ? 'DISTINCT ' : '';
-                    $select_field = $field->field_function . '(' . $unique . $select_field . ')';
-                } elseif ($field->group_by == 1) {
+                if ($field->group_by == 1) {
                     $query['group_by'][] = $select_field;
+                } elseif ($field->field_function != null) {
+                    $select_field = $field->field_function . '(' . $select_field . ')';
                 } else {
                     $query['second_group_by'][] = $select_field;
                 }
@@ -1489,14 +1483,14 @@ class AOR_Report extends Basic
                 $condition = BeanFactory::newBean('AOR_Conditions');
                 $condition->retrieve($row['id']);
 
-                $path = unserialize(base64_decode($condition->module_path),['allowed_classes' => false]);
+                $path = unserialize(base64_decode($condition->module_path));
 
                 $condition_module = $module;
                 $table_alias = $condition_module->table_name;
                 $oldAlias = $table_alias;
                 if (!empty($path[0]) && $path[0] != $module->module_dir) {
                     foreach ($path as $rel) {
-                        if (empty($rel) || !is_string($rel)) {
+                        if (empty($rel)) {
                             continue;
                         }
                         // Bug: Prevents relationships from loading.
@@ -1628,7 +1622,7 @@ class AOR_Report extends Basic
                             break;
 
                         case 'Date':
-                            $params = unserialize(base64_decode($condition->value),['allowed_classes' => false]);
+                            $params = unserialize(base64_decode($condition->value));
 
                             // Fix for issue #1272 - AOR_Report module cannot update Date type parameter.
                             if ($params == false) {

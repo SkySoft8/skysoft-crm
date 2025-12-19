@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -70,7 +66,7 @@ $mod_strings = array(
 'LBL_LIST_RELATED_TO' => 'Относится к' ,
 'LBL_LIST_STATUS' => 'Статус' ,
 'LBL_LIST_SUBJECT' => 'Тема' ,
-'LBL_LEADS_SUBPANEL_TITLE' => 'Предварит. контакты',
+'LBL_LEADS_SUBPANEL_TITLE' => 'Предварительные контакты',
 'LBL_LOCATION' => 'Место встречи:' ,
 'LBL_MINSS_ABBREV' => 'мин.' ,
 'LBL_MODIFIED_BY' => 'Кем исправлено' ,

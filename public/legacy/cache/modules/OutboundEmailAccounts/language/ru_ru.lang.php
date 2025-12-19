@@ -1,5 +1,5 @@
 <?php
-// created: 2025-11-19 09:05:59
+// created: 2025-04-23 14:26:06
 $mod_strings = array (
   'LBL_SECURITYGROUPS' => 'Группы пользователей',
   'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Группы пользователей',
@@ -69,15 +69,5 @@ $mod_strings = array (
   'LBL_REPLY_TO_ADDR' => 'Ответить на адрес',
   'LBL_OWNER' => 'Владелец',
   'LBL_OWNER_NAME' => 'Владелец',
-  'LBL_IS_DEFAULT' => 'По умолчанию',
-  'LBL_IS_PERSONAL' => 'Персональная',
-  'LBL_SET_AS_DEFAULT_BUTTON' => 'Установить по умолчанию',
-  'LBL_AUTH_TYPE' => 'Аутентификация',
-  'LBL_EXTERNAL_OAUTH_CONNECTION' => 'Внешнее подключение OAuth',
-  'LBL_EXTERNAL_OAUTH_CONNECTION_ID' => 'ID внешнего подключения OAuth',
-  'LBL_EXTERNAL_OAUTH_CONNECTION_NAME' => 'Внешнее подключение OAuth',
   'LNK_EXTERNAL_OAUTH_CONNECTIONS' => 'Внешние подключения OAuth',
-  'LBL_ERROR_OUTBOUND_EMAIL_SYSTEM_EXISTS' => 'Системная учётная запись для исходящей почты уже существует. Перед созданием новой аналогичной записи её необходимо удалить.',
-  'LBL_ERROR_OUTBOUND_EMAIL_SYSTEM_IS_NOT_GROUP' => 'При настройке системной учётной записи для исходящей почты с использованием OAuth необходимо выбрать групповой тип внешнего подключения OAuth.',
-  'LBL_ERROR_OUTBOUND_EMAIL_CONNECTION_TYPE_MISMATCH' => 'При настройке учётной записи для исходящей почты с использованием OAuth необходимо выбрать тот же тип внешнего подключения OAuth.',
 );

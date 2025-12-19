@@ -60,12 +60,6 @@
     self.prependSignature = false;
 
     /**
-     * Determines if a Signature has already been added to the message
-     * @type {boolean}
-     */
-    self.signatureAdded = false;
-
-    /**
      * Defines the buttons that are displayed when the user focuses in on a to, cc and bcc field.
      *
      * @param data-open-popup-module - The module to popup
@@ -354,18 +348,6 @@
       return false;
     };
 
-    /**
-     * Remove any existing signature element class in the email thread
-     * @type {self.removeExistingSignatureClass}
-     */
-
-    $.fn.EmailsComposeView.removeExistingSignatureClass = self.removeExistingSignatureClass = function() {
-      let body = tinymce.activeEditor.getContent();
-      let $body = $('<div>').append($(body));
-      let $signatureElement = $body.find('div.email-signature-element');
-      $signatureElement.removeClass('email-signature-element');
-      tinymce.activeEditor.setContent($body.html(), {format: 'html'})
-    }
 
     $.fn.EmailsComposeView.updateSignature = self.updateSignature = function ($selected) {
       if(!$selected) {
@@ -380,13 +362,9 @@
 
       var body = tinymce.activeEditor.getContent();
       if (body !== '' && $(body).hasClass('email-signature-element')) {
-        var $body = $('<div>').append($(body));
-        var $existingSignature = $body.find('div.email-signature-element');
-        if(self.prependSignature) {
-          $existingSignature.outerText = '';
-        } else {
-          $existingSignature.remove();
-        }
+        var $body = $(body);
+        var $existingSignature = $body.find('.email-signature-element');
+        $existingSignature.remove();
         tinymce.activeEditor.setContent($body.html(), {format: 'html'});
       }
 
@@ -1323,16 +1301,11 @@
             $(self).trigger('emailComposeViewGetFromFields');
 
 
-            if (tinymce.initialized === true && !self.signatureAdded) {
-              self.removeExistingSignatureClass();
+            if (tinymce.initialized === true) {
               self.updateSignature();
-              self.signatureAdded = true;
-            } else if(tinymce.EditorManager && tinymce.EditorManager.activeEditor && !self.signatureAdded) {
+            } else if(tinymce.EditorManager && tinymce.EditorManager.activeEditor) {
               tinymce.EditorManager.activeEditor.on('init', function(e) {
-                self.removeExistingSignatureClass();
                 self.updateSignature();
-                self.signatureAdded = true;
-
               });
             }
           }
@@ -1384,13 +1357,11 @@
 
         var intervalCheckTinymce = window.setInterval(function () {
           var isFromPopulated = $('#from_addr_name').prop("tagName").toLowerCase() === 'select';
-          if (tinymce.editors.length > 0 && isFromPopulated === true && !self.signatureAdded) {
-            self.removeExistingSignatureClass();
+          if (tinymce.editors.length > 0 && isFromPopulated === true) {
             self.updateSignature();
-            self.signatureAdded = true;
             clearInterval(intervalCheckTinymce);
           }
-        }, 750);
+        }, 300);
 
         tinymce.init(opts.tinyMceOptions);
 

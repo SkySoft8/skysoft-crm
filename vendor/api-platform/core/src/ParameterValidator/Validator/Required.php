@@ -16,16 +16,11 @@ namespace ApiPlatform\ParameterValidator\Validator;
 use ApiPlatform\State\Util\RequestParser;
 
 /**
- * @deprecated use \ApiPlatform\Metadata\Parameter::$constraints instead
+ * @deprecated use Parameter constraint instead
  */
 final class Required implements ValidatorInterface
 {
     use CheckFilterDeprecationsTrait;
-
-    public function __construct()
-    {
-        trigger_deprecation('api-platform/core', '3.4', 'The class "%s" is deprecated, use "\ApiPlatform\Metadata\Parameter::$constraints" instead.', __CLASS__);
-    }
 
     /**
      * {@inheritdoc}
@@ -40,7 +35,7 @@ final class Required implements ValidatorInterface
         // if query param is not given, then break
         if (!$this->requestHasQueryParameter($queryParameters, $name)) {
             return [
-                \sprintf('Query parameter "%s" is required', $name),
+                sprintf('Query parameter "%s" is required', $name),
             ];
         }
 
@@ -49,7 +44,7 @@ final class Required implements ValidatorInterface
         // if query param is empty and the configuration does not allow it
         if (!($filterDescription['openapi']['allowEmptyValue'] ?? $filterDescription['swagger']['allowEmptyValue'] ?? false) && empty($this->requestGetQueryParameter($queryParameters, $name))) {
             return [
-                \sprintf('Query parameter "%s" does not allow empty value', $name),
+                sprintf('Query parameter "%s" does not allow empty value', $name),
             ];
         }
 

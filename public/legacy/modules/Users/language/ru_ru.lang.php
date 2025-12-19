@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -34,12 +30,10 @@ if (!defined('sugarEntry') || !sugarEntry) {
  // Replaced by RAPIRA <--
  
 $mod_strings = array(
-'LBL_RECOVER_PASSWORD_SUCCESS' => 'Если указанные имя пользователя и адрес верны, то вы получите электронное письмо с инструкциями по восстановлению пароля',
-'ERR_NO_2FACTOR_EMAIL_TMPL' => 'Не выбран шаблон письма, содержащий данные для двухэтапной аутентификации. Выбрать необходимый шаблон вы можете в разделе управления паролями панели администрирования.',
-'ERR_NO_2FACTOR_EMAIL_TMPL_CODE' => 'Шаблон письма, содержащий данные для двухэтапной аутентификации, не содержит переменную $code',
+'ERR_NO_2FACTOR_EMAIL_TMPL' => 'Не выбран шаблон письма, содержащий данные для двухфакторной аутентификации. Выбрать необходимый шаблон вы можете в разделе управления паролями панели администрирования.',
+'ERR_NO_2FACTOR_EMAIL_TMPL_CODE' => 'Шаблон письма, содержащий данные для двухфакторной аутентификации, не содержит переменную $code',
 
-'LBL_DELETE_USER_CONFIRM' => 'При удалении Пользователя будет также удалена соответствующая запись из списка Сотрудников. После удаления Пользователя может потребоваться обновление настроек Процессов и Отчетов, связанных с этим Пользователем.<br/><br/> Персональные  и групповые учётные записи входящей почты, назначенные этому Пользователю, также потребуют обновления. <br/><br/> Операция удаления не может быть отменена.',
-
+'LBL_DELETE_USER_CONFIRM' => 'При удалении данных Пользователя будет удалена и соответствующая запись из списка Сотрудников.<br/><br/>Нажмите кнопку "OK" для удаления данных Пользователя.',
 'LBL_DELETE_GROUP_CONFIRM' => 'Вы действительно хотите удалить данного группового пользователя? Нажмите на кнопку <b>ОК</b> для удаления пользователя из системы<br/>После удаления у вас будет возможность переназначить ответственных для записей, принадлежащих удалённому групповому пользователю.',
 
 'LNK_IMPORT_USERS' => 'Импорт пользователей',
@@ -130,7 +124,7 @@ $mod_strings = array(
 'LBL_NUMBER_GROUPING_SEP_TEXT' => 'Символ, используемый для разделения групп разрядов (1 000 000) ' ,
 'LBL_DECIMAL_SEP' => 'Десятичный разделитель' ,
 'LBL_DECIMAL_SEP_TEXT' => 'Символ, разделяющий целую и дробную части числа' ,
-'LBL_USER_LANGUAGE' => 'Язык интерфейса',
+ 'LBL_USER_LANGUAGE' => 'Язык интерфейса',
 'LBL_FDOW' => 'Первый день недели',
 'LBL_FDOW_TEXT' => 'Первый день недели, отображаемый в календаре',
 'LBL_DATE_FORMAT_TEXT' => 'Установите формат отображения даты' ,
@@ -230,7 +224,7 @@ $mod_strings = array(
 'LBL_MODULE_TITLE' => 'Сотрудники - ГЛАВНАЯ' ,
 'LBL_NAME' => 'Полное имя' ,
 'LBL_SIGNATURE_NAME' => 'Название',
-'LBL_NAVIGATION_PARADIGM_DESCRIPTION' => 'Группировать модули на основной панели согласно предустановленным настройкам. Группы настраиваются администратором системы.',
+'LBL_NAVIGATION_PARADIGM_DESCRIPTION' => 'Группировать модули на основной панели согласно предустановленным настройкам. Группы настраиваются Администратором системы.',
 'LBL_USE_GROUP_TABS' => 'Сгруппированные модули',
 'LBL_NEW_FORM_TITLE' => 'Создать пользователя' ,
 'LBL_NEW_PASSWORD' => 'Новый пароль:' ,
@@ -285,8 +279,7 @@ $mod_strings = array(
     'LBL_REMINDERS_REMOVE_REMINDER' => 'Удалить напоминание',
     'LBL_REMINDERS_ADD_ALL_INVITEES' => 'Добавить ВСЕХ приглашённых',
     'LBL_REMINDERS_ADD_REMINDER' => 'Добавить напоминание',
-    'LBL_SNOOZE_TIMER' => 'Отложить уведомление при необходимости',
-
+	
 'LBL_REPORTS_TO_NAME' => 'Руководитель',
 'LBL_REPORTS_TO' => 'Руководитель',
 'LBL_REPORTS_TO_ID' => 'Руководитель (ID):',
@@ -310,11 +303,8 @@ $mod_strings = array(
 'LBL_SIGNATURE_HTML' => 'HTML-подпись' ,
 'LBL_SIGNATURE_PREPEND' => 'Подпись перед ответом' ,
 'LBL_STATE' => 'Область' ,
-'LBL_STATUS' => 'Статус' ,
+'LBL_STATUS' => 'Статус пользователя' ,
 'LBL_SUBPANEL_TABS' => 'Группировать закладки субпанелей',
-'LBL_SET_SUBPANEL_PAGINATION_TYPE' => 'Отображать записи в субпанелях',
-'LBL_SET_LISTVIEW_PAGINATION_TYPE' => 'Отображать записи в Формах списка',
-'LBL_SET_RECORD_MODAL_PAGINATION_TYPE' => 'Отображать записи во всплывающих окнах',
 'LBL_SUBPANEL_TABS_DESCRIPTION' => 'В Форме просмотра группировать субпанели на закладках.',
 'LBL_SORT_MODULES' => 'Сортировать модули в алфавитном порядке',
 'LBL_SORT_MODULES_DESCRIPTION' => 'Отображать отсортированный перечень модулей в выпадающем меню.',
@@ -427,13 +417,13 @@ $mod_strings = array(
 'LBL_WIZARD_FINISH9' => 'Настройка внешнего вида системы',
 'LBL_WIZARD_FINISH10' => 'Настройка макетов страниц, полей, меток и комбобоксов при помощи Студии',
 'LBL_WIZARD_FINISH11' => 'Поддержка и документация',
-'LBL_WIZARD_FINISH12' => 'Доступ к форуму.<br> Для русскоязычных пользователей доступен  <a href="https://community.suitecrm.com/c/suitecrm-forum/36-category" target="_blank">русскоязычный раздел форума</a>.',
+'LBL_WIZARD_FINISH12' => 'Доступ к форуму.<br> Для русскоязычных пользователей доступен  <a href="https://community.suitecrm.com/c/suitecrm-forum/8" target="_blank">русскоязычный раздел форума</a>.',
 'LBL_WIZARD_FINISH14' => 'Документация',
 'LBL_WIZARD_FINISH15' => 'Руководство пользователя и примечания к текущему релизу.',
 'LBL_WIZARD_FINISH16' => 'Просмотр базы знаний', ///
 'LBL_WIZARD_FINISH17' => 'Советы от службы технической поддержки', ///
 'LBL_WIZARD_FINISH18' => 'Форум',
-'LBL_WIZARD_FINISH19' => 'Форум сообщества. Русскоязычные пользователи могут задать вопрос в <a href="https://community.suitecrm.com/c/suitecrm-forum/36-category" target="_blank">этом</a> разделе.',
+'LBL_WIZARD_FINISH19' => 'Форум сообщества. Русскоязычные пользователи могут задать вопрос в <a href="https://community.suitecrm.com/c/suitecrm-forum/8" target="_blank">этом</a> разделе.',
 'LBL_WIZARD_FINISH2DESC' => 'Переход на ГЛАВНУЮ страницу системы.',
 'LBL_WIZARD_PERSONALINFO' => 'Информация о сотруднике',
 'LBL_WIZARD_LOCALE' => 'Региональные стандарты',
@@ -475,10 +465,9 @@ $mod_strings = array(
 'LBL_QUICK_TASK' => 'Создать задачу',
 		
 'LBL_ENABLE_NOTIFICATIONS' => 'Отображать всплывающие уведомления браузера',
-'LBL_DESKTOP_NOTIFICATIONS' => 'Всплывающие уведомления',
 'LBL_LIST_NONINHERITABLE' => 'Не наследуемая',
 'LBL_PRIMARY_GROUP' => 'Основная группа',
-'LBL_PASSWORD_MIS_MATCH' => 'Пароли не совпадают',
+'LBL_PASSWORD_MIS_MATCH' => 'не совпадают',
 
 'LBL_EMAIL_INFORMATION' => 'E-MAIL',
 'LBL_FW' => 'FW:',
@@ -751,9 +740,10 @@ $mod_strings = array(
 'LBL_ROLES' => 'Роли',
 'LBL_SECURITYGROUPS' => 'Группы пользователей',
 
-'LBL_FACTOR_AUTH_INTERFACE' => 'Интерфейс двухэтапной аутентификации:',
+'LBL_FACTOR_AUTH' => 'Двухфакторная аутентификация:',
+'LBL_FACTOR_AUTH_INTERFACE' => 'Интерфейс двухфакторной аутентификации:',
 'ERR_USER_FACTOR_SMTP_REQUIRED' => 'Прежде всего необходимо настроить параметры SMTP-сервера.',
-'ERR_USER_FACTOR_CHANGE_DISABLED' => 'Текущий пользователь не может менять настройки двухэтапной аутентификации.',
+'ERR_USER_FACTOR_CHANGE_DISABLED' => 'Текущий пользователь не может менять настройки двухфакторной аутентификации.',
 'LNK_IMPORT_CAMPAIGNS' => 'Импорт маркет. кампании',
 // for Google Token/Synchronization settings
 'LBL_GOOGLE_API_SETTINGS' => 'Синхронизация с календарём Google',
@@ -762,17 +752,9 @@ $mod_strings = array(
 'LBL_GOOGLE_API_TOKEN_BTN' => 'Получить токен',
 'LBL_GSYNC_CAL' => 'Включить синхронизацию с календарём Google',
 // END Google Token/Synchronization settings
+
 'LNK_LIST_OUTBOUND_EMAIL_ACCOUNTS' => 'Учётные записи исходящей почты',
 'LNK_LIST_INBOUND_EMAIL_ACCOUNTS' => 'Учётные записи входящей почты',
 'LNK_EXTERNAL_OAUTH_CONNECTIONS' => 'Внешние подключения OAuth',
-
-// 2FA
-'LBL_FACTOR_AUTH' => 'Двухэтапная аутентификация',
-'LBL_FACTOR_AUTH_DISABLE' => 'Двухэтапная аутентификация отключена для этого пользователя',
-'LBL_DISABLED' => 'Отключена',
-'LBL_ENABLED' => 'Включена',
-'LBL_ENABLE_2FA' => 'Включить двухэтапную аутентификацию',
-'LBL_2FA_CONFIG' => 'Настройка двухэтапной аутентификации',
-'LBL_DISABLE_2FA' => 'Отключить двухэтапную аутентификацию',
-	
+		
 ); // END STRINGS DEFS

@@ -48,10 +48,9 @@ $layout_defs['Prospects'] = array(
         'activities' => array(
             'order' => 10,
             'sort_order' => 'desc',
-            'sort_by' => 'date_end',
+            'sort_by' => 'date_due',
             'title_key' => 'LBL_ACTIVITIES_SUBPANEL_TITLE',
             'type' => 'collection',
-            'header_definition_from_subpanel' => 'meetings',
             'subpanel_name' => 'activities',   //this values is not associated with a physical file.
             'module' => 'Activities',
 
@@ -62,27 +61,21 @@ $layout_defs['Prospects'] = array(
                 array('widget_class' => 'SubPanelTopComposeEmailButton'),
             ),
             'collection_list' => array(
-                'meetings' => array(
-                    'module' => 'Meetings',
-                    'subpanel_name' => 'ForActivities',
-                    'get_subpanel_data' => 'meetings',
-                ),
                 'tasks' => array(
                     'module' => 'Tasks',
                     'subpanel_name' => 'ForActivities',
                     'get_subpanel_data' => 'tasks',
+                ),
+                'meetings' => array(
+                    'module' => 'Meetings',
+                    'subpanel_name' => 'ForActivities',
+                    'get_subpanel_data' => 'meetings',
                 ),
                 'calls' => array(
                     'module' => 'Calls',
                     'subpanel_name' => 'ForActivities',
                     'get_subpanel_data' => 'calls',
                 ),
-                'emailman' => [
-                    'module' => 'EmailMan',
-                    'subpanel_name' => 'ForActivities',
-                    'generate_select' => true,
-                    'get_subpanel_data' => 'function:getUpcomingEmails',
-                ]
             )
         ),
 

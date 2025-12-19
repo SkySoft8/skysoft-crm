@@ -88,8 +88,9 @@ array(
           'options' => [
               'statistics' => [
                   [
-                      'endLabelKey' => 'LBL_DAYS_IN_SALE_STAGE',
+                      'labelKey' => 'LBL_DAYS_IN_SALE_STAGE',
                       'type' => 'opportunity-sales-stage-time-span',
+                      'endLabelKey' => 'LBL_STAT_DAYS',
                       'hideValueIfEmpty' => true
                   ],
               ],
@@ -99,6 +100,54 @@ array(
           ]
       ],
       'sidebarWidgets' => [
+          [
+              'type' => 'statistics',
+              'labelKey' => 'LBL_SIZE_ANALYSIS',
+              'options' => [
+                  'sidebarStatistic' => [
+                      'rows' => [
+                          [
+                              'align' => 'start',
+                              'cols' => [
+                                  [
+                                      'labelKey' => 'LBL_POSITION',
+                                      'size' => 'medium',
+                                  ],
+                              ]
+                          ],
+                          [
+                              'align' => 'start',
+                              'cols' => [
+                                  [
+                                      'statistic' => 'opportunity-size-analysis',
+                                      'size' => 'xx-large',
+                                      'bold' => true,
+                                      'color' => 'green'
+                                  ]
+                              ]
+                          ],
+                          [
+                              'align' => 'start',
+                              'cols' => [
+                                  [
+                                      'labelKey' => 'LBL_OUT_OF',
+                                      'class' => 'pl-1 pr-1',
+                                      'size' => 'regular',
+                                  ],
+                                  [
+                                      'statistic' => 'assigned-user-opportunities-count',
+                                      'class' => 'pl-1 pr-1',
+                                      'size' => 'regular',
+                                  ],
+                              ]
+                          ],
+                      ]
+                  ]
+              ],
+              'acls' => [
+                  'Accounts' => ['view', 'list']
+              ]
+          ],
           [
               'type' => 'history-timeline',
               'acls' => [
@@ -145,7 +194,6 @@ array(
             'name' => 'description',
             'nl2br' => true,
           ),
-          1 => ''
         ),
         6 =>
         array(
@@ -154,7 +202,6 @@ array(
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
           ),
-          1 => ''
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' =>

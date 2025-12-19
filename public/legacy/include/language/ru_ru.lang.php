@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  *
  * This program is free software; you can redistribute it and/or modify it under
@@ -125,7 +121,6 @@ $app_list_strings = array(
     'Calendar' => 'Календарь' ,
     'Leads' => 'Предварит. контакт' ,
     'Activities' => 'Мероприятие' ,
-	'History' => 'История',
     'Bugs' => 'Ошибка' ,
 	'KBDocuments' => 'База знаний',
     'Feeds' => 'RSS-ленты' ,
@@ -235,20 +230,6 @@ $app_list_strings = array(
     'Budget' => 'Бюджет',
 
   ),
-  
-    'subpanel_pagination_type' => [
-        'pagination' => 'Постранично',
-        'load-more' => 'Постепенно'
-    ],
-    'listview_pagination_type' => [
-        'pagination' => 'Постранично',
-        'load-more' => 'Постепенно'
-    ],
-    'record_modal_pagination_type' => [
-        'pagination' => 'Постранично',
-        'load-more' => 'Постепенно'
-    ],
-	
   //Note:  do not translate opportunity_relationship_type_default_key
 //       it is the key for the default opportunity_relationship_type_dom value
   'opportunity_relationship_type_default_key' => 'Primary Decision Maker' ,
@@ -344,12 +325,6 @@ $app_list_strings = array(
 		'Miss' => 'Г-жа.',
         'Prof.' => 'проф.' ,
       ),
-	  
-	'redirect_uri_type_dom' => [
-        'pretty_url' => 'ЧПУ (/ep/)',
-        'query_string' => 'Строка запроса (index.php?entryPoint=)'
-    ],
-	
   //time is in seconds; the greater the time the longer it takes;
   'reminder_max_time'=>90000,
   'reminder_time_options' => array(  60=> 'за 1 минуту',
@@ -363,33 +338,6 @@ $app_list_strings = array(
   18000 => 'за 5 часов',
   86400 => 'за 1 день',
 ),
-
-    // snooze for alerts
-    'snooze_alert_timer' => array(
-        60 => 'на 1 минуту',
-        300 => 'на 5 минут',
-        600 => 'на 10 минут',
-        900 => 'на 15 минут',
-        1800 => 'на 30 минут',
-        3600 => 'на 1 час',
-        7200 => 'на 2 часа',
-        10800 => 'на 3 часа',
-        18000 => 'на 5 часов',
-        86400 => 'на 1 день',
-    ),
-
-    'snooze_alert_timer_simple' => array(
-        60 => '1 мин',
-        300 => '5 мин',
-        600 => '10 мин',
-        900 => '15 мин',
-        1800 => '30 мин',
-        3600 => '1 час',
-        7200 => '2 часа',
-        10800 => '3 часа',
-        18000 => '5 часов',
-        86400 => '1 день',
-    ),
 
   'task_priority_default' => 'Medium' ,
   'task_priority_dom' =>
@@ -477,6 +425,16 @@ $app_list_strings = array(
   'messenger_type_dom' =>
   array(
     '' => '' ,
+    // Added by RAPIRA -->
+	'Skype' => 'Skype' ,
+	'Viber' => 'Viber' ,
+	'Mail.ru-Agent' => 'Mail.ru Agent' ,
+	'ICQ' => 'ICQ' ,
+	'Miranda' => 'Miranda' ,
+	'QIP' => 'QIP' ,
+	'Jabber' => 'XMPP/Jabber' ,
+	'GTalk' => 'Gtalk' ,
+     // Added by RAPIRA <--
     'MSN' => 'MSN' ,
     'Yahoo!' => 'Yahoo!' ,
     'AOL' => 'AOL'    ,
@@ -562,11 +520,12 @@ $app_list_strings = array(
     'Accounts' => 'Контрагенты' ,
     'Contacts' => 'Контакты' ,
     'Opportunities' => 'Сделки' ,
-	'Campaigns' => 'Маркетинг',
+	'Campaigns' => 'Маркет. кампании' ,
 	'Tasks' => 'Задачи' ,
 	'Emails' => 'E-mail' ,
     
     'Bugs' => 'Ошибки' ,
+ 
     'Project' => 'Проекты' ,
     'ProjectTask' => 'Проектные задачи' ,
 	'Prospects' => 'Адресат' ,
@@ -726,6 +685,7 @@ $app_list_strings = array(
   /*Added entries 'Queued' and 'Sending' for 4.0 release..*/
   'campaign_status_dom' =>
   array(
+        '' => '' ,
         'Planning' => 'Планируется' ,
         'Active' => 'Активна' ,
         'Inactive' => 'Не активна' ,
@@ -833,14 +793,8 @@ $app_list_strings = array(
         'group' => 'Групповая',
         'bounce' => 'Обработка возврата',
     ],
-    
+
     'dom_inbound_email_auth_types' => [
-        'basic' => 'Базовая',
-        'oauth' => 'OAuth',
-    ],
-	
-	'dom_outbound_email_auth_types' => [
-        'no_auth' => 'Не используется',
         'basic' => 'Базовая',
         'oauth' => 'OAuth',
     ],
@@ -849,24 +803,29 @@ $app_list_strings = array(
         'personal' => 'Персональное',
         'group' => 'Групповое',
     ],
+
     'dom_external_oauth_provider_types' => [
-        'personal' => 'Персональное',
-        'group' => 'Групповое',
+        'personal' => 'Персональный',
+        'group' => 'Групповой',
     ],
+	
     'dom_outbound_email_account_types' => [
         'user' => 'Персональная',
         'group' => 'Групповая',
         'system' => 'Системная',
         'system-override' => 'Системная (переопределено)',
     ],
+
     'dom_inbound_email_account_status' => [
         'Active' => 'Активна',
         'Inactive' => 'Не активна',
-    ], 
-    'dom_email_body_filtering_option' => [
+    ],
+	
+   'dom_email_body_filtering_option' => [
         'multi' => 'По нескольким словам',
         'single' => 'По одному слову',
     ],
+
 	
     'dom_email_types' => array(
         'out' => 'Отправлено' ,
@@ -924,11 +883,6 @@ $app_list_strings = array(
 		0 => 'Нет',
     ),
 	
-    'dom_int_bool_string' => array(
-		1 => 'Да',
-		0 => 'Нет',
-    ),
-	
     'dom_switch_bool' => array(
 		'on' => 'Да',
 		'off' => 'Нет' ,
@@ -942,6 +896,7 @@ $app_list_strings = array(
 
     'dom_editor_type' => array(
 		'tinymce' => 'TinyMCE',
+		'mozaik' => 'Mozaik',
 		'none' => 'Прямое редактирование HTML'
 	),
 
@@ -1097,33 +1052,13 @@ $app_list_strings = array(
   array(
     '' => '' ,
     'active' => 'Активна' ,
-        'draft' => 'Черновик',
-        'scheduled' => 'Запланирована',
-        'pending_send' => 'Ожидание отправки',
-        'aborted' => 'Прервана',
-        'sending' => 'Отправка',
-        'sent' => 'Завершена'
-    ),
-    'email_marketing_duplicate_dom' => [
-        'email' => 'Не отправлять письма на дублирующиеся адреса электронной почты',
-        'record' => 'Не отправлять письма дублирующимся получателям',
-    ],
-    'email_marketing_queueing_status_dom' => array(
-        'not_started' => 'Ещё не размещалась',
-        'in_progress' => 'В процессе размещения',
-        'finished' => 'Размещение завершено',
-    ),
-    'email_marketing_type_dom' => array(   
-        'legacy' => 'Устаревший',
-        'marketing' => 'Рассылка',
-        'survey' => 'Опрос',
-        'transactional' => 'Транзакционное письмо',
+    'inactive' => 'Не активна'    ,
   ),
 
   'campainglog_activity_type_dom' =>
   array(
     '' => '' ,
-    'targeted' => 'Отправленные/Попытки ' ,
+    'targeted' => 'Отправленные / Попытки ' ,
     'send error' => 'Ошибки - другое' ,
     'invalid email' => 'Ошибки - неверный адрес' ,
     'link' => 'Кол-во нажатий на ссылку' ,
@@ -1159,11 +1094,11 @@ $app_list_strings = array(
 
 
     'custom_fields_merge_dup_dom' => array(
-		0 => 'Выключено',
-		1 => 'Только объединение',
+		0 =>'Выключено',
+		1 =>'Только объединение',
 		2 => 'Поиск и объединение',
-		3 => 'Поиск по умолчанию и объединение',
-		4 => 'Только поиск',
+        3 => 'Поиск по умолчанию и объединение',
+        4 => 'Только поиск',
     ),
 
     
@@ -1290,17 +1225,12 @@ $app_list_strings = array(
 );
 
 $app_strings = array(
-  'LBL_SEARCH_RESULTS_TITLE' => 'Результаты поиска',
+  'LBL_SEARCH_REAULTS_TITLE' => 'Результаты поиска',
   'ERR_SEARCH_INVALID_QUERY' => 'В процессе выполнения поиска произошла ошибка. Проверьте синтаксис поискового запроса.',
   'ERR_SEARCH_NO_RESULTS' => 'Не обнаружены результаты, удовлетворяющие критериям поиска.',
   'LBL_SEARCH_PERFORMED_IN' => 'Поиск выполнен за',
   'LBL_EMAIL_CODE' => 'Код подтверждения:',
   'LBL_SEND' => 'ОТПРАВИТЬ' ,
-    'LBL_SEND_BUTTON_TITLE' => 'ОТПРАВИТЬ',
-  'LBL_LOGOUT' => 'Выход',
-  'LBL_LOGOUT_SUCCESS' => 'Произведён выход из системы',
-  'LBL_LOGGED_OUT_MESSAGE' => 'Вы вышли из системы',
-  'LBL_LOGIN_AGAIN' => 'Войти заново ',
   'LBL_TOUR_NEXT' => 'Далее',
   'LBL_TOUR_SKIP' => 'Пропустить',
   'LBL_TOUR_BACK' => 'Назад',
@@ -1361,7 +1291,7 @@ $app_strings = array(
 	'LBL_EMAIL_WARNING_MISSING_CREDS' => 'Внимание: отсутствуют учётные данные',
 	'LBL_EMAIL_ACCOUNTS_SUBTITLE' => 'Настройте учётные записи электронной почты для просмотра входящих писем.',
 	'LBL_EMAIL_ACCOUNTS_OUTBOUND_SUBTITLE' => 'Укажите настройки SMTP-сервера, который будет использоваться для отправки исходящей почты.',
-    'ERR_TIMEOUT' => "Принудительный отказ по тайм-ауту",
+
     'LBL_EMAIL_ADDRESS_BOOK_ADD' => 'Готово',
     'LBL_EMAIL_ADDRESS_BOOK_CLEAR' => 'Очистить',
     'LBL_EMAIL_ADDRESS_BOOK_ADD_TO' => 'Кому',
@@ -1376,9 +1306,8 @@ $app_strings = array(
 	'LBL_EMAIL_ADDRESS_BOOK_SELECT_TITLE' => 'Выбор получателей',
 	'LBL_EMAIL_ADDRESS_BOOK_TITLE' => 'Адресная книга',
 	'LBL_EMAIL_REMOVE_SMTP_WARNING' => 'Внимание! Удаляемые настройки сервера исходящей почты связаны с существующей учётной записью. Все равно продолжить?',
-	'LBL_EMAIL_ADDRESSES' => 'адресов E-mail',
-    'LBL_EMAIL' => 'E-mail',
-    'LBL_EMAIL_ADDRESS_PRIMARY' => 'Адрес E-mail',
+	'LBL_EMAIL_ADDRESSES' => 'Адреса E-mail',
+    'LBL_EMAIL_ADDRESS_PRIMARY' => 'Адрес Email',
 	'LBL_EMAIL_ADDRESS_OPT_IN' => 'Следующий E-mail успешно подтверждён: ',
     'LBL_EMAIL_ADDRESS_OPT_IN_ERR' => 'Невозможно подтвердить E-mail',
 	'LBL_EMAIL_ARCHIVE_TO_SUITE' => 'Импорт в SuiteCRM',
@@ -1620,7 +1549,7 @@ $app_strings = array(
 	'LBL_EMAIL_SETTINGS_CHECK_INTERVAL' => 'Проверять почту',
 	'LBL_EMAIL_SETTINGS_FROM_ADDR' => 'Адрес отправителя',
 	'LBL_EMAIL_SETTINGS_FROM_TO_EMAIL_ADDR' => 'Адрес E-mail для тестового уведомления:',
-    'LBL_EMAIL_SETTINGS_FROM_ADDR_NOT_SET' => 'Не указаны имя и/или адрес отправителя',
+ 
 	'LBL_EMAIL_SETTINGS_FROM_NAME' => 'Имя',
 	'LBL_EMAIL_SETTINGS_REPLY_TO_ADDR' => 'Также пересылать на адрес',
 	'LBL_EMAIL_SETTINGS_FULL_SYNC' => 'Синхронизировать все учётные записи',
@@ -1704,9 +1633,8 @@ $app_strings = array(
     'ERR_INVALID_EMAIL_ADDRESS' => 'Неверный адрес e-mail.' ,
     'ERR_INVALID_FILE_REFERENCE' => 'INVALID FILE REFERENCE.',
     'ERR_NO_HEADER_ID' => 'Данная возможность недоступна в этой теме.',
-    'ERR_NOT_ADMIN' => 'У вас нет доступа к панели администратора.',
-    'ERR_UNAUTHORIZED_PAGE_ACCESS' => 'У вас недостаточно прав для просмотра этой страницы. Обратитесь к администратору системы.',
-    'ERR_UNAUTHORIZED_PAGE_ACCESS_TO_HOME_PAGE' => 'У вас недостаточно прав для просмотра этой страницы. Перенаправление на ГЛАВНУЮ страницу...',
+    'ERR_NOT_ADMIN' => 'Неавторизованный доступ к панели администратора.',
+    
     'ERR_MISSING_REQUIRED_FIELDS' => 'Пропущено обязательное поле:' ,
 
     'ERR_INVALID_REQUIRED_FIELDS' => 'Неверное значение обязательного поля:',
@@ -1745,22 +1673,17 @@ $app_strings = array(
     'LBL_ASSIGNED_TO' => 'Ответственный(ая): ' ,
     'LBL_BACK' => 'Назад' ,
     'LBL_BILLING_ADDRESS' => 'Расчётный адрес',
-	'LBL_QUICK_CREATE' => 'Создать ',
+	'LBL_QUICK_CREATE' => 'Создать: ',
     'LBL_BROWSER_TITLE' => 'SuiteCRM' ,
     'LBL_BUGS' => 'Ошибки' ,
     'LBL_BY' => 'для' ,
     'LBL_CALLS' => 'Звонки' ,
     'LBL_CAMPAIGNS_SEND_QUEUED' => 'Разослать очередь сообщений' ,
-    'LBL_CAMPAIGNS_SEND_NEXT_BATCH' => 'Отправить следующий пакет из очереди сообщений',
-    'LBL_SENT_NEXT_BATCH' => 'Пакет сообщений успешно отправлен',
-    'LBL_SUBMIT_BUTTON_LABEL' => 'Сохранить',
+    'LBL_SUBMIT_BUTTON_LABEL' => 'Подтвердить',
     'LBL_CASE' => 'Обращение' ,
     'LBL_CASES' => 'Обращения' ,
 	'LBL_CHANGE_PASSWORD' => 'Изменение пароля',
     'LBL_CHARSET' => 'utf-8' ,
-	'LBL_CHARTS' => 'Диаграммы',
-    'LBL_QUICK_CHARTS' => 'Диаграммы',
-    'LBL_QUICK_HISTORY' => 'Хронология мероприятий',
     'LBL_CHECKALL' => 'Отметить все' ,
     'LBL_CITY' => 'Город',
     'LBL_CLEAR_BUTTON_LABEL' => 'Очистить' ,
@@ -1770,7 +1693,7 @@ $app_strings = array(
     'LBL_CLOSE_AND_CREATE_BUTTON_LABEL' => 'Закрыть и создать копию',
     'LBL_CLOSE_AND_CREATE_BUTTON_TITLE' => 'Закрыть и создать копию',
     'LBL_CLOSE_AND_CREATE_BUTTON_KEY' => 'C', ///
-	'LBL_OPEN_ITEMS' => 'Актуальные',
+	'LBL_OPEN_ITEMS' => 'Актуальные:',
     'LBL_COMPOSE_EMAIL_BUTTON_KEY' => 'L', ///
     'LBL_COMPOSE_EMAIL_BUTTON_LABEL' => 'Создать E-mail' ,
     'LBL_COMPOSE_EMAIL_BUTTON_TITLE' => 'Создать E-mail',
@@ -1784,8 +1707,7 @@ $app_strings = array(
     'LBL_COUNTRY' => 'Страна:',
     'LBL_CREATE_BUTTON_LABEL' => 'Создать' ,
     'LBL_CREATED_BY_USER' => 'Кем создано' ,
-    'LBL_CREATED_BY' => 'Создано',
-    'LBL_CREATED_USER' => 'Создано пользователем',
+    'LBL_CREATED_USER' => 'Кем создано',
     'LBL_CREATED' => 'Создано' ,
     'LBL_CURRENT_USER_FILTER' => 'Мои записи:' ,
     'LBL_CURRENCY' => 'Валюта:',
@@ -1797,7 +1719,6 @@ $app_strings = array(
     'LBL_DELETE_BUTTON' => 'Удалить' ,
     'LBL_DELETE' => 'Удалить' ,
     'LBL_DELETED' => 'Удалено' ,
-    'LBL_LIMIT' => 'Лимит: ',
     'LBL_DIRECT_REPORTS' => 'Подчинённые' ,
     'LBL_DONE_BUTTON_LABEL' => 'Готово' ,
     'LBL_DONE_BUTTON_TITLE' => 'Готово' ,
@@ -1822,14 +1743,12 @@ $app_strings = array(
 	'LBL_FAVORITES_FILTER' => 'Избранное:',
     'LBL_GO_BUTTON_LABEL' => 'Поехали...',
     'LBL_HIDE' => 'Скрыть' ,
-    'LBL_HISTORY' => 'История',
-    'LBL_NEW' => 'Новая запись', ////
+
     'LBL_ID' => 'ID' ,
     
     'LBL_IMPORT' => 'Импорт' ,
     'LBL_IMPORT_STARTED' => 'Импорт начат: ',
     'LBL_LAST_VIEWED' => 'Последние просмотры' ,
-	'LBL_LAST_VIEWED_NO_RESULT' => 'Последние просмотры отсутствуют',
     'LBL_LEADS' => 'Предварит. контакты' ,
     'LBL_LESS' => 'меньше',
     'LBL_CAMPAIGN' => 'Маркет. кампания:',
@@ -1838,29 +1757,9 @@ $app_strings = array(
     'LBL_CAMPAIGN_CONTACT' => 'Маркет. кампании',
     'LBL_CAMPAIGN_ID' => 'ID маркет. кампании',
 	'LBL_CAMPAIGN_NONE' => '--не выбрано--',
-    'LBL_CAMPAIGN_CHARTS' => 'Диаграммы',
-    'LBL_EMAIL_MARKETING_CHARTS' => 'Диаграммы рассылки',
-    'LBL_MESSAGE_QUEUE_TITLE' => 'В очереди',
-    'LBL_CAMPAIGN_SEND_STATUS' => 'Статус отправки писем',
-    'LBL_EMAIL_MARKETING_SEND_STATUS' => 'Статус рассылки',
-    'LBL_CAMPAIGN_RESPONSE_BY_RECIPIENT_ACTIVITY' => 'Активность получателей',
-    'LBL_EMAIL_MARKETING_RESPONSE_BY_RECIPIENT_ACTIVITY' => 'Активность получателей рассылки',
-    'LBL_LOG_ENTRIES_TARGETED_TITLE' => 'Отправлено/Попыток',
-    'LBL_LOG_ENTRIES_SEND_ERROR_TITLE' => 'Возвращённых (другое)',
-    'LBL_LOG_ENTRIES_BOUNCED_TITLE' => 'Возвращённых',
-    'LBL_LOG_ENTRIES_INVALID_EMAIL_TITLE' => 'Возвращённых (неверный адрес)',
-    'LBL_LOG_ENTRIES_LINK_TITLE' => 'Переходы',
-    'LBL_LOG_ENTRIES_VIEWED_TITLE' => 'Просмотры',
-    'LBL_LOG_ENTRIES_REMOVED_TITLE' => 'Отписки',
-    'LBL_LOG_ENTRIES_LEAD_TITLE' => 'Создано Предварит. контактов',
-    'LBL_CAMPAIGN_LEAD_SUBPANEL_TITLE' => 'Предварит. контакты',
-    'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки',
-    'LBL_LOG_ENTRIES_CONTACT_TITLE' => 'Создано Контактов',
-    'LBL_LOG_ENTRIES_BLOCKED_TITLE' => 'Исключённых/заблокированных',
 	'LBL_THEME' => 'Тема:',
     'LBL_FOUND_IN_RELEASE' => 'Обнаружено в версии',
     'LBL_FIXED_IN_RELEASE' => 'Исправлено в версии',
-    'LBL_IN_EVERYWHERE' => 'Везде',
     'LBL_LIST_ACCOUNT_NAME' => 'Контрагент' ,
     'LBL_LIST_ASSIGNED_USER' => 'Ответственный(ая)' ,
     'LBL_LIST_CONTACT_NAME' => 'Контактное лицо' ,
@@ -1882,24 +1781,11 @@ $app_strings = array(
     'LBL_LOCALE_NAME_EXAMPLE_LAST' => 'Пупкин',
     'LBL_LOCALE_NAME_EXAMPLE_SALUTATION' => 'Гн.',
     'LBL_LOCALE_NAME_EXAMPLE_TITLE' => 'Обращение',
-	'LBL_COPY' => 'Копировать',
+    'LBL_LOGOUT' => 'Выход',
 	'LBL_CANCEL' => 'Отказаться',
-	'LBL_SNOOZE' => 'Отложить',
-    'LBL_SNOOZE_INLINE_CONFIRM' => 'Отложить? ({{preferences.snooze_alert_timer|enum:snooze_alert_timer_simple}})',
-    'LBL_DISMISS' => 'Скрыть',
-    'LBL_DISMISS_INLINE_CONFIRM' => 'Скрыть?',
-    'LBL_DISMISS_ALL_INLINE_CONFIRM' => 'Скрыть все?',
-    'NTC_DISMISS_CONFIRMATION' => 'Вы действительно хотите скрыть это уведомление?',
-    'NTC_DISMISS_ALL_CONFIRMATION' => 'Вы действительно хотите скрыть все уведомления?',
-    'LBL_ALERT_DISMISS_SUCCESS' => 'Уведомление скрыто',
-    'LBL_ALERT_DISMISS_ERROR' => 'При скрытии уведомлений произошла ошибка',
-    'LBL_ALERT_DISMISS_ALL_SUCCESS' => 'Уведомления скрыты',
-    'LBL_DISMISS_ALL' => 'Скрыть все уведомления',
     'LBL_VERIFY' => 'Проверить',
 	'LBL_RESEND' => 'Отправить повторное письмо',
-	'LBL_RECORD_DOES_NOT_EXIST' => 'Ошибка получения записи. Возможно, запись была удалена, либо у вас отсутствуют права для её просмотра.',
 	'LBL_PROFILE' => 'Мои настройки',
-  'LBL_PROFILE_EDIT' => 'Мои настройки',
     'LBL_MAILMERGE' => 'Слияние' ,
     'LBL_MASS_UPDATE' => 'Массовое обновление' ,
 	'LBL_NO_MASS_UPDATE_FIELDS_AVAILABLE' => 'Не найдены обновляемые поля',
@@ -1919,7 +1805,6 @@ $app_strings = array(
     'LBL_NEW_BUTTON_KEY' => 'N' , ///
     'LBL_NEW_BUTTON_LABEL' => 'Создать' ,
     'LBL_NEW_BUTTON_TITLE' => 'Создать' ,
-	'LBL_EDIT' => 'Править',
     'LBL_NEXT_BUTTON_LABEL' => 'Далее' ,
     'LBL_NONE' => '--не выбрано--' ,
     'LBL_NOTES' => 'Заметки' ,
@@ -1942,6 +1827,8 @@ $app_strings = array(
     'LBL_PRIMARY_ADDRESS_STREET' => 'Основной адрес - улица:',
     'LBL_PRIMARY_ADDRESS' => 'Основной адрес:',
 	
+	'LBL_BILLING_STREET' => 'Улица:',
+	'LBL_SHIPPING_STREET' => 'Улица:',
 	
 	'LBL_PROSPECTS' => 'Адресаты',
     'LBL_PRODUCTS' => 'Товары' ,
@@ -1969,8 +1856,6 @@ $app_strings = array(
     'LBL_SEARCH_BUTTON_LABEL' => 'Найти' ,
     'LBL_SEARCH_BUTTON_TITLE' => 'Найти' ,
 	'LBL_FILTER' => 'Фильтр',
-	'LBL_CLEAR_FILTER' => 'Очистить фильтр',
-	'LBL_FILTER_MODULES' => 'Фильтрация',
     'LBL_SEARCH' => 'Поиск',
 	'LBL_SEARCH_ALT' => '',
     'LBL_SEARCH_MORE' => 'далее',
@@ -2053,15 +1938,6 @@ $app_strings = array(
     'LBL_SUBJECT' => 'Тема' ,
     'LBL_INBOUNDEMAIL_ID' => 'ID входящего E-mail',
  
-    'LBL_ALL_SCHEDULERS' => 'Все задания Планировщика',
-    'LBL_LEGACY_SCHEDULERS' => 'Устаревшие задания Планировщика',///
-    'LBL_SCHEDULERS' => 'Задания Планировщика',
-    'LBL_RUN_LEGACY_SCHEDULERS' => 'Запуск устаревших заданий Планировщика',///
-    'LBL_LEGACY_SCHEDULERS_RUN_SUCCESSFULLY' => 'Устаревшие задания Планировщика успешно запущены!',///
-    'LBL_RUN_SCHEDULERS' => 'Запуск заданий Планировщика',
-    'LBL_LEGACY_SCHEDULER_FAILED' => 'Не все задания Планировщика запущены. См. файл журнала.',
-    'LBL_PASSED' => 'Выполнено',///
-    'LBL_FAILED' => 'Не выполнено',///
 	'LBL_SCENARIO_SALES' => 'Сделки',
     'LBL_SCENARIO_MARKETING' => 'Маркетинг',
     'LBL_SCENARIO_FINANCE' => 'Продажи',
@@ -2088,11 +1964,6 @@ $app_strings = array(
     'LBL_THOUSANDS_SYMBOL' => 'K' ,
     'LBL_TRACK_EMAIL_BUTTON_LABEL' => 'Отправить E-mail в архив' ,
     'LBL_TRACK_EMAIL_BUTTON_TITLE' => 'Отправить E-mail в архив' ,
-    'LBL_TOO_MANY_ADDRESSES' => 'Выбрано слишком много электронных адресов.',
-    'LBL_NO_ADDRESSES_SELECTED' => 'Выберите адрес для отправки сообщения.',
-    'LBL_NOT_ALL_SENT' => 'Не все письма были отправлены. См. файл журнала.',
-    'LBL_NOT_VALID_TARGETS' => 'Нет подходящих адресатов для отправки писем.',
-    'LBL_ALL_EMAILS_SENT' => 'Все тестовые письма успешно отправлены',
     'LBL_UNDELETE_BUTTON_LABEL' => 'Восстановить' ,
     'LBL_UNDELETE_BUTTON_TITLE' => 'Восстановить' ,
     'LBL_UNDELETE_BUTTON' => 'Восстановить' ,
@@ -2104,16 +1975,12 @@ $app_strings = array(
     'LBL_VERIFY_EMAIL_ADDRESS' => 'Проверка адреса E-mail...',
     'LBL_VERIFY_PORTAL_NAME' => 'Проверка названия портала...',
 	'LBL_VIEW_IMAGE' => 'вид',
-    'LBL_CREATE_PORTAL_USER_FAILED' => 'Ошибка создания пользователя портала',
-    'LBL_CREATE_PORTAL_USER_SUCCESS' => 'Пользователь портала успешно создан',
 
     'LNK_ABOUT' => 'Справка' ,
     'LNK_ADVANCED_FILTER' => 'Расширенный фильтр' ,
     'LNK_BASIC_FILTER' => 'Фильтр' ,
 	'LBL_ADVANCED_SEARCH' => 'Расширенный фильтр',
-	'LBL_QUICK_FILTER' => 'Быстрый фильтр',
-	'LBL_BASIC_FILTER' => 'Фильтр',
-    'LBL_QUICK' => 'Quick', ////
+	'LBL_QUICK_FILTER' => 'Фильтр',
     'LNK_SEARCH_NONFTS_VIEW_ALL' => 'Отобразить всё',
     'LNK_CLOSE' => 'закрыть',
 	'LBL_MODIFY_CURRENT_FILTER' => 'Изменить условия фильтра',
@@ -2136,23 +2003,14 @@ $app_strings = array(
     'LNK_REMOVE' => 'удалить' ,
     'LNK_RESUME' => 'Продолжить' ,
     'LNK_VIEW_CHANGE_LOG' => 'Просмотр журнала изменений' ,
-	'LBL_CHANGE_LOG' => 'Журнал изменений',
+
 
     'NTC_CLICK_BACK' => 'Пожалуйста, нажмите на кнопку возврата в браузере и исправьте ошибку.' ,
     'NTC_DATE_FORMAT' => '(гггг-мм-дд)' ,
     'NTC_DELETE_CONFIRMATION_MULTIPLE' => 'Вы действительно хотите удалить выбранные(ую) записи(ь)?' ,
-    'NTC_SEND_QUEUED_CAMPAIGN_EMAILS' => 'Отправить следующий пакет писем из очереди рассылки?',
-	'NTC_SNOOZE_CONFIRMATION' => 'Вы действительно хотите отложить уведомление?',
     'NTC_TEMPLATE_IS_USED' => 'Данный шаблон используется как минимум в одной рассылке. Вы действительно хотите его удалить?',
     'NTC_TEMPLATES_IS_USED' => 'Данные шаблоны используются как минимум в одной рассылке. Вы действительно хотите их удалить?' . PHP_EOL,
 	'NTC_DELETE_CONFIRMATION' => 'Вы действительно хотите удалить эту запись?' ,
-    'NTC_ABORT_CONFIRMATION' => 'Вы действительно хотите прервать рассылку?',
-    'NTC_SCHEDULE_CONFIRMATION' => 'Рассылка писем начнётся при наступлении запланированной даты рассылки.',
-    'NTC_DELETE_TEST_ENTRIES' => 'При присвоении рассылке статуса "Запланирована" вся тестовая информация будет удалена.',
-    'NTC_DELETE_TEST_ENTRIES_CONFIRMATION' => 'Вы действительно хотите удалить тестовые данные?',
-    'NTC_PROCEED' => 'Продолжить?',
-    'NTC_UNSCHEDULE_CONFIRMATION' => 'Отмена запланированной рассылки присвоет ей статус "Черновик".',
-    'NTC_UNSCHEDULE_CONFIRMATION_OTHER' => 'Рассылка не начнётся до тех пор, пока ей опять не будет присвоен статус "Запланирована".',
     'NTC_DELETE_CONFIRMATION_NUM' => 'Вы действительно хотите удалить ',
     'NTC_UPDATE_CONFIRMATION_NUM' => 'Вы действительно хотите обновить ',
     'NTC_DELETE_SELECTED_RECORDS' => ' выбранных записей?',
@@ -2162,18 +2020,18 @@ $app_strings = array(
     'NTC_REQUIRED' => '- поля, обязательные для заполнения' ,
     
     'NTC_TIME_FORMAT' => '(24:00)' ,
-    'NTC_WELCOME' => 'Дoбрo пожаловать' ,
+    'NTC_WELCOME' => 'Дoбрo пoжалoвать' ,
     'NTC_YEAR_FORMAT' => '(гггг) ' ,
-    'WARN_UNSAVED_CHANGES' => 'Вы покидаете данную страницу без сохранения внесённых изменений. Продолжить?',
-    'ERROR_NO_RECORD' => 'Ошибка получения записи. Вероятно, эта запись была удалена или у вас недостаточно прав для её просмотра.',
-    'LBL_TEMPLATE_CONFIRMATION' => 'Применить новый шаблон? (Будут обновлены содержание и тема письма)',
+
     'WARN_BROWSER_VERSION_WARNING' => '<b>Предупреждение:</b> Данная версия браузера не поддерживается.<p></p>Рекомендуются следующие версии браузеров:<p></p><ul><li>Internet Explorer 11 (режим совместимости не поддерживается)<li>Firefox 32.0<li>Safari 5.1<li>Chrome 37</ul>',
     'WARN_BROWSER_IE_COMPATIBILITY_MODE_WARNING' => '<b>Предупреждение:</b> Браузер открыт в режиме совместимости с IE, данный режим не поддерживается.',
  
+    'WARN_UNSAVED_CHANGES' => 'Вы покидаете данную страницу без сохранения внесённых изменений. Продолжить?',
 
 	
-    'ERROR_TYPE_NOT_VALID' => 'Ошибка. Недопустимый тип.',
+	'ERROR_NO_RECORD' => 'Ошибка получения записи. Вероятно, эта запись была удалена или у вас недостаточно прав для её просмотра.',
 	'ERROR_NO_BEAN' => 'Failed to get bean.',
+    'ERROR_TYPE_NOT_VALID' => 'Ошибка. Недопустимый тип.',
     'LBL_DUP_MERGE' => 'Поиск дубликатов',
     'LBL_MANAGE_SUBSCRIPTIONS' => 'Управление подписками',
     'LBL_MANAGE_SUBSCRIPTIONS_FOR' => 'Управление подписками для ',
@@ -2186,7 +2044,6 @@ $app_strings = array(
     'LBL_SAVING' => 'Сохраняется',
     'LBL_DISPLAY_COLUMNS' => 'Отображаемые колонки',
     'LBL_HIDE_COLUMNS' => 'Скрытые колонки',
-	'LBL_COLUMNS' => 'Колонки',
 	'LBL_SEARCH_CRITERIA' => 'Условие поиска',
 	'LBL_SAVED_VIEWS' => 'Сохранённые условия',
     'LBL_PROCESSING_REQUEST' => 'Выполняется...',
@@ -2199,8 +2056,6 @@ $app_strings = array(
     'LBL_DETAILVIEW' => 'Форма просмотра',
     'LBL_LISTVIEW' => 'Форма списка',
     'LBL_EDITVIEW' => 'Форма редактирования',
-    'LBL_BILLING_STREET' => 'Улица:',
-    'LBL_SHIPPING_STREET' => 'Улица:',
     'LBL_SEARCHFORM' => 'Форма поиска',
     'LBL_SAVED_SEARCH_ERROR' => 'Пожалуйста, укажите название сохраняемого условия.',
     'LBL_DISPLAY_LOG' => 'Показать журнал',
@@ -2261,10 +2116,10 @@ $app_strings = array(
 	'ERR_MSSQL_WARNING' => 'Внимание:',
 
     //Meta-Data framework
-    'ERR_CANNOT_CREATE_METADATA_FILE' => 'Ошибка: Файл [[file]] не обнаружен, создать его невозможно, поскольку отсутствует соответствующий файл HTML.',
-    'ERR_CANNOT_FIND_MODULE' => 'Ошибка: Модуль [module] не существует.',
+    'ERR_CANNOT_CREATE_METADATA_FILE' => 'Error: File [[file]] is missing.  Unable to create because no corresponding HTML file was found.',
+    'ERR_CANNOT_FIND_MODULE' => 'Error: Module [module] does not exist.',
     'LBL_ALT_ADDRESS' => 'Другой адрес:',
-    'ERR_SMARTY_UNEQUAL_RELATED_FIELD_PARAMETERS' => 'Ошибка: Неравное количество аргументов для элементов \'key\' и \'copy\' в массиве displayParams.',
+    'ERR_SMARTY_UNEQUAL_RELATED_FIELD_PARAMETERS' => 'Error: There are an unequal number of arguments for the \'key\' and \'copy\' elements in the displayParams array.',
 
     /* MySugar Framework (for Home and Dashboard) */
 	'LBL_DASHLET_CONFIGURE_GENERAL' => 'Основные настройки',
@@ -2421,7 +2276,7 @@ $app_strings = array(
 	'LBL_DURATION_DAY' => 'день',
     'LBL_DURATION_HOUR' => 'час',
     'LBL_DURATION_MINUTE' => 'минута',
-    'LBL_DURATION_DAYS' => 'дн.',
+    'LBL_DURATION_DAYS' => 'дней',
     'LBL_DURATION_HOURS' => 'час.',
     'LBL_DURATION_MINUTES' => 'мин.',
     
@@ -2470,8 +2325,6 @@ $app_strings = array(
 
 	
 	'LBL_NOTIFICATIONS_NONE' => 'Уведомления отсутствуют',
-	'ERR_NOTIFICATIONS_MARK_AS_READ' => 'Произошла ошибка при попытке отметить уведомление как прочитанное',
-  'ERR_FIELD_LOGIC_BACKEND_CALCULATION' => 'Произошла ошибка при попытке получить значение',
     'LBL_ALT_SORT_DESC' => 'Нисходящая сортировка',
     'LBL_ALT_SORT_ASC' => 'Восходящая сортировка',
     'LBL_ALT_SORT' => 'Сортировать',
@@ -2504,58 +2357,20 @@ $app_strings = array(
     'LBL_DUPLICATE_BUTTON_KEY' => 'u', ///
     'LBL_DUPLICATE_BUTTON_LABEL' => 'Дублировать',
     'LBL_DUPLICATE_BUTTON_TITLE' => 'Дублировать',
-	'LBL_DISABLE_USER_2FA' => 'Отключить двухэтапную аутентификацию',
     'LBL_DELETE_BUTTON_KEY' => 'd', ///
     'LBL_DELETE_BUTTON_LABEL' => 'Удалить',
     'LBL_DELETE_BUTTON_TITLE' => 'Удалить',
 	'LBL_BULK_ACTION_BUTTON_LABEL' => 'Действия',
     'LBL_BULK_ACTION_BUTTON_LABEL_MOBILE' => 'Действия',
-	'LBL_TOO_FEW_SELECTED' => 'Выбрано неверное количество записей. Вы должны выбрать как минимум это количество записей: {min}.',
-    'LBL_TOO_MANY_SELECTED' => 'Выбрано неверное количество записей. Вы должны выбрать максимум это количество записей: {max}.',
-    'LBL_SELECT_ALL_NOT_ALLOWED' => 'Для этого действия не могут быть выбраны сразу все записи. Выберите отдельные записи.',
-    'LBL_MISSING_HANDLER_DATA' => 'Неизвестная ошибка. В ответе отсутствуют данные обработчика массового обновления записей.',
-    'LBL_MISSING_HANDLER' => 'Неизвестная ошибка. Не определён обработчик массового обновления записей.',
-    'LBL_MISSING_HANDLER_DATA_ROUTE' => 'Неизвестная ошибка. Отсутствует маршрут массового обновления записей.',
-    'LBL_ACTION_ERROR' => 'При выполнении действия произошла неизвестная ошибка',
-    'LBL_BULK_ACTION_ERROR' => 'При выполнении массовых действий произошла неизвестная ошибка.',
-    'LBL_BULK_ACTION_DELETE_SUCCESS' => 'Записи успешно удалены',
-    'LBL_BULK_ACTION_MASS_UPDATE_CONFIRMATION' => 'Вы действительно хотите обновить выбранные записи?',
-    'LBL_BULK_ACTION_MASS_UPDATE_SUCCESS' => 'Все записи успешно обновлены',
-    'LBL_BULK_ACTION_MASS_UPDATE_PARTIAL_SUCCESS' => 'Записи частично обновлены. Некоторые записи обновить не удалось. Детали описаны в лог-файле.',
-    'LBL_BULK_ACTION_MASS_UPDATE_NO_FIELDS' => 'Нет полей для обновления',
-    'LBL_BULK_ACTION_MASS_UPDATE_NO_RECORDS' => 'Нет записей для обновления',
-    'LBL_BULK_ACTION_MASS_UPDATE_NO_ACLS' => 'Недостаточно прав, сохранение данных запрещено',
-    'LBL_UNEXPECTED_ERROR' => 'Неизвестная ошибка. Невозможно выполнить действие.',
-    'LBL_RECORD_DELETE_SUCCESS' => 'Запись успешно удалена',
-	'LBL_RECORD_DELETE_ALL_SUCCESS' => 'Записи успешно удалены',
-    'LBL_RECORD_SNOOZE_SUCCESS' => 'Уведомление отложено',
-	'LBL_ERROR_SAVING' => 'При сохранении записи произошла ошибка',
     'LBL_SAVE_BUTTON_KEY' => 'a', ///
     'LBL_SAVE_BUTTON_LABEL' => 'Сохранить',
-    'LBL_NEW_EM_SURVEY' => 'Новое опросное письмо',
-    'LBL_NEW_EM_TRANSACTIONAL' => 'Новое транзакционное письмо',
-    'LBL_NEW_EM_MARKETING' => 'Новая рассылка',
-    'LBL_NEW_SURVEY' => 'Новый опрос',
-    'LBL_WEB_TO_LEAD' => 'Новая Веб-форма', ///
-    'LBL_TYPE' => 'Тип',
-    'LBL_DATE_START' => 'Дата начала кампании',///
-    'LBL_SEND_DATE' => 'Дата начала рассылки',///
-    'LBL_SCHEDULE_BUTTON_LABEL' => 'Запланировать',
-    'LBL_UNABLE_TO_UNSCHEDULE' => 'Отмена невозможна, поскольку маркетинговая кампания не запланирована',
     'LBL_SAVE_BUTTON_TITLE' => 'Сохранить',
-	'LBL_SAVE_CONTINUE_LABEL' => 'Сохранить и продолжить',
     'LBL_CANCEL_BUTTON_KEY' => 'l', ///
     'LBL_CANCEL_BUTTON_LABEL' => 'Отказаться',
     'LBL_CANCEL_BUTTON_TITLE' => 'Отказаться',
     'LBL_FIRST_INPUT_EDIT_VIEW_KEY' => '7', ///
     'LBL_ADV_SEARCH_LNK_KEY' => '8', ///
     'LBL_FIRST_INPUT_SEARCH_KEY' => '9', ///
-
-    'ANNUAL_REVENUE_BY_ACCOUNTS' => 'Годовой доход - по Контрагентам',
-    'PIPELINE_BY_SALES_STAGE' => 'Диаграмма стадий общих продаж',
-    'LEADS_BY_SOURCE' => 'По источникам Предварит. контактов',
-    'LEADS_BY_STATUS' => 'По статусам Предварит. контактов',
-    'ACCOUNT_TYPES_PER_MONTH' => 'Новые Контрагенты - по месяцам',
 
     'ERR_CONNECTOR_NOT_ARRAY' => 'connector array in {0} been defined incorrectly or is empty and could not be used.', ///
     'ERR_SUHOSIN' => 'Загрузка была заблокирована модулем Suhosin, необходимо добавить &quot;upload&quot; в параметр  suhosin.executor.include.whitelist (детали описаны в файле журнала: suitecrm.log)',
@@ -2569,7 +2384,6 @@ $app_strings = array(
 	'LBL_DELETE_REMINDER_CONFIRM' => 'Напоминание не содержит ни одного приглашённого. Удалить напоминание?',
     'LBL_DELETE_REMINDER' => 'Удаление напоминания',
     'LBL_OK' => 'OK',
-	'LBL_PROCEED' => 'Продолжить', ////
 	
 	'LBL_COLUMNS_FILTER_HEADER_TITLE' => 'Настройка колонок',
 	'LBL_COLUMN_CHOOSER' => 'Настройка колонок',
@@ -2590,13 +2404,6 @@ $app_strings = array(
     'LBL_SUBTHEME_OPTIONS_NIGHT' => 'Ночь',
 	'LBL_SUBTHEME_OPTIONS_NOON' => 'Полдень',
 	
-	'LBL_CONFIRM_DISREGARD_DRAFT_TITLE' => 'Удаление сообщения',
-	'LBL_CONFIRM_DISREGARD_DRAFT_BODY' => 'Сообщение будет удалено, продолжить?',
-    'LBL_CONFIRM_DISREGARD_EMAIL_TITLE' => 'Закрытие сообщения',
-    'LBL_CONFIRM_DISREGARD_EMAIL_BODY' => 'После закрытия сообщения вся введённая в него информация будет утеряна, продолжить?',
-	'LBL_CONFIRM_APPLY_EMAIL_TEMPLATE_TITLE' => 'Применение шаблона',
-	'LBL_CONFIRM_APPLY_EMAIL_TEMPLATE_BODY' => 'Тема и содержимое письма будут заменены данными из шаблона. Продолжить?',
-
 	'LBL_CONFIRM_OPT_IN_TITLE' => 'Подтверждённая подписка',
 	'LBL_OPT_IN_TITLE' => 'Подписаться на рассылку',
     'LBL_CONFIRM_OPT_IN_DATE' => 'Дата подтверждения подписки',
@@ -2609,6 +2416,12 @@ $app_strings = array(
 	'LBL_SECURITYGROUP_NONINHERITABLE' => 'Ненаследуемая группа',
     'LBL_PRIMARY_GROUP' => 'Основная группа',
 	
+	'LBL_CONFIRM_DISREGARD_DRAFT_TITLE' => 'Удаление сообщения',
+	'LBL_CONFIRM_DISREGARD_DRAFT_BODY' => 'Сообщение будет удалено, продолжить?',
+    'LBL_CONFIRM_DISREGARD_EMAIL_TITLE' => 'Закрытие сообщения',
+    'LBL_CONFIRM_DISREGARD_EMAIL_BODY' => 'После закрытия сообщения вся введённая в него информация будет утеряна, продолжить?',
+	'LBL_CONFIRM_APPLY_EMAIL_TEMPLATE_TITLE' => 'Применение шаблона',
+	'LBL_CONFIRM_APPLY_EMAIL_TEMPLATE_BODY' => 'Тема и содержимое письма будут заменены данными из шаблона. Продолжить?',
 	
 	 // footer
 	'LBL_SUITE_TOP' => 'Наверх',
@@ -2620,52 +2433,10 @@ $app_strings = array(
 	'LBL_GENERATE_PASSWORD_BUTTON_TITLE' => 'Сменить пароль',
 	'LBL_SEND_CONFIRM_OPT_IN_EMAIL' => 'Отправить E-mail для подтверждения подписки',
 	'LBL_CONFIRM_OPT_IN_ONLY_FOR_PERSON' => 'Письма для подтверждения подписки могут быть отправлены только Контрагентам/Контактам/Предварительным контактам/Адресатам',
-    'LBL_CONFIRM_OPT_IN_IS_DISABLED' => 'Двойное подтверждение подписки отключено, включите эту функцию в системных почтовых параметрах или обратитесь к администратору системы.',
+    'LBL_CONFIRM_OPT_IN_IS_DISABLED' => 'Двойное подтверждение подписки отключено, включите эту функцию в системных почтовых параметрах или обратитесь к Администратору системы.',
     'LBL_CONTACT_HAS_NO_PRIMARY_EMAIL' => 'Двойное подтверждение подписки невозможно, поскольку у адресата не указан основной почтовый адрес.',
     'LBL_CONFIRM_EMAIL_SENDING_FAILED' => 'Не удалось отправить письмо для подтверждения подписки',
     'LBL_CONFIRM_EMAIL_SENT' => 'Письмо для подтверждения подписки успешно отправлено',
-	
-    'LBL_SEND_TEST_EMAIL' => 'Выполнение тестовой рассылки',
-    'LBL_SEND_TEST_EMAIL_DESC' => 'Укажите электронные адреса получателей/пользователей системы и/или списки Адресатов для выполнения тестовой рассылки.',
-    'LBL_EMAIL_SENT_SUCCESSFULLY' => 'Письмо успешно отправлено',
-    'LBL_PROSPECT_LIST_NAME' => 'Списки Адресатов',
-	//List View Column Selector Modal
-    'LBL_COLUMN_SELECTOR_DISPLAYED_COLS' => 'Отображаемые колонки',
-    'LBL_COLUMN_SELECTOR_HIDDEN_COLS' => 'Скрытые колонки',
-    'LBL_COLUMN_SELECTOR_CLOSE_BUTTON' => 'Закрыть',
-    'LBL_COLUMN_SELECTOR_SAVE_BUTTON' => 'Сохранить',
-    'LBL_COLUMN_SELECTOR_MODAL_TITLE' => 'Настройка колонок',
-	
-	// Two-Factor Authentication
-    'LBL_ENTER_AUTH_APP_2FA_CODE' => 'Введите код подтверждения из приложения-аутентификатора',
-    'LBL_ENABLE_2FA_LABEL' => 'Включить двухэтапную аутентификацию',
-    'LBL_BACKUP_CODES' => 'Коды восстановления/резервные коды',
-    'LBL_BACKUP_CODES_INFO' => 'Резервные коды — это одноразовые коды доступа, которые можно использовать, когда вы не можете выполнить проверку через приложение-аутентификатор.',
-    'LBL_BACKUP_CODES_WARN' => ' ВНИМАНИЕ: эти коды генерируются только один раз. Скопируйте их и сохраните в надежном месте, так как они больше не будут отображаться.',
-    'LBL_PROBLEMS_GENERATING_CODE' => 'Проблемы с генерацией кода?',
-    'LBL_BACKUP_CODES_FALLBACK_INSTRUCTIONS' => 'Используйте один из резервных кодов (код становится недействительным после  его однократного использования)',
-    'LBL_OTP_SETUP' => 'Используйте аутентификатор OTP (одноразовый пароль) на мобильном телефоне или компьютере, чтобы включить двухэтапную аутентификацию.',
-    'LBL_QR_CODE_HELP' => 'Если вы ещё этого не сделали, загрузите приложение-аутентификатор (например, FreeOTP или Google Authenticator). Используйте загруженное приложение для сканирования QR-кода.',
-    'LBL_USE_SECRET' => 'Нет возможности отсканировать QR-код?',
-    'LBL_USE_SECRET_DESC' => 'Если у вас нет возможности отсканировать QR-код, введите вручную указанный ниже секретный код в приложение-аутентификатор.',
-    'LBL_HIDE_SECRET' => 'Скрыть секретный код',
-    'LBL_2FA_LOGIN_CANCEL' => 'Двухэтапная аутентификация отменена',
-
-    'LBL_FACTOR_AUTH_DISABLE' => 'Двухэтапная аутентификация отключена',
-    'LBL_FACTOR_AUTH_SUCCESS' => 'Двухэтапная аутентификация прошла успешно',
-    'LBL_FACTOR_AUTH_FAIL' => 'Двухэтапная аутентификация не удалась. Попробуйте еще раз.',
-
-    'LBL_VERIFY_2FA' => 'Проверить код',
-    'LBL_TWO_FACTOR_AUTH' => 'Двухэтапная аутентификация',
-    'LBL_TWO_FACTOR_AUTH_APP_METHOD' => 'Приложение для аутентификации',
-    'LBL_TWO_FACTOR_AUTH_APP_METHOD_DESCRIPTION' => 'Используйте приложение для аутентификации, чтобы генерировать коды двухфакторной аутентификации при появлении соответствующего запроса',
-    'LBL_ENABLE' => 'Включить',
-    'LBL_ENABLED' => 'Включена',
-    'LBL_DISABLE' => 'Выключить',
-    'LBL_GENERATED' => 'Сгенерировано',
-    'LBL_REGENERATE_CODES' => 'Сгенерировать повторно',
-    'LBL_REGENERATED_BACKUP_CODES' => 'Повторно сгенерированные резервные коды'
-	
 );
 
 $app_list_strings['moduleList']['Library'] = 'Library'; ///
@@ -2702,7 +2473,6 @@ $app_list_strings['lawful_basis_source_dom'] = array(
 );
 //End GDPR lawful basis source options
 
-$app_list_strings['moduleList']['KBDocuments'] = 'База знаний';
 $app_list_strings['countries_dom'] = array(
 		'' => '' ,
 'ABU DHABI' => 'АБУ-ДАБИ',
@@ -3432,6 +3202,10 @@ $app_strings['LBL_LISTVIEW_OPTION_CURRENT'] = 'Текущая страница';
 $app_strings['LBL_LISTVIEW_OPTION_ENTIRE'] = 'Все записи';
 $app_strings['LBL_LISTVIEW_NONE'] = 'Отменить выбор';
 
+//aod
+$app_list_strings['moduleList']['AOD_IndexEvent'] = 'Индексирование';
+$app_list_strings['moduleList']['AOD_Index'] = 'Индекс';
+
 $app_list_strings['moduleList']['AOP_Case_Events'] = 'События обращения';
 $app_list_strings['moduleList']['AOP_Case_Updates'] = 'Обновления обращения';
 $app_strings['LBL_AOP_EMAIL_REPLY_DELIMITER'] = '========== Пожалуйста, пишите ответ выше этой линии ==========';
@@ -3799,9 +3573,8 @@ $app_list_strings['moduleList']['jjwg_Address_Cache'] = 'Кеш адресов';
 
 $app_list_strings['moduleList']['jjwp_Partners'] = 'Партнёры JJWP';
 
-
-$app_list_strings['map_unit_type_list']['mi'] = 'Мили';
 $app_list_strings['map_unit_type_list']['km'] = 'Километры';
+$app_list_strings['map_unit_type_list']['mi'] = 'Мили';
 
 $app_list_strings['map_module_type_list']['Accounts'] = 'Контрагенты';
 $app_list_strings['map_module_type_list']['Contacts'] = 'Контакты';
@@ -4114,6 +3887,20 @@ $app_list_strings['moduleList']['TemplateEditor'] = 'Редактор фрагм
 $app_strings['LBL_CONFIRM_CANCEL_INLINE_EDITING'] = "Данные редактируемого поля не сохранены. При нажатии на кнопку 'ОК' все изменённые данные будут утеряны, при нажатии на кнопку 'Отмена' вы сможете продолжить редактирование поля ";
 $app_strings['LBL_LOADING_ERROR_INLINE_EDITING'] = 'Ошибка получения данных. Вероятно, сеанс закончился и необходимо заново войти в систему.';
 
+//SuiteSpots
+$app_list_strings['spots_areas'] = array(
+    'getSalesSpotsData' => 'Продажи',
+    'getAccountsSpotsData' => 'Контрагенты',
+    'getLeadsSpotsData' => 'Предварит. контакты',
+    'getServiceSpotsData' => 'Сервис',
+    'getMarketingSpotsData' => 'Маркетинг',
+    'getMarketingActivitySpotsData' => 'Маркетинговая активность',
+    'getActivitiesSpotsData' => 'Мероприятия',
+    'getQuotesSpotsData' => 'Предложения'
+);
+
+$app_list_strings['moduleList']['Spots'] = 'Сводки';
+
 $app_list_strings['moduleList']['AOBH_BusinessHours'] = 'Часы работы';     
 $app_list_strings['business_hours_list']['0'] = '0:00';
 $app_list_strings['business_hours_list']['1'] = '1:00';
@@ -4248,10 +4035,6 @@ $app_strings['LBL_GOOGLE_SYNC_ERR'] = 'Ошибка синхронизации �
 $app_strings['LBL_THERE_WAS_AN_ERR'] = 'Произошла ошибка: ';
 $app_strings['LBL_CLICK_HERE'] = 'Нажмите здесь';
 $app_strings['LBL_TO_CONTINUE'] = ' для продолжения.';
-$app_strings['LBL_OPT_OUT'] = 'Не писать';
-$app_strings['LBL_INVALID_EMAIL'] = 'Неверный';
-$app_strings['LBL_PRIMARY'] = 'Основной';
-$app_strings['LBL_EMAIL_ADDRESS'] = 'E-mail';
 
 $app_strings['IMAP_HANDLER_ERROR'] = 'ОШИБКА: {error}; использован ключ: "{key}".';
 $app_strings['IMAP_HANDLER_SUCCESS'] = 'OK: тестовые параметры изменены на "{key}".';
@@ -4266,157 +4049,15 @@ $app_strings['LBL_SEARCH_TEXT_FIELD_TITLE_ATTR']   = 'Введите крите�
 $app_strings['LBL_SEARCH_SUBMIT_FIELD_TITLE_ATTR'] = 'Найти записи, соответствующие критерию поиска';
 $app_strings['LBL_SEARCH_SUBMIT_FIELD_VALUE']      = 'Найти';
 $app_strings['LBL_SEARCH_QUERY']                   = 'Поисковый запрос: ';
-$app_strings['LBL_SEARCH_RESULTS_PER_PAGE']        = 'Результатов в разделе модуля, не более: ';
+$app_strings['LBL_SEARCH_RESULTS_PER_PAGE']        = 'Результатов на странице: ';
 $app_strings['LBL_SEARCH_ENGINE']                  = 'Движок: ';
 $app_strings['LBL_SEARCH_TOTAL'] = 'Всего результатов: ';
 $app_strings['LBL_SEARCH_PREV'] = 'Назад';
 $app_strings['LBL_SEARCH_NEXT'] = 'Далее';
 $app_strings['LBL_SEARCH_PAGE'] = 'Страница ';
 $app_strings['LBL_SEARCH_OF'] = ' из ';
-$app_strings['LBL_INSIGHTS'] = 'Аналитика';
-$app_strings['LBL_CHARTS'] = 'Диаграммы';
-$app_strings['LBL_CHART_NOT_FOUND'] = 'Диаграмма не обнаружена';
-$app_strings['LBL_NO_DATA'] = 'Данные отсутствуют';
-$app_strings['LBL_ERROR_FETCHING_METADATA'] = 'При получении метаданных произошла ошибка';
-$app_strings['LBL_TOTAL'] = 'Всего'; ////
-$app_strings['LBL_ACTIONS'] = 'Действия';
-$app_strings['LBL_SELECT_SUBPANEL_BANNER'] = 'Выберите необходимые субпанели';
-$app_strings['LBL_SELECT_ITEM'] = 'Выберите элемент...'; ////
-$app_strings['LBL_ITEMS_SELECTED'] = 'элементов выбрано';
-$app_strings['LBL_WIDGET_NOT_FOUND'] = 'Виджет не обнаружен';
-$app_strings['LBL_BAD_CONFIG'] = 'Ошибка конфигурации';
-$app_strings['LBL_CONFIG_BAD_CONTEXT'] = 'Ошибка конфигурации: контекст настроен неправильно';
-$app_strings['LBL_CONFIG_NO_CONFIG'] = 'Ошибка конфигурации: отсутствует файл конфигурации';
-$app_strings['LBL_CONFIG_NO_STATISTICS_KEY'] = 'Ошибка конфигурации: отсутствует ключ статистики';
-$app_strings['LBL_STATISTIC_ERROR'] = 'Ошибка загрузки статистики';
-$app_strings['LBL_STATISTIC_ERROR_DESC'] = 'Ошибка загрузки статистики';
-$app_strings['LBL_STATISTIC_ERROR_DESC_TOOLTIP'] = 'Ошибка загрузки статистики. Обратитесь к администратору системы';
-$app_strings['LBL_AVERAGE_CLOSED_WON_PER_YEAR'] = 'Стоимость закрытых сделок за год';
-$app_strings['LBL_OPPORTUNITIES_TOTAL'] = 'Общая стоимость сделок';
-$app_strings['LBL_CASE_TOTAL_DAYS_OPEN'] = 'Открыто в течение';
-$app_strings['LBL_DAYS_OPEN'] = 'Открыто дней';
-$app_strings['LBL_DAYS_IN_SALE_STAGE'] = 'дн. сделка находится на этой стадии продаж';
-$app_strings['LBL_STAT_DAYS'] = 'дн.';
-$app_strings['LBL_CLOSED_PER_YEAR'] = 'Закрыто за год';
-$app_strings['LBL_WAS_OPEN'] = 'Это Обращение было открыто в течение';
-$app_strings['LBL_HAS_BEEN_OPEN'] = 'Это Обращение открыто в течение';
-$app_strings['LBL_NUMBER_OF_CASES_PER_ACCOUNT'] = 'Количество Обращений у Контрагента';
-$app_strings['LBL_TOTAL_CASES_FOR_THIS_ACCOUNT'] = 'Всего Обращений у этого Контрагента';
-$app_strings['LBL_NONE_OUTSTANDING'] = '-'; ////
-$app_strings['LBL_VALIDATION_ERROR_REQUIRED'] = 'Не заполнено обязательное поле: {{fields.field.label}}';
-$app_strings['LBL_VALIDATION_ERROR_CURRENCY_FORMAT'] = "Неверный формат (currency). Ожидалось: '{{context.expected}}'";
-$app_strings['LBL_VALIDATION_ERROR_INT_FORMAT'] = "Неверный формат (int). Ожидалось: '{{context.expected}}'";
-$app_strings['LBL_VALIDATION_ERROR_FLOAT_FORMAT'] = "Неверный формат (float). Ожидалось: '{{context.expected}}'";
-$app_strings['LBL_VALIDATION_ERROR_DATE_FORMAT'] = "Неверный формат (date). Ожидалось: '{{context.expected}}'";
-$app_strings['LBL_VALIDATION_ERROR_DATETIME_FORMAT'] = "Неверный формат (datetime). Ожидалось: '{{context.expected}}'";
-$app_strings['LBL_VALIDATION_ERROR_UNSUBSCRIBE_LINK'] = "Нетранзакционные письма должны содержать ссылку отписки. Добавьте ссылку '{{ unsubscribe_link }}' или в панели редактора нажмите на кнопку: "; ///
-$app_strings['LBL_VALIDATION_ERROR_REMOVE_UNSUBSCRIBE_LINK'] = "Транзакционные письма не должны содержать ссылку отписки. Удалите ссылку '{{ unsubscribe_link }}'";
-$app_strings['LBL_VALIDATION_ERROR_EMAIL_FORMAT'] = "Неверный формат (email). Ожидалось: '{{context.expected}}'";
-$app_strings['LBL_VALIDATION_ERROR_PHONE_FORMAT'] = "Неверный формат (phone).";
-$app_strings['LBL_VALIDATION_ERROR_MIN'] = "Неверное значение. Значение должно быть больше или равно '{{context.min}}'";
-$app_strings['LBL_VALIDATION_ERROR_MAX'] = "Неверное значение. Значение должно быть меньше или равно '{{context.max}}'";
-$app_strings['LBL_MULTIPLE_PRIMARY_EMAIL_VALIDATION_ERROR'] = "Только один адрес электронной почты может быть отмечен как основной";
-$app_strings['LBL_DUPLICATE_EMAIL_VALIDATION_ERROR'] = "Дублирующиеся адреса электронной почты не допускаются";
-$app_strings['LBL_NO_PRIMARY_EMAIL_VALIDATION_ERROR'] = "Один из адресов электронной почты должен быть отмечен как основной";
-$app_strings['LBL_NO_EM_ID'] = 'Невозможно получить ID рассылки';
-$app_strings['LBL_VALIDATION_ERRORS'] = 'Ошибка валидации, действие не может быть выполнено.';
-$app_strings['LBL_LOADING_IN_PROGRESS'] = 'В настоящее время выполняется расчёт, пожалуйста, подождите несколько секунд, прежде чем повторить попытку.';
-$app_strings['LBL_SELECT_EMAIL_FOR_TEST'] = 'Выберите Адресатов / Пользователей системы или введите E-mail';
-$app_strings['LBL_TYPE_TO_SEARCH'] = 'Начните ввод...';
-$app_strings['LBL_SEARCHING'] = 'поиск...';
-$app_strings['LBL_NOT_FOUND'] = 'Ничего не обнаружено.';
-$app_strings['LBL_SEARCH_ERROR'] = 'Ошибка поиска.';
-$app_strings['LBL_FOUND'] = 'Обнаружено';
-$app_strings['LBL_GET_RECORD_LIST_ERROR'] = 'Произошла ошибка в процессе получения записей';
-$app_strings['LBL_NUMBER_OF_RECORDS'] = 'Количество записей';
-$app_strings['LBL_FORWARD_SLASH'] = '/';
-$app_strings['LBL_CASES_INSIGHT'] = ' {{fields.cases.value}} ( {{fields.default.value}} )';
-$app_strings['LBL_INVOICES_INSIGHT'] = ' {{fields.invoices.value}} ( {{fields.default.value}} )';
-$app_strings['LBL_CONTRACT_RENEWAL_TOOLTIP'] = 'Дата следующего продления Договора';
-$app_strings['LBL_INVOICES_OVERDUE_TOOLTIP'] = 'Общее количество просроченных Счетов ';
-$app_strings['LBL_ACTIVITIES_NEXT_DATE_TOOLTIP'] = 'Дата следующего взаимодействия'; ////
-$app_strings['LBL_CAMPAIGN_LAST_RECEIVED_TOOLTIP'] = 'Дата последней проведённой Кампании'; ////
-$app_strings['LBL_OPEN_CASES_COUNT_TOOLTIP'] = 'Общее количество открытых Обращений';
-$app_strings['LBL_EVENTS_LAST_DATE_TOOLTIP'] = 'Дата последнего События';
-$app_strings['LBL_HISTORY_LAST_DATE_TOOLTIP'] = 'Дата последнего взаимодействия';
-$app_strings['LBL_OPPORTUNITIES_TOTAL_SUM_TOOLTIP'] = 'Общая сумма Сделок';
-$app_strings['LBL_QUOTES_EXPIRY_TOOLTIP'] = 'Дата истечения срока действия Предложения';////
-$app_strings['LBL_DEFAULT_TOTAL_TOOLTIP'] = 'Общее количество записей';
-$app_strings['LBL_CONTRACT_RENEWAL'] = 'Дата продления';
-$app_strings['LBL_INVOICES_OVERDUE'] = 'Общее количество просроченных Счетов';
-$app_strings['LBL_ACTIVITIES_NEXT_DATE'] = 'Ближайшие мероприятия'; ////
-$app_strings['LBL_CAMPAIGN_LAST_RECEIVED'] = 'Последняя Кампания'; ////
-$app_strings['LBL_OPEN_CASES_COUNT'] = 'Открытые Обращения';
-$app_strings['LBL_EVENTS_LAST_DATE'] = 'Последнее События';
-$app_strings['LBL_HISTORY_LAST_DATE'] = 'Последнее взаимодействие';
-$app_strings['LBL_OPPORTUNITIES_TOTAL_SUM'] = 'Общая сумма';
-$app_strings['LBL_QUOTES_EXPIRY'] = 'Дата истечения';
-$app_strings['LBL_DEFAULT_TOTAL'] = 'Всего записей'; ////
-$app_strings['AOS_Contracts'] = 'Договоры';
-$app_strings['AOS_Quotes'] = 'Предложения';
-$app_strings['AOS_Invoices'] = 'Счета';
-$app_strings['LBL_PHOTO'] = 'Фото';
-$app_strings['LBL_CASE_UPDATES'] = 'Обновления Обращения';
-$app_strings['LBL_CASE_UPDATE_SUBMITTED'] = 'Обновление Обращения прошло успешно';
-$app_strings['LBL_SUMMARY_DEFAULT'] = "{{fields.name.value}}";
-$app_strings['LBL_SUMMARY_PERSON'] = "{{fields.salutation.value}} {{fields.first_name.value}} {{fields.last_name.value}}";
-$app_strings['LBL_SUMMARY_DOCUMENT'] = "{{fields.document_name.value}}";
-$app_strings['LBL_CREATE'] = 'Создать';
-$app_strings['LBL_CLEAR_FILTER'] = 'Очистить фильтр';
-$app_strings['LBL_QUICK_FILTERS'] = 'Быстрые фильтры';
-$app_strings['LBL_SAVED_FILTER_SAVED'] = 'Фильтр успешно сохранён';
-$app_strings['LBL_FILTER_ID_NOT_DEFINED'] = 'Идентификатор фильтра не определён';
-$app_strings['LBL_GENERIC_CONFIRMATION'] = 'Вы хотите продолжить?';
-$app_strings['LBL_SHOW_MORE'] = 'Развернуть'; ////
-$app_strings['LBL_SHOW_LESS'] = 'Скрыть'; ////
-$app_strings['LBL_LOAD_MORE'] = '...ещё'; 
-$app_strings['LBL_EMPTY'] = '-- Пустое поле -- ';
-$app_strings['LBL_OPERATOR'] = 'Оператор'; ////
-$app_strings['LBL_START'] = 'с'; //// с
-$app_strings['LBL_END'] = 'по'; //// по
-$app_strings['LBL_LINE_ITEMS_FIELD_CONFIG'] = 'Некорректная конфигурация'; ////
-
-
-$app_strings['LBL_ACTION_SUCCESS'] = 'Действие успешно завершено';
-
-$app_strings['LBL_YES'] = 'Да';
-$app_strings['LBL_NO'] = 'Нет';
-
-$app_list_strings['sort_order'] = [];
-$app_list_strings['sort_order']['asc'] = 'Восходящая';
-$app_list_strings['sort_order']['desc'] = 'Нисходящая';
-
-// Labels used by subpanel unlink relationship process
-$app_strings['LBL_LINK'] = 'Связать';
-$app_strings['LBL_LINK_UNLINK'] = 'Связать / Удалить связь';
-$app_strings['LBL_SAVE'] = 'Сохранить';
-$app_strings['LBL_UNLINK_RECORD'] = 'Удалить связь';
-$app_strings['LBL_EDIT_RECORD'] = 'Править запись';
-$app_strings['LBL_UNLINK_RELATIONSHIP_CONFIRM'] = 'Вы действительно хотите удалить связь с этой записью? Будет удалена только связь с записью, сама запись удалена НЕ будет.';
-$app_strings['LBL_UNLINK_RELATIONSHIP_SUCCESS'] = 'Связь удалена.';
-$app_strings['LBL_UNLINK_RELATIONSHIP_FAILED'] = 'В процессе удаления связи произошла ошибка.';
-$app_strings['LBL_ALL_RECORDS_UNLINKED'] = 'Все связи успешно удалены';
-$app_strings['LBL_SOME_RECORDS_UNLINKED_FAILED'] = 'Часть связей не была удалена. Подробнее см. в файле журнала.';
-$app_strings['LBL_LINK_RELATIONSHIP_SUCCESS'] = 'Связь успешно  создана.';
-$app_strings['LBL_LINK_RELATIONSHIP_FAILED'] = 'В процессе создания связи произошла ошибка.';
-$app_strings['LBL_MODULE_NOT_FOUND'] = 'Модуль не обнаружен.';
-$app_strings['LBL_RECORD_NOT_FOUND'] = 'Невозможно загрузить запись';
-$app_strings['LBL_RELATIONSHIP_LOAD_ERROR'] = 'Невозможно загрузить связь';
-$app_strings['LBL_NOT_LINKED'] = 'Невозможно удалить связь. Записи не связаны';
-$app_strings['LBL_ACCESS_DENIED'] = 'Доступ запрещён';
-$app_strings['LBL_ADD_RECORDS_TO_TARGET_LIST_SUCCESS'] = 'Записи успешно добавлены с список Адресатов.';
-$app_strings['LBL_ADD_RECORDS_TO_TARGET_LIST_FAILED'] = 'В процессе добавления записей в список Адресатов произошла ошибка.';
-$app_strings['LBL_ADD_CONTACTS_TO_TARGET_LIST_SUCCESS'] = 'Контакты успешно добавлены с список Адресатов.';
-$app_strings['LBL_ADD_CONTACTS_TO_TARGET_LIST_FAILED'] = 'В процессе добавления Контактов в список Адресатов произошла ошибка.';
-$app_strings['LBL_CHANGED_TO_TEXT'] = 'changed to';  //// unused?
-$app_strings['LBL_RECORD_CHANGED'] = 'Запись обновлена';
-$app_strings['LBL_CREATE'] = "Создать";
 $app_strings['LBL_USE_ADVANCED_SEARCH'] = 'Использовать расширенный поиск'; //// unused?
 $app_strings['LBL_USE_BASIC_SEARCH'] = 'Использовать стандартный поиск'; //// unused?
-$app_strings['LBL_NO_MODULE_SELECTED'] = 'Модуль не выбран';
-$app_strings['LBL_CLOSE_MENU'] = 'Закрыть меню';
-$app_strings['LOGIN_INCORRECT'] = 'Неверные учётные данные, попробуйте ещё раз.';
-$app_strings['LOGIN_TOO_MANY_FAILED'] = 'Слишком много неудачных попыток входа в систему, попробуйте войти позже.';
 
 // PDF Engines
 $app_strings['LBL_LEGACY_MPDF_ENGINE'] = 'Движок MPDF (устаревший)';
@@ -4430,10 +4071,8 @@ $app_strings['LBL_LOGGER_INVALID_FILENAME'] = 'Недопустимое имя �
 $app_strings['LBL_PASSWORD_SET_NEW_VALUE_TO_RESET'] = 'Установлен. Для смены введите новое значение.';
 $app_strings['LBL_VALUE_SET_PLACEHOLDER'] = 'Значение введено. Для обновления введите новое значение.';
 
-$app_strings['ERR_IMAP_OAUTH_CONNECTION_ERROR'] = 'Невозможно подключиться к серверу исходящей почты с указанным OAuth-логином. Подключение: ';
+$app_strings['ERR_IMAP_OAUTH_CONNECTION_ERROR'] = 'Невозможно подключиться к серверу исходящей почты с указанным логином авторизации. Подключение: ';
 $app_strings['WARN_OAUTH_TOKEN_SESSION_EXPIRED'] = 'IMAP-сессия закончилась, пройдите повторную авторизацию. Подключение: ';
-
-$app_strings['ERR_OAUTH_CONNECTION_ERROR'] = 'Невозможно подключиться с указанным OAuth-логином. Подключение: ';
 
 $app_strings['LBL_KEY'] = 'Ключ';
 $app_strings['LBL_VALUE'] = 'Значение';
@@ -4444,199 +4083,3 @@ $app_strings['LBL_INBOUND_ACCOUNT'] = 'Учётная запись входящ�
 $app_strings['LBL_SYSTEM_ACCOUNT'] = 'Системная учётная запись';
 $app_strings['LBL_FROM_SYSTEM'] = 'Персональная учётная запись';
 $app_strings['LBL_SIGNATURE'] = 'Подпись';
-$app_strings['LBL_NEW_NOTIFICATION'] = "Новых уведомлений: {{context.unread}}";
-$app_strings['LBL_NOTIFICATION_ITEM_DATE'] = 'Начало: {{fields.date_start.value}}';
-$app_strings['LBL_NOTIFICATION_ITEM_DATE_ENTERED'] = 'Уведомлено: {{fields.snooze.value}}';
-$app_strings['LBL_QUICK_ACTIONS'] = 'Быстрые действия';
-$app_strings['LBL_RELATIONSHIPS'] = 'Субпанели';
-
-$app_strings['LBL_SHOW_CC'] = 'Показать копию';
-$app_strings['LBL_SHOW_BCC'] = 'Показать скрытую копию';
-$app_strings['LBL_CC'] = 'Копия';
-$app_strings['LBL_BCC'] = 'Скрытая копия';
-$app_strings['LNK_NEW_EMAIL'] = 'Новое письмо';
-
-$app_strings['LBL_INSERT_TEMPLATE'] = 'Выбрать шаблон';
-$app_strings['LBL_MISSING_RECORD_DATA'] = 'Отсутствуют данные записи';
-$app_strings['LBL_MISSING_FIELDS_DATA'] = 'Отсутствуют данные полей';
-$app_strings['LBL_WRONG_MODULE_PROVIDED'] = 'Предоставлен неверный модуль';
-
-$app_strings['LBL_NO_TEMPLATE_ID_PROVIDED'] = 'Не указан идентификатор шаблона';
-
-$app_strings['LBL_TEMPLATE_NOT_FOUND'] = 'Шаблон не найден';
-
-$app_strings['LBL_EMAIL_MODAL_DYNAMIC_TITLE'] = 'Новое электронное письмо{{fields.name.value|prefix:\' - \'}}';
-
-$app_strings['LBL_CLOSE_EMAIL_MODAL'] = 'Вы уверены, что хотите отменить это электронное письмо? (Изменения будут потеряны)';
-$app_strings['LBL_RELATED_TO_DYNAMIC'] = '{{fields.parent_type.value|uppercase}}';
-$app_strings['LBL_RELATED_TO'] = 'Связано с';
-$app_strings['LBL_OUTBOUND_EMAIL_NAME_COMPOSE_LABEL'] = '{{fields.smtp_from_name}}';
-$app_strings['LBL_OUTBOUND_EMAIL_NAME_COMPOSE_SUB_LABEL'] = '{{fields.smtp_from_addr}}';
-$app_strings['LBL_SMALL'] = 'Маленький';
-$app_strings['LBL_MEDIUM'] = 'Средний';
-$app_strings['LBL_NORMAL'] = 'Обычный';
-
-$app_strings['LBL_LARGE'] = 'Большой';
-
-$app_strings['LBL_HUGE'] = 'Огромный';
-
-$app_strings['LBL_DEFAULT'] = 'По умолчанию';
-
-$app_strings['LBL_APPLY'] = 'Применить';
-
-$app_strings['LBL_INSERT_LINK_URL_DESCRIPTION'] = 'Вставьте URL или адрес электронной почты:';
-
-$app_strings['LBL_INSERT_LINK_PLACEHOLDER'] = 'например: https://www.example.com';
-
-$app_strings['LBL_COLOR_BLACK'] = 'Черный';
-$app_strings['LBL_COLOR_FIREBRICK'] = 'Кирпично-красный';
-$app_strings['LBL_COLOR_RED'] = 'Красный';
-$app_strings['LBL_COLOR_SALMON'] = 'Лососевый';
-$app_strings['LBL_COLOR_BLUSH'] = 'Светло-розовый';
-$app_strings['LBL_COLOR_DARK_RED'] = 'Темно-красный';
-$app_strings['LBL_COLOR_BROWN'] = 'Коричневый';
-$app_strings['LBL_COLOR_DARK_ORANGE'] = 'Темно-оранжевый';
-$app_strings['LBL_COLOR_ORANGE'] = 'Оранжевый';
-$app_strings['LBL_COLOR_ANTIQUE_WHITE'] = 'Кремовый';
-$app_strings['LBL_COLOR_SADDLE_BROWN'] = 'Темно-коричневый';
-$app_strings['LBL_COLOR_GOLDENROD'] = 'Золотисто-жёлтый';
-$app_strings['LBL_COLOR_GOLD'] = 'Золотой';
-$app_strings['LBL_COLOR_YELLOW'] = 'Желтый';
-$app_strings['LBL_COLOR_LIGHT_YELLOW'] = 'Светло-желтый';
-$app_strings['LBL_COLOR_DARK_SLATE_GRAY'] = 'Темно-серый';
-$app_strings['LBL_COLOR_DARK_GREEN'] = 'Темно-зеленый';
-$app_strings['LBL_COLOR_GREEN'] = 'Зеленый';
-$app_strings['LBL_COLOR_LIME'] = 'Лаймовый';
-$app_strings['LBL_COLOR_HONEYDEW'] = 'Светло-зелёный';
-$app_strings['LBL_COLOR_TEAL'] = 'Сине-зеленый';
-$app_strings['LBL_COLOR_TURQUOISE'] = 'Бирюзовый';
-$app_strings['LBL_COLOR_AQUA'] = 'Морская волна';
-$app_strings['LBL_COLOR_PALE_TURQUOISE'] = 'Бледно-бирюзовый';
-$app_strings['LBL_COLOR_AZURE'] = 'Лазурный';
-$app_strings['LBL_COLOR_NAVY_BLUE'] = 'Темно-синий';
-$app_strings['LBL_COLOR_MEDIUM_BLUE'] = 'Средне-синий';
-$app_strings['LBL_COLOR_BLUE'] = 'Синий';
-$app_strings['LBL_COLOR_LIGHT_BLUE'] = 'Светло-голубой';
-$app_strings['LBL_COLOR_ALICE_BLUE'] = 'Ледяной голубой';
-$app_strings['LBL_COLOR_INDIGO'] = 'Индиго';
-$app_strings['LBL_COLOR_PATRIARCH_PURPLE'] = 'Темно-фиолетовый';
-$app_strings['LBL_COLOR_VIOLET_PURPLE'] = 'Пурпурно-фиолетовый';
-$app_strings['LBL_COLOR_PLUM'] = 'Сливовый';
-$app_strings['LBL_COLOR_LAVENDER'] = 'Лавандовый';
-$app_strings['LBL_COLOR_DIM_GRAY'] = 'Тускло-серый';
-$app_strings['LBL_COLOR_GRAY'] = 'Серый';
-$app_strings['LBL_COLOR_DARK_GRAY'] = 'Темно-серый';
-$app_strings['LBL_COLOR_LIGHT_GRAY'] = 'Светло-серый';
-$app_strings['LBL_COLOR_WHITE'] = 'Белый';
-
-$app_strings['LBL_BOLD'] = 'Жирный';
-$app_strings['LBL_ITALIC'] = 'Курсив';
-$app_strings['LBL_UNDERLINE'] = 'Подчеркнутый';
-$app_strings['LBL_STRIKETHROUGH'] = 'Зачеркнутый';
-$app_strings['LBL_FONT_FACE'] = 'Шрифт';
-$app_strings['LBL_TEXT_SIZE'] = 'Размер текста';
-$app_strings['LBL_TEXT_COLOR'] = 'Цвет текста';
-$app_strings['LBL_TEXT_HIGHLIGHT'] = 'Цвет выделения текста';
-$app_strings['LBL_LINK'] = 'Добавить ссылку';
-$app_strings['LBL_UNORDERED_LIST'] = 'Неупорядоченный список';
-$app_strings['LBL_ORDERED_LIST'] = 'Упорядоченный список';
-$app_strings['LBL_QUOTE'] = 'Цитата';
-$app_strings['LBL_UNQUOTE'] = 'Убрать цитату';
-$app_strings['LBL_ALIGN_LEFT'] = 'Выровнять по левому краю';
-$app_strings['LBL_ALIGN_CENTER'] = 'Выровнять по  центру';
-$app_strings['LBL_ALIGN_RIGHT'] = 'Выровнять по правому краю';
-$app_strings['LBL_JUSTIFY'] = 'Выровнять по центру';
-$app_strings['LBL_TEXT_LEFT_TO_RIGHT'] = 'Направление текста: слева направо';
-$app_strings['LBL_TEXT_RIGHT_TO_LEFT'] = 'Направление текста: справа налево';
-$app_strings['LBL_CLEAR_FORMATTING'] = 'Очистить форматирование';
-$app_strings['LBL_INJECT_UNSUBSCRIBE'] = 'Ссылка для отписки';
-$app_strings['LBL_TEXT_INDENT_LEFT'] = 'Отступ текста влево';///
-$app_strings['LBL_TEXT_INDENT_RIGHT'] = 'Отступ текста вправо';///
-
-// Day and Time labels
-$app_strings['LBL_SUN'] = 'Воскресенье';
-$app_strings['LBL_MON'] = 'Понедельник';
-$app_strings['LBL_TUE'] = 'Вторник';
-$app_strings['LBL_WED'] = 'Среда';
-$app_strings['LBL_THU'] = 'Четверг';
-$app_strings['LBL_FRI'] = 'Пятница';
-$app_strings['LBL_SAT'] = 'Суббота';
-$app_strings['LBL_ALL'] = 'Каждый день';
-$app_strings['LBL_EVERY'] = 'Каждые';
-$app_strings['LBL_ON_THE'] = 'Каждый';
-$app_strings['LBL_RANGE'] = 'до';
-$app_strings['LBL_FROM'] = 'С';
-$app_strings['LBL_AND'] = 'и';
-$app_strings['LBL_MINS'] = 'Мин';
-$app_strings['LBL_MINUTES'] = 'мин.';
-$app_strings['LBL_HOUR'] = 'часы';
-$app_strings['LBL_HOUR_SING'] = 'час';
-$app_strings['LBL_OFTEN'] = 'Постоянно';
-$app_strings['LBL_MIN_MARK'] = 'минутная отметка';
-$app_strings['LBL_INBOUND_EMAIL'] = 'Входящая почта';///
-
-$app_strings['LBL_LEGEND'] = 'Условные обозначения';
-
-$app_strings['LBL_EMAIL_MARKETING_NOT_UNSCHEDULED'] = 'Рассылка в этом статусе не может быть запланирована';
-$app_strings['LBL_INCORRECT_RECORD_ID'] = 'Неверный идентификатор записи';
-$app_strings['LBL_TEST_ENTRIES_DELETED'] = 'Тестовые данные удалены.';
-$app_strings['LBL_UNABLE_TO_GET_ID'] = 'Не удалось получить идентификатор рассылки';
-$app_strings['LBL_UNABLE_TO_DELETE_TEST_ENTRIES'] = 'Ошибка удаления тестовых данных. Подробнее см. в журналах';
-$app_strings['LBL_SECTION_KEY_NOT_DEFINED'] = 'Ключ раздела не определен';
-$app_strings['LBL_DOES_BOUNCE_EXIST'] = 'Настроен ли почтовый ящик для возвращаемых писем?';
-$app_strings['LBL_CAMPAIGN_SETTINGS'] = 'Основные параметры рассылки';
-
-$app_strings['LBL_SEND_FROM_QUEUE_DYNAMIC_LABEL'] = '{{ fields.send-from-queue.value }}';
-$app_strings['LBL_EMAIL_TO_QUEUE_DYNAMIC_LABEL'] = '{{ fields.email-to-queue.value }}';
-$app_strings['LBL_POLL_BOUNCED_CAMPAIGN_DYNAMIC_LABEL'] = '{{ fields.pollMonitoredInboxesForBouncedCampaignEmails.value }}';
-
-$app_strings['LBL_CRON_LINUX_DESC1_DYNAMIC'] = '{{ fields.desc1.value }}';
-$app_strings['LBL_CRON_LINUX_DESC2_DYNAMIC'] = '{{ fields.desc2.value }}';
-$app_strings['LBL_CRON_LINUX_DESC3_DYNAMIC'] = '{{ fields.desc3.value }}';
-$app_strings['LBL_CRON_LINUX_DESC4_DYNAMIC'] = '{{ fields.desc4.value }}';
-$app_strings['LBL_CRON_LINUX_DESC5_DYNAMIC'] = '{{ fields.desc5.value }}';
-$app_strings['LBL_CRON_LINUX_DESC6_DYNAMIC'] = '{{ fields.desc6.value }}';
-$app_strings['LBL_CRON_LINUX_DESC7_DYNAMIC'] = '{{ fields.desc7.value }}';
-$app_strings['LBL_CRON_LINUX_DESC8_DYNAMIC'] = '{{ fields.desc8.value }}';
-
-$app_strings['LBL_CRON_WIN_DESC1_DYNAMIC'] = '{{ fields.desc1.value }}';
-$app_strings['LBL_CRON_WIN_DESC2_DYNAMIC'] = '{{ fields.desc2.value }}';
-$app_strings['LBL_CRON_WIN_DESC3_DYNAMIC'] = '{{ fields.desc3.value }}';
-$app_strings['LBL_CRON_WIN_DESC4_DYNAMIC'] = '{{ fields.desc4.value }}';
-$app_strings['LBL_CRON_WIN_DESC5_DYNAMIC'] = '{{ fields.desc5.value }}';
-
-$app_strings['LBL_CRON_LAST_RUN'] = 'Последний успешный запуск';
-$app_strings['LBL_CRON_LAST_USER_TO_RUN'] = 'Последний пользователь, запустивший задания';
-$app_strings['LBL_LAST_RUN_VALUE'] = '{{ fields.lastRun.value }}';
-$app_strings['LBL_LAST_USER_RUN_VALUE'] = '{{ fields.user.value }}';
-$app_strings['LBL_RUN_USER_INVALID'] = 'Пользователь не указан в массиве `allowed_cron_users` файла `config.php`. Запуск заданий не был выполнен.';
-$app_strings['LBL_SCHEDULERS_NEVER_RUN'] = 'Задания ещё не выполнялись.';
-$app_strings['LBL_MARKETING_ITEMS_PER_RUN'] = 'Одновременно обрабатываемых рассылок';
-$app_strings['LBL_EMAILS_PER_RUN'] = 'Одновременно отправляемых писем в пакете';
-$app_strings['LBL_TRACKERS_ENABLED'] = 'Трекеры включены'; ///
-$app_strings['LBL_TRACKER_LINKS_ENABLED'] = 'Трекеры включены';
-
-$app_strings['LBL_MARKETING_ITEMS_PER_RUN_DYNAMIC_LABEL'] = '{{ fields.campaign_marketing_items_per_run.value }}';
-$app_strings['LBL_EMAILS_PER_RUN_DYNAMIC_LABEL'] = '{{ fields.campaign_emails_per_run.value }}';
-$app_strings['LBL_TRACKERS_ENABLED_DYNAMIC_LABEL'] = '{{ fields.trackers_enabled.value }}';
-$app_strings['LBL_UNSUBSCRIBE'] = 'Отписаться';
-$app_strings['LBL_INACTIVE'] = 'Неактивно';
-$app_strings['LBL_DISPLAYING_TEST_EMAIL_MARKETING_DATA'] = 'Диаграммы и субпанели отображают данные, полученные из тестовых рассылок.';
-$app_strings['LBL_DASH_SYMBOL'] = '';
-$app_strings['LBL_FIELD_STORAGE_NOT_SET'] = 'Для поля не указан тип хранилища файлов. Невозможно загрузить файл.';
-$app_strings['LBL_FIELD_STORAGE_INVALID_TYPE'] = 'Для поля указан недопустимый тип хранилища файлов. Невозможно загрузить файл.';
-$app_strings['LBL_UPLOAD'] = 'Загрузить';
-$app_strings['LBL_UPLOAD_FAILED'] = 'Загрузка не удалась, повторите попытку позже';
-$app_strings['LBL_UPLOADING'] = 'Загрузка';
-$app_strings['LBL_FILE_FIELD_UPLOAD_BUTTON_DESCRIPTION'] = 'Нажмите или перетащите сюда файл для загрузки';
-$app_strings['LBL_ATTACHMENTS_FIELD_UPLOAD_BUTTON_DESCRIPTION'] = 'Перетащите сюда файл для загрузки';
-$app_strings['LBL_TEMPORARY'] = 'Temporary';
-$app_strings['LBL_MAX_FILE_SIZE_EXCEEDED'] = 'Размер файла превышает максимально допустимое значение.';
-$app_strings['LBL_UNSUPPORTED_IMAGE_TYPE'] = 'Данный тип изображений не поддерживается.';
-$app_strings['LBL_UNSUPPORTED_FILE_TYPE'] = 'Данный тип файлов не поддерживается.';
-
-$app_strings['LBL_DEFAULT_OUTBOUND_NOT_SET'] = 'Не обнаружена учётная запись исходящей почты';
-$app_strings['LBL_DEFAULT_OUTBOUND_NOT_CONFIGURED'] = 'Ошибка в настройках учётной записи исходящей почты.';
-
-$app_strings['LBL_CRON_UNRECOMMENDED_USER'] = 'Вы работаете под пользователем root, что крайне НЕ РЕКОМЕНДУЕТСЯ, желаете продолжить (y,n)? ';
-$app_strings['LBL_UNKNOWN_USER'] = 'Неизвестный пользователь';

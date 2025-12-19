@@ -354,7 +354,11 @@ class GridLayoutMetaDataParser extends AbstractMetaDataParser implements MetaDat
                 $column = 0;
             }
 
-            $this->_viewdefs ['panels'] [$panelID] [$lastrow] [$column] = $def ['name'];
+            if (is_array($def) && isset($def['name'])) {
+                $this->_viewdefs['panels'][$panelID][$lastrow][$column] = $def['name'];
+            } else {
+                $GLOBALS['log']->error("Invalid field definition provided to addField. Expected array but got: " . print_r($def, true));
+            }
             // now update the fielddefs
             if (isset($this->_fielddefs [$def ['name']])) {
                 $this->_fielddefs [$def ['name']] = array_merge($this->_fielddefs [$def ['name']], $def);

@@ -40,9 +40,6 @@ class Operation extends AbstractOperation
         protected ?array $args = null,
         protected ?array $extraArgs = null,
         protected ?array $links = null,
-        protected ?bool $validateAfterResolver = null,
-        protected ?string $securityAfterResolver = null,
-        protected ?string $securityMessageAfterResolver = null,
 
         ?string $shortName = null,
         ?string $class = null,
@@ -89,8 +86,7 @@ class Operation extends AbstractOperation
         $processor = null,
         ?OptionsInterface $stateOptions = null,
         array|Parameters|null $parameters = null,
-        ?bool $queryParameterValidationEnabled = null,
-        array $extraProperties = [],
+        array $extraProperties = []
     ) {
         parent::__construct(
             shortName: $shortName,
@@ -138,7 +134,6 @@ class Operation extends AbstractOperation
             processor: $processor,
             stateOptions: $stateOptions,
             parameters: $parameters,
-            queryParameterValidationEnabled: $queryParameterValidationEnabled,
             extraProperties: $extraProperties
         );
     }
@@ -197,45 +192,6 @@ class Operation extends AbstractOperation
     {
         $self = clone $this;
         $self->links = $links;
-
-        return $self;
-    }
-
-    public function canValidateAfterResolver(): ?bool
-    {
-        return $this->validateAfterResolver;
-    }
-
-    public function withValidateAfterResolver(bool $validateAfterResolver = true): self
-    {
-        $self = clone $this;
-        $self->validateAfterResolver = $validateAfterResolver;
-
-        return $self;
-    }
-
-    public function getSecurityAfterResolver(): ?string
-    {
-        return $this->securityAfterResolver;
-    }
-
-    public function withSecurityAfterResolver(string $securityAfterResolver): self
-    {
-        $self = clone $this;
-        $self->securityAfterResolver = $securityAfterResolver;
-
-        return $self;
-    }
-
-    public function getSecurityMessageAfterResolver(): ?string
-    {
-        return $this->securityMessageAfterResolver;
-    }
-
-    public function withSecurityMessageAfterResolver(string $securityMessageAfterResolver): self
-    {
-        $self = clone $this;
-        $self->securityMessageAfterResolver = $securityMessageAfterResolver;
 
         return $self;
     }

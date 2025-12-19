@@ -15,8 +15,6 @@ namespace ApiPlatform\Exception;
 
 /**
  * Operation not found exception.
- *
- * @deprecated use ApiPlatform\Metadata\Exception\OperationNotFoundException
  */
 class OperationNotFoundException extends \InvalidArgumentException implements ExceptionInterface
 {

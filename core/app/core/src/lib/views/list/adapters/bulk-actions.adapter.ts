@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -25,9 +25,7 @@
  */
 
 import {Injectable} from '@angular/core';
-import {BulkActionsMap} from '../../../common/actions/bulk-action.model';
-import {Record} from '../../../common/record/record.model';
-import {isFalse} from '../../../common/utils/value-utils';
+import {BulkActionsMap, isFalse, Record} from 'common';
 import {Observable} from 'rxjs';
 import {map, take} from 'rxjs/operators';
 import {AsyncActionInput, AsyncActionService} from '../../../services/process/processes/async-action/async-action';
@@ -129,7 +127,6 @@ export class BulkActionsAdapter implements BulkActionDataSource {
         const params = (definition && definition.params) || {} as { [key: string]: any };
         const displayConfirmation = params.displayConfirmation || false;
         const confirmationLabel = params.confirmationLabel || '';
-        const confirmationMessages = params.confirmationMessages || [];
         const selectModal = definition.params && definition.params.selectModal;
         const selectModule = selectModal && selectModal.module;
         const recordPanel = definition.params && definition.params.recordPanel;
@@ -139,10 +136,9 @@ export class BulkActionsAdapter implements BulkActionDataSource {
             return;
         }
 
-        const confirmation = [confirmationLabel, ...confirmationMessages];
 
         if (displayConfirmation) {
-            this.confirmation.showModal(confirmation, () => {
+            this.confirmation.showModal(confirmationLabel, () => {
                 if (!selectModule) {
                     this.runBulkAction(actionName, data);
                     return;

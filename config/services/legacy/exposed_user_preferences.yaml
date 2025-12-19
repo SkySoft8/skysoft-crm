@@ -1,7 +1,5 @@
 parameters:
     legacy.exposed_user_preferences:
-        Emails:
-            defaultOEAccount: true
         global:
             sort_modules_by_name: true
             navigation_paradigm: true
@@ -58,4 +56,3 @@ parameters:
             ui: true
             snooze_alert_timer: true
             language: true
-            is_two_factor_enabled: true

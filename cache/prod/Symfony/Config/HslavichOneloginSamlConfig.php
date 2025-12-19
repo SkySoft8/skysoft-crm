@@ -20,7 +20,7 @@ class HslavichOneloginSamlConfig implements \Symfony\Component\Config\Builder\Co
     private $contactPerson;
     private $organization;
     private $_usedProperties = [];
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -31,10 +31,10 @@ class HslavichOneloginSamlConfig implements \Symfony\Component\Config\Builder\Co
     {
         $this->_usedProperties['baseurl'] = true;
         $this->baseurl = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -45,10 +45,10 @@ class HslavichOneloginSamlConfig implements \Symfony\Component\Config\Builder\Co
     {
         $this->_usedProperties['entityManagerName'] = true;
         $this->entityManagerName = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -59,10 +59,10 @@ class HslavichOneloginSamlConfig implements \Symfony\Component\Config\Builder\Co
     {
         $this->_usedProperties['strict'] = true;
         $this->strict = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -73,10 +73,10 @@ class HslavichOneloginSamlConfig implements \Symfony\Component\Config\Builder\Co
     {
         $this->_usedProperties['debug'] = true;
         $this->debug = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -87,10 +87,10 @@ class HslavichOneloginSamlConfig implements \Symfony\Component\Config\Builder\Co
     {
         $this->_usedProperties['idp'] = true;
         $this->idp = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -101,10 +101,10 @@ class HslavichOneloginSamlConfig implements \Symfony\Component\Config\Builder\Co
     {
         $this->_usedProperties['sp'] = true;
         $this->sp = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -115,10 +115,10 @@ class HslavichOneloginSamlConfig implements \Symfony\Component\Config\Builder\Co
     {
         $this->_usedProperties['security'] = true;
         $this->security = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -129,10 +129,10 @@ class HslavichOneloginSamlConfig implements \Symfony\Component\Config\Builder\Co
     {
         $this->_usedProperties['contactPerson'] = true;
         $this->contactPerson = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -143,15 +143,15 @@ class HslavichOneloginSamlConfig implements \Symfony\Component\Config\Builder\Co
     {
         $this->_usedProperties['organization'] = true;
         $this->organization = $value;
-
+    
         return $this;
     }
-
+    
     public function getExtensionAlias(): string
     {
         return 'hslavich_onelogin_saml';
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('baseurl', $value)) {
@@ -159,60 +159,60 @@ class HslavichOneloginSamlConfig implements \Symfony\Component\Config\Builder\Co
             $this->baseurl = $value['baseurl'];
             unset($value['baseurl']);
         }
-
+    
         if (array_key_exists('entityManagerName', $value)) {
             $this->_usedProperties['entityManagerName'] = true;
             $this->entityManagerName = $value['entityManagerName'];
             unset($value['entityManagerName']);
         }
-
+    
         if (array_key_exists('strict', $value)) {
             $this->_usedProperties['strict'] = true;
             $this->strict = $value['strict'];
             unset($value['strict']);
         }
-
+    
         if (array_key_exists('debug', $value)) {
             $this->_usedProperties['debug'] = true;
             $this->debug = $value['debug'];
             unset($value['debug']);
         }
-
+    
         if (array_key_exists('idp', $value)) {
             $this->_usedProperties['idp'] = true;
             $this->idp = $value['idp'];
             unset($value['idp']);
         }
-
+    
         if (array_key_exists('sp', $value)) {
             $this->_usedProperties['sp'] = true;
             $this->sp = $value['sp'];
             unset($value['sp']);
         }
-
+    
         if (array_key_exists('security', $value)) {
             $this->_usedProperties['security'] = true;
             $this->security = $value['security'];
             unset($value['security']);
         }
-
+    
         if (array_key_exists('contactPerson', $value)) {
             $this->_usedProperties['contactPerson'] = true;
             $this->contactPerson = $value['contactPerson'];
             unset($value['contactPerson']);
         }
-
+    
         if (array_key_exists('organization', $value)) {
             $this->_usedProperties['organization'] = true;
             $this->organization = $value['organization'];
             unset($value['organization']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -243,7 +243,7 @@ class HslavichOneloginSamlConfig implements \Symfony\Component\Config\Builder\Co
         if (isset($this->_usedProperties['organization'])) {
             $output['organization'] = $this->organization;
         }
-
+    
         return $output;
     }
 

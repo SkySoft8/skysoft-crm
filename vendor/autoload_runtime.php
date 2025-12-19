@@ -15,12 +15,6 @@ $kernel = new Kernel($_SERVER['APP_ENV'], (bool)$_SERVER['APP_DEBUG']);
 
 $configValues = $kernel->getConfigValues() ?? [];
 $installerLocked = $configValues['installed_locked'] ?? false;
-
-if (!$installerLocked && file_exists('legacy/config.php') && !empty($_POST['install-checked'])){
-    header('Location: .');
-    return;
-}
-
 if (!file_exists('legacy/config.php') && !file_exists('../.installed_checked') && !file_exists('../.curl_check_main_page')) {
 
     if (empty($_POST['install-checked'])) {
@@ -57,7 +51,7 @@ if (!empty($legacyRoute)) {
 
     $access = $legacyRoute['access'] ?? false;
     if ($access === false) {
-        http_response_code(403);
+        http_response_code(404);
         exit;
     }
 

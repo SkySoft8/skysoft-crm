@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -27,14 +27,16 @@
 import {isEmpty} from 'lodash-es';
 import {Injectable} from '@angular/core';
 import {StateStore} from '../../../../store/state';
-import {emptyObject} from '../../../../common/utils/object-utils';
-import {isVoid} from '../../../../common/utils/value-utils';
-import {Field} from '../../../../common/record/field.model';
-import {ButtonInterface} from '../../../../common/components/button/button.model';
-import {DropdownButtonInterface} from '../../../../common/components/button/dropdown-button.model';
-import {SearchCriteriaFieldFilter} from '../../../../common/views/list/search-criteria.model';
-import {SearchMetaFieldMap} from '../../../../common/metadata/list.metadata.model';
-import {ViewMode} from '../../../../common/views/view.model';
+import {
+    ButtonInterface,
+    DropdownButtonInterface,
+    emptyObject,
+    Field,
+    isVoid,
+    SearchMetaFieldMap,
+    ViewMode,
+    SearchCriteriaFieldFilter
+} from 'common';
 import {map, take, tap} from 'rxjs/operators';
 import {BehaviorSubject, combineLatestWith, Observable, Subscription} from 'rxjs';
 import {FilterConfig} from '../../components/list-filter/list-filter.model';
@@ -243,8 +245,8 @@ export class ListFilterStore implements StateStore {
 
 
 
-            if (!isEmpty(fieldFilter?.operator) && field.display() === 'none') {
-                field.display.set('default');
+            if (!isEmpty(fieldFilter?.operator) && field.display === 'none') {
+                field.display = 'default';
             }
 
             this.fields.push(field);
@@ -269,7 +271,7 @@ export class ListFilterStore implements StateStore {
             const name = field.name;
 
 
-            if (field?.display() === 'none' || field.source === 'groupField') {
+            if (field.display === 'none' || field.source === 'groupField') {
                 return;
             }
 

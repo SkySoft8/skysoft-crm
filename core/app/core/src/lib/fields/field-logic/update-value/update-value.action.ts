@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2023 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2023 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -26,14 +26,8 @@
 
 import {Injectable} from '@angular/core';
 import {FieldLogicActionData, FieldLogicActionHandler} from '../field-logic.action';
-import {Action} from '../../../common/actions/action.model';
-import {Record} from '../../../common/record/record.model';
-import {Field} from '../../../common/record/field.model';
-import {StringArrayMap} from '../../../common/types/string-map';
-import {ViewMode} from '../../../common/views/view.model';
+import {Action, Field, Record, StringArrayMap, StringArrayMatrix, ViewMode} from 'common';
 import {ActiveFieldsChecker} from "../../../services/condition-operators/active-fields-checker.service";
-import {CurrencyFormatter} from "../../../services/formatters/currency/currency-formatter.service";
-import {ObjectArrayMatrix} from "../../../common/types/object-map";
 
 @Injectable({
     providedIn: 'root'
@@ -43,7 +37,7 @@ export class UpdateValueAction extends FieldLogicActionHandler {
     key = 'updateValue';
     modes = ['edit', 'detail', 'list', 'create', 'massupdate', 'filter'] as ViewMode[];
 
-    constructor(protected activeFieldsChecker: ActiveFieldsChecker, protected currencyFormatter: CurrencyFormatter) {
+    constructor(protected activeFieldsChecker: ActiveFieldsChecker) {
         super();
     }
 
@@ -58,7 +52,7 @@ export class UpdateValueAction extends FieldLogicActionHandler {
         const activeOnFields: StringArrayMap = (action.params && action.params.activeOnFields) || {} as StringArrayMap;
         const relatedFields: string[] = Object.keys(activeOnFields);
 
-        const activeOnAttributes: ObjectArrayMatrix = (action.params && action.params.activeOnAttributes) || {} as ObjectArrayMatrix;
+        const activeOnAttributes: StringArrayMatrix = (action.params && action.params.activeOnAttributes) || {} as StringArrayMatrix;
         const relatedAttributesFields: string[] = Object.keys(activeOnAttributes);
 
         if (!relatedFields.length && !relatedAttributesFields.length) {
@@ -79,37 +73,19 @@ export class UpdateValueAction extends FieldLogicActionHandler {
             value = targetValue;
         }
 
-        if (this.isCurrencyField(field)) {
-            const options = {
-                mode: 'edit' as ViewMode,
-                fromFormat: 'system'
-            }
-            value = this.currencyFormatter.toUserFormat(value, options);
-        }
-
         this.updateValue(field, value.toString(), record);
 
-    }
-
-    getTriggeringStatus(): string[] {
-        return ['onDependencyChange'];
     }
 
     /**
      * Update the new value
      * @param {object} field
-     * @param value
      * @param {object} record
      */
     protected updateValue(field: Field, value: string, record: Record): void {
-
         field.value = value.toString();
         field.formControl.setValue(value);
         // re-validate the parent form-control after value update
         record.formGroup.updateValueAndValidity({onlySelf: true, emitEvent: true});
-    }
-
-    protected isCurrencyField(field: Field): boolean {
-        return field.type === 'currency';
     }
 }

@@ -25,8 +25,6 @@ final class QueryCollection extends Query implements CollectionOperationInterfac
         ?array $args = null,
         ?array $extraArgs = null,
         ?array $links = null,
-        ?string $securityAfterResolver = null,
-        ?string $securityMessageAfterResolver = null,
 
         ?string $shortName = null,
         ?string $class = null,
@@ -73,7 +71,6 @@ final class QueryCollection extends Query implements CollectionOperationInterfac
         $processor = null,
         protected ?OptionsInterface $stateOptions = null,
         array|Parameters|null $parameters = null,
-        ?bool $queryParameterValidationEnabled = null,
         array $extraProperties = [],
 
         ?bool $nested = null,
@@ -83,8 +80,6 @@ final class QueryCollection extends Query implements CollectionOperationInterfac
             args: $args,
             extraArgs: $extraArgs,
             links: $links,
-            securityAfterResolver: $securityAfterResolver,
-            securityMessageAfterResolver: $securityMessageAfterResolver,
             shortName: $shortName,
             class: $class,
             paginationEnabled: $paginationEnabled,
@@ -129,7 +124,6 @@ final class QueryCollection extends Query implements CollectionOperationInterfac
             provider: $provider,
             processor: $processor,
             parameters: $parameters,
-            queryParameterValidationEnabled: $queryParameterValidationEnabled,
             extraProperties: $extraProperties,
             nested: $nested,
         );

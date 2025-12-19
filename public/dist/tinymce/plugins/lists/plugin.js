@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 7.4.1 (TBD)
+ * TinyMCE version 6.8.3 (2024-02-08)
  */
 
 (function () {
@@ -269,6 +269,7 @@
     const lift2 = (oa, ob, f) => oa.isSome() && ob.isSome() ? Optional.some(f(oa.getOrDie(), ob.getOrDie())) : Optional.none();
 
     const COMMENT = 8;
+    const DOCUMENT = 9;
     const DOCUMENT_FRAGMENT = 11;
     const ELEMENT = 1;
     const TEXT = 3;
@@ -381,9 +382,12 @@
     const isHTMLElement = element => isElement$1(element) && isPrototypeOf(element.dom);
     const isElement$1 = isType(ELEMENT);
     const isText = isType(TEXT);
+    const isDocument = isType(DOCUMENT);
     const isDocumentFragment = isType(DOCUMENT_FRAGMENT);
     const isTag = tag => e => isElement$1(e) && name(e) === tag;
 
+    const owner = element => SugarElement.fromDom(element.dom.ownerDocument);
+    const documentOrOwner = dos => isDocument(dos) ? dos : owner(dos);
     const parent = element => Optional.from(element.dom.parentNode).map(SugarElement.fromDom);
     const parentElement = element => Optional.from(element.dom.parentElement).map(SugarElement.fromDom);
     const nextSibling = element => Optional.from(element.dom.nextSibling).map(SugarElement.fromDom);
@@ -396,7 +400,8 @@
     const lastChild = element => child(element, element.dom.childNodes.length - 1);
 
     const isShadowRoot = dos => isDocumentFragment(dos) && isNonNullable(dos.dom.host);
-    const getRootNode = e => SugarElement.fromDom(e.dom.getRootNode());
+    const supported = isFunction(Element.prototype.attachShadow) && isFunction(Node.prototype.getRootNode);
+    const getRootNode = supported ? e => SugarElement.fromDom(e.dom.getRootNode()) : documentOrOwner;
     const getShadowRoot = e => {
       const r = getRootNode(e);
       return isShadowRoot(r) ? Optional.some(r) : Optional.none();
@@ -626,7 +631,7 @@
     const getForcedRootBlock = option('forced_root_block');
     const getForcedRootBlockAttrs = option('forced_root_block_attrs');
 
-    const createTextBlock = (editor, contentNode, attrs = {}) => {
+    const createTextBlock = (editor, contentNode) => {
       const dom = editor.dom;
       const blockElements = editor.schema.getBlockElements();
       const fragment = dom.createFragment();
@@ -635,10 +640,7 @@
       let node;
       let textBlock;
       let hasContentNode = false;
-      textBlock = dom.create(blockName, {
-        ...blockAttrs,
-        ...attrs.style ? { style: attrs.style } : {}
-      });
+      textBlock = dom.create(blockName, blockAttrs);
       if (!isBlock(contentNode.firstChild, blockElements)) {
         fragment.appendChild(textBlock);
       }
@@ -803,8 +805,7 @@
     const isListHost = (schema, node) => !isListNode(node) && !isListItemNode(node) && exists(listNames, listName => schema.isValidChild(node.nodeName, listName));
     const getClosestListHost = (editor, elm) => {
       const parentBlocks = editor.dom.getParents(elm, editor.dom.isBlock);
-      const isNotForcedRootBlock = elm => elm.nodeName.toLowerCase() !== getForcedRootBlock(editor);
-      const parentBlock = find(parentBlocks, elm => isNotForcedRootBlock(elm) && isListHost(editor.schema, elm));
+      const parentBlock = find(parentBlocks, elm => isListHost(editor.schema, elm));
       return parentBlock.getOr(editor.getBody());
     };
     const isListInsideAnLiWithFirstAndLastNotListElement = list => parent(list).exists(parent => isListItemNode(parent.dom) && firstChild(parent).exists(firstChild => !isListNode(firstChild.dom)) && lastChild(parent).exists(lastChild => !isListNode(lastChild.dom)));
@@ -836,11 +837,11 @@
     const isWithinNonEditable = (editor, element) => element !== null && !editor.dom.isEditable(element);
     const selectionIsWithinNonEditableList = editor => {
       const parentList = getParentList(editor);
-      return isWithinNonEditable(editor, parentList) || !editor.selection.isEditable();
+      return isWithinNonEditable(editor, parentList);
     };
     const isWithinNonEditableList = (editor, element) => {
       const parentList = editor.dom.getParent(element, 'ol,ul,dl');
-      return isWithinNonEditable(editor, parentList) || !editor.selection.isEditable();
+      return isWithinNonEditable(editor, parentList);
     };
     const setNodeChangeHandler = (editor, nodeChangeHandler) => {
       const initialNode = editor.selection.getNode();
@@ -1131,8 +1132,7 @@
       const normalizedEntries = normalizeEntries(entries);
       return map(normalizedEntries, entry => {
         const content = !isEntryComment(entry) ? fromElements(entry.content) : fromElements([SugarElement.fromHtml(`<!--${ entry.content }-->`)]);
-        const listItemAttrs = isEntryList(entry) ? entry.itemAttributes : {};
-        return SugarElement.fromDom(createTextBlock(editor, content.dom, listItemAttrs));
+        return SugarElement.fromDom(createTextBlock(editor, content.dom));
       });
     };
     const indentedComposer = (editor, entries) => {
@@ -1792,7 +1792,7 @@
       const selectionStartElm = editor.selection.getStart();
       const root = getClosestEditingHost(editor, selectionStartElm);
       const block = dom.getParent(selectionStartElm, dom.isBlock, root);
-      if (block && dom.isEmpty(block, undefined, { checkRootAsContent: true })) {
+      if (block && dom.isEmpty(block)) {
         const rng = normalizeRange(editor.selection.getRng());
         const otherLi = dom.getParent(findNextCaretContainer(editor, rng, isForward, root), 'LI', root);
         if (otherLi) {
@@ -1831,14 +1831,7 @@
     const backspaceDeleteRange = editor => {
       if (hasListSelection(editor)) {
         editor.undoManager.transact(() => {
-          let shouldFireInput = true;
-          const inputHandler = () => shouldFireInput = false;
-          editor.on('input', inputHandler);
           editor.execCommand('Delete');
-          editor.off('input', inputHandler);
-          if (shouldFireInput) {
-            editor.dispatch('input');
-          }
           normalizeLists(editor.dom, editor.getBody());
         });
         return true;

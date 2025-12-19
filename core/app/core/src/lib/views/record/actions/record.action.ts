@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -24,14 +24,13 @@
  * the words "Supercharged by SuiteCRM".
  */
 
-import {Action, ActionHandler, RecordBasedActionData} from '../../../common/actions/action.model';
-import {Record} from '../../../common/record/record.model';
+import {Action, ActionData, ActionHandler, Record} from 'common';
 import {RecordViewStore} from '../store/record-view/record-view.store';
 import {ModuleNavigation} from '../../../services/navigation/module-navigation/module-navigation.service';
-import {Params, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {RecordPaginationService} from "../store/record-pagination/record-pagination.service";
 
-export interface RecordActionData extends RecordBasedActionData {
+export interface RecordActionData extends ActionData {
     store: RecordViewStore;
     action?: Action;
 }
@@ -98,17 +97,10 @@ export abstract class RecordActionHandler extends ActionHandler<RecordActionData
         router: Router,
         recordPaginationService: RecordPaginationService,
         id: string,
-        moduleName: string,
-        params: { [p: string]: string }
+        moduleName: string
     ) {
         const nextRoute = navigation.getRecordRouterLink(moduleName, id);
-        const queryParams = { offset: recordPaginationService.getOffsetFromUrl() } as Params;
-
-        const section = params?.record_section ?? '';
-        if (section) {
-            queryParams.section = section;
-        }
-        router.navigate([nextRoute], { queryParams});
+        router.navigate([nextRoute], { queryParams: { offset: recordPaginationService.getOffsetFromUrl() }});
     }
 
 }

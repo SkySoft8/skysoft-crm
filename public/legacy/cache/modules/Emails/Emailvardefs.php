@@ -119,6 +119,8 @@
       'vname' => 'description',
       'source' => 'non-db',
       'inline_edit' => false,
+      'rows' => 6,
+      'cols' => 80,
     ),
     'deleted' => 
     array (
@@ -245,7 +247,7 @@
     array (
       'name' => 'to_addrs_names',
       'type' => 'varchar',
-      'vname' => 'LBL_TO',
+      'vname' => 'to_addrs_names',
       'source' => 'non-db',
       'inline_edit' => false,
     ),
@@ -253,7 +255,7 @@
     array (
       'name' => 'cc_addrs_names',
       'type' => 'varchar',
-      'vname' => 'LBL_CC',
+      'vname' => 'cc_addrs_names',
       'source' => 'non-db',
       'inline_edit' => false,
     ),
@@ -261,7 +263,7 @@
     array (
       'name' => 'bcc_addrs_names',
       'type' => 'varchar',
-      'vname' => 'LBL_BCC',
+      'vname' => 'bcc_addrs_names',
       'source' => 'non-db',
       'inline_edit' => false,
     ),
@@ -279,28 +281,6 @@
       'type' => 'varchar',
       'vname' => 'raw_source',
       'source' => 'non-db',
-      'inline_edit' => false,
-    ),
-    'email_attachments' => 
-    array (
-      'name' => 'email_attachments',
-      'type' => 'attachment',
-      'source' => 'non-db',
-      'vname' => 'LBL_ATTACHMENTS',
-      'metadata' => 
-      array (
-        'breakpoint' => 2,
-        'maxPerRow' => 2,
-        'popoverMaxTextLength' => '200px',
-        'popoverMinWidth' => '315px',
-        'compact' => true,
-        'maxTextWidth' => '75px',
-        'minWidth' => '185px',
-        'labelDisplay' => 'none',
-        'popoverLinkPosition' => 'side',
-        'storage_type' => 'private-documents',
-        'upload_maxsize' => 10000000,
-      ),
       'inline_edit' => false,
     ),
     'description_html' => 
@@ -393,7 +373,6 @@
       'type_name' => 'parent_type',
       'id_name' => 'parent_id',
       'vname' => 'LBL_EMAIL_RELATE',
-      'group' => 'parent_name',
       'type' => 'parent',
       'source' => 'non-db',
       'options' => 'record_type_display',
@@ -403,10 +382,7 @@
     array (
       'name' => 'parent_type',
       'vname' => 'LBL_PARENT_TYPE',
-      'type' => 'parent_type',
-      'dbType' => 'varchar',
-      'group' => 'parent_name',
-      'options' => 'parent_type_display',
+      'type' => 'varchar',
       'reportable' => false,
       'len' => 100,
       'comment' => 'Identifier of Sugar module to which this email is associated (deprecated as of 4.2)',
@@ -416,7 +392,6 @@
     array (
       'name' => 'parent_id',
       'vname' => 'LBL_PARENT_ID',
-      'group' => 'parent_name',
       'type' => 'id',
       'len' => '36',
       'reportable' => false,
@@ -458,6 +433,25 @@
         'name' => 'displaySubjectField',
         'returns' => 'html',
         'include' => 'modules/Emails/include/displaySubjectField.php',
+        'onListView' => true,
+      ),
+    ),
+    'attachment' => 
+    array (
+      'name' => 'attachment',
+      'vname' => 'LBL_ATTACHMENTS',
+      'type' => 'function',
+      'source' => 'non-db',
+      'massupdate' => 0,
+      'importable' => 'false',
+      'duplicate_merge' => 'disabled',
+      'studio' => 'visible',
+      'inline_edit' => false,
+      'function' => 
+      array (
+        'name' => 'displayAttachmentField',
+        'returns' => 'html',
+        'include' => 'modules/Emails/include/displayAttachmentField.php',
         'onListView' => true,
       ),
     ),
@@ -752,76 +746,6 @@
         'onListView' => true,
       ),
     ),
-    'outbound_email_id' => 
-    array (
-      'name' => 'outbound_email_id',
-      'vname' => 'LBL_OUTBOUND_EMAIL_ACOUNT_ID',
-      'type' => 'id',
-      'isnull' => true,
-      'required' => false,
-    ),
-    'outbound_email_name' => 
-    array (
-      'name' => 'outbound_email_name',
-      'rname' => 'from_addr',
-      'id_name' => 'outbound_email_id',
-      'db_concat_fields' => 
-      array (
-        0 => 'smtp_from_name',
-        1 => 'smtp_from_addr',
-      ),
-      'vname' => 'LBL_FROM',
-      'join_name' => 'outbound_email',
-      'type' => 'relate',
-      'showFilter' => false,
-      'filter' => 
-      array (
-        'preset' => 
-        array (
-          'type' => 'outbound-email',
-          'params' => 
-          array (
-            'module' => 'OutboundEmailAccounts',
-          ),
-        ),
-      ),
-      'initDefaultProcess' => 'outbound-email-default',
-      'defaultValueModes' => 
-      array (
-        0 => 'create',
-      ),
-      'filterOnEmpty' => true,
-      'link' => 'outbound_email',
-      'table' => 'outbound_email',
-      'isnull' => 'true',
-      'module' => 'OutboundEmailAccounts',
-      'dbType' => 'varchar',
-      'len' => '255',
-      'source' => 'non-db',
-      'reportable' => false,
-      'required' => true,
-      'massupdate' => false,
-      'inline_edit' => false,
-      'importable' => false,
-      'exportable' => false,
-      'unified_search' => false,
-    ),
-    'outbound_email' => 
-    array (
-      'name' => 'outbound_email',
-      'type' => 'link',
-      'relationship' => 'email_outbound_email_accounts',
-      'link_type' => 'one',
-      'source' => 'non-db',
-      'vname' => 'LBL_OUTBOUND_EMAIL_ACCOUNT',
-      'duplicate_merge' => 'disabled',
-      'reportable' => false,
-      'massupdate' => false,
-      'inline_edit' => false,
-      'importable' => false,
-      'exportable' => false,
-      'unified_search' => false,
-    ),
   ),
   'relationships' => 
   array (
@@ -954,16 +878,6 @@
       'join_key_rhs' => 'bean_id',
       'relationship_role_column' => 'bean_module',
       'relationship_role_column_value' => 'Meetings',
-    ),
-    'email_outbound_email_accounts' => 
-    array (
-      'lhs_module' => 'OutboundEmailAccounts',
-      'lhs_table' => 'outbound_email',
-      'lhs_key' => 'id',
-      'rhs_module' => 'Emails',
-      'rhs_table' => 'emails',
-      'rhs_key' => 'outbound_email_id',
-      'relationship_type' => 'one-to-many',
     ),
   ),
   'indices' => 

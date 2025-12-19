@@ -38,25 +38,21 @@
  * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$searchdefs['Schedulers'] = [
-    'templateMeta' => [
-        'maxColumns' => '3',
-        'widths' => ['label' => '10', 'field' => '30'],
-    ],
-    'layout' => [
-        'basic_search' => [
-            'name' => [
-                'name' => 'name',
-                'default' => true,
-                'width' => '10%',
-            ],
-        ],
-        'advanced_search' => [
-            'name' => [
-                'name' => 'name',
-                'default' => true,
-                'width' => '10%',
-            ],
-        ],
-    ],
-];
+  $searchdefs['Schedulers'] = array(
+                      'templateMeta' => array(
+                            'maxColumns' => '3',
+                            'widths' => array('label' => '10', 'field' => '30'),
+                           ),
+                      'layout' =>
+                      array(
+                        'basic_search' =>
+                        array(
+                          'name' =>
+                          array(
+                            'name' => 'name',
+                            'default' => true,
+                            'width' => '10%',
+                          ),
+                        ),
+                      ),
+);

@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -24,10 +24,10 @@
  * the words "Supercharged by SuiteCRM".
  */
 
-import {Component, OnDestroy, OnInit, signal, WritableSignal} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
-import {ViewContext} from '../../../../common/views/view.model';
-import {WidgetMetadata} from '../../../../common/metadata/widget.metadata';
+import {ViewContext, WidgetMetadata} from 'common';
+import {map} from 'rxjs/operators';
 import {MaxColumnsCalculator} from '../../../../services/ui/max-columns-calculator/max-columns-calculator.service';
 import {LanguageStore} from '../../../../store/language/language.store';
 import {ScreenSize} from '../../../../services/ui/screen-size-observer/screen-size-observer.service';
@@ -56,11 +56,10 @@ export class ListContainerComponent implements OnInit, OnDestroy {
     screen: ScreenSize = ScreenSize.Medium;
     maxColumns = 5;
     tableConfig: TableConfig;
-    showSidebar: WritableSignal<boolean> = signal(true);
-    swapWidgets: WritableSignal<boolean> = signal(false);
+    displayWidgets: boolean = true;
+    swapWidgets: boolean = false;
     sidebarWidgetConfig: any;
-    widgetDisplayType: WritableSignal<string> = signal('none');
-    displayWidgets: WritableSignal<boolean> = signal(false);
+    widgetDisplayType: string = 'none';
 
     protected subs: Subscription[] = [];
 
@@ -91,24 +90,12 @@ export class ListContainerComponent implements OnInit, OnDestroy {
 
         this.subs.push(this.sidebarWidgetAdapter.config$.subscribe(sidebarWidgetConfig => {
             this.sidebarWidgetConfig = sidebarWidgetConfig;
-            this.showSidebar.set(this.store.widgets && this.store.showSidebarWidgets);
-            const widgetDisplayType = this.getDisplay(!!(this.sidebarWidgetConfig.show && this.sidebarWidgetConfig.widgets));
-
-            if (widgetDisplayType !== this.widgetDisplayType()) {
-                if (widgetDisplayType === 'none') {
-                    this.displayWidgets.set(false);
-                } else {
-                    setTimeout(() => {
-                        this.displayWidgets.set(true);
-                    }, 500)
-                }
-            }
-
-            this.widgetDisplayType.set(widgetDisplayType);
+            this.displayWidgets = this.store.widgets && this.store.showSidebarWidgets;
+            this.widgetDisplayType = this.getDisplay(!!(this.sidebarWidgetConfig.show && this.sidebarWidgetConfig.widgets));
         }));
 
         this.subs.push(this.sidebarWidgetHandler.widgetSwap$.subscribe(swap => {
-            this.swapWidgets.set(swap);
+            this.swapWidgets = swap;
         }));
     }
 

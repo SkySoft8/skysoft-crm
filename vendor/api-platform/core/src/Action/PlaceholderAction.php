@@ -17,8 +17,6 @@ namespace ApiPlatform\Action;
  * Placeholder returning the data passed in parameter.
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
- *
- * @deprecated use ApiPlatform\Symfony\Action\PlaceholderAction
  */
 final class PlaceholderAction
 {

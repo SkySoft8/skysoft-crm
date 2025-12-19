@@ -1,9 +1,4 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
 /*********************************************************************************
  *
  * This program is free software; you can redistribute it and/or modify it under
@@ -59,7 +54,6 @@ $mod_strings = array(
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Мероприятия',
   'LBL_NEW_FORM_TITLE' => 'Создать уведомление',
   'LBL_IS_READ' => 'Прочитано',
-  'LBL_DATE_START' => 'Дата начала',
   
   'LBL_TYPE' => 'Тип',
 );

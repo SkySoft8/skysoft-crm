@@ -1,5 +1,5 @@
 <?php
-// created: 2025-11-19 09:05:42
+// created: 2025-04-23 14:26:02
 $mod_strings = array (
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Дата создания',
@@ -95,6 +95,5 @@ $mod_strings = array (
   'LBL_NO_ACCESS' => 'У вас нет прав на создание записи в модуле $module',
   'LBL_SCHEDULING_FORM_TITLE' => 'Участники',
   'LBL_NONE' => '--не выбрано--',
-  'LBL_TASKS_NOT_FOUND' => 'Нет задач для построения диаграммы Ганта',
   'LBL_AM_PROJECTTEMPLATES_PROJECT_1_FROM_PROJECT_TITLE' => 'Шаблоны проекта',
 );

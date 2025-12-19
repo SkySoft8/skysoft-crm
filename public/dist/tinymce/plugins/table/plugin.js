@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 7.4.1 (TBD)
+ * TinyMCE version 6.8.3 (2024-02-08)
  */
 
 (function () {
@@ -457,7 +457,8 @@
     const firstChild = element => child$3(element, 0);
 
     const isShadowRoot = dos => isDocumentFragment(dos) && isNonNullable(dos.dom.host);
-    const getRootNode = e => SugarElement.fromDom(e.dom.getRootNode());
+    const supported = isFunction(Element.prototype.attachShadow) && isFunction(Node.prototype.getRootNode);
+    const getRootNode = supported ? e => SugarElement.fromDom(e.dom.getRootNode()) : documentOrOwner;
     const getShadowRoot = e => {
       const r = getRootNode(e);
       return isShadowRoot(r) ? Optional.some(r) : Optional.none();
@@ -1502,8 +1503,8 @@
       return hexColour(value);
     };
 
-    const rgbRegex = /^\s*rgb\s*\(\s*(\d+)\s*[,\s]\s*(\d+)\s*[,\s]\s*(\d+)\s*\)\s*$/i;
-    const rgbaRegex = /^\s*rgba\s*\(\s*(\d+)\s*[,\s]\s*(\d+)\s*[,\s]\s*(\d+)\s*[,\s]\s*((?:\d?\.\d+|\d+)%?)\s*\)\s*$/i;
+    const rgbRegex = /^\s*rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)\s*$/i;
+    const rgbaRegex = /^\s*rgba\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d?(?:\.\d+)?)\s*\)\s*$/i;
     const rgbaColour = (red, green, blue, alpha) => ({
       red,
       green,
@@ -1518,6 +1519,9 @@
       return rgbaColour(r, g, b, a);
     };
     const fromString = rgbaString => {
+      if (rgbaString === 'transparent') {
+        return Optional.some(rgbaColour(0, 0, 0, 0));
+      }
       const rgbMatch = rgbRegex.exec(rgbaString);
       if (rgbMatch !== null) {
         return Optional.some(fromStringValues(rgbMatch[1], rgbMatch[2], rgbMatch[3], '1'));
@@ -1617,18 +1621,6 @@
         };
       }
     });
-    const buildClassList = classList => {
-      if (!classList.length) {
-        return Optional.none();
-      }
-      return Optional.some(buildListItems([
-        {
-          text: 'Select...',
-          value: 'mce-no-match'
-        },
-        ...classList
-      ]));
-    };
     const buildMenuItems = (editor, items, format, onAction) => map(items, item => {
       const text = item.text || item.title;
       if (isListGroup(item)) {
@@ -1690,17 +1682,28 @@
       editor.execCommand('mceTableColType', false, { type: newType });
     };
 
-    const getClassList$1 = editor => buildClassList(getCellClassList(editor)).map(items => ({
-      name: 'class',
-      type: 'listbox',
-      label: 'Class',
-      items
-    }));
+    const getClassList$1 = editor => {
+      const classes = buildListItems(getCellClassList(editor));
+      if (classes.length > 0) {
+        return Optional.some({
+          name: 'class',
+          type: 'listbox',
+          label: 'Class',
+          items: classes
+        });
+      }
+      return Optional.none();
+    };
     const children = [
       {
         name: 'width',
         type: 'input',
         label: 'Width'
+      },
+      {
+        name: 'height',
+        type: 'input',
+        label: 'Height'
       },
       {
         name: 'celltype',
@@ -2037,7 +2040,7 @@
             const comparisonValue = baseData[key];
             if (comparisonValue !== '' && key === itemKey) {
               if (comparisonValue !== itemValue) {
-                baseData[key] = key === 'class' ? 'mce-no-match' : '';
+                baseData[key] = '';
               }
             }
           });
@@ -2143,6 +2146,7 @@
       const getStyle = (element, style) => dom.getStyle(element, style) || dom.getAttrib(element, style);
       return {
         width: getStyle(colElm, 'width'),
+        height: getStyle(cell, 'height'),
         scope: dom.getAttrib(cell, 'scope'),
         celltype: getNodeName(cell),
         class: dom.getAttrib(cell, 'class', ''),
@@ -2165,8 +2169,11 @@
       if (shouldUpdate('scope')) {
         modifier.setAttrib('scope', data.scope);
       }
-      if (shouldUpdate('class') && data.class !== 'mce-no-match') {
+      if (shouldUpdate('class')) {
         modifier.setAttrib('class', data.class);
+      }
+      if (shouldUpdate('height')) {
+        modifier.setStyle('height', addPxSuffix(data.height));
       }
       if (shouldUpdate('width')) {
         colModifier.setStyle('width', addPxSuffix(data.width));
@@ -2290,12 +2297,18 @@
       });
     };
 
-    const getClassList = editor => buildClassList(getRowClassList(editor)).map(items => ({
-      name: 'class',
-      type: 'listbox',
-      label: 'Class',
-      items
-    }));
+    const getClassList = editor => {
+      const classes = buildListItems(getRowClassList(editor));
+      if (classes.length > 0) {
+        return Optional.some({
+          name: 'class',
+          type: 'listbox',
+          label: 'Class',
+          items: classes
+        });
+      }
+      return Optional.none();
+    };
     const formChildren = [
       {
         type: 'listbox',
@@ -2348,7 +2361,7 @@
     const getItems$1 = editor => formChildren.concat(getClassList(editor).toArray());
 
     const updateSimpleProps = (modifier, data, shouldUpdate) => {
-      if (shouldUpdate('class') && data.class !== 'mce-no-match') {
+      if (shouldUpdate('class')) {
         modifier.setAttrib('class', data.class);
       }
       if (shouldUpdate('height')) {
@@ -2370,16 +2383,10 @@
       const isSingleRow = rows.length === 1;
       const shouldOverrideCurrentValue = isSingleRow ? always : wasChanged;
       each(rows, rowElm => {
-        const rowCells = children$1(SugarElement.fromDom(rowElm), 'td,th');
         const modifier = DomModifier.normal(editor, rowElm);
         updateSimpleProps(modifier, data, shouldOverrideCurrentValue);
         if (hasAdvancedRowTab(editor)) {
           updateAdvancedProps(modifier, data, shouldOverrideCurrentValue);
-        }
-        if (wasChanged('height')) {
-          each(rowCells, cell => {
-            editor.dom.setStyle(cell.dom, 'height', null);
-          });
         }
         if (wasChanged('align')) {
           setAlign(editor, rowElm, data.align);
@@ -2544,8 +2551,8 @@
           ]
         }];
       const classListItem = classes.length > 0 ? [{
-          name: 'class',
           type: 'listbox',
+          name: 'class',
           label: 'Class',
           items: classes
         }] : [];
@@ -2573,8 +2580,7 @@
       const styles = {};
       const shouldStyleWithCss$1 = shouldStyleWithCss(editor);
       const hasAdvancedTableTab$1 = hasAdvancedTableTab(editor);
-      const borderIsZero = parseFloat(data.border) === 0;
-      if (!isUndefined(data.class) && data.class !== 'mce-no-match') {
+      if (!isUndefined(data.class)) {
         attrs.class = data.class;
       }
       styles.height = addPxSuffix(data.height);
@@ -2584,24 +2590,16 @@
         attrs.width = removePxSuffix(data.width);
       }
       if (shouldStyleWithCss$1) {
-        if (borderIsZero) {
-          attrs.border = 0;
-          styles['border-width'] = '';
-        } else {
-          styles['border-width'] = addPxSuffix(data.border);
-          attrs.border = 1;
-        }
+        styles['border-width'] = addPxSuffix(data.border);
         styles['border-spacing'] = addPxSuffix(data.cellspacing);
       } else {
-        attrs.border = borderIsZero ? 0 : data.border;
+        attrs.border = data.border;
         attrs.cellpadding = data.cellpadding;
         attrs.cellspacing = data.cellspacing;
       }
       if (shouldStyleWithCss$1 && tableElm.children) {
         const cellStyles = {};
-        if (borderIsZero) {
-          cellStyles['border-width'] = '';
-        } else if (shouldApplyOnCell.border) {
+        if (shouldApplyOnCell.border) {
           cellStyles['border-width'] = addPxSuffix(data.border);
         }
         if (shouldApplyOnCell.cellpadding) {
@@ -2636,6 +2634,9 @@
       const data = api.getData();
       const modifiedData = filter$1(data, (value, key) => oldData[key] !== value);
       api.close();
+      if (data.class === '') {
+        delete data.class;
+      }
       editor.undoManager.transact(() => {
         if (!tableElm) {
           const cols = toInt(data.cols).getOr(1);
@@ -2695,8 +2696,8 @@
           }
         }
       }
-      const classes = buildClassList(getTableClassList(editor));
-      if (classes.isSome()) {
+      const classes = buildListItems(getTableClassList(editor));
+      if (classes.length > 0) {
         if (data.class) {
           data.class = data.class.replace(/\s*mce\-item\-table\s*/g, '');
         }
@@ -2704,7 +2705,7 @@
       const generalPanel = {
         type: 'grid',
         columns: 2,
-        items: getItems(editor, classes.getOr([]), insertNewTable)
+        items: getItems(editor, classes, insertNewTable)
       };
       const nonAdvancedForm = () => ({
         type: 'panel',

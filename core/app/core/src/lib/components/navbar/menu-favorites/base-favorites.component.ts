@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -24,8 +24,8 @@
  * the words "Supercharged by SuiteCRM".
  */
 
-import {Component, Input, OnChanges, OnDestroy, OnInit, signal, SimpleChanges, WritableSignal} from '@angular/core';
-import {Favorite} from '../../../common/record/favorites.model';
+import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {Favorite} from 'common';
 import {ModuleNavigation} from '../../../services/navigation/module-navigation/module-navigation.service';
 import {ModuleNameMapper} from '../../../services/navigation/module-name-mapper/module-name-mapper.service';
 import {SystemConfigStore} from '../../../store/system-config/system-config.store';
@@ -37,7 +37,7 @@ import {Subscription} from 'rxjs';
 export class BaseFavoritesComponent implements OnInit, OnDestroy, OnChanges {
     @Input() module: string;
     maxDisplayed: number = 5;
-    records: WritableSignal<Favorite[]> = signal([]);
+    records: Favorite[];
     protected subs: Subscription[] = [];
 
     constructor(
@@ -92,7 +92,7 @@ export class BaseFavoritesComponent implements OnInit, OnDestroy, OnChanges {
         const moduleMeta$ = this.metadata.allModuleMetadata$.pipe(map(value => value[this.module] ?? null));
 
         this.subs.push(moduleMeta$.subscribe(meta => {
-            this.records.set(meta?.favorites ?? null);
+            this.records = meta?.favorites ?? null;
         }));
     }
 
@@ -101,7 +101,7 @@ export class BaseFavoritesComponent implements OnInit, OnDestroy, OnChanges {
      * @protected
      */
     protected clear() {
-        this.records.set(null);
+        this.records = null;
         this.subs.forEach(sub => sub.unsubscribe());
     }
 }

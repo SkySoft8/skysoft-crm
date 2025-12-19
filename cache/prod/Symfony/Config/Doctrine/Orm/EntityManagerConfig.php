@@ -40,7 +40,7 @@ class EntityManagerConfig
     private $dql;
     private $filters;
     private $_usedProperties = [];
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -53,20 +53,20 @@ class EntityManagerConfig
         if (!\is_array($value)) {
             $this->_usedProperties['queryCacheDriver'] = true;
             $this->queryCacheDriver = $value;
-
+    
             return $this;
         }
-
+    
         if (!$this->queryCacheDriver instanceof \Symfony\Config\Doctrine\Orm\EntityManagerConfig\QueryCacheDriverConfig) {
             $this->_usedProperties['queryCacheDriver'] = true;
             $this->queryCacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\QueryCacheDriverConfig($value);
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "queryCacheDriver()" has already been initialized. You cannot pass values the second time you call queryCacheDriver().');
         }
-
+    
         return $this->queryCacheDriver;
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -78,20 +78,20 @@ class EntityManagerConfig
         if (!\is_array($value)) {
             $this->_usedProperties['metadataCacheDriver'] = true;
             $this->metadataCacheDriver = $value;
-
+    
             return $this;
         }
-
+    
         if (!$this->metadataCacheDriver instanceof \Symfony\Config\Doctrine\Orm\EntityManagerConfig\MetadataCacheDriverConfig) {
             $this->_usedProperties['metadataCacheDriver'] = true;
             $this->metadataCacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\MetadataCacheDriverConfig($value);
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "metadataCacheDriver()" has already been initialized. You cannot pass values the second time you call metadataCacheDriver().');
         }
-
+    
         return $this->metadataCacheDriver;
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -104,20 +104,20 @@ class EntityManagerConfig
         if (!\is_array($value)) {
             $this->_usedProperties['resultCacheDriver'] = true;
             $this->resultCacheDriver = $value;
-
+    
             return $this;
         }
-
+    
         if (!$this->resultCacheDriver instanceof \Symfony\Config\Doctrine\Orm\EntityManagerConfig\ResultCacheDriverConfig) {
             $this->_usedProperties['resultCacheDriver'] = true;
             $this->resultCacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\ResultCacheDriverConfig($value);
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "resultCacheDriver()" has already been initialized. You cannot pass values the second time you call resultCacheDriver().');
         }
-
+    
         return $this->resultCacheDriver;
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -129,20 +129,20 @@ class EntityManagerConfig
         if (!\is_array($value)) {
             $this->_usedProperties['entityListeners'] = true;
             $this->entityListeners = $value;
-
+    
             return $this;
         }
-
+    
         if (!$this->entityListeners instanceof \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListenersConfig) {
             $this->_usedProperties['entityListeners'] = true;
             $this->entityListeners = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListenersConfig($value);
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "entityListeners()" has already been initialized. You cannot pass values the second time you call entityListeners().');
         }
-
+    
         return $this->entityListeners;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -152,10 +152,10 @@ class EntityManagerConfig
     {
         $this->_usedProperties['connection'] = true;
         $this->connection = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default 'Doctrine\\ORM\\Mapping\\ClassMetadataFactory'
      * @param ParamConfigurator|mixed $value
@@ -165,10 +165,10 @@ class EntityManagerConfig
     {
         $this->_usedProperties['classMetadataFactoryName'] = true;
         $this->classMetadataFactoryName = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default 'Doctrine\\ORM\\EntityRepository'
      * @param ParamConfigurator|mixed $value
@@ -178,10 +178,10 @@ class EntityManagerConfig
     {
         $this->_usedProperties['defaultRepositoryClass'] = true;
         $this->defaultRepositoryClass = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default false
      * @param ParamConfigurator|mixed $value
@@ -191,10 +191,10 @@ class EntityManagerConfig
     {
         $this->_usedProperties['autoMapping'] = true;
         $this->autoMapping = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default 'doctrine.orm.naming_strategy.default'
      * @param ParamConfigurator|mixed $value
@@ -204,10 +204,10 @@ class EntityManagerConfig
     {
         $this->_usedProperties['namingStrategy'] = true;
         $this->namingStrategy = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default 'doctrine.orm.quote_strategy.default'
      * @param ParamConfigurator|mixed $value
@@ -217,10 +217,10 @@ class EntityManagerConfig
     {
         $this->_usedProperties['quoteStrategy'] = true;
         $this->quoteStrategy = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -230,10 +230,10 @@ class EntityManagerConfig
     {
         $this->_usedProperties['entityListenerResolver'] = true;
         $this->entityListenerResolver = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default 'doctrine.orm.container_repository_factory'
      * @param ParamConfigurator|mixed $value
@@ -243,10 +243,10 @@ class EntityManagerConfig
     {
         $this->_usedProperties['repositoryFactory'] = true;
         $this->repositoryFactory = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
      *
@@ -256,10 +256,10 @@ class EntityManagerConfig
     {
         $this->_usedProperties['schemaIgnoreClasses'] = true;
         $this->schemaIgnoreClasses = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Set to "true" to opt-in to the new mapping driver mode that was added in Doctrine ORM 2.16 and will be mandatory in ORM 3.0. See https://github.com/doctrine/orm/pull/10455.
      * @default false
@@ -270,10 +270,10 @@ class EntityManagerConfig
     {
         $this->_usedProperties['reportFieldsWhereDeclared'] = true;
         $this->reportFieldsWhereDeclared = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Set to "true" to opt-in to the new mapping driver mode that was added in Doctrine ORM 2.14 and will be mandatory in ORM 3.0. See https://github.com/doctrine/orm/pull/6728.
      * @default false
@@ -284,10 +284,10 @@ class EntityManagerConfig
     {
         $this->_usedProperties['validateXmlMapping'] = true;
         $this->validateXmlMapping = $value;
-
+    
         return $this;
     }
-
+    
     public function secondLevelCache(array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCacheConfig
     {
         if (null === $this->secondLevelCache) {
@@ -296,10 +296,10 @@ class EntityManagerConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "secondLevelCache()" has already been initialized. You cannot pass values the second time you call secondLevelCache().');
         }
-
+    
         return $this->secondLevelCache;
     }
-
+    
     /**
      * @return $this
      */
@@ -307,10 +307,10 @@ class EntityManagerConfig
     {
         $this->_usedProperties['hydrators'] = true;
         $this->hydrators[$name] = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -322,20 +322,20 @@ class EntityManagerConfig
         if (!\is_array($value)) {
             $this->_usedProperties['mappings'] = true;
             $this->mappings[$name] = $value;
-
+    
             return $this;
         }
-
+    
         if (!isset($this->mappings[$name]) || !$this->mappings[$name] instanceof \Symfony\Config\Doctrine\Orm\EntityManagerConfig\MappingConfig) {
             $this->_usedProperties['mappings'] = true;
             $this->mappings[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\MappingConfig($value);
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "mapping()" has already been initialized. You cannot pass values the second time you call mapping().');
         }
-
+    
         return $this->mappings[$name];
     }
-
+    
     public function dql(array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\DqlConfig
     {
         if (null === $this->dql) {
@@ -344,10 +344,10 @@ class EntityManagerConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "dql()" has already been initialized. You cannot pass values the second time you call dql().');
         }
-
+    
         return $this->dql;
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -360,20 +360,20 @@ class EntityManagerConfig
         if (!\is_array($value)) {
             $this->_usedProperties['filters'] = true;
             $this->filters[$name] = $value;
-
+    
             return $this;
         }
-
+    
         if (!isset($this->filters[$name]) || !$this->filters[$name] instanceof \Symfony\Config\Doctrine\Orm\EntityManagerConfig\FilterConfig) {
             $this->_usedProperties['filters'] = true;
             $this->filters[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\FilterConfig($value);
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "filter()" has already been initialized. You cannot pass values the second time you call filter().');
         }
-
+    
         return $this->filters[$name];
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('query_cache_driver', $value)) {
@@ -381,126 +381,126 @@ class EntityManagerConfig
             $this->queryCacheDriver = \is_array($value['query_cache_driver']) ? new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\QueryCacheDriverConfig($value['query_cache_driver']) : $value['query_cache_driver'];
             unset($value['query_cache_driver']);
         }
-
+    
         if (array_key_exists('metadata_cache_driver', $value)) {
             $this->_usedProperties['metadataCacheDriver'] = true;
             $this->metadataCacheDriver = \is_array($value['metadata_cache_driver']) ? new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\MetadataCacheDriverConfig($value['metadata_cache_driver']) : $value['metadata_cache_driver'];
             unset($value['metadata_cache_driver']);
         }
-
+    
         if (array_key_exists('result_cache_driver', $value)) {
             $this->_usedProperties['resultCacheDriver'] = true;
             $this->resultCacheDriver = \is_array($value['result_cache_driver']) ? new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\ResultCacheDriverConfig($value['result_cache_driver']) : $value['result_cache_driver'];
             unset($value['result_cache_driver']);
         }
-
+    
         if (array_key_exists('entity_listeners', $value)) {
             $this->_usedProperties['entityListeners'] = true;
             $this->entityListeners = \is_array($value['entity_listeners']) ? new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListenersConfig($value['entity_listeners']) : $value['entity_listeners'];
             unset($value['entity_listeners']);
         }
-
+    
         if (array_key_exists('connection', $value)) {
             $this->_usedProperties['connection'] = true;
             $this->connection = $value['connection'];
             unset($value['connection']);
         }
-
+    
         if (array_key_exists('class_metadata_factory_name', $value)) {
             $this->_usedProperties['classMetadataFactoryName'] = true;
             $this->classMetadataFactoryName = $value['class_metadata_factory_name'];
             unset($value['class_metadata_factory_name']);
         }
-
+    
         if (array_key_exists('default_repository_class', $value)) {
             $this->_usedProperties['defaultRepositoryClass'] = true;
             $this->defaultRepositoryClass = $value['default_repository_class'];
             unset($value['default_repository_class']);
         }
-
+    
         if (array_key_exists('auto_mapping', $value)) {
             $this->_usedProperties['autoMapping'] = true;
             $this->autoMapping = $value['auto_mapping'];
             unset($value['auto_mapping']);
         }
-
+    
         if (array_key_exists('naming_strategy', $value)) {
             $this->_usedProperties['namingStrategy'] = true;
             $this->namingStrategy = $value['naming_strategy'];
             unset($value['naming_strategy']);
         }
-
+    
         if (array_key_exists('quote_strategy', $value)) {
             $this->_usedProperties['quoteStrategy'] = true;
             $this->quoteStrategy = $value['quote_strategy'];
             unset($value['quote_strategy']);
         }
-
+    
         if (array_key_exists('entity_listener_resolver', $value)) {
             $this->_usedProperties['entityListenerResolver'] = true;
             $this->entityListenerResolver = $value['entity_listener_resolver'];
             unset($value['entity_listener_resolver']);
         }
-
+    
         if (array_key_exists('repository_factory', $value)) {
             $this->_usedProperties['repositoryFactory'] = true;
             $this->repositoryFactory = $value['repository_factory'];
             unset($value['repository_factory']);
         }
-
+    
         if (array_key_exists('schema_ignore_classes', $value)) {
             $this->_usedProperties['schemaIgnoreClasses'] = true;
             $this->schemaIgnoreClasses = $value['schema_ignore_classes'];
             unset($value['schema_ignore_classes']);
         }
-
+    
         if (array_key_exists('report_fields_where_declared', $value)) {
             $this->_usedProperties['reportFieldsWhereDeclared'] = true;
             $this->reportFieldsWhereDeclared = $value['report_fields_where_declared'];
             unset($value['report_fields_where_declared']);
         }
-
+    
         if (array_key_exists('validate_xml_mapping', $value)) {
             $this->_usedProperties['validateXmlMapping'] = true;
             $this->validateXmlMapping = $value['validate_xml_mapping'];
             unset($value['validate_xml_mapping']);
         }
-
+    
         if (array_key_exists('second_level_cache', $value)) {
             $this->_usedProperties['secondLevelCache'] = true;
             $this->secondLevelCache = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCacheConfig($value['second_level_cache']);
             unset($value['second_level_cache']);
         }
-
+    
         if (array_key_exists('hydrators', $value)) {
             $this->_usedProperties['hydrators'] = true;
             $this->hydrators = $value['hydrators'];
             unset($value['hydrators']);
         }
-
+    
         if (array_key_exists('mappings', $value)) {
             $this->_usedProperties['mappings'] = true;
             $this->mappings = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\MappingConfig($v) : $v, $value['mappings']);
             unset($value['mappings']);
         }
-
+    
         if (array_key_exists('dql', $value)) {
             $this->_usedProperties['dql'] = true;
             $this->dql = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\DqlConfig($value['dql']);
             unset($value['dql']);
         }
-
+    
         if (array_key_exists('filters', $value)) {
             $this->_usedProperties['filters'] = true;
             $this->filters = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\FilterConfig($v) : $v, $value['filters']);
             unset($value['filters']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -564,7 +564,7 @@ class EntityManagerConfig
         if (isset($this->_usedProperties['filters'])) {
             $output['filters'] = array_map(fn ($v) => $v instanceof \Symfony\Config\Doctrine\Orm\EntityManagerConfig\FilterConfig ? $v->toArray() : $v, $this->filters);
         }
-
+    
         return $output;
     }
 

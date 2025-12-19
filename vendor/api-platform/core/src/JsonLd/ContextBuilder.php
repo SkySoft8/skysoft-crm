@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace ApiPlatform\JsonLd;
 
-use ApiPlatform\JsonLd\Serializer\HydraPrefixTrait;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\HttpOperation;
 use ApiPlatform\Metadata\IriConverterInterface;
@@ -33,13 +32,10 @@ use Symfony\Component\Serializer\NameConverter\NameConverterInterface;
 final class ContextBuilder implements AnonymousContextBuilderInterface
 {
     use ClassInfoTrait;
-    use HydraPrefixTrait;
 
     public const FORMAT = 'jsonld';
-    public const HYDRA_PREFIX = 'hydra:';
-    public const HYDRA_CONTEXT_HAS_PREFIX = 'hydra_prefix';
 
-    public function __construct(private readonly ResourceNameCollectionFactoryInterface $resourceNameCollectionFactory, private readonly ResourceMetadataCollectionFactoryInterface $resourceMetadataFactory, private readonly PropertyNameCollectionFactoryInterface $propertyNameCollectionFactory, private readonly PropertyMetadataFactoryInterface $propertyMetadataFactory, private readonly UrlGeneratorInterface $urlGenerator, private readonly ?IriConverterInterface $iriConverter = null, private readonly ?NameConverterInterface $nameConverter = null, private array $defaultContext = [])
+    public function __construct(private readonly ResourceNameCollectionFactoryInterface $resourceNameCollectionFactory, private readonly ResourceMetadataCollectionFactoryInterface $resourceMetadataFactory, private readonly PropertyNameCollectionFactoryInterface $propertyNameCollectionFactory, private readonly PropertyMetadataFactoryInterface $propertyMetadataFactory, private readonly UrlGeneratorInterface $urlGenerator, private readonly ?IriConverterInterface $iriConverter = null, private readonly ?NameConverterInterface $nameConverter = null)
     {
     }
 
@@ -85,10 +81,9 @@ final class ContextBuilder implements AnonymousContextBuilderInterface
             return [];
         }
 
-        $context = $operation->getNormalizationContext();
-        if ($context['iri_only'] ?? false) {
+        if ($operation->getNormalizationContext()['iri_only'] ?? false) {
             $context = $this->getBaseContext($referenceType);
-            $context[$this->getHydraPrefix($context).'member']['@type'] = '@id';
+            $context['hydra:member']['@type'] = '@id';
 
             return $context;
         }
@@ -165,7 +160,7 @@ final class ContextBuilder implements AnonymousContextBuilderInterface
             }
 
             if (!$id) {
-                $id = \sprintf('%s/%s', $shortName, $convertedName);
+                $id = sprintf('%s/%s', $shortName, $convertedName);
             }
 
             if (false === $propertyMetadata->isReadableLink()) {
@@ -182,10 +177,6 @@ final class ContextBuilder implements AnonymousContextBuilderInterface
                     '@id' => $id,
                 ];
             }
-        }
-
-        if (false === ($this->defaultContext[self::HYDRA_CONTEXT_HAS_PREFIX] ?? true)) {
-            return ['http://www.w3.org/ns/hydra/context.jsonld', $context];
         }
 
         return $context;

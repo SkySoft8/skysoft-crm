@@ -46,7 +46,6 @@ if (!defined('sugarEntry') || !sugarEntry) {
  * Class SuiteEditorMozaik
  *
  * Use Mozaik Editor as SuiteEditor
- * @deprecated since SuiteCRM 8.9.0
  */
 class SuiteEditorMozaik implements SuiteEditorInterface
 {

@@ -97,14 +97,6 @@ final class ContentNegotiationProvider implements ProviderInterface
      */
     private function getInputFormat(HttpOperation $operation, Request $request): ?string
     {
-        if (
-            false === ($input = $operation->getInput())
-            || (\is_array($input) && null === $input['class'])
-            || false === $operation->canDeserialize()
-        ) {
-            return null;
-        }
-
         $contentType = $request->headers->get('CONTENT_TYPE');
         if (null === $contentType || '' === $contentType) {
             return null;
@@ -116,15 +108,15 @@ final class ContentNegotiationProvider implements ProviderInterface
             return $format;
         }
 
-        if (!$request->isMethodSafe() && 'DELETE' !== $request->getMethod()) {
-            $supportedMimeTypes = [];
-            foreach ($formats as $mimeTypes) {
-                foreach ($mimeTypes as $mimeType) {
-                    $supportedMimeTypes[] = $mimeType;
-                }
+        $supportedMimeTypes = [];
+        foreach ($formats as $mimeTypes) {
+            foreach ($mimeTypes as $mimeType) {
+                $supportedMimeTypes[] = $mimeType;
             }
+        }
 
-            throw new UnsupportedMediaTypeHttpException(\sprintf('The content-type "%s" is not supported. Supported MIME types are "%s".', $contentType, implode('", "', $supportedMimeTypes)));
+        if (!$request->isMethodSafe() && 'DELETE' !== $request->getMethod()) {
+            throw new UnsupportedMediaTypeHttpException(sprintf('The content-type "%s" is not supported. Supported MIME types are "%s".', $contentType, implode('", "', $supportedMimeTypes)));
         }
 
         return null;

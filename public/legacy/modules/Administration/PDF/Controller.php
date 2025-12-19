@@ -66,7 +66,7 @@ class Controller extends AbstractController
      */
     public function doSave(): void
     {
-        $PDFEngine = filter_input(INPUT_POST, 'pdf-engine');
+        $PDFEngine = filter_input(INPUT_POST, 'pdf-engine', FILTER_SANITIZE_STRING);
 
         PDFConfigurator::make()
             ->setEngine($PDFEngine)

@@ -67,9 +67,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'sale_stage_task_c',
+            'name' => 'sales_stage_c',
             'studio' => 'visible',
-            'label' => 'LBL_SALE_STAGE_TASK',
+            'label' => 'LBL_SALES_STAGE',
           ),
         ),
         1 => 
@@ -97,9 +97,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'view_lid_c',
+            'name' => 'person_view_c',
             'studio' => 'visible',
-            'label' => 'LBL_VIEW_LID',
+            'label' => 'LBL_PERSON_VIEW',
           ),
         ),
         3 => 

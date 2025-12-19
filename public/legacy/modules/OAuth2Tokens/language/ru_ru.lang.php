@@ -1,9 +1,4 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
 /*********************************************************************************
  *
  * This program is free software; you can redistribute it and/or modify it under
@@ -28,8 +23,12 @@ if (!defined('sugarEntry') || !sugarEntry) {
   ***********************************************************************likhobory*/
 
   /*********************************************************************************
-  * Description : Defines the Russian language pack for the base application.
+  * Description : Defines the Russian language pack for the SuiteCRM application.
   *********************************************************************************/
+
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
 
 $mod_strings = array (
     'LBL_MODULE_NAME' => 'OAuth2-токены',
@@ -48,16 +47,16 @@ $mod_strings = array (
     'LBL_CLIENT_NAME'=> 'Клиент',
     'LBL_USER' => 'Пользователь',
     'LBL_IS_ACTIVE' => 'Отобразить только активные токены',
-	
+
     'LNK_OAUTH2_TOKEN_LIST'=> 'Токены',
-	'LNK_OAUTH2_CLIENT_LIST' => 'OAuth2-клиенты',
+    'LNK_OAUTH2_CLIENT_LIST' => 'OAuth2-клиенты',
 
     'LNK_NEW_OAUTH2_CLIENT'=> 'Создать OAuth2-клиента',
 	'LNK_NEW_OAUTH2_PASSWORD_CLIENT' => 'Добавить доступ по паролю ',
     'LNK_NEW_OAUTH2_CREDENTIALS_CLIENT' => 'Добавить доступ через клиентские полномочия',
     'LNK_NEW_OAUTH2_IMPLICIT_CLIENT' => 'Добавить неявный доступ',
     'LNK_NEW_OAUTH2_AUTHORIZATION_CLIENT' => 'Добавить доступ через код подтверждения',
-	
+
     'LBL_ACCESS_TOKEN' => 'Токен доступа',
     'LBL_REFRESH_TOKEN' => 'Токен обновления',
-    );
+);

@@ -76,7 +76,6 @@ $mod_strings = [
     'LBL_TYPE' => 'Type',
     'LBL_CONNECTOR' => 'Connector',
     'LBL_REDIRECT_URI' => 'Redirect URI',
-    'LBL_REDIRECT_URI_TYPE' => 'Redirect URI Type',
 
     'LBL_CLIENT_ID' => 'Client Id',
     'LBL_CLIENT_SECRET' => 'Client Secret',

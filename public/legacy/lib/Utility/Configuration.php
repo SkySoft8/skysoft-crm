@@ -68,7 +68,7 @@ class Configuration implements ArrayAccess
      * @param mixed $value
      * @throws Exception
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
             throw new Exception('[Configuration][missing offset]');
@@ -85,7 +85,7 @@ class Configuration implements ArrayAccess
      * @param mixed $offset
      * @return bool
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
     }
@@ -93,7 +93,7 @@ class Configuration implements ArrayAccess
     /**
      * @param mixed $offset
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
     }
@@ -102,7 +102,7 @@ class Configuration implements ArrayAccess
      * @param mixed $offset
      * @return mixed|null
      */
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }

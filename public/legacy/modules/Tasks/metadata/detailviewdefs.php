@@ -156,10 +156,7 @@ array(
           1 =>
           array(
             'name' => 'parent_name',
-            'metadata' => [
-                'dynamicFieldLabel' => 'LBL_RELATED_TO_DYNAMIC',
-                'emptyFieldLabel' => 'LBL_RELATED_TO',
-            ]
+            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
         ),
         2 =>
@@ -174,12 +171,10 @@ array(
         3 =>
         array(
           0 => 'priority',
-          1 => ''
         ),
         4 =>
         array(
           0 => 'description',
-          1 => ''
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' =>
@@ -191,7 +186,6 @@ array(
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
           ),
-          1 => ''
         ),
         1 =>
         array(

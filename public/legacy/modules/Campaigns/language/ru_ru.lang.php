@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -53,8 +49,6 @@ $mod_strings = array(
 'LBL_LIST_TYPE' => 'Тип' ,
 'LBL_LIST_START_DATE' => 'Дата начала',
 'LBL_LIST_END_DATE' => 'Дата окончания' ,
-'LBL_LIST_EXPECTED_REVENUE' => 'Ожидаемый доход',
-'LBL_LIST_EXPECTED_COST' => 'Ожидаемая стоимость',
 'LBL_DATE_ENTERED' => 'Дата создания' ,
 'LBL_DATE_MODIFIED' => 'Дата изменения' ,
 'LBL_MODIFIED' => 'Изменено: ' ,
@@ -81,7 +75,6 @@ $mod_strings = array(
 'LNK_NEW_CAMPAIGN' => 'Создать маркет. кампанию' ,
 'LNL_NEW_CAMPAIGN_WIZARD' => 'Мастер создания маркет. кампании',
 'LNK_CAMPAIGN_LIST' => 'Маркетинговые кампании' ,
-'LNK_IMPORT_CAMPAIGNS' => 'Импорт маркет. кампании',
 'LNK_NEW_PROSPECT' => 'Создать адресата' ,
 'LNK_PROSPECT_LIST' => 'Адресаты' ,
 'LNK_NEW_PROSPECT_LIST' => 'Создать список адресатов' ,
@@ -100,7 +93,7 @@ $mod_strings = array(
 'LBL_TRACKED_URLS_SUBPANEL_TITLE' => 'Список трекеров' ,
 'LBL_CAMPAIGN_ACCOUNTS_SUBPANEL_TITLE' => 'Контрагенты',
 'LBL_PROSPECT_LIST_SUBPANEL_TITLE' => 'Список адресатов' ,
-'LBL_HISTORY_SUBPANEL_TITLE' => 'История',
+'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
 'LBL_EMAIL_MARKETING_SUBPANEL_TITLE' => 'Рассылки E-mail' ,
 'LNK_NEW_EMAIL_TEMPLATE' => 'Создать шаблон E-mail' ,
 'LNK_EMAIL_TEMPLATE_LIST' => 'Шаблоны E-mail' ,
@@ -119,9 +112,8 @@ $mod_strings = array(
 'LBL_DEFAULT' => 'Список всех адресатов' ,
 'LBL_MESSAGE_QUEUE_TITLE' => 'Сообщения, находящиеся в очереди отправки' ,
 
-'LBL_LOG_ENTRIES_TARGETED_TITLE' => 'Отправленные/Попытки' ,
+'LBL_LOG_ENTRIES_TARGETED_TITLE' => 'Отправленные сообщения' ,
 'LBL_LOG_ENTRIES_SEND_ERROR_TITLE' => 'Возвращённые сообщения (другие причины)' ,
-'LBL_LOG_ENTRIES_BOUNCED_TITLE' => 'Возвращённые сообщения',
 'LBL_LOG_ENTRIES_INVALID_EMAIL_TITLE' => 'Возвращённые сообщения (неверный адрес)' ,
 'LBL_LOG_ENTRIES_LINK_TITLE' => 'Адресаты, перешедшие по ссылкам в полученном сообщении' ,
 'LBL_LOG_ENTRIES_VIEWED_TITLE' => 'Просмотренные сообщения' ,
@@ -130,6 +122,7 @@ $mod_strings = array(
 'LBL_CAMPAIGN_LEAD_SUBPANEL_TITLE' => 'Предварительные контакты',
 'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки',
 'LBL_LOG_ENTRIES_CONTACT_TITLE' => 'Созданные контакты' ,
+'LNK_IMPORT_CAMPAIGNS' => 'Импорт маркет. кампании',
 
 //error messages.
 'ERR_SENDING_NOW' => 'Сообщения не доставлены, пожалуйста, попробуйте позже.' ,
@@ -260,7 +253,6 @@ $mod_strings = array(
 'LBL_WIZ_FROM_NAME' => 'От (имя)',
 'LBL_WIZ_FROM_ADDRESS' => 'От (адрес)',
 'LBL_EMAILS_PER_RUN' => 'Количество писем, отправляемых одномоментно при пакетной рассылке:',
-'LBL_CAMPAIGN_MARKETING_RECORDS_PER_RUN' => 'Количество одновременно обрабатываемых рассылок:',
 'LBL_CUSTOM_LOCATION' => 'Задаётся вручную',
 'LBL_DEFAULT_LOCATION' => 'По умолчанию',
 'ERR_INT_ONLY_EMAIL_PER_RUN' => 'Только целые значения разрешены для указания количества писем, отправляемых одномоментно при пакетной рассылке',
@@ -333,7 +325,6 @@ $mod_strings = array(
 'LBL_LEAD_FOOTER' => 'Нижний колонтитул формы:',
 'NTC_NO_LEGENDS' => 'Нет легенды',
 'NTC_DELETE_CONFIRMATION' => 'Вы действительно хотите удалить эту запись?',
-'NTC_SNOOZE_CONFIRMATION' => 'Вы действительно хотите отложить уведомление?',
 'LBL_DESCRIPTION_LEAD_FORM' => 'Описание формы:',
 'LBL_DESCRIPTION_TEXT_LEAD_FORM' => 'В результате отправки этой формы будет создан предварительный контакт, связанный с текущей маркетинговой кампанией.',
 'LBL_DOWNLOAD_TEXT_WEB_TO_LEAD_FORM' => 'Пожалуйста, просмотрите',
@@ -344,7 +335,7 @@ $mod_strings = array(
 //Campaign charts
 'LBL_CAMPAIGN_RETURN_ON_INVESTMENT' => 'Показатель рентабельности инвестиций (ROI)',
 'LBL_CAMPAIGN_RESPONSE_BY_RECIPIENT_ACTIVITY' => 'Активность маркет. кампании',
-'LBL_LOG_ENTRIES_BLOCKED_TITLE' => 'Исключённых/заблокированных',
+'LBL_LOG_ENTRIES_BLOCKEDD_TITLE' => 'Заблокированные адресаты',
 
 'LBL_AMOUNT_IN' => 'Сумма в ',
 
@@ -415,8 +406,8 @@ $mod_strings = array(
 'LBL_ATTACHMENTS' => 'Добавить вложения',
 'ERR_MISSING_REQUIRED_FIELDS' => 'Пропущено обязательное поле',
 'LBL_SUITE_DOCUMENT' => 'Добавить документ',
-'LBL_UPLOAD_FILE' => 'Загрузить файл',
 'LBL_EMAIL_ATTACHMENT' => 'Вложение',
+'LBL_UPLOAD_FILE' => 'Загрузить файл',
 'LBL_PROCESS_BOUNCED_EMAILS' => 'Обработка возвращаемых писем',
 'LBL_PROCESS_CAMPAIGN_EMAILS' => 'Обработка рассылаемых писем',
 'LBL_SENDER_DETAILS' => 'Параметры отправителя',
@@ -465,17 +456,8 @@ $mod_strings = array(
 
 'LBL_EMAIL_MARKETING' => 'Рассылки E-mail',
 'LBL_QUEUE_ITEMS' => 'Элементы очереди',
-'LBL_PROSPECT_LISTS' => 'Списки Адресатов',
-'LBL_SUPPRESSION_LISTS' => 'Списки исключённых из рассылки',
-'LBL_SUPPRESSION_LISTS_HELP' => 'Списки Адресатов применяются ко всем получателям в рамках текущей кампании.',
-'LBL_SUPPRESSION_LISTS_UNSUBSCRIBED_HELP' => 'Отписавшиеся добавляются в один из списков исключения по идентификатору.',
-'LBL_SUPPRESSION_LISTS_UNSUBSCRIBED_AUTO_CREATE_HELP' => 'Если не выбран список исключения по идентификатору, система создаст стандартный список исключений для текущей кампании.',
-'LBL_SUPPRESSION_LISTS_UNSUBSCRIBED_NONE_SELECTED_HELP' => 'Если удалены все списки исключения по идентификатору, отписавшийся получатель будет исключён из всех рассылок.',
+'LBL_PROSPECT_LISTS' => 'Списки адресатов',
 'LBL_SURVEYRESPONSES_CAMPAIGNS_FROM_SURVEYRESPONSES_TITLE' => 'Результаты опроса',
 'LBL_CAMPAIGN_SURVEY' => 'Опрос',
-'LBL_CAMPAIGN_ACTIONS' => 'Действия маркетинговой кампании',
-'LBL_NEW_EM_SURVEY' => 'Создать опросное письмо',
-'LBL_TARGET_LISTS_HELP' => 'Списки Адресатов, доступные в рамках текущей маркетинговой кампании.',
-'LBL_CAMPAIGN_START_DATE_HELP' => 'Планируемая дата начала кампании.',
-'LBL_CAMPAIGN_END_DATE_HELP' => 'Планируемая дата окончания кампании, не влияет на окончание процесса отправки писем.',
+
 );

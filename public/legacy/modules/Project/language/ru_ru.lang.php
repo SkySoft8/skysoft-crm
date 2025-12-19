@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -73,7 +69,7 @@ $mod_strings = array(
 'LBL_ALL_CONTACTS' => 'Все контакты',
 
 // quick create label
-'LBL_NEW_FORM_TITLE' => 'Новый проект',
+'LBL_NEW_FORM_TITLE' => 'Создать проект',
 
 
 'LNK_NEW_PROJECT' => 'Создать проект' ,
@@ -191,7 +187,7 @@ $mod_strings = array(
   'LBL_RESOURCE_CHART_QUARTER' => 'Квартал',
   'LBL_AM_PROJECTTEMPLATES_PROJECT_1_FROM_PROJECT_TITLE' => 'Шаблоны проекта',
   'LBL_AOS_QUOTES_PROJECT' => 'Проекты-Предложения',
-  'LBL_TASKS_NOT_FOUND' => 'Нет задач для построения диаграммы Ганта',
+  
   'LBL_ASCENDING' => 'Восходящая',
   'LBL_DESCENDING' => 'Нисходящая',
 );

@@ -1,13 +1,13 @@
 <! --
 /**
-* SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
-* Copyright (C) 2021 SuiteCRM Ltd.
+* SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+* Copyright (C) 2021 SalesAgility Ltd.
 *
 * This program is free software; you can redistribute it and/or modify it under
 * the terms of the GNU Affero General Public License version 3 as published by the
 * Free Software Foundation with the addition of the following permission added
 * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
-* IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+* IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
 * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
 *
 * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -29,104 +29,95 @@
     <scrm-label [labelKey]="this.messageLabelKey"></scrm-label>
 </div>
 
-<div *ngIf="!this.messageLabelKey"
+<div *ngIf="!this.messageLabelKey && (vm$| async) as vm"
      class="grid-widget d-flex flex-column"
-     ngbTooltip="{{tooltipTitleText()}}" placement="auto" container="body">
+     ngbTooltip="{{vm.tooltipTitleText}}" placement="auto" container="body">
 
-    <ng-container *ngFor="let item of layout()">
+    <ng-container *ngFor="let item of vm.layout">
 
-        <div *ngIf="!item?.activeOnFields || (item?.activeOnFields && item?.active)" class="d-flex {{getJustify(item.justify)}} {{getAlign(item.align)}} {{getRowClass()}} {{getLayoutRowClass(item)}}">
+        <div
+            class="d-flex {{getJustify(item.justify)}} {{getAlign(item.align)}} {{getRowClass()}} {{getLayoutRowClass(item)}}">
 
-            <ng-container *ngFor="let col of item.cols">
-                <ng-container *ngIf="!(col.hideIfLoading && loading())">
-                    <div *ngIf="!col?.activeOnFields || (col?.activeOnFields && col?.active)" class="{{getColClass()}} {{getClass(col)}}">
-                        <ng-container *ngIf="col.display !== 'hidden'">
+            <div class="{{getColClass()}} {{getClass(col)}}" *ngFor="let col of item.cols">
 
-                            <!-- ICON -->
-                            <ng-container *ngIf="col.icon">
-                                <div class="widget-entry-icon">
-                                    <scrm-image [image]="col.icon" [klass]="col.iconClass"></scrm-image>
-                                </div>
-                            </ng-container>
+                <ng-container *ngIf="col.display !== 'hidden'">
 
-                            <!-- VALUE -->
-                            <ng-container *ngIf="col.statistic && (statisticsMap()[col.statistic]) as statistics">
+                    <!-- ICON -->
+                    <ng-container *ngIf="col.icon">
+                        <div class="widget-entry-icon">
+                            <scrm-image [image]="col.icon" [klass]="col.iconClass"></scrm-image>
+                        </div>
+                    </ng-container>
 
-                                <div *ngIf="!loading() && statistics.field" class="widget-entry-value {{col?.valueClass ?? ''}}">
+                    <!-- VALUE -->
+                    <ng-container *ngIf="col.statistic && (vm.statistics[col.statistic]) as statistics">
 
-                                    <scrm-field [type]="statistics.field.type"
-                                                [field]="statistics.field"
-                                                mode="list">
-                                    </scrm-field>
+                        <div *ngIf="statistics.field" class="widget-entry-value">
 
-                                </div>
-                                <div *ngIf="initializing() || (statistics.loading && loading())" class="widget-entry-loading">
+                            <scrm-field [type]="statistics.field.type"
+                                        [field]="statistics.field"
+                                        mode="list">
+                            </scrm-field>
 
-                                    <div class="pb-2 widget-entry-value">
-                                        <div class=" rounded box-loading skeleton-field-content">
-                                            ...
-                                        </div>
-                                    </div>
+                        </div>
+                        <div *ngIf="statistics.loading && loading" class="widget-entry-loading">
 
-                                </div>
-                            </ng-container>
+                            <scrm-inline-loading-spinner></scrm-inline-loading-spinner>
 
-                            <!-- LABEL -->
-                            <ng-container *ngIf="col.labelKey">
+                        </div>
+                    </ng-container>
 
-                                <div class="widget-entry-label text-truncate {{col?.labelClass ?? ''}}">
+                    <!-- LABEL -->
+                    <ng-container *ngIf="col.labelKey">
 
-                                    <scrm-label [labelKey]="col.labelKey" [module]="getContextModule()"></scrm-label>
+                        <div class="widget-entry-label text-truncate">
 
-                                </div>
+                            <scrm-label [labelKey]="col.labelKey" [module]="getContextModule()"></scrm-label>
 
-                            </ng-container>
+                        </div>
 
-                            <!-- DESCRIPTION TEXT -->
-                            <ng-container *ngIf="col.descriptionKey">
+                    </ng-container>
 
-                                <div class="text-truncate widget-entry-label">
+                    <!-- DESCRIPTION TEXT -->
+                    <ng-container *ngIf="col.descriptionKey">
 
-                                    <label>{{description()}}</label>
+                        <div class="text-truncate widget-entry-label">
 
-                                </div>
+                            <label>{{vm.description}}</label>
 
-                            </ng-container>
+                        </div>
 
-                            <!-- DYNAMIC LABEL -->
-                            <ng-container *ngIf="col.dynamicLabel">
+                    </ng-container>
 
-                                <div *ngIf="!loading()" class="widget-entry-dynamic-label text-truncate {{col?.dynamicLabelClass ?? ''}}">
+                    <!-- DYNAMIC LABEL -->
+                    <ng-container *ngIf="col.dynamicLabel">
 
-                                    <scrm-dynamic-label [context]="getMessageContext()"
-                                                        [fields]="getMessageFields(statisticsMap())"
-                                                        [labelKey]="col.dynamicLabel">
-                                    </scrm-dynamic-label>
+                        <div *ngIf="!loading" class="widget-entry-dynamic-label">
 
-                                </div>
+                            <scrm-dynamic-label [context]="getMessageContext()"
+                                                [fields]="getMessageFields(vm.statistics)"
+                                                [labelKey]="col.dynamicLabel">
+                            </scrm-dynamic-label>
 
-                                <div *ngIf="loading()" class="widget-entry-loading">
-                                    <scrm-inline-loading-spinner></scrm-inline-loading-spinner>
-                                </div>
+                        </div>
 
-                            </ng-container>
+                        <div *ngIf="loading" class="widget-entry-loading">
+                            <scrm-inline-loading-spinner></scrm-inline-loading-spinner>
+                        </div>
 
-                            <!-- MISCONFIGURATION -->
-                            <ng-container *ngIf="!initializing()">
-                                <ng-container
-                                        *ngIf="col.statistic && !loading() && (!statisticsMap()[col.statistic].field || (statisticsMap()[col.statistic].field && isEmptyFieldValue(statisticsMap()[col.statistic].field.value)))">
-                                    <div class="widget-entry-value {{getSizeClass(col.size)}}">
-                                        -
-                                    </div>
-                                </ng-container>
-                            </ng-container>
+                    </ng-container>
 
+                    <!-- MISCONFIGURATION -->
+                    <ng-container
+                        *ngIf="col.statistic && !loading && (!vm.statistics[col.statistic].field || (vm.statistics[col.statistic].field && isEmptyFieldValue(vm.statistics[col.statistic].field.value)))">
+                        <div class="widget-entry-value {{getSizeClass(col.size)}}">
+                            -
+                        </div>
+                    </ng-container>
 
-                        </ng-container>
-                    </div>
                 </ng-container>
-            </ng-container>
 
+            </div>
 
         </div>
     </ng-container>

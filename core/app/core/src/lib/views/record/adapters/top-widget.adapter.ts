@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -27,67 +27,31 @@
 import {Injectable} from '@angular/core';
 import {combineLatestWith} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {MetadataStore, RecordViewSectionMetadata} from '../../../store/metadata/metadata.store.service';
+import {MetadataStore, RecordViewMetadata} from '../../../store/metadata/metadata.store.service';
 import {RecordViewStore} from '../store/record-view/record-view.store';
-import {ActiveFieldsChecker} from "../../../services/condition-operators/active-fields-checker.service";
-import {ObjectMap} from "../../../common/types/object-map";
-import {Record} from "../../../common/record/record.model";
 
 @Injectable()
 export class TopWidgetAdapter {
 
-    config$ = this.store.sectionMetadata$.pipe(
-        combineLatestWith(this.store.showTopWidget$, this.store.stagingRecord$),
-        map(([metadata, show, record]: [RecordViewSectionMetadata, boolean, Record]) => {
-            const topWidget = metadata.topWidget ?? null;
-            if (topWidget && topWidget.refreshOn === 'data-update') {
-                topWidget.reload$ = this.store.record$.pipe(map(() => true));
-            }
+    config$ = this.metadata.recordViewMetadata$.pipe(
+        combineLatestWith(this.store.showTopWidget$),
+        map(([metadata, show]: [RecordViewMetadata, boolean]) => {
 
-            if (topWidget.activeOnFields && Object.keys(topWidget.activeOnFields).length) {
-                show = this.isActive(topWidget.activeOnFields, record);
+            if (metadata.topWidget && metadata.topWidget.refreshOn === 'data-update') {
+                metadata.topWidget.reload$ = this.store.record$.pipe(map(() => true));
             }
 
             return {
-                widget: topWidget,
-                show: !!(show && topWidget && topWidget.type)
+                widget: metadata.topWidget,
+                show
             };
         })
     );
 
     constructor(
         protected store: RecordViewStore,
-        protected metadata: MetadataStore,
-        protected activeFieldsChecker: ActiveFieldsChecker
+        protected metadata: MetadataStore
     ) {
-    }
-
-    protected isActive(activeOnFields: ObjectMap, record: Record): boolean {
-
-        const fieldKeys = Object.keys(activeOnFields);
-
-        if (!activeOnFields || !fieldKeys.length) {
-            return true;
-        }
-
-        if (!record || !record?.fields || !Object.keys(record?.fields ?? {}).length) {
-            return false;
-        }
-
-        return fieldKeys.every(fieldKey => {
-
-            const field = record.fields[fieldKey];
-
-            if (!field) {
-                return true; // If field is not present, consider it active
-            }
-
-            const activeOn = activeOnFields[fieldKey] || null;
-
-
-            return this.activeFieldsChecker.isValueActive(record, field, activeOn);
-
-        });
     }
 
 }

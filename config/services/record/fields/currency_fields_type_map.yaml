@@ -4,6 +4,8 @@ parameters:
       currency:
         display: 'inline'
         showLabel:
+          edit: ['{currency}','{currency_id}']
+          filter: ['*']
         definition:
           '{currency}':
             logic:
@@ -12,14 +14,8 @@ parameters:
                 modes: ['edit', 'create', 'massupdate', 'filter']
                 params:
                   fieldDependencies: ['{currency_id}']
-                  currencyIdField: '{currency_id}'
-                  baseCurrencyField: '{base_currency}'
-                triggeringStatus: ['onAnyLogic']
           '{currency_id}':
             modes: ['edit', 'create', 'massupdate', 'filter']
-            metadata:
-              widthAuto: true
-              widthFull: false
             type: 'enum'
             options: '__no_options__'
           '{base_currency}':
@@ -30,6 +26,3 @@ parameters:
                 modes: ['edit', 'create', 'massupdate', 'filter']
                 params:
                   fieldDependencies: ['{currency}']
-                  currencyField: '{currency}'
-                  currencyIdField: '{currency_id}'
-                triggeringStatus: ['onAnyLogic']

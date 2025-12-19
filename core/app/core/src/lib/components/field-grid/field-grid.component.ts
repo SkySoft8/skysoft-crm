@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -26,8 +26,7 @@
 
 import {Component, Input, OnChanges} from '@angular/core';
 import {BreakpointObserver} from '@angular/cdk/layout';
-import {Field} from '../../common/record/field.model';
-import {Record} from '../../common/record/record.model';
+import {Field, Record} from 'common';
 import {FieldGridColumn, FieldGridRow} from './field-grid.model';
 import {BaseFieldGridComponent} from './base-field-grid.component';
 
@@ -80,6 +79,11 @@ export class FieldGridComponent extends BaseFieldGridComponent implements OnChan
 
             col++;
         });
+
+        const lastRow = grid[grid.length - 1];
+        if (col < this.colNumber) {
+            this.fillRow(lastRow);
+        }
 
         this.addSpecialSlots(grid);
 

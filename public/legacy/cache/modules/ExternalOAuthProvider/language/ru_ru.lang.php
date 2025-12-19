@@ -1,5 +1,5 @@
 <?php
-// created: 2025-11-19 09:06:00
+// created: 2025-04-23 14:26:06
 $mod_strings = array (
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Дата создания',
@@ -38,8 +38,7 @@ $mod_strings = array (
   'LBL_LIST_DELETE' => 'Удалить',
   'LBL_TYPE' => 'Тип провайдера',
   'LBL_CONNECTOR' => 'Подключение',
-  'LBL_REDIRECT_URI' => 'URI для перенаправления',
-  'LBL_REDIRECT_URI_TYPE' => 'Тип URI для перенаправления',
+  'LBL_REDIRECT_URI' => 'URI перенаправления',
   'LBL_CLIENT_ID' => 'ID клиента',
   'LBL_CLIENT_SECRET' => 'Секрет клиента',
   'LBL_SCOPE' => 'Область',

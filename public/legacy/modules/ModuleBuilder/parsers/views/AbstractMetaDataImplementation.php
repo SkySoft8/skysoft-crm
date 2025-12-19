@@ -461,7 +461,7 @@ abstract class AbstractMetaDataImplementation
         // BEGIN ASSERTIONS
         if ($type != MB_BASEMETADATALOCATION && $type != MB_HISTORYMETADATALOCATION) {
             // just warn rather than die
-            $GLOBALS ['log']->warn(
+            $GLOBALS ['log']->warning(
                 "UndeployedMetaDataImplementation->getFileName(): view type $type is not recognized"
             );
         }

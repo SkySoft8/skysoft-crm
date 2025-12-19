@@ -1,9 +1,4 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -134,7 +129,6 @@ $mod_strings = array(
 'LBL_NO_ACCESS' => 'У вас нет прав на создание записи в модуле $module',
 'LBL_SCHEDULING_FORM_TITLE' => 'Участники',
 'LBL_NONE' => '--не выбрано--',
-'LBL_TASKS_NOT_FOUND' => 'Нет задач для построения диаграммы Ганта',
 
 'LBL_AM_PROJECTTEMPLATES_PROJECT_1_FROM_PROJECT_TITLE' => 'Шаблоны проекта',
 	

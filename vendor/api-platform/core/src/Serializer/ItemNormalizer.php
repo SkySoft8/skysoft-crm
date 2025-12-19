@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace ApiPlatform\Serializer;
 
+use ApiPlatform\Exception\InvalidArgumentException as LegacyInvalidArgumentException;
 use ApiPlatform\Metadata\Exception\InvalidArgumentException;
 use ApiPlatform\Metadata\HttpOperation;
 use ApiPlatform\Metadata\IriConverterInterface;
@@ -75,7 +76,7 @@ class ItemNormalizer extends AbstractItemNormalizer
     {
         try {
             $context[self::OBJECT_TO_POPULATE] = $this->iriConverter->getResourceFromIri((string) $data['id'], $context + ['fetch_data' => true]);
-        } catch (InvalidArgumentException) {
+        } catch (LegacyInvalidArgumentException|InvalidArgumentException) {
             $operation = $this->resourceMetadataCollectionFactory?->create($context['resource_class'])->getOperation();
             if (
                 !$operation || (

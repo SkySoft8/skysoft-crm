@@ -17,8 +17,6 @@ use ApiPlatform\Metadata\Exception\ExceptionInterface;
 
 /**
  * This Exception is thrown when any parameter validation fails.
- *
- * @deprecated use \ApiPlatform\Metadata\Parameter::$constraints instead
  */
 interface ValidationExceptionInterface extends ExceptionInterface, \Stringable
 {

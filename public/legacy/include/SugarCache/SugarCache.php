@@ -162,7 +162,7 @@ class SugarCache
         if (SugarCache::isOPcacheEnabled()) {
             // three attempts incase concurrent opcache operations pose a lock
             for ($i = 3; $i && !opcache_invalidate($file, true); --$i) {
-                usleep(20000);
+                sleep(0.2);
             }
 
             if (!$i) {

@@ -35,8 +35,6 @@ use Psr\Container\ContainerInterface;
  *
  * @author Alan Poulain <contact@alanpoulain.eu>
  * @author Vincent Chalamon <vincentchalamon@gmail.com>
- *
- * @deprecated
  */
 final class ItemMutationResolverFactory implements ResolverFactoryInterface
 {
@@ -87,7 +85,7 @@ final class ItemMutationResolverFactory implements ResolverFactoryInterface
                 $mutationResolver = $this->mutationResolverLocator->get($mutationResolverId);
                 $item = $mutationResolver($item, $resolverContext);
                 if (null !== $item && $resourceClass !== $itemClass = $this->getObjectClass($item)) {
-                    throw new \LogicException(\sprintf('Custom mutation resolver "%s" has to return an item of class %s but returned an item of class %s.', $mutationResolverId, $operation->getShortName(), (new \ReflectionClass($itemClass))->getShortName()));
+                    throw new \LogicException(sprintf('Custom mutation resolver "%s" has to return an item of class %s but returned an item of class %s.', $mutationResolverId, $operation->getShortName(), (new \ReflectionClass($itemClass))->getShortName()));
                 }
             }
 

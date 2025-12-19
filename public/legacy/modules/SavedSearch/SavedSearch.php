@@ -325,7 +325,7 @@ class SavedSearch extends SugarBean
                 $_SESSION['LastSavedView'] = array();
             }
             $_SESSION['LastSavedView'][$row['search_module']] = $row['id'];
-            $contents = unserialize(base64_decode($row['contents']), ['allowed_classes' => false]);
+            $contents = unserialize(base64_decode($row['contents']));
             $saved_search_id = $row['id'];
             $saved_search_name = $row['name'];
         }
@@ -494,7 +494,7 @@ class SavedSearch extends SugarBean
     public function retrieveSavedSearch($id)
     {
         parent::retrieve($id);
-        $this->contents = unserialize(base64_decode($this->contents), ['allowed_classes' => false]);
+        $this->contents = unserialize(base64_decode($this->contents));
     }
 
     public function populateRequest()

@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -146,6 +142,6 @@ $mod_strings = array(
 'LBL_SECURITYGROUPS' => 'Группы пользователей',
 'LBL_PROSPECT_LIST' => 'Список адресатов',
 
-'LBL_FACTOR_AUTH_INTERFACE' => 'Интерфейс двухэтапной аутентификации:',
+'LBL_FACTOR_AUTH_INTERFACE' => 'Интерфейс двухфакторной аутентификации:',
 'LBL_EDITOR_TYPE' => 'Редактор',
 );

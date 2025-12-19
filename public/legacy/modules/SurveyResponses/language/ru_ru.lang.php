@@ -1,9 +1,4 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
 /*********************************************************************************
  *
  * This program is free software; you can redistribute it and/or modify it under
@@ -74,5 +69,6 @@ $mod_strings = array(
   'LBL_SURVEYRESPONSES_CAMPAIGNS_FROM_CAMPAIGNS_TITLE' => 'Маркет. кампания',
   'LBL_QUESTION' => 'Вопрос',
   'LBL_RESPONSE' => 'Ответ'
+
 
 );

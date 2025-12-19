@@ -124,12 +124,7 @@
             <div class="hideUnusedSavedSearchElements" scope='row' width='10%'
                  nowrap="nowrap"{if !$savedSearchData.selected} style="display: none;"{/if}>
                 <label>{sugar_translate label='LBL_MODIFY_CURRENT_FILTER' module='SavedSearch'}: <span
-                            id='curr_search_name'>
-                        {if isset($savedSearchData.options[$savedSearchData.selected])}
-                            "{$savedSearchData.options[$savedSearchData.selected]}"
-                        {/if}
-                    </span>
-                </label>
+                            id='curr_search_name'>"{$savedSearchData.options[$savedSearchData.selected]}"</span></label>
             </div>
             <div class="hideUnusedSavedSearchElements" width='30%'
                  nowrap{if !$savedSearchData.selected} style="display: none;"{/if}>

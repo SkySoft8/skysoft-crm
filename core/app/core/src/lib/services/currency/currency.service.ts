@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -26,8 +26,7 @@
 
 import {Injectable} from '@angular/core';
 import {SystemConfigStore} from '../../store/system-config/system-config.store';
-import {Field} from '../../common/record/field.model';
-import {Record} from '../../common/record/record.model';
+import {Field, Record} from 'common';
 import {divide, multiply, round} from 'mathjs';
 import {UserPreferenceStore} from '../../store/user-preference/user-preference.store';
 
@@ -56,13 +55,9 @@ export class CurrencyService {
             return field.value;
         }
 
-        let currency = this.getUserCurrency();
+        const userCurrency = this.getUserCurrency();
 
-        if (!currency?.id) {
-            currency = this.getBaseCurrency();
-        }
-
-        return this.baseToCurrency(currency.id, value).toString();
+        return this.baseToCurrency(userCurrency.id, value).toString();
     }
 
     baseToCurrency(currencyId: string, value: number): number {

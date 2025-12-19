@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -24,19 +24,27 @@
  * the words "Supercharged by SuiteCRM".
  */
 
-import {Injectable, signal, WritableSignal} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {StateStore} from '../../../../store/state';
 import {RecordList, RecordListStore} from '../../../../store/record-list/record-list.store';
 import {BehaviorSubject, forkJoin, Observable, Subscription} from 'rxjs';
 import {RecordListStoreFactory} from '../../../../store/record-list/record-list.store.factory';
 import {LanguageStore} from '../../../../store/language/language.store';
-import {deepClone} from '../../../../common/utils/object-utils';
-import {Record} from '../../../../common/record/record.model';
-import {SearchCriteria, SearchCriteriaFilter} from '../../../../common/views/list/search-criteria.model';
-import {ColumnDefinition, SearchMeta, RecordListMeta} from '../../../../common/metadata/list.metadata.model';
-import {Statistic, StatisticsQuery, StatisticsQueryMap} from '../../../../common/statistics/statistics.model';
-import {StatisticWidgetOptions} from '../../../../common/metadata/widget.metadata';
-import {SubPanelDefinition} from '../../../../common/metadata/subpanel.metadata.model';
+import {
+    ColumnDefinition,
+    deepClone,
+    Record,
+    RecordListMeta,
+    SearchCriteria,
+    SearchCriteriaFilter,
+    SearchMeta,
+    Statistic,
+    StatisticsMap,
+    StatisticsQuery,
+    StatisticsQueryMap,
+    StatisticWidgetOptions,
+    SubPanelDefinition
+} from 'common';
 import {SingleValueStatisticsStore} from '../../../../store/single-value-statistics/single-value-statistics.store';
 import {
     SingleValueStatisticsStoreFactory
@@ -47,7 +55,6 @@ import {map, take, tap} from "rxjs/operators";
 import {MetadataStore} from "../../../../store/metadata/metadata.store.service";
 import {SavedFilter, SavedFilterMap} from "../../../../store/saved-filters/saved-filter.model";
 import {UserPreferenceStore} from "../../../../store/user-preference/user-preference.store";
-import {PanelCollapseMode} from "../../../../components/panel/panel.component";
 
 export interface SubpanelStoreMap {
     [key: string]: SubpanelStore;
@@ -72,13 +79,11 @@ export class SubpanelStore implements StateStore {
     columns$: Observable<ColumnDefinition[]>;
     metadata: SubPanelDefinition;
     loading$: Observable<boolean>;
-    panelCollapseMode: WritableSignal<PanelCollapseMode> = signal('closable');
 
     // Filter variables
     filterList: FilterListStore;
     criteria$: Observable<SearchCriteria>;
-    showFilter: WritableSignal<boolean> = signal(false);
-    loaded: WritableSignal<boolean> = signal(false);
+    showFilter = false;
     filterApplied = false;
 
     preferenceKey = null;
@@ -112,7 +117,7 @@ export class SubpanelStore implements StateStore {
             label = (moduleList && moduleList[this.metadata.title_key]) || '';
         }
 
-        return label ?? this.metadata.title_key;
+        return label;
     }
 
     getIcon(): string {
@@ -133,7 +138,7 @@ export class SubpanelStore implements StateStore {
 
     searchFilter() {
         this.filterApplied = true;
-        this.showFilter.set(false);
+        this.showFilter = false;
     }
 
     /**
@@ -216,7 +221,6 @@ export class SubpanelStore implements StateStore {
      * @returns {object} Observable<RecordList>
      */
     public load(useCache = true): Observable<RecordList> {
-        this.loaded.set(true);
         return this.recordList.load(useCache);
     }
 
@@ -241,7 +245,7 @@ export class SubpanelStore implements StateStore {
     public clearFilter(): void {
         this.resetFilters();
         this.filterApplied = false;
-        this.showFilter.set(false);
+        this.showFilter = false;
     }
 
     /**
@@ -249,7 +253,7 @@ export class SubpanelStore implements StateStore {
      *
      * @param {string} parentModule name
      * @param {string} parentId id
-     * @param meta
+     * @param {string} subpanel name
      */
     initSearchCriteria(parentModule: string, parentId: string, meta: SubPanelDefinition) {
         const sortOrder = meta?.sort_order ?? 'desc';
@@ -321,7 +325,7 @@ export class SubpanelStore implements StateStore {
      */
     public shouldBatchStatistic(): boolean {
         const metadata: SubPanelDefinition = this.metadata || {} as SubPanelDefinition;
-        return !(metadata.subpanelWidget && metadata.subpanelWidget.batch && metadata.subpanelWidget.batch === false);
+        return !(metadata.insightWidget && metadata.insightWidget.batch && metadata.insightWidget.batch === false);
     }
 
     /**
@@ -413,11 +417,11 @@ export class SubpanelStore implements StateStore {
     public getWidgetLayout(): StatisticWidgetOptions {
 
         const meta = this.metadata;
-        if (!meta || !meta.subpanelWidget || !meta.subpanelWidget.options || !meta.subpanelWidget.options.subpanelWidget) {
+        if (!meta || !meta.insightWidget || !meta.insightWidget.options || !meta.insightWidget.options.insightWidget) {
             return {rows: []} as StatisticWidgetOptions;
         }
 
-        const layout = deepClone(meta.subpanelWidget.options.subpanelWidget);
+        const layout = deepClone(meta.insightWidget.options.insightWidget);
 
         if (!layout.rows || !layout.rows.length) {
             layout.rows = {};
@@ -427,8 +431,7 @@ export class SubpanelStore implements StateStore {
     }
 
     public toggleFilter(): boolean {
-        this.showFilter.set(!this.showFilter());
-        return this.showFilter();
+        return this.showFilter = !this.showFilter;
     }
 
     /**

@@ -346,7 +346,7 @@ class Process implements \IteratorAggregate
 
         $process = @proc_open($commandline, $descriptors, $this->processPipes->pipes, $this->cwd, $envPairs, $this->options);
 
-        if (!$process) {
+        if (!\is_resource($process)) {
             throw new RuntimeException('Unable to launch a new process.');
         }
         $this->process = $process;
@@ -1400,9 +1400,8 @@ class Process implements \IteratorAggregate
     private function close(): int
     {
         $this->processPipes->close();
-        if ($this->process) {
+        if (\is_resource($this->process)) {
             proc_close($this->process);
-            $this->process = null;
         }
         $this->exitcode = $this->processInformation['exitcode'];
         $this->status = self::STATUS_TERMINATED;
@@ -1536,14 +1535,7 @@ class Process implements \IteratorAggregate
             $cmd
         );
 
-        static $comSpec;
-
-        if (!$comSpec && $comSpec = (new ExecutableFinder())->find('cmd.exe')) {
-            // Escape according to CommandLineToArgvW rules
-            $comSpec = '"'.preg_replace('{(\\\\*+)"}', '$1$1\"', $comSpec) .'"';
-        }
-
-        $cmd = ($comSpec ?? 'cmd').' /V:ON /E:ON /D /C ('.str_replace("\n", ' ', $cmd).')';
+        $cmd = 'cmd /V:ON /E:ON /D /C ('.str_replace("\n", ' ', $cmd).')';
         foreach ($this->processPipes->getFiles() as $offset => $filename) {
             $cmd .= ' '.$offset.'>"'.$filename.'"';
         }
@@ -1589,7 +1581,7 @@ class Process implements \IteratorAggregate
         if (str_contains($argument, "\0")) {
             $argument = str_replace("\0", '?', $argument);
         }
-        if (!preg_match('/[()%!^"<>&|\s]/', $argument)) {
+        if (!preg_match('/[\/()%!^"<>&|\s]/', $argument)) {
             return $argument;
         }
         $argument = preg_replace('/(\\\\+)$/', '$1$1', $argument);

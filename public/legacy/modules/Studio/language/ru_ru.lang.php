@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -60,7 +56,6 @@ $mod_strings = array(
 'LBL_HISTORY' => 'История',
 
 //WIZARDS
-
 //STUDIO WIZARD
 'LBL_SW_WELCOME' => '<h2>Добро пожаловать в студию!</h2><br> Что бы вы хотели сделать?<br><b> Пожалуйста, выберите необходимую опцию.</b>',
 'LBL_SW_EDIT_MODULE' => 'Редактирование модуля',
@@ -72,10 +67,10 @@ $mod_strings = array(
 'LBL_SW_REPAIR_CUSTOMFIELDS' => 'Восстановление пользовательских полей',
 'LBL_SW_MIGRATE_CUSTOMFIELDS' => 'Перемещение пользовательских полей',
 
-// JS LABELS
-'LBL_REBUILD_JAVASCRIPT_LANG_DESC_SHORT' => 'Перестройка javascript-версий языковых файлов',
-'LBL_REBUILD_JAVASCRIPT_LANG_DESC' => 'Удаление javascript-версий языковых файлов; файлы будут восстановлены при первой необходимости.',
 
+//SELECT MODULE WIZARD
+
+//SELECT MODULE ACTION
 
 //Manager Backups History
 'LBL_MB_DELETE' => 'Удалить',
@@ -86,7 +81,9 @@ $mod_strings = array(
 'LBL_DROPDOWN_LANGUAGE' => 'Язык содержимого комбобокса:',
 'LBL_TABGROUP_LANGUAGE' => 'Выберите язык:',
 
-	
+//EDIT CUSTOM FIELDS
+
+//SELECT MODULE
 //END WIZARDS
 
 //DROP DOWN EDITOR
@@ -107,8 +104,10 @@ $mod_strings = array(
 
 //TABS
 'LBL_MODULES' => 'Модули',
+//nsingh: begin bug#15095 fix
 'LBL_MODULE_NAME' => 'Администрирование',
 'LBL_CONFIGURE_GROUP_TABS' => 'Настройка сгруппированных модулей',
+//end bug #15095 fix
 'LBL_GROUP_TAB_WELCOME' => 'Сгруппированные модули будут использоваться всякий раз, как только пользователь выберет на странице настроек параметров пользователя в качестве принципа навигации сгруппированные модули вместо обычных модулей. Вы можете перемещать закладки модулей между группами для настройки их расположения. Пустые группы не будут отображаться в панели закладок.',
 'LBL_RENAME_TAB_WELCOME' => ' Нажмите на необходимом названии закладки для её переименования.',
 'LBL_DELETE_MODULE' => 'Удалить&nbsp;модуль<br />из&nbsp;группы',

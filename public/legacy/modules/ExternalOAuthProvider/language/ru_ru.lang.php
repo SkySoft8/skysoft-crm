@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -66,8 +62,7 @@ $mod_strings = [
  'LBL_LIST_DELETE' => 'Удалить',
  'LBL_TYPE' => 'Тип провайдера',
  'LBL_CONNECTOR' => 'Подключение',
- 'LBL_REDIRECT_URI' => 'URI для перенаправления',
- 'LBL_REDIRECT_URI_TYPE' => 'Тип URI для перенаправления',
+ 'LBL_REDIRECT_URI' => 'URI перенаправления',
 
  'LBL_CLIENT_ID' => 'ID клиента',
  'LBL_CLIENT_SECRET' => 'Секрет клиента',

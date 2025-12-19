@@ -113,9 +113,6 @@ class HtmlSanitizer
      */
     public static function cleanHtml($dirtyHtml, $removeHtml = false)
     {
-        if (is_null($dirtyHtml)){
-            return null;
-        }
         return self::getInstance()->clean($dirtyHtml, $removeHtml);
     }
 
@@ -179,7 +176,7 @@ class HtmlSanitizer
 
         foreach ($configKeys as $configKey) {
             // no base config, set the custom config
-            if (!isset($baseConfigs[$configKey]) && isset($extraConfigs[$configKey])) {
+            if (!isset($baseConfigs[$configKey])) {
                 $config->set($configKey, $extraConfigs[$configKey]);
                 continue;
             }

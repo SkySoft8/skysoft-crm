@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -29,13 +29,10 @@ import {CommonModule} from '@angular/common';
 import {FieldModule} from '../../../../fields/field.module';
 import {RecordContainerModule} from '../../../record/components/record-container/record-container.module';
 import {CreateRecordComponent} from './create-record.component';
+import {RecordHeaderModule} from '../../../record/components/record-header/record-header.module';
 import {StatusBarModule} from '../../../../components/status-bar/status-bar.module';
 import {RecordModule} from '../../../record/components/record-view/record.module';
 import {SubpanelModule} from '../../../../containers/subpanel/components/subpanel/subpanel.module';
-import {DynamicComponent} from "ng-dynamic-component";
-import {
-    BaseRecordHeaderModule
-} from "../../../record/components/record-header/base-record-header/base-record-header.module";
 
 @NgModule({
     declarations: [CreateRecordComponent],
@@ -45,10 +42,9 @@ import {
         FieldModule,
         RecordModule,
         RecordContainerModule,
-        BaseRecordHeaderModule,
+        RecordHeaderModule,
         StatusBarModule,
-        SubpanelModule,
-        DynamicComponent
+        SubpanelModule
     ],
 })
 export class CreateRecordModule {

@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021-2023 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021-2023 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -25,7 +25,7 @@
  */
 
 import {Injectable} from '@angular/core';
-import {Message, MessageTypes} from '../../common/types/messages';
+import {Message, MessageTypes} from 'common';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {SystemConfigStore} from '../../store/system-config/system-config.store';
 
@@ -69,19 +69,6 @@ export class MessageService {
         return found;
     }
 
-    addMessageByTypeWithKey(type: string, labelKey: string, defaultText: string = null): number {
-        const message = {
-            type: MessageTypes[type],
-            labelKey
-        } as Message;
-
-        if (defaultText) {
-            message.defaultText = defaultText;
-        }
-
-        return this.addMessage(message);
-    }
-
     addMessage(message: Message): number {
         // push message only if it does not contains already...
         let ret = -1;
@@ -122,17 +109,11 @@ export class MessageService {
         });
     }
 
-    addSuccessMessageByKey(labelKey: string, defaultText:string = null): number {
-        const message = {
+    addSuccessMessageByKey(labelKey: string): number {
+        return this.addMessage({
             type: MessageTypes.success,
             labelKey
-        } as Message;
-
-        if (defaultText) {
-            message.defaultText = defaultText;
-        }
-
-        return this.addMessage(message);
+        });
     }
 
     addDangerMessage(text: string): number {
@@ -142,18 +123,11 @@ export class MessageService {
         });
     }
 
-    addDangerMessageByKey(labelKey: string, defaultText: string = null): number {
-
-        const message = {
+    addDangerMessageByKey(labelKey: string): number {
+        return this.addMessage({
             type: MessageTypes.danger,
             labelKey
-        } as Message;
-
-        if (defaultText) {
-            message.defaultText = defaultText;
-        }
-
-        return this.addMessage(message);
+        });
     }
 
     addWarningMessage(text: string): number {
@@ -163,17 +137,11 @@ export class MessageService {
         });
     }
 
-    addWarningMessageByKey(labelKey: string, defaultText: string = null): number {
-        const message = {
+    addWarningMessageByKey(labelKey: string): number {
+        return this.addMessage({
             type: MessageTypes.warning,
             labelKey
-        } as Message;
-
-        if (defaultText) {
-            message.defaultText = defaultText;
-        }
-
-        return this.addMessage(message);
+        });
     }
 
     addInfoMessage(text: string): number {

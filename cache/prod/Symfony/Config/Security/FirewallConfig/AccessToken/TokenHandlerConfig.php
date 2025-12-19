@@ -17,7 +17,7 @@ class TokenHandlerConfig
     private $oidcUserInfo;
     private $oidc;
     private $_usedProperties = [];
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -27,10 +27,10 @@ class TokenHandlerConfig
     {
         $this->_usedProperties['id'] = true;
         $this->id = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -42,20 +42,20 @@ class TokenHandlerConfig
         if (!\is_array($value)) {
             $this->_usedProperties['oidcUserInfo'] = true;
             $this->oidcUserInfo = $value;
-
+    
             return $this;
         }
-
+    
         if (!$this->oidcUserInfo instanceof \Symfony\Config\Security\FirewallConfig\AccessToken\TokenHandler\OidcUserInfoConfig) {
             $this->_usedProperties['oidcUserInfo'] = true;
             $this->oidcUserInfo = new \Symfony\Config\Security\FirewallConfig\AccessToken\TokenHandler\OidcUserInfoConfig($value);
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "oidcUserInfo()" has already been initialized. You cannot pass values the second time you call oidcUserInfo().');
         }
-
+    
         return $this->oidcUserInfo;
     }
-
+    
     public function oidc(array $value = []): \Symfony\Config\Security\FirewallConfig\AccessToken\TokenHandler\OidcConfig
     {
         if (null === $this->oidc) {
@@ -64,10 +64,10 @@ class TokenHandlerConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "oidc()" has already been initialized. You cannot pass values the second time you call oidc().');
         }
-
+    
         return $this->oidc;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('id', $value)) {
@@ -75,24 +75,24 @@ class TokenHandlerConfig
             $this->id = $value['id'];
             unset($value['id']);
         }
-
+    
         if (array_key_exists('oidc_user_info', $value)) {
             $this->_usedProperties['oidcUserInfo'] = true;
             $this->oidcUserInfo = \is_array($value['oidc_user_info']) ? new \Symfony\Config\Security\FirewallConfig\AccessToken\TokenHandler\OidcUserInfoConfig($value['oidc_user_info']) : $value['oidc_user_info'];
             unset($value['oidc_user_info']);
         }
-
+    
         if (array_key_exists('oidc', $value)) {
             $this->_usedProperties['oidc'] = true;
             $this->oidc = new \Symfony\Config\Security\FirewallConfig\AccessToken\TokenHandler\OidcConfig($value['oidc']);
             unset($value['oidc']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -105,7 +105,7 @@ class TokenHandlerConfig
         if (isset($this->_usedProperties['oidc'])) {
             $output['oidc'] = $this->oidc->toArray();
         }
-
+    
         return $output;
     }
 

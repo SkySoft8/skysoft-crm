@@ -210,7 +210,6 @@ class actionCreateRecord extends actionBase
         $record_vardefs = $record->getFieldDefinitions();
 
         if (isset($params['field'])) {
-            $retrieved = false;
             foreach ($params['field'] as $key => $field) {
                 if ($field === '') {
                     continue;
@@ -264,7 +263,6 @@ class actionCreateRecord extends actionBase
                                 $dateToUse = $params['value'][$key][0];
                                 $sign = $params['value'][$key][1];
                                 $amount = $params['value'][$key][2];
-                                $type = $bean->field_defs[$dateToUse]['type'] ?? 'datetime';
 
                                 if ($sign !== 'plus') {
                                     $amount = 0-$amount;
@@ -273,28 +271,11 @@ class actionCreateRecord extends actionBase
                                     $value = $businessHours->addBusinessHours($amount);
                                 } elseif ($dateToUse === 'field') {
                                     $dateToUse = $params['field'][$key];
-                                    $type = $bean->field_defs[$dateToUse]['type'] ?? 'datetime';
-
-                                    if ($bean->$dateToUse === '') {
-                                        $date = gmdate($dformat);
-                                        $value = $businessHours->addBusinessHours($amount, $timedate->fromDbType($date, $record_vardefs[$field]['type']));
-                                        $value = $timedate->asDbType($value, $record_vardefs[$field]['type']);
-                                        break;
-                                    }
-
-                                    $date = $bean->$dateToUse;
-                                    $value = $businessHours->addBusinessHours($amount, $timedate->fromDbType($date, $type));
-                                } elseif ($dateToUse === 'today') {
-                                    $date = gmdate('Y-m-d').' 00:00:00';
-                                    $value = $businessHours->addBusinessHours($amount, $timedate->fromDb($date));
+                                    $value = $businessHours->addBusinessHours($amount, $timedate->fromDb($bean->$dateToUse));
                                 } else {
-                                    $date = $bean->$dateToUse;
-                                    if ($date === '') {
-                                        $date = gmdate($dformat);
-                                    }
-                                    $value = $businessHours->addBusinessHours($amount, $timedate->fromDbType($date, $type));
+                                    $value = $businessHours->addBusinessHours($amount, $timedate->fromDb($bean->$dateToUse));
                                 }
-                                $value = $timedate->asDbType($value, $type);
+                                $value = $timedate->asDb($value);
                                 break;
                             default:
                                 if ($params['value'][$key][0] === 'now') {
@@ -306,13 +287,8 @@ class actionCreateRecord extends actionBase
                                     $date = $params['value'][$key][0];
                                 } else {
                                     $dateToUse = $params['value'][$key][0];
-                                    if (!$retrieved) {
-                                        $bean->retrieve($bean->id);
-                                        $retrieved = true;
-                                    }
-                                    $type = $bean->field_defs[$dateToUse]['type'] ?? 'datetime';
-                                    $date = $timedate->fromUserType($bean->$dateToUse, $type);
-                                    $date !== null ? $date->asDB() : gmdate($dformat);
+                                    $bean->retrieve($bean->id);
+                                    $date = $timedate->fromUser($bean->$dateToUse)->asDB();
                                 }
 
                                 if ($params['value'][$key][1] !== 'now') {

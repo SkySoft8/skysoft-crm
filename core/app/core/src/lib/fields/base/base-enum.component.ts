@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -27,8 +27,7 @@
 import {BaseFieldComponent} from './base-field.component';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {Field, FieldDefinition, Option} from '../../common/record/field.model';
-import {isVoid, isEmptyString} from '../../common/utils/value-utils';
+import {Field, FieldDefinition, isEmptyString, isVoid, Option} from 'common';
 import {DataTypeFormatter} from '../../services/formatters/data-type.formatter.service';
 import {
     LanguageListStringMap,
@@ -188,7 +187,7 @@ export class BaseEnumComponent extends BaseFieldComponent implements OnInit, OnD
 
         this.selectedValues = [];
 
-        if (this.field?.criteria ?? false) {
+        if (this.field.criteria) {
             this.initValueLabel();
             return;
         }
@@ -198,11 +197,6 @@ export class BaseEnumComponent extends BaseFieldComponent implements OnInit, OnD
         }
 
         if (!this.optionsMap) {
-            return;
-        }
-
-        if (this.field.value && !this.optionsMap[this.field.value]) {
-            this.initValueLabel();
             return;
         }
 
@@ -216,7 +210,7 @@ export class BaseEnumComponent extends BaseFieldComponent implements OnInit, OnD
     protected initValueLabel() {
         const fieldValue = this.field.value || this.field.criteria?.target || undefined;
         if (fieldValue !== undefined) {
-            this.valueLabel = this.optionsMap[fieldValue] ?? fieldValue;
+            this.valueLabel = this.optionsMap[fieldValue];
             this.selectedValues.push({
                 value: fieldValue,
                 label: this.valueLabel
@@ -255,7 +249,7 @@ export class BaseEnumComponent extends BaseFieldComponent implements OnInit, OnD
 
     protected initEnumDefaultFieldValues(defaultVal: string): void {
 
-        if (this.field.type === 'multienum' || this.field.type === 'multirelate') {
+        if (this.field.type === 'multienum') {
             const defaultValues = this.selectedValues.map(option => option.value);
             this.field.valueList = defaultValues;
             this.field.formControl.setValue(defaultValues);
@@ -296,7 +290,7 @@ export class BaseEnumComponent extends BaseFieldComponent implements OnInit, OnD
                 this.mappedOptions = this.createParentChildOptionsMap(parentOptionMap, this.options);
 
                 let parentValues: string[] = [];
-                if (parentEnum.definition.type === 'multienum' || parentEnum.definition.type === 'multirelate') {
+                if (parentEnum.definition.type === 'multienum') {
                     parentValues = parentEnum.valueList;
                 } else {
                     parentValues.push(parentEnum.value);
@@ -369,7 +363,7 @@ export class BaseEnumComponent extends BaseFieldComponent implements OnInit, OnD
         }
     }
 
-    protected buildOptionFromValue(value: string, link = ''): Option {
+    protected buildOptionFromValue(value: string): Option {
         const option: Option = {value: '', label: ''};
 
         if (isNull(value)) {

@@ -18,6 +18,3 @@ saml_logout:
   controller: Nbgrp\OneloginSamlBundle\Controller\Logout
   defaults: { idp: null }
   methods: ['POST', 'GET']
-
-app_2fa_check:
-  path: /2fa_check

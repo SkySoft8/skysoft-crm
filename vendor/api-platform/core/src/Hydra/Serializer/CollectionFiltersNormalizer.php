@@ -16,7 +16,6 @@ namespace ApiPlatform\Hydra\Serializer;
 use ApiPlatform\Api\ResourceClassResolverInterface as LegacyResourceClassResolverInterface;
 use ApiPlatform\Doctrine\Odm\State\Options as ODMOptions;
 use ApiPlatform\Doctrine\Orm\State\Options;
-use ApiPlatform\JsonLd\Serializer\HydraPrefixTrait;
 use ApiPlatform\Metadata\FilterInterface;
 use ApiPlatform\Metadata\Parameter;
 use ApiPlatform\Metadata\Parameters;
@@ -39,14 +38,12 @@ use Symfony\Component\Serializer\Serializer;
  */
 final class CollectionFiltersNormalizer implements NormalizerInterface, NormalizerAwareInterface, CacheableSupportsMethodInterface
 {
-    use HydraPrefixTrait;
     private ?ContainerInterface $filterLocator = null;
 
     /**
-     * @param ContainerInterface   $filterLocator  The new filter locator or the deprecated filter collection
-     * @param array<string, mixed> $defaultContext
+     * @param ContainerInterface $filterLocator The new filter locator or the deprecated filter collection
      */
-    public function __construct(private readonly NormalizerInterface $collectionNormalizer, private readonly ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory, private readonly LegacyResourceClassResolverInterface|ResourceClassResolverInterface $resourceClassResolver, ContainerInterface $filterLocator, private readonly array $defaultContext = [])
+    public function __construct(private readonly NormalizerInterface $collectionNormalizer, private readonly ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory, private readonly LegacyResourceClassResolverInterface|ResourceClassResolverInterface $resourceClassResolver, ContainerInterface $filterLocator)
     {
         $this->filterLocator = $filterLocator;
     }
@@ -131,8 +128,7 @@ final class CollectionFiltersNormalizer implements NormalizerInterface, Normaliz
         }
 
         if ($currentFilters || ($parameters && \count($parameters))) {
-            $hydraPrefix = $this->getHydraPrefix($context + $this->defaultContext);
-            $data[$hydraPrefix.'search'] = $this->getSearch($resourceClass, $requestParts, $currentFilters, $parameters, $hydraPrefix);
+            $data['hydra:search'] = $this->getSearch($resourceClass, $requestParts, $currentFilters, $parameters);
         }
 
         return $data;
@@ -154,7 +150,7 @@ final class CollectionFiltersNormalizer implements NormalizerInterface, Normaliz
      * @param FilterInterface[]        $filters
      * @param array<string, Parameter> $parameters
      */
-    private function getSearch(string $resourceClass, array $parts, array $filters, array|Parameters|null $parameters, string $hydraPrefix): array
+    private function getSearch(string $resourceClass, array $parts, array $filters, array|Parameters|null $parameters): array
     {
         $variables = [];
         $mapping = [];
@@ -167,11 +163,11 @@ final class CollectionFiltersNormalizer implements NormalizerInterface, Normaliz
 
         foreach ($parameters ?? [] as $key => $parameter) {
             // Each IriTemplateMapping maps a variable used in the template to a property
-            if (!$parameter instanceof QueryParameterInterface || false === $parameter->getHydra()) {
+            if (!$parameter instanceof QueryParameterInterface) {
                 continue;
             }
 
-            if (($filterId = $parameter->getFilter()) && ($filter = $this->getFilter($filterId))) {
+            if (!($property = $parameter->getProperty()) && ($filterId = $parameter->getFilter()) && ($filter = $this->getFilter($filterId))) {
                 foreach ($filter->getDescription($resourceClass) as $variable => $description) {
                     // This is a practice induced by PHP and is not necessary when implementing URI template
                     if (str_ends_with((string) $variable, '[]')) {
@@ -192,7 +188,7 @@ final class CollectionFiltersNormalizer implements NormalizerInterface, Normaliz
                 continue;
             }
 
-            if (!($property = $parameter->getProperty())) {
+            if (!$property) {
                 continue;
             }
 
@@ -204,7 +200,7 @@ final class CollectionFiltersNormalizer implements NormalizerInterface, Normaliz
             $mapping[] = $m;
         }
 
-        return ['@type' => $hydraPrefix.'IriTemplate', $hydraPrefix.'template' => \sprintf('%s{?%s}', $parts['path'], implode(',', $variables)), $hydraPrefix.'variableRepresentation' => 'BasicRepresentation', $hydraPrefix.'mapping' => $mapping];
+        return ['@type' => 'hydra:IriTemplate', 'hydra:template' => sprintf('%s{?%s}', $parts['path'], implode(',', $variables)), 'hydra:variableRepresentation' => 'BasicRepresentation', 'hydra:mapping' => $mapping];
     }
 
     /**

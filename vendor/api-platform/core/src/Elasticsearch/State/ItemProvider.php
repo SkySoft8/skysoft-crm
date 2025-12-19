@@ -17,7 +17,6 @@ use ApiPlatform\Elasticsearch\Metadata\Document\DocumentMetadata;
 use ApiPlatform\Elasticsearch\Metadata\Document\Factory\DocumentMetadataFactoryInterface;
 use ApiPlatform\Elasticsearch\Serializer\DocumentNormalizer;
 use ApiPlatform\Metadata\Exception\RuntimeException;
-use ApiPlatform\Metadata\InflectorInterface;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\Metadata\Util\Inflector;
 use ApiPlatform\State\ApiResource\Error;
@@ -38,7 +37,7 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
  */
 final class ItemProvider implements ProviderInterface
 {
-    public function __construct(private readonly LegacyClient|Client $client, private readonly ?DocumentMetadataFactoryInterface $documentMetadataFactory = null, private readonly ?DenormalizerInterface $denormalizer = null, private readonly ?InflectorInterface $inflector = new Inflector()) // @phpstan-ignore-line
+    public function __construct(private readonly LegacyClient|Client $client, private readonly ?DocumentMetadataFactoryInterface $documentMetadataFactory = null, private readonly ?DenormalizerInterface $denormalizer = null) // @phpstan-ignore-line
     {
     }
 
@@ -57,7 +56,7 @@ final class ItemProvider implements ProviderInterface
         }
 
         if (!$options instanceof Options) {
-            throw new RuntimeException(\sprintf('The "%s" provider was called without "%s".', self::class, Options::class));
+            throw new RuntimeException(sprintf('The "%s" provider was called without "%s".', self::class, Options::class));
         }
 
         $params = [
@@ -97,6 +96,6 @@ final class ItemProvider implements ProviderInterface
 
     private function getIndex(Operation $operation): string
     {
-        return $this->inflector->tableize($operation->getShortName());
+        return Inflector::tableize($operation->getShortName());
     }
 }

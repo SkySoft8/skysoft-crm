@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -25,8 +25,7 @@
  */
 
 import {Component, OnInit} from '@angular/core';
-import {ButtonInterface} from '../../../../common/components/button/button.model';
-import {ButtonGroupInterface} from '../../../../common/components/button/button-group.model';
+import {ButtonGroupInterface, ButtonInterface} from 'common';
 import {BehaviorSubject} from 'rxjs';
 import {map, take} from 'rxjs/operators';
 import {ListViewStore} from '../../store/list-view/list-view.store';
@@ -143,7 +142,7 @@ export class ActionMenuComponent implements OnInit {
             label: this.actionHandler.getActionLabel(module, action, language, labelKey),
             onClick: (): void => {
                 if(action?.process) {
-                    this.handleProcess(module, action)
+                    this.handleProcess(module, action?.process)
                     return ;
                 }
                 this.actionHandler.navigate(action).then();
@@ -151,18 +150,17 @@ export class ActionMenuComponent implements OnInit {
         };
     }
 
-    protected handleProcess(moduleName: string, action: ModuleAction) {
+    protected handleProcess(moduleName: string, process: string) {
 
-        if(!action.process) {
+        if(!process) {
             return;
         }
 
-        const processType = action.process;
+        const processType = process;
 
         const options = {
             action: processType,
             module: moduleName,
-            params: action?.processParams ?? [],
         } as AsyncActionInput;
 
         this.asyncActionService.run(processType, options).pipe(take(1)).subscribe();

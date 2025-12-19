@@ -17,7 +17,6 @@ use ApiPlatform\Elasticsearch\Extension\RequestBodySearchCollectionExtensionInte
 use ApiPlatform\Elasticsearch\Metadata\Document\DocumentMetadata;
 use ApiPlatform\Elasticsearch\Metadata\Document\Factory\DocumentMetadataFactoryInterface;
 use ApiPlatform\Elasticsearch\Paginator;
-use ApiPlatform\Metadata\InflectorInterface;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\Metadata\Util\Inflector;
 use ApiPlatform\State\ApiResource\Error;
@@ -40,7 +39,7 @@ final class CollectionProvider implements ProviderInterface
     /**
      * @param RequestBodySearchCollectionExtensionInterface[] $collectionExtensions
      */
-    public function __construct(private readonly LegacyClient|Client $client, private readonly ?DocumentMetadataFactoryInterface $documentMetadataFactory = null, private readonly ?DenormalizerInterface $denormalizer = null, private readonly ?Pagination $pagination = null, private readonly iterable $collectionExtensions = [], private readonly ?InflectorInterface $inflector = new Inflector()) // @phpstan-ignore-line
+    public function __construct(private readonly LegacyClient|Client $client, private readonly ?DocumentMetadataFactoryInterface $documentMetadataFactory = null, private readonly ?DenormalizerInterface $denormalizer = null, private readonly ?Pagination $pagination = null, private readonly iterable $collectionExtensions = []) // @phpstan-ignore-line
     {
     }
 
@@ -103,6 +102,6 @@ final class CollectionProvider implements ProviderInterface
 
     private function getIndex(Operation $operation): string
     {
-        return $this->inflector->tableize($operation->getShortName());
+        return Inflector::tableize($operation->getShortName());
     }
 }

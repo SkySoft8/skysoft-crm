@@ -1,5 +1,5 @@
 <?php
-// created: 2025-11-19 09:04:55
+// created: 2025-04-01 13:09:15
 $sugar_config = array (
   'addAjaxBannedModules' => 
   array (
@@ -85,8 +85,6 @@ $sugar_config = array (
     'enable_repeat' => true,
     'max_repeat_count' => 1000,
   ),
-  'campaign_emails_per_run_default' => 50,
-  'campaign_marketing_items_per_run_default' => 3,
   'chartEngine' => 'Jit',
   'common_ml_dir' => '',
   'create_default_user' => false,
@@ -122,9 +120,9 @@ $sugar_config = array (
   array (
     'db_host_name' => 'localhost',
     'db_host_instance' => '',
-    'db_user_name' => 'root',
-    'db_password' => '1234',
-    'db_name' => 'base_crmdatabase',
+    'db_user_name' => 'crmdatabase',
+    'db_password' => 'lZ3qR2lQ9k',
+    'db_name' => 'new_crmdatabase',
     'db_type' => 'mysql',
     'db_port' => '3306',
     'db_manager' => 'MysqliManager',
@@ -139,7 +137,7 @@ $sugar_config = array (
     'ssl' => false,
   ),
   'default_action' => 'index',
-  'default_charset' => 'UTF-8',
+  'default_charset' => NULL,
   'default_currency_iso4217' => 'USD',
   'default_currency_name' => 'US Dollar',
   'default_currency_significant_digits' => '2',
@@ -247,7 +245,6 @@ $sugar_config = array (
   'import_max_execution_time' => 3600,
   'import_max_records_per_file' => 100,
   'import_max_records_total_limit' => '',
-  'installed' => true,
   'installer_locked' => true,
   'jobs' => 
   array (
@@ -256,7 +253,7 @@ $sugar_config = array (
     'timeout' => 86400,
   ),
   'js_custom_version' => 1,
-  'js_lang_version' => 13,
+  'js_lang_version' => 16,
   'languages' => 
   array (
     'en_us' => 'English (US)',
@@ -291,8 +288,6 @@ $sugar_config = array (
   ),
   'login_language' => true,
   'max_dashlets_homepage' => '15',
-  'max_temp_file_batch_per_table' => '50',
-  'max_temp_file_lifetime' => '72 hour',
   'name_formats' => 
   array (
     's f l' => 's f l',
@@ -338,7 +333,7 @@ $sugar_config = array (
       3 => 'Administration',
       4 => 'Sync',
     ),
-    'default_limit' => 20000,
+    'default_limit' => 1000,
   ),
   'rss_cache_time' => '10800',
   'save_query' => 'all',
@@ -400,7 +395,6 @@ $sugar_config = array (
     'confirm_opt_in_template_id' => '54106d1d-9843-3810-1007-678644356413',
   ),
   'system_name' => 'SuiteCRM',
-  'test_email_limit' => 50,
   'time_formats' => 
   array (
     'H:i' => '23:00',
@@ -417,7 +411,6 @@ $sugar_config = array (
   'timef' => 'H:i',
   'tmp_dir' => 'cache/xml/',
   'tracker_max_display_length' => 15,
-  'trackers_enabled' => true,
   'translation_string_prefix' => false,
   'trusted_hosts' => 
   array (

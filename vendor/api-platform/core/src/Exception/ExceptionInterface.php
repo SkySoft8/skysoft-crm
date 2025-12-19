@@ -17,8 +17,6 @@ namespace ApiPlatform\Exception;
  * Base exception interface.
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
- *
- * @deprecated use ApiPlatform\Metadata\Exception\ExceptionInterface
  */
 interface ExceptionInterface extends \Throwable
 {

@@ -46,7 +46,6 @@ final class TwigFilter
             'preserves_safety' => null,
             'node_class' => FilterExpression::class,
             'deprecated' => false,
-            'deprecating_package' => '',
             'alternative' => null,
         ], $options);
     }
@@ -127,11 +126,6 @@ final class TwigFilter
     public function isDeprecated(): bool
     {
         return (bool) $this->options['deprecated'];
-    }
-
-    public function getDeprecatingPackage(): string
-    {
-        return $this->options['deprecating_package'];
     }
 
     public function getDeprecatedVersion(): string

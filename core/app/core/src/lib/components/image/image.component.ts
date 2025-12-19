@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -25,7 +25,6 @@
  */
 
 import {
-    ChangeDetectionStrategy,
     Component,
     Input,
     OnDestroy,
@@ -39,23 +38,17 @@ import {ThemeImage, ThemeImageMap, ThemeImagesStore} from '../../store/theme-ima
 @Component({
     selector: 'scrm-image',
     templateUrl: './image.component.html',
-    styleUrls: [],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrls: []
 })
 export class ImageComponent  implements OnInit, OnDestroy {
+    @Input() image: string;
     @Input() klass = '';
     @Input() title = '';
     @Input() wrapperClass = 'sicon';
-    @Input() set image(value: string) {
-        this.imageName.set(value);
-        this.getImage();
-    }
 
     images$: Observable<ThemeImageMap> = this.themeImagesStore.images$;
 
     imageSig = signal<any>({});
-    imageName= signal<string>('');
-    imageMap: { images: ThemeImageMap } = { images: {} };
 
     protected subs: Subscription[] = [];
 
@@ -63,11 +56,11 @@ export class ImageComponent  implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
+        this.subs = [];
         this.subs.push(this.images$.pipe(
             filter(img => img !== null),
             map((images) => ({images})),
-            tap(images => this.imageMap = {...images}),
-            tap(() => this.getImage()),
+            tap(data => this.getImage(data, this.image)),
         ).subscribe());
     }
 
@@ -76,16 +69,22 @@ export class ImageComponent  implements OnInit, OnDestroy {
         this.subs = [];
     }
 
-
-    getImage(): void {
-        if (!this.imageMap || !this.imageMap.images || Object.keys(this.imageMap.images).length < 1) {
+    /**
+     * Get image from current view model and log if not existent
+     *
+     * @param vm
+     * @param image name
+     * @returns ThemeImage
+     */
+    getImage(vm: { images: ThemeImageMap }, image: string): void {
+        if (!vm || !vm.images || Object.keys(vm.images).length < 1) {
             return null;
         }
 
-        this.imageSig.update(() => this.imageMap.images[this.imageName()]);
+        this.imageSig.update(() => vm.images[image]);
 
         if (!this.imageSig()) {
-            console.warn(`Image with name '${this.imageName()}' not found`);
+            console.warn(`Image with name '${image}' not found`);
         }
     }
 }

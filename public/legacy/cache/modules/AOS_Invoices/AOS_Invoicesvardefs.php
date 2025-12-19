@@ -801,6 +801,8 @@
       'len' => 100,
       'options' => 'invoice_status_dom',
       'studio' => 'visible',
+      'inline_edit' => true,
+      'merge_filter' => 'disabled',
     ),
     'template_ddown_c' => 
     array (
@@ -903,6 +905,34 @@
       'bean_name' => 'AOS_Line_Item_Groups',
       'source' => 'non-db',
     ),
+    'paid_c' => 
+    array (
+      'inline_edit' => '1',
+      'labelValue' => 'Оплачено',
+      'required' => false,
+      'source' => 'custom_fields',
+      'name' => 'paid_c',
+      'vname' => 'LBL_PAID',
+      'type' => 'currency',
+      'massupdate' => '0',
+      'default' => '',
+      'no_default' => false,
+      'comments' => '',
+      'help' => '',
+      'importable' => 'true',
+      'duplicate_merge' => 'disabled',
+      'duplicate_merge_dom_value' => '0',
+      'audited' => false,
+      'reportable' => true,
+      'unified_search' => false,
+      'merge_filter' => 'disabled',
+      'len' => '26',
+      'size' => '20',
+      'enable_range_search' => false,
+      'precision' => 6,
+      'id' => 'AOS_Invoicespaid_c',
+      'custom_module' => 'AOS_Invoices',
+    ),
   ),
   'relationships' => 
   array (
@@ -991,5 +1021,5 @@
     'assignable' => 'assignable',
     'basic' => 'basic',
   ),
-  'custom_fields' => false,
+  'custom_fields' => true,
 );

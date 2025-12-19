@@ -1,13 +1,13 @@
 <?php
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -27,7 +27,7 @@
 
 namespace App\SystemConfig\LegacyHandler;
 
-use ApiPlatform\Exception\ItemNotFoundException;
+use ApiPlatform\Core\Exception\ItemNotFoundException;
 use App\Currency\LegacyHandler\CurrencyHandler;
 use App\Engine\LegacyHandler\LegacyHandler;
 use App\Engine\LegacyHandler\LegacyScopeState;
@@ -98,7 +98,6 @@ class SystemConfigHandler extends LegacyHandler implements SystemConfigProviderI
      * @param array $listViewSettingsLimits
      * @param array $listViewActionsLimits
      * @param array $recordViewActionLimits
-     * @param array $recordViewSectionTabLimits
      * @param array $subpanelViewActionLimits
      * @param array $listViewLineActionsLimits
      * @param array $listViewUrlQueryFilterMapping
@@ -110,7 +109,6 @@ class SystemConfigHandler extends LegacyHandler implements SystemConfigProviderI
      * @param array $logoutConfig
      * @param array $sessionExpiredConfig
      * @param array $recordViewConvertIgnore
-     * @param array $recordViewSubpanelButtonLimits
      * @param RequestStack $session
      * @param NavigationProviderInterface $navigation
      */
@@ -135,7 +133,6 @@ class SystemConfigHandler extends LegacyHandler implements SystemConfigProviderI
         array $listViewSettingsLimits,
         array $listViewActionsLimits,
         array $recordViewActionLimits,
-        array $recordViewSectionTabLimits,
         array $subpanelViewActionLimits,
         array $listViewLineActionsLimits,
         array $listViewUrlQueryFilterMapping,
@@ -147,8 +144,6 @@ class SystemConfigHandler extends LegacyHandler implements SystemConfigProviderI
         array $logoutConfig,
         array $sessionExpiredConfig,
         array $recordViewConvertIgnore,
-        array $recordViewDuplicateIgnore,
-        array $recordViewSubpanelButtonLimits,
         RequestStack $session,
         NavigationProviderInterface $navigation
     ) {
@@ -173,10 +168,7 @@ class SystemConfigHandler extends LegacyHandler implements SystemConfigProviderI
         $this->injectedSystemConfigs['listview_settings_limits'] = $listViewSettingsLimits;
         $this->injectedSystemConfigs['listview_actions_limits'] = $listViewActionsLimits;
         $this->injectedSystemConfigs['recordview_actions_limits'] = $recordViewActionLimits;
-        $this->injectedSystemConfigs['recordview_section_tab_limits'] = $recordViewSectionTabLimits;
-        $this->injectedSystemConfigs['recordview_subpanel_button_limits'] = $recordViewSubpanelButtonLimits;
         $this->injectedSystemConfigs['convert_ignore'] = $recordViewConvertIgnore;
-        $this->injectedSystemConfigs['duplicate_ignore'] = $recordViewDuplicateIgnore;
         $this->injectedSystemConfigs['subpanelview_actions_limits'] = $subpanelViewActionLimits;
         $this->injectedSystemConfigs['listview_line_actions_limits'] = $listViewLineActionsLimits;
         $this->injectedSystemConfigs['listview_url_query_filter_mapping'] = $listViewUrlQueryFilterMapping;
@@ -337,11 +329,10 @@ class SystemConfigHandler extends LegacyHandler implements SystemConfigProviderI
 
     /**
      * Load system config with given $key
-     * @param string $configKey
-     * @param bool $filterNonExposed
+     * @param $configKey
      * @return SystemConfig|null
      */
-    protected function loadSystemConfig(string $configKey, bool $filterNonExposed = false): ?SystemConfig
+    protected function loadSystemConfig(string $configKey): ?SystemConfig
     {
         global $sugar_config;
 
@@ -349,7 +340,7 @@ class SystemConfigHandler extends LegacyHandler implements SystemConfigProviderI
             return null;
         }
 
-        if ($filterNonExposed && !isset($this->exposedSystemConfigs[$configKey])) {
+        if (!isset($this->exposedSystemConfigs[$configKey])) {
             throw new ItemNotFoundException(self::MSG_CONFIG_NOT_FOUND . "'$configKey'");
         }
 
@@ -374,7 +365,7 @@ class SystemConfigHandler extends LegacyHandler implements SystemConfigProviderI
         if (is_array($sugar_config[$configKey])) {
             $items = $sugar_config[$configKey];
 
-            if ($filterNonExposed && is_array($this->exposedSystemConfigs[$configKey])) {
+            if (is_array($this->exposedSystemConfigs[$configKey])) {
                 $items = $this->filterItems($sugar_config[$configKey], $this->exposedSystemConfigs[$configKey]);
             }
 
@@ -459,10 +450,9 @@ class SystemConfigHandler extends LegacyHandler implements SystemConfigProviderI
     /**
      * Get system config
      * @param string $configKey
-     * @param bool $filterNonExposed
      * @return SystemConfig|null
      */
-    public function getSystemConfig(string $configKey, bool $filterNonExposed = false): ?SystemConfig
+    public function getSystemConfig(string $configKey): ?SystemConfig
     {
         if (!$this->isInstalled()) {
             return $this->getInstallConfig($configKey);
@@ -473,7 +463,7 @@ class SystemConfigHandler extends LegacyHandler implements SystemConfigProviderI
         $this->loadSystemUser();
         $this->initInjectedConfigs();
 
-        $config = $this->loadSystemConfig($configKey, $filterNonExposed);
+        $config = $this->loadSystemConfig($configKey);
 
         $this->mapConfigValues($config);
         $this->mapKey($config);

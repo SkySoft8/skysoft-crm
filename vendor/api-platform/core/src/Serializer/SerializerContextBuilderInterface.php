@@ -18,8 +18,6 @@ use ApiPlatform\State\SerializerContextBuilderInterface as StateSerializerContex
 /**
  * Builds the context used by the Symfony Serializer.
  *
- * @deprecated use ApiPlatform\State\SerializerContextBuilderInterface instead
- *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
 interface SerializerContextBuilderInterface extends StateSerializerContextBuilderInterface

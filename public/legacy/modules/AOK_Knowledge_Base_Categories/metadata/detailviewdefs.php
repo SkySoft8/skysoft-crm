@@ -92,7 +92,6 @@ array(
         1 =>
         array(
           0 => 'description',
-          1 => '',
         ),
         2 =>
         array(

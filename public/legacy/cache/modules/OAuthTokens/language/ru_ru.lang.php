@@ -1,5 +1,5 @@
 <?php
-// created: 2025-11-19 09:05:55
+// created: 2025-04-23 15:02:26
 $mod_strings = array (
   'LBL_OAUTH_REQUEST' => 'Токен запроса',
   'LBL_OAUTH_AUTHORIZE' => 'Авторизовать токен',

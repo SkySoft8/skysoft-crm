@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -25,11 +25,17 @@
  */
 
 import {Component, ElementRef, HostListener, Input, OnDestroy, OnInit, signal} from '@angular/core';
-import {Action, ActionContext, ActionDataSource, ActiveLineAction} from '../../common/actions/action.model';
-import {Button, ButtonInterface} from '../../common/components/button/button.model';
-import {ButtonGroupInterface} from '../../common/components/button/button-group.model';
-import {isFalse} from '../../common/utils/value-utils';
-import {Record} from '../../common/record/record.model';
+import {
+    Action,
+    ActionContext,
+    ActionDataSource,
+    Button,
+    ButtonGroupInterface,
+    ButtonInterface,
+    isFalse,
+    Record,
+    ActiveLineAction
+} from 'common';
 import {LanguageStore, LanguageStrings} from '../../store/language/language.store';
 import {BehaviorSubject, combineLatestWith, Observable, Subscription} from 'rxjs';
 import {
@@ -60,7 +66,7 @@ export class LineActionMenuComponent implements OnInit, OnDestroy {
     configState = new BehaviorSubject<ButtonGroupInterface>({buttons: []});
     config$ = this.configState.asObservable();
     actions: Action[];
-    isActive: boolean = false;
+    isActive:boolean = false;
 
     isClickedOutside = signal<boolean>(false)
 
@@ -88,8 +94,7 @@ export class LineActionMenuComponent implements OnInit, OnDestroy {
         protected screenSize: ScreenSizeObserverService,
         protected systemConfigStore: SystemConfigStore,
         private el: ElementRef
-    ) {
-    }
+    ) {}
 
     ngOnInit(): void {
         this.subs.push(this.config.getActions({record: this.record}).pipe(
@@ -204,7 +209,7 @@ export class LineActionMenuComponent implements OnInit, OnDestroy {
 
     toggleExpand(recordId: string) {
         const activeId = this.activeLineAction.getActiveAction();
-        if (activeId === recordId && !this.isClickedOutside()) {
+        if(activeId === recordId && !this.isClickedOutside()){
             this.activeLineAction.resetActiveAction();
         } else {
             this.activeLineAction.setActiveAction(recordId);

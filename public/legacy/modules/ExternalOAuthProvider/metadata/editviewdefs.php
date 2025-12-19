@@ -68,13 +68,6 @@ $viewdefs['ExternalOAuthProvider'] = [
                     'panelDefault' => 'expanded',
                 ],
             ],
-            'javascript' => '
-                <script type="text/javascript">
-                    {suite_combinescripts
-                        files="modules/ExternalOAuthProvider/js/fields.js,
-                         modules/ExternalOAuthProvider/js/redirect_uri_toggle.js"}
-                </script>
-            '
         ],
         'panels' => [
             'default' => [
@@ -100,7 +93,7 @@ $viewdefs['ExternalOAuthProvider'] = [
                 ],
                 [
                     'redirect_uri',
-                    'redirect_uri_type'
+                    ''
                 ],
             ],
             'lbl_extra' => [

@@ -79,7 +79,6 @@ class DefaultsConfig
     private $parameters;
     private $extraProperties;
     private $routeName;
-    private $errors;
     private $read;
     private $deserialize;
     private $validate;
@@ -91,7 +90,7 @@ class DefaultsConfig
     private $itemUriTemplate;
     private $_usedProperties = [];
     private $_extraKeys;
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -102,10 +101,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['uriTemplate'] = true;
         $this->uriTemplate = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -116,10 +115,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['shortName'] = true;
         $this->shortName = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -130,10 +129,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['description'] = true;
         $this->description = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -144,10 +143,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['types'] = true;
         $this->types = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -158,10 +157,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['operations'] = true;
         $this->operations = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -172,10 +171,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['formats'] = true;
         $this->formats = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -186,10 +185,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['inputFormats'] = true;
         $this->inputFormats = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -200,10 +199,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['outputFormats'] = true;
         $this->outputFormats = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -214,10 +213,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['uriVariables'] = true;
         $this->uriVariables = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -228,10 +227,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['routePrefix'] = true;
         $this->routePrefix = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -242,10 +241,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['defaults'] = true;
         $this->defaults = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -256,10 +255,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['requirements'] = true;
         $this->requirements = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -270,10 +269,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['options'] = true;
         $this->options = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -284,10 +283,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['stateless'] = true;
         $this->stateless = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -298,10 +297,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['sunset'] = true;
         $this->sunset = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -312,10 +311,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['acceptPatch'] = true;
         $this->acceptPatch = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -326,10 +325,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['status'] = true;
         $this->status = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -340,10 +339,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['host'] = true;
         $this->host = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -354,10 +353,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['schemes'] = true;
         $this->schemes = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -368,10 +367,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['condition'] = true;
         $this->condition = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -382,10 +381,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['controller'] = true;
         $this->controller = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -396,10 +395,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['class'] = true;
         $this->class = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -410,10 +409,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['urlGenerationStrategy'] = true;
         $this->urlGenerationStrategy = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -424,10 +423,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['deprecationReason'] = true;
         $this->deprecationReason = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -438,10 +437,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['headers'] = true;
         $this->headers = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -452,10 +451,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['cacheHeaders'] = true;
         $this->cacheHeaders = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -466,10 +465,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['normalizationContext'] = true;
         $this->normalizationContext = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -480,10 +479,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['denormalizationContext'] = true;
         $this->denormalizationContext = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -494,10 +493,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['collectDenormalizationErrors'] = true;
         $this->collectDenormalizationErrors = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -508,10 +507,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['hydraContext'] = true;
         $this->hydraContext = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -522,10 +521,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['openapiContext'] = true;
         $this->openapiContext = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -536,10 +535,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['openapi'] = true;
         $this->openapi = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -550,10 +549,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['validationContext'] = true;
         $this->validationContext = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -564,10 +563,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['filters'] = true;
         $this->filters = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -578,10 +577,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['elasticsearch'] = true;
         $this->elasticsearch = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -592,10 +591,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['mercure'] = true;
         $this->mercure = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -606,10 +605,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['messenger'] = true;
         $this->messenger = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -620,10 +619,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['input'] = true;
         $this->input = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -634,10 +633,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['output'] = true;
         $this->output = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -648,10 +647,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['order'] = true;
         $this->order = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -662,10 +661,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['fetchPartial'] = true;
         $this->fetchPartial = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -676,10 +675,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['forceEager'] = true;
         $this->forceEager = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -690,10 +689,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['paginationClientEnabled'] = true;
         $this->paginationClientEnabled = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -704,10 +703,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['paginationClientItemsPerPage'] = true;
         $this->paginationClientItemsPerPage = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -718,10 +717,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['paginationClientPartial'] = true;
         $this->paginationClientPartial = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -732,10 +731,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['paginationViaCursor'] = true;
         $this->paginationViaCursor = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -746,10 +745,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['paginationEnabled'] = true;
         $this->paginationEnabled = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -760,10 +759,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['paginationFetchJoinCollection'] = true;
         $this->paginationFetchJoinCollection = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -774,10 +773,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['paginationUseOutputWalkers'] = true;
         $this->paginationUseOutputWalkers = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -788,10 +787,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['paginationItemsPerPage'] = true;
         $this->paginationItemsPerPage = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -802,10 +801,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['paginationMaximumItemsPerPage'] = true;
         $this->paginationMaximumItemsPerPage = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -816,10 +815,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['paginationPartial'] = true;
         $this->paginationPartial = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -830,10 +829,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['paginationType'] = true;
         $this->paginationType = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -844,10 +843,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['security'] = true;
         $this->security = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -858,10 +857,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['securityMessage'] = true;
         $this->securityMessage = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -872,10 +871,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['securityPostDenormalize'] = true;
         $this->securityPostDenormalize = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -886,10 +885,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['securityPostDenormalizeMessage'] = true;
         $this->securityPostDenormalizeMessage = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -900,10 +899,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['securityPostValidation'] = true;
         $this->securityPostValidation = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -914,10 +913,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['securityPostValidationMessage'] = true;
         $this->securityPostValidationMessage = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -928,10 +927,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['compositeIdentifier'] = true;
         $this->compositeIdentifier = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -942,10 +941,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['exceptionToStatus'] = true;
         $this->exceptionToStatus = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -956,10 +955,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['queryParameterValidationEnabled'] = true;
         $this->queryParameterValidationEnabled = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -970,10 +969,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['links'] = true;
         $this->links = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -984,10 +983,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['graphQlOperations'] = true;
         $this->graphQlOperations = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -998,10 +997,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['provider'] = true;
         $this->provider = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1012,10 +1011,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['processor'] = true;
         $this->processor = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1026,10 +1025,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['stateOptions'] = true;
         $this->stateOptions = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1040,10 +1039,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['parameters'] = true;
         $this->parameters = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1054,10 +1053,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['extraProperties'] = true;
         $this->extraProperties = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1068,24 +1067,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['routeName'] = true;
         $this->routeName = $value;
-
+    
         return $this;
     }
-
-    /**
-     * @default null
-     * @param ParamConfigurator|mixed $value
-     *
-     * @return $this
-     */
-    public function errors(mixed $value): static
-    {
-        $this->_usedProperties['errors'] = true;
-        $this->errors = $value;
-
-        return $this;
-    }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1096,10 +1081,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['read'] = true;
         $this->read = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1110,10 +1095,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['deserialize'] = true;
         $this->deserialize = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1124,10 +1109,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['validate'] = true;
         $this->validate = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1138,10 +1123,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['write'] = true;
         $this->write = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1152,10 +1137,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['serialize'] = true;
         $this->serialize = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1166,10 +1151,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['priority'] = true;
         $this->priority = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1180,10 +1165,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['name'] = true;
         $this->name = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1194,10 +1179,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['allowCreate'] = true;
         $this->allowCreate = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -1208,10 +1193,10 @@ class DefaultsConfig
     {
         $this->_usedProperties['itemUriTemplate'] = true;
         $this->itemUriTemplate = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('uri_template', $value)) {
@@ -1219,485 +1204,479 @@ class DefaultsConfig
             $this->uriTemplate = $value['uri_template'];
             unset($value['uri_template']);
         }
-
+    
         if (array_key_exists('short_name', $value)) {
             $this->_usedProperties['shortName'] = true;
             $this->shortName = $value['short_name'];
             unset($value['short_name']);
         }
-
+    
         if (array_key_exists('description', $value)) {
             $this->_usedProperties['description'] = true;
             $this->description = $value['description'];
             unset($value['description']);
         }
-
+    
         if (array_key_exists('types', $value)) {
             $this->_usedProperties['types'] = true;
             $this->types = $value['types'];
             unset($value['types']);
         }
-
+    
         if (array_key_exists('operations', $value)) {
             $this->_usedProperties['operations'] = true;
             $this->operations = $value['operations'];
             unset($value['operations']);
         }
-
+    
         if (array_key_exists('formats', $value)) {
             $this->_usedProperties['formats'] = true;
             $this->formats = $value['formats'];
             unset($value['formats']);
         }
-
+    
         if (array_key_exists('input_formats', $value)) {
             $this->_usedProperties['inputFormats'] = true;
             $this->inputFormats = $value['input_formats'];
             unset($value['input_formats']);
         }
-
+    
         if (array_key_exists('output_formats', $value)) {
             $this->_usedProperties['outputFormats'] = true;
             $this->outputFormats = $value['output_formats'];
             unset($value['output_formats']);
         }
-
+    
         if (array_key_exists('uri_variables', $value)) {
             $this->_usedProperties['uriVariables'] = true;
             $this->uriVariables = $value['uri_variables'];
             unset($value['uri_variables']);
         }
-
+    
         if (array_key_exists('route_prefix', $value)) {
             $this->_usedProperties['routePrefix'] = true;
             $this->routePrefix = $value['route_prefix'];
             unset($value['route_prefix']);
         }
-
+    
         if (array_key_exists('defaults', $value)) {
             $this->_usedProperties['defaults'] = true;
             $this->defaults = $value['defaults'];
             unset($value['defaults']);
         }
-
+    
         if (array_key_exists('requirements', $value)) {
             $this->_usedProperties['requirements'] = true;
             $this->requirements = $value['requirements'];
             unset($value['requirements']);
         }
-
+    
         if (array_key_exists('options', $value)) {
             $this->_usedProperties['options'] = true;
             $this->options = $value['options'];
             unset($value['options']);
         }
-
+    
         if (array_key_exists('stateless', $value)) {
             $this->_usedProperties['stateless'] = true;
             $this->stateless = $value['stateless'];
             unset($value['stateless']);
         }
-
+    
         if (array_key_exists('sunset', $value)) {
             $this->_usedProperties['sunset'] = true;
             $this->sunset = $value['sunset'];
             unset($value['sunset']);
         }
-
+    
         if (array_key_exists('accept_patch', $value)) {
             $this->_usedProperties['acceptPatch'] = true;
             $this->acceptPatch = $value['accept_patch'];
             unset($value['accept_patch']);
         }
-
+    
         if (array_key_exists('status', $value)) {
             $this->_usedProperties['status'] = true;
             $this->status = $value['status'];
             unset($value['status']);
         }
-
+    
         if (array_key_exists('host', $value)) {
             $this->_usedProperties['host'] = true;
             $this->host = $value['host'];
             unset($value['host']);
         }
-
+    
         if (array_key_exists('schemes', $value)) {
             $this->_usedProperties['schemes'] = true;
             $this->schemes = $value['schemes'];
             unset($value['schemes']);
         }
-
+    
         if (array_key_exists('condition', $value)) {
             $this->_usedProperties['condition'] = true;
             $this->condition = $value['condition'];
             unset($value['condition']);
         }
-
+    
         if (array_key_exists('controller', $value)) {
             $this->_usedProperties['controller'] = true;
             $this->controller = $value['controller'];
             unset($value['controller']);
         }
-
+    
         if (array_key_exists('class', $value)) {
             $this->_usedProperties['class'] = true;
             $this->class = $value['class'];
             unset($value['class']);
         }
-
+    
         if (array_key_exists('url_generation_strategy', $value)) {
             $this->_usedProperties['urlGenerationStrategy'] = true;
             $this->urlGenerationStrategy = $value['url_generation_strategy'];
             unset($value['url_generation_strategy']);
         }
-
+    
         if (array_key_exists('deprecation_reason', $value)) {
             $this->_usedProperties['deprecationReason'] = true;
             $this->deprecationReason = $value['deprecation_reason'];
             unset($value['deprecation_reason']);
         }
-
+    
         if (array_key_exists('headers', $value)) {
             $this->_usedProperties['headers'] = true;
             $this->headers = $value['headers'];
             unset($value['headers']);
         }
-
+    
         if (array_key_exists('cache_headers', $value)) {
             $this->_usedProperties['cacheHeaders'] = true;
             $this->cacheHeaders = $value['cache_headers'];
             unset($value['cache_headers']);
         }
-
+    
         if (array_key_exists('normalization_context', $value)) {
             $this->_usedProperties['normalizationContext'] = true;
             $this->normalizationContext = $value['normalization_context'];
             unset($value['normalization_context']);
         }
-
+    
         if (array_key_exists('denormalization_context', $value)) {
             $this->_usedProperties['denormalizationContext'] = true;
             $this->denormalizationContext = $value['denormalization_context'];
             unset($value['denormalization_context']);
         }
-
+    
         if (array_key_exists('collect_denormalization_errors', $value)) {
             $this->_usedProperties['collectDenormalizationErrors'] = true;
             $this->collectDenormalizationErrors = $value['collect_denormalization_errors'];
             unset($value['collect_denormalization_errors']);
         }
-
+    
         if (array_key_exists('hydra_context', $value)) {
             $this->_usedProperties['hydraContext'] = true;
             $this->hydraContext = $value['hydra_context'];
             unset($value['hydra_context']);
         }
-
+    
         if (array_key_exists('openapi_context', $value)) {
             $this->_usedProperties['openapiContext'] = true;
             $this->openapiContext = $value['openapi_context'];
             unset($value['openapi_context']);
         }
-
+    
         if (array_key_exists('openapi', $value)) {
             $this->_usedProperties['openapi'] = true;
             $this->openapi = $value['openapi'];
             unset($value['openapi']);
         }
-
+    
         if (array_key_exists('validation_context', $value)) {
             $this->_usedProperties['validationContext'] = true;
             $this->validationContext = $value['validation_context'];
             unset($value['validation_context']);
         }
-
+    
         if (array_key_exists('filters', $value)) {
             $this->_usedProperties['filters'] = true;
             $this->filters = $value['filters'];
             unset($value['filters']);
         }
-
+    
         if (array_key_exists('elasticsearch', $value)) {
             $this->_usedProperties['elasticsearch'] = true;
             $this->elasticsearch = $value['elasticsearch'];
             unset($value['elasticsearch']);
         }
-
+    
         if (array_key_exists('mercure', $value)) {
             $this->_usedProperties['mercure'] = true;
             $this->mercure = $value['mercure'];
             unset($value['mercure']);
         }
-
+    
         if (array_key_exists('messenger', $value)) {
             $this->_usedProperties['messenger'] = true;
             $this->messenger = $value['messenger'];
             unset($value['messenger']);
         }
-
+    
         if (array_key_exists('input', $value)) {
             $this->_usedProperties['input'] = true;
             $this->input = $value['input'];
             unset($value['input']);
         }
-
+    
         if (array_key_exists('output', $value)) {
             $this->_usedProperties['output'] = true;
             $this->output = $value['output'];
             unset($value['output']);
         }
-
+    
         if (array_key_exists('order', $value)) {
             $this->_usedProperties['order'] = true;
             $this->order = $value['order'];
             unset($value['order']);
         }
-
+    
         if (array_key_exists('fetch_partial', $value)) {
             $this->_usedProperties['fetchPartial'] = true;
             $this->fetchPartial = $value['fetch_partial'];
             unset($value['fetch_partial']);
         }
-
+    
         if (array_key_exists('force_eager', $value)) {
             $this->_usedProperties['forceEager'] = true;
             $this->forceEager = $value['force_eager'];
             unset($value['force_eager']);
         }
-
+    
         if (array_key_exists('pagination_client_enabled', $value)) {
             $this->_usedProperties['paginationClientEnabled'] = true;
             $this->paginationClientEnabled = $value['pagination_client_enabled'];
             unset($value['pagination_client_enabled']);
         }
-
+    
         if (array_key_exists('pagination_client_items_per_page', $value)) {
             $this->_usedProperties['paginationClientItemsPerPage'] = true;
             $this->paginationClientItemsPerPage = $value['pagination_client_items_per_page'];
             unset($value['pagination_client_items_per_page']);
         }
-
+    
         if (array_key_exists('pagination_client_partial', $value)) {
             $this->_usedProperties['paginationClientPartial'] = true;
             $this->paginationClientPartial = $value['pagination_client_partial'];
             unset($value['pagination_client_partial']);
         }
-
+    
         if (array_key_exists('pagination_via_cursor', $value)) {
             $this->_usedProperties['paginationViaCursor'] = true;
             $this->paginationViaCursor = $value['pagination_via_cursor'];
             unset($value['pagination_via_cursor']);
         }
-
+    
         if (array_key_exists('pagination_enabled', $value)) {
             $this->_usedProperties['paginationEnabled'] = true;
             $this->paginationEnabled = $value['pagination_enabled'];
             unset($value['pagination_enabled']);
         }
-
+    
         if (array_key_exists('pagination_fetch_join_collection', $value)) {
             $this->_usedProperties['paginationFetchJoinCollection'] = true;
             $this->paginationFetchJoinCollection = $value['pagination_fetch_join_collection'];
             unset($value['pagination_fetch_join_collection']);
         }
-
+    
         if (array_key_exists('pagination_use_output_walkers', $value)) {
             $this->_usedProperties['paginationUseOutputWalkers'] = true;
             $this->paginationUseOutputWalkers = $value['pagination_use_output_walkers'];
             unset($value['pagination_use_output_walkers']);
         }
-
+    
         if (array_key_exists('pagination_items_per_page', $value)) {
             $this->_usedProperties['paginationItemsPerPage'] = true;
             $this->paginationItemsPerPage = $value['pagination_items_per_page'];
             unset($value['pagination_items_per_page']);
         }
-
+    
         if (array_key_exists('pagination_maximum_items_per_page', $value)) {
             $this->_usedProperties['paginationMaximumItemsPerPage'] = true;
             $this->paginationMaximumItemsPerPage = $value['pagination_maximum_items_per_page'];
             unset($value['pagination_maximum_items_per_page']);
         }
-
+    
         if (array_key_exists('pagination_partial', $value)) {
             $this->_usedProperties['paginationPartial'] = true;
             $this->paginationPartial = $value['pagination_partial'];
             unset($value['pagination_partial']);
         }
-
+    
         if (array_key_exists('pagination_type', $value)) {
             $this->_usedProperties['paginationType'] = true;
             $this->paginationType = $value['pagination_type'];
             unset($value['pagination_type']);
         }
-
+    
         if (array_key_exists('security', $value)) {
             $this->_usedProperties['security'] = true;
             $this->security = $value['security'];
             unset($value['security']);
         }
-
+    
         if (array_key_exists('security_message', $value)) {
             $this->_usedProperties['securityMessage'] = true;
             $this->securityMessage = $value['security_message'];
             unset($value['security_message']);
         }
-
+    
         if (array_key_exists('security_post_denormalize', $value)) {
             $this->_usedProperties['securityPostDenormalize'] = true;
             $this->securityPostDenormalize = $value['security_post_denormalize'];
             unset($value['security_post_denormalize']);
         }
-
+    
         if (array_key_exists('security_post_denormalize_message', $value)) {
             $this->_usedProperties['securityPostDenormalizeMessage'] = true;
             $this->securityPostDenormalizeMessage = $value['security_post_denormalize_message'];
             unset($value['security_post_denormalize_message']);
         }
-
+    
         if (array_key_exists('security_post_validation', $value)) {
             $this->_usedProperties['securityPostValidation'] = true;
             $this->securityPostValidation = $value['security_post_validation'];
             unset($value['security_post_validation']);
         }
-
+    
         if (array_key_exists('security_post_validation_message', $value)) {
             $this->_usedProperties['securityPostValidationMessage'] = true;
             $this->securityPostValidationMessage = $value['security_post_validation_message'];
             unset($value['security_post_validation_message']);
         }
-
+    
         if (array_key_exists('composite_identifier', $value)) {
             $this->_usedProperties['compositeIdentifier'] = true;
             $this->compositeIdentifier = $value['composite_identifier'];
             unset($value['composite_identifier']);
         }
-
+    
         if (array_key_exists('exception_to_status', $value)) {
             $this->_usedProperties['exceptionToStatus'] = true;
             $this->exceptionToStatus = $value['exception_to_status'];
             unset($value['exception_to_status']);
         }
-
+    
         if (array_key_exists('query_parameter_validation_enabled', $value)) {
             $this->_usedProperties['queryParameterValidationEnabled'] = true;
             $this->queryParameterValidationEnabled = $value['query_parameter_validation_enabled'];
             unset($value['query_parameter_validation_enabled']);
         }
-
+    
         if (array_key_exists('links', $value)) {
             $this->_usedProperties['links'] = true;
             $this->links = $value['links'];
             unset($value['links']);
         }
-
+    
         if (array_key_exists('graph_ql_operations', $value)) {
             $this->_usedProperties['graphQlOperations'] = true;
             $this->graphQlOperations = $value['graph_ql_operations'];
             unset($value['graph_ql_operations']);
         }
-
+    
         if (array_key_exists('provider', $value)) {
             $this->_usedProperties['provider'] = true;
             $this->provider = $value['provider'];
             unset($value['provider']);
         }
-
+    
         if (array_key_exists('processor', $value)) {
             $this->_usedProperties['processor'] = true;
             $this->processor = $value['processor'];
             unset($value['processor']);
         }
-
+    
         if (array_key_exists('state_options', $value)) {
             $this->_usedProperties['stateOptions'] = true;
             $this->stateOptions = $value['state_options'];
             unset($value['state_options']);
         }
-
+    
         if (array_key_exists('parameters', $value)) {
             $this->_usedProperties['parameters'] = true;
             $this->parameters = $value['parameters'];
             unset($value['parameters']);
         }
-
+    
         if (array_key_exists('extra_properties', $value)) {
             $this->_usedProperties['extraProperties'] = true;
             $this->extraProperties = $value['extra_properties'];
             unset($value['extra_properties']);
         }
-
+    
         if (array_key_exists('route_name', $value)) {
             $this->_usedProperties['routeName'] = true;
             $this->routeName = $value['route_name'];
             unset($value['route_name']);
         }
-
-        if (array_key_exists('errors', $value)) {
-            $this->_usedProperties['errors'] = true;
-            $this->errors = $value['errors'];
-            unset($value['errors']);
-        }
-
+    
         if (array_key_exists('read', $value)) {
             $this->_usedProperties['read'] = true;
             $this->read = $value['read'];
             unset($value['read']);
         }
-
+    
         if (array_key_exists('deserialize', $value)) {
             $this->_usedProperties['deserialize'] = true;
             $this->deserialize = $value['deserialize'];
             unset($value['deserialize']);
         }
-
+    
         if (array_key_exists('validate', $value)) {
             $this->_usedProperties['validate'] = true;
             $this->validate = $value['validate'];
             unset($value['validate']);
         }
-
+    
         if (array_key_exists('write', $value)) {
             $this->_usedProperties['write'] = true;
             $this->write = $value['write'];
             unset($value['write']);
         }
-
+    
         if (array_key_exists('serialize', $value)) {
             $this->_usedProperties['serialize'] = true;
             $this->serialize = $value['serialize'];
             unset($value['serialize']);
         }
-
+    
         if (array_key_exists('priority', $value)) {
             $this->_usedProperties['priority'] = true;
             $this->priority = $value['priority'];
             unset($value['priority']);
         }
-
+    
         if (array_key_exists('name', $value)) {
             $this->_usedProperties['name'] = true;
             $this->name = $value['name'];
             unset($value['name']);
         }
-
+    
         if (array_key_exists('allow_create', $value)) {
             $this->_usedProperties['allowCreate'] = true;
             $this->allowCreate = $value['allow_create'];
             unset($value['allow_create']);
         }
-
+    
         if (array_key_exists('item_uri_template', $value)) {
             $this->_usedProperties['itemUriTemplate'] = true;
             $this->itemUriTemplate = $value['item_uri_template'];
             unset($value['item_uri_template']);
         }
-
+    
         $this->_extraKeys = $value;
-
+    
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -1911,9 +1890,6 @@ class DefaultsConfig
         if (isset($this->_usedProperties['routeName'])) {
             $output['route_name'] = $this->routeName;
         }
-        if (isset($this->_usedProperties['errors'])) {
-            $output['errors'] = $this->errors;
-        }
         if (isset($this->_usedProperties['read'])) {
             $output['read'] = $this->read;
         }
@@ -1941,10 +1917,10 @@ class DefaultsConfig
         if (isset($this->_usedProperties['itemUriTemplate'])) {
             $output['item_uri_template'] = $this->itemUriTemplate;
         }
-
+    
         return $output + $this->_extraKeys;
     }
-
+    
     /**
      * @param ParamConfigurator|mixed $value
      *
@@ -1953,7 +1929,7 @@ class DefaultsConfig
     public function set(string $key, mixed $value): static
     {
         $this->_extraKeys[$key] = $value;
-
+    
         return $this;
     }
 

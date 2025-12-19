@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 7.4.1 (TBD)
+ * TinyMCE version 6.8.3 (2024-02-08)
  */
 
 (function () {
@@ -896,41 +896,37 @@
       const getPanelItems = error => {
         const items = [
           {
-            type: 'label',
-            label: 'Find',
-            for: 'findtext',
-            items: [{
-                type: 'bar',
-                items: [
-                  {
-                    type: 'input',
-                    name: 'findtext',
-                    maximized: true,
-                    inputMode: 'search'
-                  },
-                  {
-                    type: 'button',
-                    name: 'prev',
-                    text: 'Previous',
-                    icon: 'action-prev',
-                    enabled: false,
-                    borderless: true
-                  },
-                  {
-                    type: 'button',
-                    name: 'next',
-                    text: 'Next',
-                    icon: 'action-next',
-                    enabled: false,
-                    borderless: true
-                  }
-                ]
-              }]
+            type: 'bar',
+            items: [
+              {
+                type: 'input',
+                name: 'findtext',
+                placeholder: 'Find',
+                maximized: true,
+                inputMode: 'search'
+              },
+              {
+                type: 'button',
+                name: 'prev',
+                text: 'Previous',
+                icon: 'action-prev',
+                enabled: false,
+                borderless: true
+              },
+              {
+                type: 'button',
+                name: 'next',
+                text: 'Next',
+                icon: 'action-next',
+                enabled: false,
+                borderless: true
+              }
+            ]
           },
           {
             type: 'input',
             name: 'replacetext',
-            label: 'Replace with',
+            placeholder: 'Replace with',
             inputMode: 'search'
           }
         ];
@@ -1071,8 +1067,7 @@
       editor.ui.registry.addButton('searchreplace', {
         tooltip: 'Find and replace',
         onAction: showDialog(editor, currentSearchState),
-        icon: 'search',
-        shortcut: 'Meta+F'
+        icon: 'search'
       });
       editor.shortcuts.add('Meta+F', '', showDialog(editor, currentSearchState));
     };

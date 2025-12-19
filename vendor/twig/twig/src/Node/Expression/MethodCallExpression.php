@@ -46,9 +46,7 @@ class MethodCallExpression extends AbstractExpression
             ->raw(', [')
         ;
         $first = true;
-        /** @var ArrayExpression */
-        $args = $this->getNode('arguments');
-        foreach ($args->getKeyValuePairs() as $pair) {
+        foreach ($this->getNode('arguments')->getKeyValuePairs() as $pair) {
             if (!$first) {
                 $compiler->raw(', ');
             }

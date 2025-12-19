@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -24,15 +24,22 @@
  * the words "Supercharged by SuiteCRM".
  */
 
-import {deepClone} from '../../common/utils/object-utils';
-import {emptyObject} from '../../common/utils/object-utils';
-import {ObjectMap} from '../../common/types/object-map';
-import {Pagination, PageSelection, PaginationCount, SortDirection, SortingSelection} from '../../common/views/list/list-navigation.model';
-import {PaginationDataSource} from '../../common/components/pagination/pagination.model';
-import {Record} from '../../common/record/record.model';
-import {RecordSelection, SelectionStatus} from '../../common/views/list/record-selection.model';
-import {SearchCriteria} from '../../common/views/list/search-criteria.model';
-import {SelectionDataSource} from '../../common/views/list/selection.model';
+import {
+    deepClone,
+    emptyObject,
+    ObjectMap,
+    PageSelection,
+    Pagination,
+    PaginationCount,
+    PaginationDataSource,
+    Record,
+    RecordSelection,
+    SearchCriteria,
+    SelectionDataSource,
+    SelectionStatus,
+    SortDirection,
+    SortingSelection
+} from 'common';
 import {BehaviorSubject, combineLatestWith, Observable, of, Subscription} from 'rxjs';
 import {catchError, distinctUntilChanged, map, shareReplay, take, tap} from 'rxjs/operators';
 import {StateStore} from '../state';
@@ -87,7 +94,6 @@ const initialSelection: RecordSelection = {
     all: false,
     status: SelectionStatus.NONE,
     selected: {},
-    touched: {},
     count: 0
 };
 
@@ -348,7 +354,7 @@ export class RecordListStore implements StateStore, DataSource<Record>, Selectio
 
         this.updateState({...this.internalState, activeFilters: deepClone(filters), openFilter: deepClone(filter)});
 
-        if (filter?.criteria ?? false) {
+        if (filter.criteria) {
             let orderBy = filter.criteria.orderBy ?? '';
             const sortOrder = filter.criteria.sortOrder ?? 'desc';
             let direction = this.mapSortOrder(sortOrder);
@@ -386,13 +392,6 @@ export class RecordListStore implements StateStore, DataSource<Record>, Selectio
         const module = this.internalState.module;
         const key = module + '-' + this.pageKey + '-' + 'current-pagination';
         this.localStorageService.set(key, this.pagination);
-    }
-
-    public setLoading(loading: boolean): void {
-        this.updateState({
-            ...this.internalState,
-            loading: loading
-        });
     }
 
     /**
@@ -665,7 +664,6 @@ export class RecordListStore implements StateStore, DataSource<Record>, Selectio
                 all: true,
                 status: SelectionStatus.ALL,
                 selected: {},
-                touched: {},
                 count: total
             }
         });
@@ -673,13 +671,11 @@ export class RecordListStore implements StateStore, DataSource<Record>, Selectio
 
     selectPage(): void {
         const selected = {...this.internalState.selection.selected};
-        const touched = {...this.internalState.selection.touched};
 
         if (this.internalState.records && this.internalState.records.length) {
             this.internalState.records.forEach(value => {
                 if (value && value.id) {
                     selected[value.id] = value.id;
-                    touched[value.id] = value.id;
                 }
             });
         }
@@ -689,19 +685,14 @@ export class RecordListStore implements StateStore, DataSource<Record>, Selectio
             selection: {
                 all: false,
                 status: SelectionStatus.SOME,
-                touched,
                 selected,
                 count: Object.keys(selected).length
             }
         });
     }
 
-    toggleSelection(id: string, touched = true): void {
+    toggleSelection(id: string): void {
         const selection = deepClone(this.internalState.selection);
-
-        if (touched) {
-            selection.touched[id] = id;
-        }
 
         if (selection.selected[id]) {
             delete selection.selected[id];

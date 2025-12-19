@@ -53,21 +53,13 @@ parameters:
                     max: 200
                     bulkAction: massupdate
                     displayConfirmation: true
-                    confirmationMessages:
-                      - LBL_BULK_ACTION_MASS_UPDATE_CONFIRMATION
+                    confirmationLabel: LBL_BULK_ACTION_MASS_UPDATE_CONFIRMATION
           acl:
             - massupdate
           availability:
             - acls
             - massupdate
     modules:
-      campaigns:
-        exclude:
-          - merge
-      emailman:
-        exclude:
-          - massupdate
-          - merge
       employees:
         exclude:
           - delete

@@ -1,13 +1,13 @@
 <?php
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -63,22 +63,21 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
     /**
      * @var FieldDefinitionsProviderInterface
      */
-    protected $fieldDefinitionProvider;
+    private $fieldDefinitionProvider;
 
     /**
      * @var SubpanelTopActionDefinitionProviderInterface
      */
-    protected $subpanelTopActionDefinitionProvider;
+    private $subpanelTopActionDefinitionProvider;
 
     /**
      * @var SubpanelLineActionDefinitionProviderInterface
      */
-    protected $subpanelLineActionDefinitionProvider;
+    private $subpanelLineActionDefinitionProvider;
     /**
      * @var FieldAliasMapper
      */
-    protected $fieldAliasMapper;
-    protected ViewConfigMappers $viewConfigMappers;
+    private $fieldAliasMapper;
 
     /**
      * ViewDefinitionsHandler constructor.
@@ -93,7 +92,6 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
      * @param SubpanelLineActionDefinitionProviderInterface $subpanelLineActionDefinitionProvider
      * @param FieldAliasMapper $fieldAliasMapper
      * @param RequestStack $session
-     * @param ViewConfigMappers $viewDefsConfigMappers
      */
     public function __construct(
         string $projectDir,
@@ -106,8 +104,7 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
         SubpanelTopActionDefinitionProviderInterface $subpanelTopActionDefinitionProvider,
         SubpanelLineActionDefinitionProviderInterface $subpanelLineActionDefinitionProvider,
         FieldAliasMapper $fieldAliasMapper,
-        RequestStack $session,
-        ViewConfigMappers $viewDefsConfigMappers
+        RequestStack $session
     ) {
         parent::__construct(
             $projectDir,
@@ -122,7 +119,6 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
         $this->subpanelTopActionDefinitionProvider = $subpanelTopActionDefinitionProvider;
         $this->subpanelLineActionDefinitionProvider = $subpanelLineActionDefinitionProvider;
         $this->fieldAliasMapper = $fieldAliasMapper;
-        $this->viewConfigMappers = $viewDefsConfigMappers;
     }
 
     /**
@@ -188,14 +184,7 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
 
         $resultingTabs = [];
 
-        $tabs = $this->viewConfigMappers->run('module', 'subpanel', $tabs);
-
         foreach ($tabs as $key => $tab) {
-
-            if (($tab['hidden'] ?? false) === true) {
-                continue;
-            }
-
             try {
                 /** @var aSubPanel $subpanel */
                 $subpanel = $spd->load_subpanel($key);
@@ -214,7 +203,6 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
                 $columnSubpanel = $subpanel->get_header_panel_def();
                 $headerModule = $this->moduleNameMapper->toFrontEnd($columnSubpanel->get_module_name());
                 $extraModuleVardefs = $this->getCollectionListVardefs($tab['collection_list']);
-
             } else {
                 $headerModule = $this->getHeaderModule($tab);
             }
@@ -227,10 +215,9 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
             $tabs[$key]['legacyModule'] = $tab['module'];
             $tabs[$key]['headerModule'] = $headerModule;
             $tabs[$key]['top_buttons'] = $this->mapButtons($subpanel, $tab);
-            $tabs[$key]['subpanelWidget'] = $this->mapInsightWidget($subpanel, $tabs, $key, $tab);
+            $tabs[$key]['insightWidget'] = $this->mapInsightWidget($subpanel, $tabs, $key, $tab);
             $tabs[$key]['lineActions'] = $this->getSubpanelLineActions($subpanel, $tabs[$key]['module']);
             $tabs[$key]['searchdefs'] = $this->getSearchdefs($subpanel);
-            $tabs[$key]['order'] = $tab['order'];
 
             if (empty($columnSubpanel)) {
                 continue;
@@ -347,11 +334,6 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
                     'width' => $field['width'] ?? '',
                     'enable_range_search' => $field['enable_range_search'] ?? '',
                 ];
-
-                if (!empty($field['name'] ?? false) && str_contains($field['name'], '_only')) {
-                    $fieldDefinition['displayType'] = 'checkbox';
-                }
-
                 $field['fieldDefinition'] = $fieldDefinition;
             }
 
@@ -467,11 +449,11 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
      */
     protected function mapInsightWidget($subpanel, array $tabs, $key, $tab): array
     {
-        if (!empty($subpanel->panel_definition['subpanelWidget'])) {
+        if (!empty($subpanel->panel_definition['insightWidget'])) {
             $widgetConfig = [
                 'type' => 'statistics',
                 'options' => [
-                    'subpanelWidget' => $subpanel->panel_definition['subpanelWidget']
+                    'insightWidget' => $subpanel->panel_definition['insightWidget']
                 ]
             ];
 
@@ -480,7 +462,7 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
             return $widgetConfig;
         }
 
-        if (empty($tabs[$key]['subpanelWidget'])) {
+        if (empty($tabs[$key]['insightWidget'])) {
             return $this->getDefaultWidgetConfig($tabs, $key, $tab);
         }
 
@@ -498,7 +480,7 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
         return [
             'type' => 'statistics',
             'options' => [
-                'subpanelWidget' => [
+                'insightWidget' => [
                     'rows' => [
                         [
                             'justify' => 'end',
@@ -506,16 +488,37 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
                                 [
                                     'icon' => $tab['module'],
                                 ],
+                            ]
+                        ],
+                        [
+                            'align' => 'end',
+                            'justify' => 'start',
+                            'class' => 'flex-grow-1',
+                            'cols' => [
+                                [
+                                    'statistic' => $tabs[$key]['module'],
+                                    'class' => 'sub-panel-banner-value',
+                                    'bold' => true,
+                                ],
+                            ]
+                        ],
+                        [
+                            'justify' => 'start',
+                            'cols' => [
+                                [
+                                    'descriptionKey' => $tabs[$key]['title_key'] . '_INSIGHT_DESCRIPTION',
+                                    'class' => 'sub-panel-banner-tooltip',
+                                ]
+                            ]
+                        ],
+                        [
+                            'justify' => 'start',
+                            'cols' => [
                                 [
                                     'labelKey' => $tabs[$key]['title_key'],
                                     'class' => 'sub-panel-banner-button-title',
                                     'bold' => true,
-                                ],
-                                [
-                                    'statistic' => 'default',
-                                    'class' => 'sub-panel-banner-value',
-                                    'bold' => true,
-                                ],
+                                ]
                             ]
                         ],
                     ]
@@ -548,7 +551,7 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
      */
     protected function replaceVariables(array $tabs, $key, array &$widgetConfig, &$widgetRows): void
     {
-        $widgetRows = $widgetConfig['options']['subpanelWidget']['rows'] ?? [];
+        $widgetRows = $widgetConfig['options']['insightWidget']['rows'] ?? [];
 
         foreach ($widgetRows as $rowKey => $row) {
             $cols = $row['cols'] ?? [];
@@ -557,8 +560,8 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
             }
         }
 
-        if (isset($widgetConfig['options']['subpanelWidget']['rows'])) {
-            $widgetConfig['options']['subpanelWidget']['rows'] = $widgetRows;
+        if (isset($widgetConfig['options']['insightWidget']['rows'])) {
+            $widgetConfig['options']['insightWidget']['rows'] = $widgetRows;
         }
     }
 
@@ -594,10 +597,8 @@ class SubPanelDefinitionHandler extends LegacyHandler implements SubPanelDefinit
                 ) {
                     $lineAction = $subpanelLineActions[$list_field['name']];
                     $moduleName = $this->moduleNameMapper->toFrontEnd($subpanelModule);
-                    $lineActions[] = $this->subpanelLineActionDefinitionProvider->getLineAction(
-                        $moduleName,
-                        $lineAction
-                    );
+                    $lineActions[] = $this->subpanelLineActionDefinitionProvider->getLineAction($moduleName,
+                        $lineAction);
                 }
             }
         }

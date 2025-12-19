@@ -56,11 +56,7 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 
-          array (
-            'name' => 'entry_count',
-            'label' => 'LBL_ENTRIES',
-          ),
+          1 => '',
         ),
         1 => 
         array (

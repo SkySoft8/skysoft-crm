@@ -17,8 +17,6 @@ namespace ApiPlatform\Exception;
  * Invalid resource exception.
  *
  * @author Paul Le Corre <paul@lecorre.me>
- *
- * @deprecated
  */
 class InvalidResourceException extends \Exception implements ExceptionInterface
 {

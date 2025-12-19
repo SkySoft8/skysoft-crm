@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -64,7 +60,7 @@ $mod_strings = array(
 'LNK_PROSPECT_LIST' => 'Адресаты' ,
 
 'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакты' ,
-'LBL_LEADS_SUBPANEL_TITLE' => 'Предварит. контакты' ,
+'LBL_LEADS_SUBPANEL_TITLE' => 'Предварительные контакты' ,
 'LBL_PROSPECTS_SUBPANEL_TITLE' => 'Адресаты' ,
 'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Контрагенты',
 'LBL_COPY_PREFIX' => 'Копия для' ,
@@ -78,6 +74,7 @@ $mod_strings = array(
 'LBL_DOMAIN' => 'Нет писем в домене:'  ,
 'LBL_LIST_PROSPECTLIST_NAME' => 'Название',
 'LBL_EMAIL_MARKETING' => 'Рассылки E-mail',
+
 'LBL_ASCENDING' => 'Восходящая',
 'LBL_DESCENDING' => 'Нисходящая',
 );

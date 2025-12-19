@@ -24,8 +24,6 @@ final class Subscription extends Operation
         ?array $args = null,
         ?array $extraArgs = null,
         ?array $links = null,
-        ?string $securityAfterResolver = null,
-        ?string $securityMessageAfterResolver = null,
 
         ?string $shortName = null,
         ?string $class = null,
@@ -72,7 +70,6 @@ final class Subscription extends Operation
         $processor = null,
         ?OptionsInterface $stateOptions = null,
         array|Parameters|null $parameters = null,
-        ?bool $queryParameterValidationEnabled = null,
         array $extraProperties = [],
     ) {
         parent::__construct(
@@ -80,8 +77,6 @@ final class Subscription extends Operation
             args: $args,
             extraArgs: $extraArgs,
             links: $links,
-            securityAfterResolver: $securityAfterResolver,
-            securityMessageAfterResolver: $securityMessageAfterResolver,
             shortName: $shortName,
             class: $class,
             paginationEnabled: $paginationEnabled,
@@ -127,7 +122,6 @@ final class Subscription extends Operation
             processor: $processor,
             stateOptions: $stateOptions,
             parameters: $parameters,
-            queryParameterValidationEnabled: $queryParameterValidationEnabled,
             extraProperties: $extraProperties,
         );
     }

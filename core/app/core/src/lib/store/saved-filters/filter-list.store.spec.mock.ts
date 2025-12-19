@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -31,8 +31,7 @@ import {messageServiceMock} from '../../services/message/message.service.spec.mo
 import {systemConfigStoreMock} from '../system-config/system-config.store.spec.mock';
 import {userPreferenceStoreMock} from '../user-preference/user-preference.store.spec.mock';
 import {Observable, of} from 'rxjs';
-import {deepClone} from '../../common/utils/object-utils';
-import {User} from '../../common/types/user';
+import {deepClone, User} from 'common';
 import {AuthService} from '../../services/auth/auth.service';
 import {moduleNameMapperMock} from '../../services/navigation/module-name-mapper/module-name-mapper.service.spec.mock';
 import {FilterListStoreFactory} from './filter-list.store.factory';

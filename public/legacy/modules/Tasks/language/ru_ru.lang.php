@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -57,9 +53,6 @@ $mod_strings = array(
 'LBL_LIST_START_DATE' => 'Дата начала',
 'LBL_START_TIME' => 'Время начала:' ,
 'DATE_FORMAT' => '(гггг-мм-дд)' ,
-'LBL_DAYS_UNTIL_DUE_TASK' => 'Задача будет просрочена через',
-'LBL_DAYS_OVERDUE' => 'Задача просрочена',
-'LBL_TASK_COMPLETED' => 'Задача завершена',
 'LBL_NONE' => 'Нет' ,
 'LBL_CONTACT' => 'Контакт:' ,
 'LBL_EMAIL_ADDRESS' => 'Адреса E-mail:',

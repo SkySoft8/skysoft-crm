@@ -34,6 +34,7 @@ array (
           'panelDefault' => 'expanded',
         ),
       ),
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -69,12 +70,23 @@ array (
         ),
         3 => 
         array (
-          0 => 'probability',
+          0 => 
+          array (
+            'name' => 'deal_status_c',
+            'studio' => 'visible',
+            'label' => 'LBL_DEAL_STATUS',
+          ),
           1 => 'lead_source',
         ),
         4 => 
         array (
           0 => 'description',
+          1 => 
+          array (
+            'name' => 'refusal_reason_c',
+            'studio' => 'visible',
+            'label' => 'LBL_REFUSAL_REASON',
+          ),
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 

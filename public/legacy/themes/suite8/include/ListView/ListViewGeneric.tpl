@@ -66,7 +66,7 @@
 {assign var="moduleName" value = $moduleList.$currentModule}
 {assign var="hideTable" value=false}
 
-{if $form && $form.headerTpl}
+{if $form.headerTpl}
     {sugar_include type="smarty" file=$form.headerTpl}
 {/if}
 
@@ -211,7 +211,7 @@
 				{counter name="colCounter"}
 			{/foreach}
 			{* add extra column for icons*}
-			<th>{$pageData.additionalDetails.$id|default:''}</th>
+			<th>{$pageData.additionalDetails.$id}</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -282,14 +282,6 @@
 
 						{if $params.customCode}
 							{sugar_evalcolumn_old var=$params.customCode rowData=$rowData}
-						{elseif $params.currency_format}
-							{sugar_currency_format
-							var=$rowData.$col
-							symbol=$params.symbol|default:''
-							currency_id=$params.currency_id
-							convert=$params.convert|default:''
-							currency_symbol=$params.currency_symbol
-							}
 						{else}
 	                       {sugar_field parentFieldArray=$rowData vardef=$params displayType=ListView field=$col}
 
@@ -305,7 +297,7 @@
 					{counter name="colCounter"}
 
 				{/foreach}
-					<td align='right'>{$pageData.additionalDetails.$id|default:''}</td>
+				<td align='right'>{$pageData.additionalDetails.$id}</td>
 		    	</tr>
 		{foreachelse}
 		<tr height='20' class='{$rowColor[0]}S1'>
@@ -357,6 +349,6 @@ function lvg_nav(m,id,act,offset,t){
 {/if}
 
 
-{if $form && $form.footerTpl}
+{if $form.footerTpl}
     {sugar_include type="smarty" file=$form.headerTpl}
 {/if}

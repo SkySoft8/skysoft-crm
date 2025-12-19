@@ -58,13 +58,6 @@ $subpanel_layout = array(
             'target_record_key' => 'campaign_id',
             'target_module' => 'Campaigns',
         ),
-        'marketing_name'=>array(
-            'vname' => 'LBL_LIST_MARKETING_NAME',
-            'width' => '20%',
-            'widget_class' => 'SubPanelDetailViewLink',
-            'target_record_key' => 'marketing_id',
-            'target_module' => 'EmailMarketing',
-        ),
         'activity_type' => array(
             'vname' => 'LBL_ACTIVITY_TYPE',
             'width' => '10%',
@@ -74,7 +67,14 @@ $subpanel_layout = array(
             'width' => '10%',
         ),
         'related_name' => array(
-            'usage' =>'query_only',
+            'widget_class' => 'SubPanelDetailViewLink',
+            'target_record_key' => 'related_id',
+            'target_module_key' => 'related_type',
+            'parent_id' =>'target_id',
+            'parent_module'=>'target_type',
+            'vname' => 'LBL_RELATED',
+            'width' => '60%',
+            'sortable'=>false,
         ),
         'related_id'=>array(
             'usage' =>'query_only',

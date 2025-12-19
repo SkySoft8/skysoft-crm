@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace ApiPlatform\ParameterValidator\Validator;
 
 /**
- * @deprecated use \ApiPlatform\Metadata\Parameter::$constraints instead
+ * @deprecated use Parameter constraint instead
  */
 interface ValidatorInterface
 {

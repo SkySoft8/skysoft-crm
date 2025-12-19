@@ -428,8 +428,8 @@ eoq;
 
         if ($current_user->getEmailClient() == 'sugar') {
             $html =<<<HTML
-            <a class="email-link" href="{$addr}"
-                    onclick="$(document).openEmailModal(this);"
+            <a class="email-link" href="mailto:{$addr}"
+                    onclick="$(document).openComposeViewModal(this);"
                     data-module="{$module_name}" data-record-id="{$record_id}"
                     data-module-name="{$name}" data-email-address="{$addr}"
                 >{$text}</a>
@@ -1297,7 +1297,7 @@ HTML;
         global $current_user;
         global $app_strings;
 
-        if (empty($user)) {
+        if (!$user) {
             $user = $current_user;
         }
 
@@ -1561,7 +1561,7 @@ HTML;
         }
         if (file_exists($cache)) {
             include($cache); // profides $cacheFile
-            $metaOut = unserialize($cacheFile['out'], ['allowed_classes' => false]);
+            $metaOut = unserialize($cacheFile['out']);
             $meta = $metaOut['meta']['email'];
             if (isset($meta['attachments'])) {
                 $attachmentHtmlData = $meta['attachments'];
@@ -3391,7 +3391,9 @@ eoq;
             include($cacheFilePath); // provides $cacheFile
 
             if (isset($cacheFile[$key])) {
-                return unserialize($cacheFile[$key], ['allowed_classes' => false]);
+                $ret = unserialize($cacheFile[$key]);
+
+                return $ret;
             }
         } else {
             $GLOBALS['log']->debug("EMAILUI: cache file not found [ {$cacheFilePath} ] - creating blank cache file");

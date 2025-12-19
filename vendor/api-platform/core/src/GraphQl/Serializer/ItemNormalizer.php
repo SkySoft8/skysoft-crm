@@ -89,8 +89,6 @@ final class ItemNormalizer extends BaseItemNormalizer
 
         if ($this->isCacheKeySafe($context)) {
             $context['cache_key'] = $this->getCacheKey($format, $context);
-        } else {
-            $context['cache_key'] = false;
         }
 
         unset($context['operation_name'], $context['operation']); // Remove operation and operation_name only when cache key has been created

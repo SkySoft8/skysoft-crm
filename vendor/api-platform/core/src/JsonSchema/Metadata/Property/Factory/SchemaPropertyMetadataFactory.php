@@ -13,13 +13,12 @@ declare(strict_types=1);
 
 namespace ApiPlatform\JsonSchema\Metadata\Property\Factory;
 
+use ApiPlatform\Exception\PropertyNotFoundException;
 use ApiPlatform\JsonSchema\Schema;
 use ApiPlatform\Metadata\ApiProperty;
-use ApiPlatform\Metadata\Exception\PropertyNotFoundException;
 use ApiPlatform\Metadata\Property\Factory\PropertyMetadataFactoryInterface;
 use ApiPlatform\Metadata\ResourceClassResolverInterface;
 use ApiPlatform\Metadata\Util\ResourceClassInfoTrait;
-use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\PropertyInfo\Type;
 use Symfony\Component\Uid\Ulid;
@@ -34,10 +33,8 @@ final class SchemaPropertyMetadataFactory implements PropertyMetadataFactoryInte
 
     public const JSON_SCHEMA_USER_DEFINED = 'user_defined_schema';
 
-    public function __construct(
-        ResourceClassResolverInterface $resourceClassResolver,
-        private readonly ?PropertyMetadataFactoryInterface $decorated = null,
-    ) {
+    public function __construct(ResourceClassResolverInterface $resourceClassResolver, private readonly ?PropertyMetadataFactoryInterface $decorated = null)
+    {
         $this->resourceClassResolver = $resourceClassResolver;
     }
 
@@ -103,21 +100,15 @@ final class SchemaPropertyMetadataFactory implements PropertyMetadataFactoryInte
             $propertySchema['example'] = $propertySchema['default'];
         }
 
-        // never override the following keys if at least one is already set or if there's a custom openapi context
+        // never override the following keys if at least one is already set
         if ([] === $types
             || ($propertySchema['type'] ?? $propertySchema['$ref'] ?? $propertySchema['anyOf'] ?? $propertySchema['allOf'] ?? $propertySchema['oneOf'] ?? false)
-            || \array_key_exists('type', $propertyMetadata->getOpenapiContext() ?? [])
         ) {
             return $propertyMetadata->withSchema($propertySchema);
         }
 
         $valueSchema = [];
         foreach ($types as $type) {
-            // Temp fix for https://github.com/symfony/symfony/pull/52699
-            if (ArrayCollection::class === $type->getClassName()) {
-                $type = new Type($type->getBuiltinType(), $type->isNullable(), $type->getClassName(), true, $type->getCollectionKeyTypes(), $type->getCollectionValueTypes());
-            }
-
             if ($isCollection = $type->isCollection()) {
                 $keyType = $type->getCollectionKeyTypes()[0] ?? null;
                 $valueType = $type->getCollectionValueTypes()[0] ?? null;
@@ -200,8 +191,6 @@ final class SchemaPropertyMetadataFactory implements PropertyMetadataFactoryInte
      * Gets the JSON Schema document which specifies the data type corresponding to the given PHP class, and recursively adds needed new schema to the current schema if provided.
      *
      * Note: if the class is not part of exceptions listed above, any class is considered as a resource.
-     *
-     * @throws PropertyNotFoundException
      */
     private function getClassType(?string $className, bool $nullable, ?bool $readableLink): array
     {
@@ -244,8 +233,7 @@ final class SchemaPropertyMetadataFactory implements PropertyMetadataFactoryInte
             ];
         }
 
-        $isResourceClass = $this->isResourceClass($className);
-        if (!$isResourceClass && is_a($className, \BackedEnum::class, true)) {
+        if (!$this->isResourceClass($className) && is_a($className, \BackedEnum::class, true)) {
             $enumCases = array_map(static fn (\BackedEnum $enum): string|int => $enum->value, $className::cases());
 
             $type = \is_string($enumCases[0] ?? '') ? 'string' : 'integer';
@@ -260,7 +248,7 @@ final class SchemaPropertyMetadataFactory implements PropertyMetadataFactoryInte
             ];
         }
 
-        if (true !== $readableLink && $isResourceClass) {
+        if (true !== $readableLink && $this->isResourceClass($className)) {
             return [
                 'type' => 'string',
                 'format' => 'iri-reference',
@@ -268,6 +256,7 @@ final class SchemaPropertyMetadataFactory implements PropertyMetadataFactoryInte
             ];
         }
 
+        // TODO: add propertyNameCollectionFactory and recurse to find the underlying schema? Right now SchemaFactory does the job so we don't compute anything here.
         return ['type' => Schema::UNKNOWN_TYPE];
     }
 

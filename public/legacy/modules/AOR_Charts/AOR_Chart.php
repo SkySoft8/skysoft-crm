@@ -406,6 +406,7 @@ EOF;
             options: {
                 grouping:'$grouping',
                 backgroundGrid:false,
+                backgroundGrid:false,
                 gutterBottom: 150,
                 gutterTop:25,
                 gutterLeft:128,

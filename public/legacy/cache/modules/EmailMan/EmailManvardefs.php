@@ -40,6 +40,22 @@
       'auto_increment' => true,
       'comment' => 'Unique identifier',
     ),
+    'campaign_id' => 
+    array (
+      'name' => 'campaign_id',
+      'vname' => 'LBL_CAMPAIGN_ID',
+      'type' => 'id',
+      'reportable' => false,
+      'comment' => 'ID of related campaign',
+    ),
+    'marketing_id' => 
+    array (
+      'name' => 'marketing_id',
+      'vname' => 'LBL_MARKETING_ID',
+      'type' => 'id',
+      'reportable' => false,
+      'comment' => '',
+    ),
     'list_id' => 
     array (
       'name' => 'list_id',
@@ -64,20 +80,12 @@
       'len' => '36',
       'comment' => 'User ID who last modified record',
     ),
-    'more_information' => 
-    array (
-      'name' => 'more_information',
-      'vname' => 'LBL_MORE_INFO',
-      'type' => 'varchar',
-      'len' => '100',
-    ),
     'in_queue' => 
     array (
       'name' => 'in_queue',
       'vname' => 'LBL_IN_QUEUE',
       'type' => 'bool',
       'default' => '0',
-      'displayType' => 'checkbox',
       'comment' => 'Flag indicating if item still in queue',
     ),
     'in_queue_date' => 
@@ -104,19 +112,21 @@
       'comment' => 'Record deletion indicator',
       'default' => '0',
     ),
-    'related_type' => 
-    array (
-      'name' => 'related_type',
-      'vname' => 'LBL_RELATED_TYPE',
-      'type' => 'varchar',
-      'len' => '100',
-    ),
     'related_id' => 
     array (
       'name' => 'related_id',
       'vname' => 'LBL_RELATED_ID',
       'type' => 'id',
       'reportable' => false,
+      'comment' => 'ID of Sugar object to which this item is related',
+    ),
+    'related_type' => 
+    array (
+      'name' => 'related_type',
+      'vname' => 'LBL_RELATED_TYPE',
+      'type' => 'varchar',
+      'len' => '100',
+      'comment' => 'Descriptor of the Sugar object indicated by related_id',
     ),
     'related_confirm_opt_in' => 
     array (
@@ -144,142 +154,17 @@
     'message_name' => 
     array (
       'name' => 'message_name',
-      'id_name' => 'marketing_id',
-      'group' => 'message_name',
+      'type' => 'varchar',
       'len' => '255',
       'source' => 'non-db',
-      'rname' => 'name',
-      'type' => 'relate',
-      'module' => 'EmailMarketing',
-      'link' => 'email_marketing',
-      'table' => 'email_marketing',
-    ),
-    'marketing_id' => 
-    array (
-      'name' => 'marketing_id',
-      'vname' => 'LBL_MARKETING_ID',
-      'group' => 'message_name',
-      'type' => 'id',
-      'reportable' => false,
-      'comment' => '',
     ),
     'campaign_name' => 
     array (
       'name' => 'campaign_name',
-      'rname' => 'name',
-      'source' => 'non-db',
-      'id_name' => 'campaign_id',
       'vname' => 'LBL_LIST_CAMPAIGN',
-      'group' => 'campaign_name',
-      'type' => 'relate',
-      'len' => '50',
-      'module' => 'Campaigns',
-      'link' => 'campaigns',
-      'table' => 'campaigns',
-    ),
-    'campaign_id' => 
-    array (
-      'name' => 'campaign_id',
-      'vname' => 'LBL_CAMPAIGN_ID',
-      'group' => 'campaign_name',
-      'type' => 'id',
-      'reportable' => false,
-      'comment' => 'ID of related campaign',
-    ),
-    'name' => 
-    array (
-      'name' => 'name',
-      'vname' => 'LBL_SUBJECT',
       'type' => 'varchar',
-      'metadata' => 
-      array (
-        'linkRoute' => '../../../email-marketing/record/{{attributes.marketing_id}}',
-      ),
+      'len' => '50',
       'source' => 'non-db',
-      'len' => '255',
-    ),
-    'status' => 
-    array (
-      'name' => 'status',
-      'type' => 'enum',
-      'source' => 'non-db',
-      'len' => 100,
-      'options' => 'email_marketing_status_dom',
-    ),
-    'assigned_user_id' => 
-    array (
-      'name' => 'assigned_user_id',
-      'rname' => 'user_name',
-      'id_name' => 'assigned_user_id',
-      'vname' => 'LBL_ASSIGNED_TO_ID',
-      'group' => 'assigned_user_name',
-      'type' => 'relate',
-      'table' => 'users',
-      'module' => 'Users',
-      'source' => 'non-db',
-      'isnull' => 'false',
-      'dbType' => 'id',
-      'comment' => 'User ID assigned to record',
-      'duplicate_merge' => 'disabled',
-      'reportable' => false,
-      'massupdate' => false,
-      'inline_edit' => false,
-      'importable' => false,
-      'exportable' => false,
-      'unified_search' => false,
-    ),
-    'assigned_user_name' => 
-    array (
-      'name' => 'assigned_user_name',
-      'link' => 'assigned_user_link',
-      'vname' => 'LBL_ASSIGNED_TO_NAME',
-      'rname' => 'user_name',
-      'type' => 'relate',
-      'source' => 'non-db',
-      'table' => 'users',
-      'id_name' => 'assigned_user_id',
-      'module' => 'Users',
-      'duplicate_merge' => 'disabled',
-      'reportable' => false,
-      'massupdate' => false,
-      'inline_edit' => false,
-      'importable' => false,
-      'exportable' => false,
-      'unified_search' => false,
-    ),
-    'assigned_user_link' => 
-    array (
-      'name' => 'assigned_user_link',
-      'type' => 'link',
-      'relationship' => 'emailman_assigned_user',
-      'vname' => 'LBL_ASSIGNED_TO_USER',
-      'link_type' => 'one',
-      'module' => 'Users',
-      'bean_name' => 'User',
-      'source' => 'non-db',
-      'duplicate_merge' => 'enabled',
-      'rname' => 'user_name',
-      'id_name' => 'assigned_user_id',
-      'table' => 'users',
-      'reportable' => false,
-      'massupdate' => false,
-      'inline_edit' => false,
-      'importable' => false,
-      'exportable' => false,
-      'unified_search' => false,
-    ),
-  ),
-  'relationships' => 
-  array (
-    'emailman_assigned_user' => 
-    array (
-      'lhs_module' => 'Users',
-      'lhs_table' => 'users',
-      'lhs_key' => 'id',
-      'rhs_module' => 'Emailman',
-      'rhs_table' => 'emailman',
-      'rhs_key' => 'assigned_user_id',
-      'relationship_type' => 'one-to-many',
     ),
   ),
   'indices' => 
@@ -322,18 +207,6 @@
         0 => 'related_id',
         1 => 'related_type',
         2 => 'campaign_id',
-      ),
-    ),
-    4 => 
-    array (
-      'name' => 'idx_eman_related',
-      'type' => 'index',
-      'fields' => 
-      array (
-        0 => 'related_id',
-        1 => 'related_type',
-        2 => 'marketing_id',
-        3 => 'deleted',
       ),
     ),
   ),

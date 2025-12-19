@@ -1,5 +1,5 @@
 <?php
-// created: 2025-11-19 09:05:51
+// created: 2025-04-23 15:02:24
 $mod_strings = array (
   'LBL_MODULE_NAME' => 'Сотрудники',
   'LBL_MODULE_TITLE' => 'Сотрудники - ГЛАВНАЯ',
@@ -105,6 +105,6 @@ $mod_strings = array (
   'LBL_ROLES' => 'Роли',
   'LBL_SECURITYGROUPS' => 'Группы пользователей',
   'LBL_PROSPECT_LIST' => 'Список адресатов',
-  'LBL_FACTOR_AUTH_INTERFACE' => 'Интерфейс двухэтапной аутентификации:',
+  'LBL_FACTOR_AUTH_INTERFACE' => 'Интерфейс двухфакторной аутентификации:',
   'LBL_EDITOR_TYPE' => 'Редактор',
 );

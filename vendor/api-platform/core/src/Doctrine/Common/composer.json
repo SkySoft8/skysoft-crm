@@ -3,11 +3,10 @@
     "description": "Common files used by api-platform/doctrine-orm and api-platform/doctrine-odm",
     "type": "library",
     "keywords": [
-        "doctrine",
-        "orm",
-        "odm",
-        "REST",
-        "GraphQL"
+        "DOCTRINE",
+        "ORM",
+        "ODM",
+        "COMMON"
     ],
     "homepage": "https://api-platform.com",
     "license": "MIT",
@@ -24,8 +23,8 @@
     ],
     "require": {
         "php": ">=8.1",
-        "api-platform/metadata": "^3.4 || ^4.0",
-        "api-platform/state": "^3.4 || ^4.0",
+        "api-platform/metadata": "@dev",
+        "api-platform/state": "@dev",
         "doctrine/collections": "^2.1",
         "doctrine/common": "^3.2.2",
         "doctrine/persistence": "^3.2"
@@ -42,12 +41,8 @@
     },
     "suggest": {
         "phpstan/phpdoc-parser": "For PHP documentation support.",
-        "symfony/messenger": "For async mercure updates.",
         "symfony/yaml": "For YAML resource configuration.",
-        "symfony/config": "For XML resource configuration.",
-        "api-platform/http-cache": "For HTTP cache invalidation.",
-        "api-platform/graphql": "For GraphQl mercure subscriptions.",
-        "symfony/mercure-bundle": "For mercure updates publisher."
+        "symfony/config": "For XML resource configuration."
     },
     "autoload": {
         "psr-4": {
@@ -62,15 +57,10 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "4.0.x-dev",
-            "dev-3.4": "3.4.x-dev"
+            "dev-main": "3.3.x-dev"
         },
         "symfony": {
-            "require": "^6.4 || ^7.1"
-        },
-        "thanks": {
-            "name": "api-platform/api-platform",
-            "url": "https://github.com/api-platform/api-platform"
+            "require": "^6.4"
         }
     },
     "scripts": {

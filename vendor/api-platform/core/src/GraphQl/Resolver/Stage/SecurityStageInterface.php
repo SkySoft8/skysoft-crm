@@ -21,8 +21,6 @@ use GraphQL\Error\Error;
  *
  * @author Alan Poulain <contact@alanpoulain.eu>
  * @author Vincent Chalamon <vincentchalamon@gmail.com>
- *
- * @deprecated
  */
 interface SecurityStageInterface
 {

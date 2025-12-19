@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -24,21 +24,28 @@
  * the words "Supercharged by SuiteCRM".
  */
 
-import {Injectable, signal} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ValidationManager} from '../validation/validation.manager';
 import {DataTypeFormatter} from '../../formatters/data-type.formatter.service';
-import {isFalse, isTrue} from '../../../common/utils/value-utils';
-import {ObjectMap} from '../../../common/types/object-map';
-import {AttributeDependency, BaseField, DisplayType, Field, FieldDefinition} from '../../../common/record/field.model';
-import {FieldLogic, FieldLogicMap} from '../../../common/actions/field-logic-action.model';
-import {Record} from '../../../common/record/record.model';
-import {ViewFieldDefinition} from '../../../common/metadata/metadata.model';
+import {
+    AttributeDependency,
+    BaseField,
+    DisplayType,
+    Field,
+    FieldDefinition,
+    FieldLogic,
+    FieldLogicMap,
+    isFalse,
+    isTrue,
+    ObjectMap,
+    Record,
+    ViewFieldDefinition
+} from 'common';
 import {AsyncValidatorFn, UntypedFormArray, UntypedFormControl, ValidatorFn} from '@angular/forms';
 import {LanguageStore} from '../../../store/language/language.store';
 import get from 'lodash-es/get';
-import {isEmpty, isObject, merge} from 'lodash-es';
+import {isEmpty, merge} from 'lodash-es';
 import {FieldObjectRegistry} from "./field-object-type.registry";
-import {deepClone} from "../../../common/utils/object-utils";
 
 
 @Injectable({
@@ -70,10 +77,6 @@ export class FieldBuilder {
 
         if (!isEmpty(currentModuleDefinitions)) {
             definition = currentModuleDefinitions;
-        }
-
-        if (!isEmpty(definition)) {
-            definition = deepClone(definition);
         }
 
         const {value, valueList, valueObject} = this.parseValue(viewField, definition, record);
@@ -140,8 +143,6 @@ export class FieldBuilder {
         if (Array.isArray(value)) {
             valueList = value;
             value = null;
-        } else if (typeof value === 'object' && value !== null) {
-            return {value, valueList, valueObject: value};
         }
 
         return {value, valueList};
@@ -192,16 +193,14 @@ export class FieldBuilder {
         field.name = viewField.name || definition.name || '';
         field.vardefBased = viewField?.vardefBased ?? definition?.vardefBased ?? false;
         field.readonly = isTrue(viewField.readonly) || isTrue(definition.readonly) || false;
-        field.display = signal((viewField.display || definition.display || 'default') as DisplayType);
-        field.required = signal(isTrue(definition?.required) ?? isTrue(viewField?.fieldDefinition?.required) ?? false);
-        field.defaultDisplay = field?.display();
+        field.display = (viewField.display || definition.display || 'default') as DisplayType;
+        field.defaultDisplay = field.display;
         if (field.defaultDisplay === 'default') {
             field.defaultDisplay = 'show';
         }
+        field.value = value;
         field.metadata = metadata;
         field.definition = definition;
-        field.initDefaultProcess = viewField?.initDefaultProcess ?? definition?.initDefaultProcess ?? '';
-
         if (viewField?.lineItems) {
             field.definition.lineItems = viewField.lineItems;
         }
@@ -213,36 +212,19 @@ export class FieldBuilder {
             field.default = defaultValue;
         }
 
-        const defaultValueObject = viewField?.defaultValueObject ?? definition?.defaultValueObject ?? null;
-        if (defaultValueObject) {
-            field.defaultValueObject = defaultValueObject;
-        }
-
         field.defaultValueModes = viewField?.defaultValueModes ?? definition?.defaultValueModes ?? [];
-
-        field.value = value;
 
         field.validators = validators;
         field.asyncValidators = asyncValidators;
 
         if (field.type === 'line-items') {
-            field.valueObjectArray = record?.attributes[field.name] ?? [];
+            field.valueObjectArray = record.attributes[field.name];
             field.itemFormArray = new UntypedFormArray([]);
             field.formControl = new UntypedFormControl(formattedValue);
         } else {
             field.formControl = new UntypedFormControl(formattedValue);
         }
 
-        const fieldActions = viewField?.fieldActions ?? definition?.fieldActions ?? null;
-        field.fieldActions = null;
-
-        if (fieldActions && isObject(fieldActions)) {
-            field.fieldActions = deepClone(fieldActions);
-        }
-
-        field.displayType =  viewField?.displayType ?? definition?.displayType ?? '';
-
-        field.useFullColumn = viewField?.useFullColumn || definition?.useFullColumn || null;
         field.attributes = {};
         field.source = 'field';
         field.logic = viewField.logic || definition.logic || null;
@@ -300,10 +282,6 @@ export class FieldBuilder {
                         const fieldDependency = fieldDependencies[dependency] ?? {}
                         const types = fieldDependency['types'] ?? [];
                         types.push(type);
-
-                        if (fieldDependencies[dependency]) {
-                            types.push(...fieldDependencies[dependency]['type']);
-                        }
 
                         fieldDependencies[dependency] = {
                             field: dependency,

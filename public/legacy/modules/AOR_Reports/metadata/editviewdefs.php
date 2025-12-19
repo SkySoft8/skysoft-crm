@@ -44,6 +44,7 @@ $viewdefs ['AOR_Reports'] =
                             ),
                         'useTabs' => false,
                         'form' => array(
+                            'headerTpl' => 'modules/AOR_Reports/tpls/EditViewHeader.tpl',
                             'footerTpl' => 'modules/AOR_Reports/tpls/EditViewFooter.tpl',
                         ),
                     ),

@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace ApiPlatform\Symfony\Validator\EventListener;
 
 use ApiPlatform\Exception\FilterValidationException;
-use ApiPlatform\ParameterValidator\Exception\ValidationException as ParameterValidationException;
 use ApiPlatform\Symfony\EventListener\ExceptionListener;
 use ApiPlatform\Symfony\Validator\Exception\ConstraintViolationListAwareExceptionInterface as SymfonyConstraintViolationListAwareExceptionInterface;
 use ApiPlatform\Util\ErrorFormatGuesser;
@@ -48,11 +47,11 @@ final class ValidationExceptionListener
             return;
         }
 
-        trigger_deprecation('api-platform', '3.2', \sprintf('The class "%s" is deprecated and will be removed in 4.x.', __CLASS__));
+        trigger_deprecation('api-platform', '3.2', sprintf('The class "%s" is deprecated and will be removed in 4.x.', __CLASS__));
 
         $exception = $event->getThrowable();
         $hasConstraintViolationList = ($exception instanceof ConstraintViolationListAwareExceptionInterface || $exception instanceof SymfonyConstraintViolationListAwareExceptionInterface);
-        if (!$hasConstraintViolationList && !$exception instanceof FilterValidationException && !$exception instanceof ParameterValidationException) {
+        if (!$hasConstraintViolationList && !$exception instanceof FilterValidationException) {
             return;
         }
 
@@ -78,7 +77,7 @@ final class ValidationExceptionListener
             $this->serializer->serialize($hasConstraintViolationList ? $exception->getConstraintViolationList() : $exception, $format['key'], $context),
             $statusCode,
             [
-                'Content-Type' => \sprintf('%s; charset=utf-8', $format['value'][0]),
+                'Content-Type' => sprintf('%s; charset=utf-8', $format['value'][0]),
                 'X-Content-Type-Options' => 'nosniff',
                 'X-Frame-Options' => 'deny',
             ]

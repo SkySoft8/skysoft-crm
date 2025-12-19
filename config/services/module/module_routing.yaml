@@ -48,14 +48,10 @@ parameters:
       index: true
       list: true
       record: false
-    email-marketing:
-      index: true
-      list: true
-      record: true
     campaigns:
       index: true
       list: true
-      record: true
+      record: false
     prospects:
       index: true
       list: true
@@ -225,8 +221,8 @@ parameters:
       list: true
       record: false
     schedulers:
-      index: true
-      list: true
+      index: false
+      list: false
       record: false
     oauth-keys:
       index: false
@@ -256,7 +252,3 @@ parameters:
       index: false
       list: false
       record: false
-    emailman:
-      index: true
-      list: true
-      record: true

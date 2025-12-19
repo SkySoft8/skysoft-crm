@@ -1,13 +1,13 @@
 <?php
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -62,19 +62,6 @@ class ModuleMetadata
     public array $recordView;
 
     /**
-     * Record Modal metadata
-     *
-     * @var array
-     */
-    #[ApiProperty(
-        openapiContext: [
-            'type' => 'array',
-            'description' => 'The record-modal metadata',
-        ]
-    )]
-    public array $recordModal;
-
-    /**
      * Edit View metadata
      *
      * @var array
@@ -86,19 +73,6 @@ class ModuleMetadata
         ]
     )]
     public array $editView;
-
-    /**
-     * Edit View metadata
-     *
-     * @var array
-     */
-    #[ApiProperty(
-        openapiContext: [
-            'type' => 'array',
-            'description' => 'Extra metadata entries',
-        ]
-    )]
-    public array $extra;
 
     /**
      * List View metadata
@@ -211,24 +185,6 @@ class ModuleMetadata
     }
 
     /**
-     * Get extra metadata
-     * @return array|null
-     */
-    public function getExtra(): ?array
-    {
-        return $this->extra ?? null;
-    }
-
-    /**
-     * Set extra metadata
-     * @param array|null $extra
-     */
-    public function setExtra(?array $extra): void
-    {
-        $this->extra = $extra;
-    }
-
-    /**
      * @return array
      */
     public function toArray(): array
@@ -237,14 +193,12 @@ class ModuleMetadata
             'id' => $this->getId(),
             '_id' => $this->getId(),
             'recordView' => $this->getRecordView() ?? [],
-            'recordModal' => $this->getRecordModal() ?? [],
             'listView' => $this->getListView() ?? [],
             'search' => $this->getSearch() ?? [],
             'subPanel' => $this->getSubPanel() ?? [],
             'massUpdate' => $this->getMassUpdate() ?? [],
             'recentlyViewed' => $this->getRecentlyViewed() ?? [],
             'favorites' => $this->getFavorites() ?? [],
-            'extra' => $this->getExtra() ?? [],
         ];
     }
 
@@ -280,24 +234,6 @@ class ModuleMetadata
     public function setRecordView(?array $recordView): void
     {
         $this->recordView = $recordView;
-    }
-
-    /**
-     * Get Record Modal metadata
-     * @return array|null
-     */
-    public function getRecordModal(): ?array
-    {
-        return $this->recordModal ?? null;
-    }
-
-    /**
-     * Set Record Modal metadata
-     * @param array|null $recordModal
-     */
-    public function setRecordModal(?array $recordModal): void
-    {
-        $this->recordModal = $recordModal;
     }
 
     /**

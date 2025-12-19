@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace ApiPlatform\Metadata;
 
-use ApiPlatform\Metadata\Exception\RuntimeException;
-
 /**
  * A parameter dictionnary.
  *
@@ -25,7 +23,7 @@ final class Parameters implements \IteratorAggregate, \Countable
     private array $parameters = [];
 
     /**
-     * @param array<int|string, Parameter> $parameters
+     * @param array<string, Parameter> $parameters
      */
     public function __construct(array $parameters = [])
     {
@@ -55,7 +53,7 @@ final class Parameters implements \IteratorAggregate, \Countable
     public function add(string $key, Parameter $value): self
     {
         foreach ($this->parameters as $i => [$parameterName, $parameter]) {
-            if ($parameterName === $key && $value::class === $parameter::class) {
+            if ($parameterName === $key) {
                 $this->parameters[$i] = [$key, $value];
 
                 return $this;
@@ -67,29 +65,10 @@ final class Parameters implements \IteratorAggregate, \Countable
         return $this;
     }
 
-    /**
-     * @param class-string $parameterClass
-     */
-    public function remove(string $key, string $parameterClass = QueryParameter::class): self
+    public function get(string $key): ?Parameter
     {
         foreach ($this->parameters as $i => [$parameterName, $parameter]) {
-            if ($parameterName === $key && $parameterClass === $parameter::class) {
-                unset($this->parameters[$i]);
-
-                return $this;
-            }
-        }
-
-        throw new RuntimeException(\sprintf('Could not remove parameter "%s".', $key));
-    }
-
-    /**
-     * @param class-string $parameterClass
-     */
-    public function get(string $key, string $parameterClass = QueryParameter::class): ?Parameter
-    {
-        foreach ($this->parameters as [$parameterName, $parameter]) {
-            if ($parameterName === $key && $parameterClass === $parameter::class) {
+            if ($parameterName === $key) {
                 return $parameter;
             }
         }
@@ -97,13 +76,23 @@ final class Parameters implements \IteratorAggregate, \Countable
         return null;
     }
 
-    /**
-     * @param class-string $parameterClass
-     */
-    public function has(string $key, string $parameterClass = QueryParameter::class): bool
+    public function remove(string $key): self
     {
-        foreach ($this->parameters as [$parameterName, $parameter]) {
-            if ($parameterName === $key && $parameterClass === $parameter::class) {
+        foreach ($this->parameters as $i => [$parameterName, $parameter]) {
+            if ($parameterName === $key) {
+                unset($this->parameters[$i]);
+
+                return $this;
+            }
+        }
+
+        throw new \RuntimeException(sprintf('Could not remove parameter "%s".', $key));
+    }
+
+    public function has(string $key): bool
+    {
+        foreach ($this->parameters as $i => [$parameterName, $parameter]) {
+            if ($parameterName === $key) {
                 return true;
             }
         }

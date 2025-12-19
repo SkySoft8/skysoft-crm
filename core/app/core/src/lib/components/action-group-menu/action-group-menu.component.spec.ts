@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -26,7 +26,7 @@
 
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {ActionGroupMenuComponent} from './action-group-menu.component';
-import {provideHttpClientTesting} from '@angular/common/http/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ApolloTestingModule} from 'apollo-angular/testing';
 import {Observable, of} from 'rxjs';
 import {shareReplay, take} from 'rxjs/operators';
@@ -55,8 +55,7 @@ import {AppStateStore} from '../../store/app-state/app-state.store';
 import {recordActionsMock} from '../../views/record/adapters/actions.adapter.spec.mock';
 import {RecordActionsAdapter} from '../../views/record/adapters/actions.adapter';
 import {ImageModule} from '../image/image.module';
-import {Action, ActionDataSource} from '../../common/actions/action.model';
-import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {ActionDataSource, Action} from 'common';
 
 @Component({
     selector: 'action-group-menu-test-host-component',
@@ -95,32 +94,33 @@ describe('ActionGroupMenuComponent', () => {
 
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
-    declarations: [ActionGroupMenuComponent, ActionGroupMenuTestHostComponent],
-    imports: [ApolloTestingModule,
-        ImageModule,
-        ButtonModule,
-        ActionGroupMenuModule,
-        RouterTestingModule],
-    providers: [
-        { provide: RecordViewStore, useValue: recordviewStoreMock },
-        {
-            provide: ThemeImagesStore, useValue: {
-                images$: of(themeImagesMockData).pipe(take(1))
-            }
-        },
-        { provide: ModuleNavigation, useValue: mockModuleNavigation },
-        { provide: SystemConfigStore, useValue: systemConfigStoreMock },
-        { provide: UserPreferenceStore, useValue: userPreferenceStoreMock },
-        { provide: NavigationStore, useValue: navigationMock },
-        { provide: ModuleNavigation, useValue: mockModuleNavigation },
-        { provide: LanguageStore, useValue: languageStoreMock },
-        { provide: MetadataStore, useValue: metadataStoreMock },
-        { provide: AppStateStore, useValue: appStateStoreMock },
-        { provide: RecordActionsAdapter, useValue: recordActionsMock },
-        provideHttpClient(withInterceptorsFromDi()),
-        provideHttpClientTesting(),
-    ]
-})
+            imports: [
+                HttpClientTestingModule,
+                ApolloTestingModule,
+                ImageModule,
+                ButtonModule,
+                ActionGroupMenuModule,
+                RouterTestingModule
+            ],
+            declarations: [ActionGroupMenuComponent, ActionGroupMenuTestHostComponent],
+            providers: [
+                {provide: RecordViewStore, useValue: recordviewStoreMock},
+                {
+                    provide: ThemeImagesStore, useValue: {
+                        images$: of(themeImagesMockData).pipe(take(1))
+                    }
+                },
+                {provide: ModuleNavigation, useValue: mockModuleNavigation},
+                {provide: SystemConfigStore, useValue: systemConfigStoreMock},
+                {provide: UserPreferenceStore, useValue: userPreferenceStoreMock},
+                {provide: NavigationStore, useValue: navigationMock},
+                {provide: ModuleNavigation, useValue: mockModuleNavigation},
+                {provide: LanguageStore, useValue: languageStoreMock},
+                {provide: MetadataStore, useValue: metadataStoreMock},
+                {provide: AppStateStore, useValue: appStateStoreMock},
+                {provide: RecordActionsAdapter, useValue: recordActionsMock},
+            ],
+        })
             .compileComponents();
 
         testHostFixture = TestBed.createComponent(ActionGroupMenuTestHostComponent);

@@ -61,7 +61,7 @@ $searchdefs[$module_name] = [
                 [
                     'id' =>
                         [
-                            'name' => 'id',
+                            'id' => 'id',
                             'default' => true,
                             'width' => '10%',
                         ],

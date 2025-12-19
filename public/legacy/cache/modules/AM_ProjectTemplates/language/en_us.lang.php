@@ -1,5 +1,5 @@
 <?php
-// created: 2025-11-07 15:41:46
+// created: 2025-04-23 14:29:38
 $mod_strings = array (
   'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
   'LBL_ASSIGNED_TO_NAME' => 'Project Manager',
@@ -89,6 +89,5 @@ $mod_strings = array (
   'LBL_NO_ACCESS' => 'You have no access to create $module',
   'LBL_SCHEDULING_FORM_TITLE' => 'Resource List',
   'LBL_NONE' => 'None',
-  'LBL_TASKS_NOT_FOUND' => 'There are no Tasks to build the Gantt Table',
   'LBL_AM_PROJECTTEMPLATES_PROJECT_1_FROM_PROJECT_TITLE' => 'Project Templates: Project from Project Title',
 );

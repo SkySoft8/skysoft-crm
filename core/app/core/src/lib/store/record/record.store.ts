@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -24,20 +24,14 @@
  * the words "Supercharged by SuiteCRM".
  */
 
+import {deepClone, MapEntry, Record, RecordMapper, RecordMapperRegistry, ViewFieldDefinition, ObjectMap} from 'common';
 import {BehaviorSubject, Observable, Subscription, throwError} from 'rxjs';
 import {catchError, distinctUntilChanged, filter, map, shareReplay, startWith, take, tap} from 'rxjs/operators';
 import {RecordFetchGQL} from './graphql/api.record.get';
 import {RecordSaveGQL} from './graphql/api.record.save';
 import {MessageService} from '../../services/message/message.service';
 import {RecordManager} from '../../services/record/record.manager';
-import {deepClone} from '../../common/utils/object-utils';
-import {Record} from '../../common/record/record.model';
-import {RecordMapper} from '../../common/record/record-mappers/record-mapper.model';
-import {RecordMapperRegistry} from '../../common/record/record-mappers/record-mapper.registry';
-import {ViewFieldDefinition} from '../../common/metadata/metadata.model';
-import {MapEntry} from '../../common/types/overridable-map';
 import {signal} from "@angular/core";
-import {ObjectMap} from "../../common/types/object-map";
 
 const initialState = {
     id: '',
@@ -81,7 +75,6 @@ export class RecordStore {
         protected message: MessageService,
         protected recordManager: RecordManager,
         protected recordMappers: RecordMapperRegistry,
-        protected options: ObjectMap = null
     ) {
 
 
@@ -97,7 +90,7 @@ export class RecordStore {
             this.init(this.internalState);
         }));
 
-        if (metadata$) {
+        if(metadata$) {
             this.subs.push(metadata$.subscribe(metadata => {
                 this.setMetadata(metadata);
             }));
@@ -112,7 +105,7 @@ export class RecordStore {
 
         this.initFieldDefaults = initDefaultValues;
 
-        this.initRecord(newRecord, initDefaultValues);
+        this.initRecord(newRecord);
 
         this.updateState(newRecord);
     }
@@ -126,7 +119,7 @@ export class RecordStore {
 
     setStaging(record: Record): void {
 
-        this.initRecord(record, false, this?.options ?? null);
+        this.initRecord(record);
 
         this.staging.next(this.stagingState = record);
     }
@@ -282,7 +275,7 @@ export class RecordStore {
     protected updateStaging(state: Record): void {
 
         const newState = deepClone(this.extractBaseRecord(state));
-        this.initRecord(newState, this.initFieldDefaults, this?.options ?? null);
+        this.initRecord(newState, this.initFieldDefaults);
 
         this.staging.next(this.stagingState = newState);
     }
@@ -304,15 +297,14 @@ export class RecordStore {
      *
      * @param {object} record Record
      * @param {boolean} initDefaultValues
-     * @param options
      */
-    protected initRecord(record: Record, initDefaultValues: boolean = false, options: ObjectMap = null): void {
+    protected initRecord(record: Record, initDefaultValues: boolean = false): void {
 
-        if (this.metadata) {
+        if(this.metadata) {
             record.metadata = this.metadata;
         }
 
-        if (!record?.validationTriggered) {
+        if(!record?.validationTriggered) {
             record.validationTriggered = signal(false);
         }
 
@@ -323,10 +315,6 @@ export class RecordStore {
         if (initDefaultValues) {
             this.recordManager.initFieldDefaults(record);
             this.fieldDefaultsInitialized = true;
-        }
-
-        if (options?.initVardefBasedFieldActions && options?.buildFieldActionAdapter) {
-            this.recordManager.initVardefBasedFieldActions(record, options.buildFieldActionAdapter);
         }
     }
 
@@ -373,7 +361,7 @@ export class RecordStore {
     }
 
     public setMetadata(metadata: ObjectMap): void {
-        if (!metadata) {
+        if(!metadata) {
             return;
         }
         this.metadata = metadata;

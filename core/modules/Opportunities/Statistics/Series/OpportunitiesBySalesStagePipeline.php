@@ -1,13 +1,13 @@
 <?php
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -35,7 +35,6 @@ use App\Statistics\Entity\Statistic;
 use App\Statistics\Model\ChartOptions;
 use App\Statistics\Service\StatisticsProviderInterface;
 use App\Statistics\StatisticsHandlingTrait;
-use App\Languages\Service\LanguageManagerInterface;
 use BeanFactory;
 use SugarBean;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -47,7 +46,17 @@ class OpportunitiesBySalesStagePipeline extends LegacyHandler implements Statist
     public const KEY = 'opportunities-by-sales-stage-price';
 
     /**
-     * OpportunitiesBySalesStagePipeline constructor.
+     * @var ListDataQueryHandler
+     */
+    private $queryHandler;
+
+    /**
+     * @var ModuleNameMapperInterface
+     */
+    private $moduleNameMapper;
+
+    /**
+     * LeadDaysOpen constructor.
      * @param string $projectDir
      * @param string $legacyDir
      * @param string $legacySessionName
@@ -56,7 +65,6 @@ class OpportunitiesBySalesStagePipeline extends LegacyHandler implements Statist
      * @param ListDataQueryHandler $queryHandler
      * @param ModuleNameMapperInterface $moduleNameMapper
      * @param RequestStack $session
-     * @param LanguageManagerInterface $languageManager
      */
     public function __construct(
         string $projectDir,
@@ -64,12 +72,13 @@ class OpportunitiesBySalesStagePipeline extends LegacyHandler implements Statist
         string $legacySessionName,
         string $defaultSessionName,
         LegacyScopeState $legacyScopeState,
-        protected ListDataQueryHandler $queryHandler,
-        protected ModuleNameMapperInterface $moduleNameMapper,
-        RequestStack $session,
-        protected LanguageManagerInterface $languageManager
+        ListDataQueryHandler $queryHandler,
+        ModuleNameMapperInterface $moduleNameMapper,
+        RequestStack $session
     ) {
         parent::__construct($projectDir, $legacyDir, $legacySessionName, $defaultSessionName, $legacyScopeState, $session);
+        $this->queryHandler = $queryHandler;
+        $this->moduleNameMapper = $moduleNameMapper;
     }
 
     /**
@@ -115,19 +124,10 @@ class OpportunitiesBySalesStagePipeline extends LegacyHandler implements Statist
 
         $result = $this->runQuery($query, $bean);
 
-        $series = $this->buildSingleSeries(
-            $result,
-            'sales_stage',
-            'amount_usdollar',
-        );
+        $nameField = 'sales_stage';
+        $valueField = 'amount_usdollar';
 
-        foreach ($series->singleSeries as $seriesItem) {
-            $seriesItem->name = $this->languageManager->getListLabel(
-                'opportunities',
-                'sales_stage',
-                $seriesItem->name
-            );
-        }
+        $series = $this->buildSingleSeries($result, $nameField, $valueField);
 
         $chartOptions = new ChartOptions();
         $chartOptions->yAxisTickFormatting = true;

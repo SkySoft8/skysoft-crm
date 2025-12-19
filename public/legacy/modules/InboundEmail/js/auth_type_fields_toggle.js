@@ -37,7 +37,7 @@
  * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-function authTypeToggleFields(type) {
+function authTypetoggleFields(type) {
 
   var fieldsPerType = {
     'basic': {
@@ -81,10 +81,10 @@ function authTypeToggleFields(type) {
 
 $(document).ready(function () {
   var type = inboundEmailFields.getValue('auth_type');
-  authTypeToggleFields(type);
+  authTypetoggleFields(type);
 
   inboundEmailFields.getField$('auth_type').change(function () {
     type = inboundEmailFields.getValue('auth_type');
-    authTypeToggleFields(type);
+    authTypetoggleFields(type);
   });
 });

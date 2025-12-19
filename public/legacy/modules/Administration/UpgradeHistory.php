@@ -190,9 +190,6 @@ class UpgradeHistory extends SugarBean
                 break;
             }
 
-            $patch_to_check->retrieve($patch_to_check->id);
-            $more_recent_patch->retrieve($more_recent_patch->id);
-
             //we will only resort to checking the files if we cannot find the unique_keys
             //or the unique_keys do not match
             $patch_to_check_backup_path    = clean_path(remove_file_extension(from_html($patch_to_check->filename))).'-restore';
@@ -316,7 +313,7 @@ class UpgradeHistory extends SugarBean
     {
         global $timedate;
 
-        if (!isset($bean->date_entered)) {
+        if (!$bean->date_entered) {
             return $timedate->to_display_date_time($bean->date_modified);
         }
 

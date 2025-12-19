@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -29,8 +29,7 @@ import {UserPreferenceStore} from '../../../store/user-preference/user-preferenc
 import {formatCurrency, formatNumber} from '@angular/common';
 import {NumberFormatter} from '../number/number-formatter.service';
 import {FormatOptions, Formatter} from '../formatter.model';
-import {SystemConfigStore} from "../../../store/system-config/system-config.store";
-import {isVoid} from "../../../common/utils/value-utils";
+import {isVoid} from 'common';
 
 export interface CurrencyFormat {
     iso4217: string;
@@ -45,7 +44,6 @@ export class CurrencyFormatter implements Formatter {
 
     constructor(
         protected preferences: UserPreferenceStore,
-        protected configs: SystemConfigStore,
         protected numberFormatter: NumberFormatter,
         @Inject(LOCALE_ID) public locale: string
     ) {
@@ -59,7 +57,6 @@ export class CurrencyFormatter implements Formatter {
 
         const symbol = (options && options.symbol) || this.getSymbol();
         const code = (options && options.code) || this.getCode();
-        const defaultGroup = this.configs.getConfigValue('default_number_grouping_seperator');
         let digits = null;
         if (options && options.digits !== null && isFinite(options.digits)) {
             digits = options.digits;
@@ -67,12 +64,6 @@ export class CurrencyFormatter implements Formatter {
 
         const digitsInfo = this.getDigitsInfo(digits);
         let formatted: string;
-
-        if (options?.fromFormat === 'system' && value.includes(defaultGroup)){
-            value = value.replace(defaultGroup, '');
-        } else {
-            value = this.replaceSeparatorsToInternalFormat(value);
-        }
 
         if (options && options.mode === 'edit') {
             formatted = formatNumber(Number(value), this.locale, digitsInfo);
@@ -150,9 +141,5 @@ export class CurrencyFormatter implements Formatter {
 
     replaceSeparators(transformed: string): string {
         return this.numberFormatter.replaceSeparators(transformed);
-    }
-
-    replaceSeparatorsToInternalFormat(value: string): string {
-        return this.numberFormatter.replaceSeparatorsToInternalFormat(value);
     }
 }

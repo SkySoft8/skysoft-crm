@@ -229,22 +229,6 @@
       'exportable' => false,
       'unified_search' => false,
     ),
-    'redirect_uri_type' => 
-    array (
-      'name' => 'redirect_uri_type',
-      'vname' => 'LBL_REDIRECT_URI_TYPE',
-      'type' => 'enum',
-      'default' => 'pretty_url',
-      'options' => 'redirect_uri_type_dom',
-      'len' => 50,
-      'required' => false,
-      'reportable' => false,
-      'massupdate' => false,
-      'inline_edit' => false,
-      'importable' => false,
-      'exportable' => false,
-      'unified_search' => false,
-    ),
     'client_id' => 
     array (
       'name' => 'client_id',
@@ -308,7 +292,6 @@
       'vname' => 'LBL_AUTHORIZE_URL_OPTIONS',
       'type' => 'stringmap',
       'dbType' => 'text',
-      'default' => '{"prompt":"login"}',
       'show_keys' => true,
       'required' => false,
       'reportable' => false,

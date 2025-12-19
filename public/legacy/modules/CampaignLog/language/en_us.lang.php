@@ -55,7 +55,6 @@ $mod_strings = array(
     'LBL_DELETED' => 'Deleted',
     'LBL_MODULE_NAME' => 'Campaign Log',
     'LBL_LIST_RECIPIENT_EMAIL' => 'Recipient Email',
-    'LBL_LIST_TRACKER_URL' => 'Tracker Url',
     'LBL_LIST_RECIPIENT_NAME' => 'Recipient Name',
     'LBL_ARCHIVED' => 'Archived',
     'LBL_HITS' => 'Hits',
@@ -95,7 +94,7 @@ $mod_strings = array(
     'LBL_MORE_INFO' => 'More Information',
 
     'LBL_CAMPAIGNS' => 'Campaigns',
-    'LBL_LIST_MARKETING_NAME' => 'Marketing Name',
+    'LBL_LIST_MARKETING_NAME' => 'Marketing Id',
 
     'LBL_MARKETING_ID' => 'Marketing Id',
     'LBL_RELATED_NAME' => 'Related Name',

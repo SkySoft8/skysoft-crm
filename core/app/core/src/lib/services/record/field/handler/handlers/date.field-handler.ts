@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2024 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2024 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -27,8 +27,7 @@ import {Injectable} from "@angular/core";
 import {ProcessService} from "../../../../process/process.service";
 import {take} from "rxjs/operators";
 import {AsyncActionInput} from "../../../../process/processes/async-action/async-action";
-import {BaseField, Field} from '../../../../../common/record/field.model';
-import {Record} from '../../../../../common/record/record.model';
+import {BaseField, Field, Record} from "common";
 import {BaseFieldHandler} from "./base.field-handler";
 import {MessageService} from "../../../../message/message.service";
 @Injectable({
@@ -40,7 +39,7 @@ export class DateFieldHandler extends BaseFieldHandler<BaseField> {
         protected processService: ProcessService,
         protected messages: MessageService,
     ) {
-        super(processService, messages);
+        super();
     }
 
     initDefaultValue(field: BaseField, record: Record): void {
@@ -74,12 +73,12 @@ export class DateFieldHandler extends BaseFieldHandler<BaseField> {
             displayDefault: displayDefault
         } as AsyncActionInput;
 
-        field.loading.set(true)
+        field.loading = true;
 
         this.processService.submit(processType, options).pipe(take(1)).subscribe((result) => {
 
             const value = result?.data?.value ?? null;
-            field.loading.set(false)
+            field.loading = false;
 
             if (value === null) {
                 this.messages.addDangerMessageByKey("ERR_FIELD_LOGIC_BACKEND_CALCULATION");

@@ -806,8 +806,7 @@ abstract class Operation extends Metadata
         protected $provider = null,
         protected $processor = null,
         protected ?OptionsInterface $stateOptions = null,
-        array|Parameters|null $parameters = null,
-        ?bool $queryParameterValidationEnabled = null,
+        protected array|Parameters|null $parameters = [],
         protected array $extraProperties = [],
     ) {
         parent::__construct(
@@ -849,7 +848,6 @@ abstract class Operation extends Metadata
             processor: $processor,
             stateOptions: $stateOptions,
             parameters: $parameters,
-            queryParameterValidationEnabled: $queryParameterValidationEnabled,
             extraProperties: $extraProperties,
         );
     }

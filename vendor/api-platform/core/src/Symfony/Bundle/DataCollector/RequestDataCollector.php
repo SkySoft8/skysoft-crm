@@ -15,8 +15,7 @@ namespace ApiPlatform\Symfony\Bundle\DataCollector;
 
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface;
-use ApiPlatform\State\Util\RequestAttributesExtractor;
-use Composer\InstalledVersions;
+use ApiPlatform\Util\RequestAttributesExtractor;
 use PackageVersions\Versions;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -68,38 +67,16 @@ final class RequestDataCollector extends DataCollector
         }
     }
 
-    // TODO: 4.1 remove Versions as its deprecated
     public function getVersion(): ?string
     {
-        if (class_exists(InstalledVersions::class)) {
-            return InstalledVersions::getPrettyVersion('api-platform/symfony') ?? InstalledVersions::getPrettyVersion('api-platform/core');
-        }
-
         if (!class_exists(Versions::class)) {
             return null;
         }
 
-        try {
-            $version = strtok(Versions::getVersion('api-platform/symfony'), '@');
-        } catch (\OutOfBoundsException) {
-            $version = false;
-        }
+        $version = Versions::getVersion('api-platform/core');
+        preg_match('/^v(.*?)@/', (string) $version, $output);
 
-        if (false === $version) {
-            try {
-                $version = strtok(Versions::getVersion('api-platform/core'), '@');
-            } catch (\OutOfBoundsException) {
-                $version = false;
-            }
-        }
-
-        if (false === $version) {
-            return null;
-        }
-
-        preg_match('/^v(.*?)$/', $version, $output);
-
-        return $output[1] ?? $version;
+        return $output[1] ?? strtok($version, '@');
     }
 
     /**

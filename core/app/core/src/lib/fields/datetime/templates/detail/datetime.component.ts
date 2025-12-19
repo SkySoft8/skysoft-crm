@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -30,7 +30,6 @@ import {DataTypeFormatter} from '../../../../services/formatters/data-type.forma
 import {DatetimeFormatter} from '../../../../services/formatters/datetime/datetime-formatter.service';
 import {FieldLogicManager} from '../../../field-logic/field-logic.manager';
 import {FieldLogicDisplayManager} from '../../../field-logic-display/field-logic-display.manager';
-import {UserPreferenceStore} from "../../../../store/user-preference/user-preference.store";
 
 @Component({
     selector: 'scrm-datetime-detail',
@@ -44,8 +43,7 @@ export class DateTimeDetailFieldComponent extends BaseDateTimeComponent{
         protected formatter: DatetimeFormatter,
         protected typeFormatter: DataTypeFormatter,
         protected logic: FieldLogicManager,
-        protected logicDisplay: FieldLogicDisplayManager,
-        protected preferences: UserPreferenceStore
+        protected logicDisplay: FieldLogicDisplayManager
     ) {
         super(formatter, typeFormatter, logic, logicDisplay);
     }
@@ -54,18 +52,9 @@ export class DateTimeDetailFieldComponent extends BaseDateTimeComponent{
         return this.formatter.userTimeZone();
     }
 
-    getLocale(): string {
-        return this.formatter.locale;
+    toDateTime(dateString: string): Date {
+        return this.formatter.toDateTime(dateString, this.formatter.getInternalFormat(), {
+            zone: 'GMT'
+        }).toJSDate();
     }
-
-    toDateTime(dateString: string) {
-        const options = {
-            fromFormat: this.formatter.getInternalFormat(),
-            toFormat: this.formatter.getUserFormat()
-        }
-
-        return this.formatter.toUserFormat(dateString, options);
-    }
-
-
 }

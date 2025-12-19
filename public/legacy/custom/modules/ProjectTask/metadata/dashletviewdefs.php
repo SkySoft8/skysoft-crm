@@ -1,26 +1,12 @@
 <?php
 $dashletData['ProjectTaskDashlet']['searchFields'] = array (
-  'date_entered' => 
-  array (
-    'default' => '',
-  ),
-  'priority' => 
-  array (
-    'default' => '',
-  ),
-  'date_start' => 
-  array (
-    'default' => '',
-  ),
-  'date_finish' => 
-  array (
-    'default' => '',
-  ),
   'assigned_user_id' => 
   array (
-    'type' => 'assigned_user_name',
-    'label' => 'LBL_ASSIGNED_TO',
-    'default' => 'Tung Lam Nguyen',
+    'default' => '',
+  ),
+  'status' => 
+  array (
+    'default' => '',
   ),
 );
 $dashletData['ProjectTaskDashlet']['columns'] = array (

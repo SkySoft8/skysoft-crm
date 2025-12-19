@@ -86,7 +86,7 @@ class SugarCacheZend extends SugarCacheAbstract
             return null;
         }
         return is_string($raw_cache_value) ?
-            unserialize($raw_cache_value, ['allowed_classes' => false]) :
+            unserialize($raw_cache_value) :
             $raw_cache_value;
     }
 

@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -26,8 +26,7 @@
 
 import {Component, HostBinding, Input, OnInit} from '@angular/core';
 import {viewFieldsMap} from './field.manifest';
-import {Field} from '../common/record/field.model';
-import {Record} from '../common/record/record.model';
+import {Field, Record, ViewMode} from 'common';
 import {FieldRegistry} from './field.registry';
 
 @Component({
@@ -70,7 +69,7 @@ export class FieldComponent implements OnInit {
     get componentType(): any {
         let module = (this.record && this.record.module) || 'default';
 
-        const displayType = this?.field?.displayType ?? this?.field?.definition?.displayType ?? '';
+        const displayType = (this.field.definition && this.field.definition.displayType) || '';
 
         return this.registry.getDisplayType(module, this.type, displayType, this.componentMode, this.field.name);
     }

@@ -125,14 +125,14 @@ $filter_operator_map = [
     ],
     'date' => [
         '=' => [
-            '{field}_{type}' => 'values',
-            '{field}_{type}_range_choice' => '',
+            '{field}_{type}_range_choice' => '{operator}',
+            'range_{field}_{type}' => '{target}'
         ],
     ],
     'datetime' => [
         '=' => [
-            '{field}_{type}' => 'values',
-            '{field}_{type}_range_choice' => '',
+            '{field}_{type}_range_choice' => '{operator}',
+            'range_{field}_{type}' => '{target}'
         ],
     ]
 ];

@@ -1994,8 +1994,7 @@ EOHTML;
         $bean = SugarModule::get($module_dir)->loadBean();
 
         if ($bean) {
-            $beanFieldDefs = $bean->field_defs ?? [];
-            foreach ($beanFieldDefs as $field_name => $def) {
+            foreach ($bean->field_defs as $field_name => $def) {
                 $data[$module_dir][$field_name] = $def;
                 if (isset($def['required'])) {
                     $data[$module_dir][$field_name]['required'] = $def['required'];

@@ -1,5 +1,5 @@
 <?php
-// created: 2025-11-19 09:06:05
+// created: 2025-04-23 15:02:33
 $mod_strings = array (
   'LBL_EDIT_LAYOUT' => 'Правка расположения',
   'LBL_EDIT_FIELDS' => 'Правка пользовательских полей',
@@ -30,8 +30,6 @@ $mod_strings = array (
   'LBL_SW_EDIT_PORTAL' => 'Редактирование портала',
   'LBL_SW_REPAIR_CUSTOMFIELDS' => 'Восстановление пользовательских полей',
   'LBL_SW_MIGRATE_CUSTOMFIELDS' => 'Перемещение пользовательских полей',
-  'LBL_REBUILD_JAVASCRIPT_LANG_DESC_SHORT' => 'Перестройка javascript-версий языковых файлов',
-  'LBL_REBUILD_JAVASCRIPT_LANG_DESC' => 'Удаление javascript-версий языковых файлов; файлы будут восстановлены при первой необходимости.',
   'LBL_MB_DELETE' => 'Удалить',
   'LBL_ED_CREATE_DROPDOWN' => 'Создать комбобокс',
   'LBL_DROPDOWN_NAME' => 'Название комбобокса:',

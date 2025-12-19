@@ -267,18 +267,6 @@
       ),
       'enable_range_search' => true,
       'options' => 'date_range_search_dom',
-      'footnotes' => 
-      array (
-        0 => 
-        array (
-          'labelKey' => 'LBL_CAMPAIGN_START_DATE_HELP',
-          'displayModes' => 
-          array (
-            0 => 'edit',
-            1 => 'create',
-          ),
-        ),
-      ),
     ),
     'end_date' => 
     array (
@@ -291,18 +279,6 @@
       'required' => true,
       'enable_range_search' => true,
       'options' => 'date_range_search_dom',
-      'footnotes' => 
-      array (
-        0 => 
-        array (
-          'labelKey' => 'LBL_CAMPAIGN_END_DATE_HELP',
-          'displayModes' => 
-          array (
-            0 => 'edit',
-            1 => 'create',
-          ),
-        ),
-      ),
     ),
     'status' => 
     array (
@@ -311,7 +287,6 @@
       'type' => 'enum',
       'options' => 'campaign_status_dom',
       'len' => 100,
-      'default' => 'Planning',
       'audited' => true,
       'comment' => 'Status of the campaign',
       'importable' => 'required',
@@ -332,11 +307,6 @@
       'vname' => 'LBL_CURRENCY',
       'type' => 'id',
       'group' => 'currency_id',
-      'initDefaultProcess' => 'currency-default',
-      'defaultValueModes' => 
-      array (
-        0 => 'create',
-      ),
       'function' => 
       array (
         'name' => 'getCurrencyDropDown',
@@ -355,74 +325,6 @@
       'type' => 'currency',
       'dbType' => 'double',
       'comment' => 'Budgeted amount for the campaign',
-    ),
-    'budget_usdollar' => 
-    array (
-      'name' => 'budget_usdollar',
-      'type' => 'currency',
-      'group' => 'amount',
-      'dbType' => 'double',
-      'disable_num_format' => true,
-      'duplicate_merge' => '0',
-      'audited' => true,
-      'comment' => 'Formatted amount of the opportunity',
-      'studio' => 
-      array (
-        'editview' => false,
-        'detailview' => false,
-        'quickcreate' => false,
-      ),
-    ),
-    'expected_cost_usdollar' => 
-    array (
-      'name' => 'expected_cost_usdollar',
-      'type' => 'currency',
-      'group' => 'amount',
-      'dbType' => 'double',
-      'disable_num_format' => true,
-      'duplicate_merge' => '0',
-      'audited' => true,
-      'comment' => 'Formatted amount of the opportunity',
-      'studio' => 
-      array (
-        'editview' => false,
-        'detailview' => false,
-        'quickcreate' => false,
-      ),
-    ),
-    'actual_cost_usdollar' => 
-    array (
-      'name' => 'actual_cost_usdollar',
-      'type' => 'currency',
-      'group' => 'amount',
-      'dbType' => 'double',
-      'disable_num_format' => true,
-      'duplicate_merge' => '0',
-      'audited' => true,
-      'comment' => 'Formatted amount of the opportunity',
-      'studio' => 
-      array (
-        'editview' => false,
-        'detailview' => false,
-        'quickcreate' => false,
-      ),
-    ),
-    'expected_revenue_usdollar' => 
-    array (
-      'name' => 'expected_revenue_usdollar',
-      'type' => 'currency',
-      'group' => 'amount',
-      'dbType' => 'double',
-      'disable_num_format' => true,
-      'duplicate_merge' => '0',
-      'audited' => true,
-      'comment' => 'Formatted amount of the opportunity',
-      'studio' => 
-      array (
-        'editview' => false,
-        'detailview' => false,
-        'quickcreate' => false,
-      ),
     ),
     'expected_cost' => 
     array (
@@ -454,9 +356,7 @@
       'vname' => 'LBL_CAMPAIGN_TYPE',
       'type' => 'enum',
       'options' => 'campaign_type_dom',
-      'default' => 'NewsLetter',
       'len' => 100,
-      'massupdate' => false,
       'audited' => true,
       'comment' => 'The type of campaign',
       'importable' => 'required',
@@ -476,133 +376,6 @@
       'type' => 'text',
       'comment' => 'The campaign description',
       'inline_edit' => false,
-    ),
-    'propects_lists' => 
-    array (
-      'name' => 'propects_lists',
-      'type' => 'multirelate',
-      'vname' => 'LBL_PROSPECT_LISTS',
-      'footnotes' => 
-      array (
-        0 => 
-        array (
-          'labelKey' => 'LBL_TARGET_LISTS_HELP',
-          'displayModes' => 
-          array (
-            0 => 'edit',
-            1 => 'create',
-          ),
-        ),
-      ),
-      'link' => 'prospectlists',
-      'source' => 'non-db',
-      'metadata' => 
-      array (
-        'headerField' => 
-        array (
-          'name' => 'name',
-        ),
-        'subHeaderField' => 
-        array (
-          'name' => 'list_type',
-          'type' => 'enum',
-          'definition' => 
-          array (
-            'options' => 'prospect_list_type_dom',
-          ),
-        ),
-      ),
-      'module' => 'ProspectLists',
-      'filterOnEmpty' => true,
-      'rname' => 'name',
-      'showFilter' => false,
-      'filter' => 
-      array (
-        'static' => 
-        array (
-          'list_type' => 
-          array (
-            0 => 'seed',
-            1 => 'default',
-          ),
-        ),
-      ),
-    ),
-    'suppression_lists' => 
-    array (
-      'name' => 'suppression_lists',
-      'type' => 'multirelate',
-      'vname' => 'LBL_SUPPRESSION_LISTS',
-      'footnotes' => 
-      array (
-        0 => 
-        array (
-          'labelKey' => 'LBL_SUPPRESSION_LISTS_HELP',
-          'displayModes' => 
-          array (
-            0 => 'edit',
-            1 => 'create',
-          ),
-        ),
-        1 => 
-        array (
-          'labelKey' => 'LBL_SUPPRESSION_LISTS_UNSUBSCRIBED_AUTO_CREATE_HELP',
-          'displayModes' => 
-          array (
-            0 => 'create',
-          ),
-        ),
-        2 => 
-        array (
-          'labelKey' => 'LBL_SUPPRESSION_LISTS_UNSUBSCRIBED_HELP',
-          'displayModes' => 
-          array (
-            0 => 'edit',
-            1 => 'create',
-          ),
-        ),
-        3 => 
-        array (
-          'labelKey' => 'LBL_SUPPRESSION_LISTS_UNSUBSCRIBED_NONE_SELECTED_HELP',
-          'displayModes' => 
-          array (
-            0 => 'edit',
-          ),
-        ),
-      ),
-      'source' => 'non-db',
-      'metadata' => 
-      array (
-        'headerField' => 
-        array (
-          'name' => 'name',
-        ),
-        'subHeaderField' => 
-        array (
-          'name' => 'list_type',
-          'type' => 'enum',
-          'definition' => 
-          array (
-            'options' => 'prospect_list_type_dom',
-          ),
-        ),
-      ),
-      'module' => 'ProspectLists',
-      'filterOnEmpty' => true,
-      'rname' => 'name',
-      'showFilter' => false,
-      'filter' => 
-      array (
-        'static' => 
-        array (
-          'list_type' => 
-          array (
-            0 => 'exempt',
-            1 => 'exempt_domain',
-            2 => 'exempt_address',
-          ),
-        ),
-      ),
     ),
     'prospectlists' => 
     array (
@@ -647,7 +420,6 @@
     'frequency' => 
     array (
       'name' => 'frequency',
-      'massupdate' => false,
       'vname' => 'LBL_CAMPAIGN_FREQUENCY',
       'type' => 'enum',
       'len' => 100,

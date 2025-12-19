@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -48,7 +44,6 @@ $mod_strings = array(
 'LBL_STATUS' => 'Статус:' ,
 'LNK_NEW_RELEASE' => 'Список версий' ,
 'NTC_DELETE_CONFIRMATION' => 'Вы действительно хотите удалить эту запись?' ,
-'NTC_SNOOZE_CONFIRMATION' => 'Вы действительно хотите отложить уведомление?',
 'ERR_DELETE_RECORD' => 'Вы должны указать запись для удаления версии.' ,
 'NTC_STATUS' => 'Установите статус на "Не активна" для удаления этой версии из списка' ,
 'NTC_LIST_ORDER' => 'Установить порядок следования версий' ,

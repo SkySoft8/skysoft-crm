@@ -1,13 +1,13 @@
 <?php
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -46,26 +46,20 @@ class LegacyRouteHandler
      */
     private $legacyAssetRedirectHandler;
 
-    private LegacyEntryPointRedirectHandler $legacyEntryPointRedirectHandler;
-    private string $currentDir;
-
     /**
      * LegacyRedirectListener constructor.
      * @param LegacyApiRedirectHandler $legacyApiRedirectHandler
      * @param LegacyNonViewActionRedirectHandler $legacyNonViewActionRedirectHandler
      * @param LegacyAssetRedirectHandler $legacyAssetRedirectHandler
-     * @param LegacyEntryPointRedirectHandler $legacyEntryPointRedirectHandler
      */
     public function __construct(
         LegacyApiRedirectHandler $legacyApiRedirectHandler,
         LegacyNonViewActionRedirectHandler $legacyNonViewActionRedirectHandler,
-        LegacyAssetRedirectHandler $legacyAssetRedirectHandler,
-        LegacyEntryPointRedirectHandler $legacyEntryPointRedirectHandler
+        LegacyAssetRedirectHandler $legacyAssetRedirectHandler
     ) {
         $this->legacyApiRedirectHandler = $legacyApiRedirectHandler;
         $this->legacyNonViewActionRedirectHandler = $legacyNonViewActionRedirectHandler;
         $this->legacyAssetRedirectHandler = $legacyAssetRedirectHandler;
-        $this->legacyEntryPointRedirectHandler = $legacyEntryPointRedirectHandler;
     }
 
     /**
@@ -83,21 +77,6 @@ class LegacyRouteHandler
 
         if ($this->isLegacyEntryPoint($request)) {
             return $this->legacyNonViewActionRedirectHandler->getIncludeFile($request);
-        }
-
-        if ($this->isLegacyEntryPointPath($request)) {
-            $entryPoint = $this->isValidLegacyEntryPoint($request);
-            if ($entryPoint['valid']) {
-                if ($entryPoint['auth']) {
-                    return $this->legacyEntryPointRedirectHandler->getIncludeFile($request);
-                }
-
-                return [
-                    'access' => false
-                ];
-            }
-
-            return [];
         }
 
         if ($this->isLegacyApi($request)) {
@@ -118,11 +97,6 @@ class LegacyRouteHandler
 
 
         return [];
-    }
-
-    public function setCurrentDir($dir) : void
-    {
-        $this->currentDir = $dir;
     }
 
     /**
@@ -184,27 +158,5 @@ class LegacyRouteHandler
     {
         return $this->legacyNonViewActionRedirectHandler->isMatch($request);
     }
-
-    /**
-     * Check if it is EntryPoint Path view request
-     * @param Request $request
-     * @return bool
-     */
-    protected function isLegacyEntryPointPath(Request $request): bool
-    {
-        return $this->legacyEntryPointRedirectHandler->isEntryPointRequest($request);
-    }
-
-    /**
-     * Check if it is EntryPoint Path view request
-     * @param Request $request
-     * @return array
-     */
-    protected function isValidLegacyEntryPoint(Request $request): array
-    {
-        $this->legacyEntryPointRedirectHandler->setCurrentDir($this->currentDir);
-        return $this->legacyEntryPointRedirectHandler->isValidEntryPoint($request);
-    }
-
 
 }

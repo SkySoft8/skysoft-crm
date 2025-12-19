@@ -700,12 +700,9 @@ class UserViewHelper
             $this->bean->setPreference('timezone', $userTZ);
         }
 
-        $ut = $this->bean->getPreference('ut') ?? '0';
-
-        if ($ut === '0') {
+        if (!$this->bean->getPreference('ut')) {
             $this->ss->assign('PROMPTTZ', ' checked');
         }
-
         $this->ss->assign('TIMEZONE_CURRENT', $userTZ);
         $this->ss->assign('TIMEZONEOPTIONS', TimeDate::getTimezoneList());
         $this->ss->assign("TIMEZONE", TimeDate::tzName($userTZ));

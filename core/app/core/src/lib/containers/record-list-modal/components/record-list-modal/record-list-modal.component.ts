@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -24,13 +24,12 @@
  * the words "Supercharged by SuiteCRM".
  */
 
-import {Component, Input, OnDestroy, OnInit, WritableSignal, signal} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {animate, transition, trigger} from '@angular/animations';
-import {ButtonInterface} from '../../../../common/components/button/button.model';
-import {ModalCloseFeedBack} from '../../../../common/components/modal/modal.model';
+import {ButtonInterface, ModalCloseFeedBack} from 'common';
 import {Observable, of, Subscription} from 'rxjs';
-import {debounceTime, distinctUntilChanged, skip, take} from 'rxjs/operators';
+import {distinctUntilChanged, skip} from 'rxjs/operators';
 import {ModalRecordFilterAdapter} from '../../adapters/filter.adapter';
 import {ModalRecordListTableAdapter} from '../../adapters/table.adapter';
 import {RecordListModalTableAdapterInterface} from '../../adapters/adapter.model';
@@ -43,7 +42,6 @@ import {LanguageStore} from '../../../../store/language/language.store';
 import {RecordListModalResult} from './record-list-modal.model';
 import {UserPreferenceStore} from "../../../../store/user-preference/user-preference.store";
 import {SystemConfigStore} from "../../../../store/system-config/system-config.store";
-import {SavedFilter} from "../../../../store/saved-filters/saved-filter.model";
 
 @Component({
     selector: 'scrm-record-list-modal',
@@ -67,9 +65,6 @@ export class RecordListModalComponent implements OnInit, OnDestroy {
     @Input() multiSelectButtonLabel = 'LBL_SAVE';
     @Input() adapter: RecordListModalTableAdapterInterface = null;
     @Input() filterAdapter: ModalRecordFilterAdapter = null;
-    @Input() presetFilter: SavedFilter = {} as SavedFilter;
-    @Input() showFilter: boolean = true;
-    @Input() selectedValues: string = '';
 
     loading$: Observable<boolean>;
 
@@ -77,9 +72,7 @@ export class RecordListModalComponent implements OnInit, OnDestroy {
     tableConfig: TableConfig;
     filterConfig: FilterConfig;
     store: RecordListModalStore;
-    maxHeight: number;
-
-    showFilterSignal: WritableSignal<boolean> = signal(true);
+    maxHeight:number;
 
     protected subs: Subscription[] = [];
 
@@ -105,13 +98,6 @@ export class RecordListModalComponent implements OnInit, OnDestroy {
             }
         } as ButtonInterface;
 
-        this.subs.push(this.store.recordList.criteria$.pipe(debounceTime(100)).subscribe(() => {
-            if ((Object.entries(this?.store?.recordList?.criteria.filters).length ?? 0) < 1) {
-                return;
-            }
-            this.updateSelection();
-        }));
-
         this.init();
     }
 
@@ -123,9 +109,6 @@ export class RecordListModalComponent implements OnInit, OnDestroy {
         if (!this.module) {
             return;
         }
-
-        this.showFilterSignal.set(this.showFilter);
-
         this.initStore();
         this.initTableAdapter();
         this.initFilterAdapters();
@@ -159,7 +142,7 @@ export class RecordListModalComponent implements OnInit, OnDestroy {
 
         this.tableConfig = this.adapter.getTable(this.store, this.multiSelect);
 
-        if (this.store?.listMetadata?.maxHeight) {
+        if (this.store?.listMetadata?.maxHeight){
             this.tableConfig.maxListHeight = this.store.listMetadata.maxHeight;
 
         }
@@ -181,30 +164,16 @@ export class RecordListModalComponent implements OnInit, OnDestroy {
     }
 
     protected initStore(): void {
-        this.store.init(this.module, this.parentModule ?? '', this.presetFilter);
-        this.updateSelection();
-
+        this.store.init(this.module, this.parentModule ?? '');
         this.loading$ = this.store.metadataLoading$;
 
         this.subs.push(this.store.linkClicked$.pipe(distinctUntilChanged(), skip(1)).subscribe(clicked => {
-            if (!clicked) {
+            if (!clicked){
                 return;
             }
 
             this.linkSelectedRecords();
 
         }));
-    }
-
-    protected updateSelection(): void {
-
-        if (!this.selectedValues ?? false) {
-            return;
-        }
-
-        const selected = this.selectedValues.split(',');
-        Object.values(selected).forEach((record) => {
-            this.store.recordList.toggleSelection(record, false)
-        });
     }
 }

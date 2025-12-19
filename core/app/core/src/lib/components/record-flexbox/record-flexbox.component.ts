@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -28,16 +28,16 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {
     ContentAlign,
     ContentJustify,
+    Field,
+    isTrue,
+    Record,
+    ScreenSizeMap,
     StatisticWidgetLayoutRow,
     TextColor,
     TextSizes,
-} from '../../common/metadata/widget.metadata';
-import {Record} from '../../common/record/record.model';
-import {Field} from '../../common/record/field.model';
-import {ScreenSizeMap} from '../../common/services/ui/resize.model';
-import {ViewFieldDefinition} from '../../common/metadata/metadata.model';
-import {ViewMode} from '../../common/views/view.model';
-import {isTrue} from '../../common/utils/value-utils';
+    ViewFieldDefinition,
+    ViewMode
+} from 'common';
 import {Subscription} from 'rxjs';
 import {FieldFlexbox, FieldFlexboxCol, RecordFlexboxConfig} from './record-flexbox.model';
 import {LabelDisplay} from '../field-grid/field-grid.model';

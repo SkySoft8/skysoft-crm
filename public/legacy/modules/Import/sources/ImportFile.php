@@ -125,6 +125,8 @@ class ImportFile extends ImportDataSource
             return null;
         }
 
+        // turn on auto-detection of line endings to fix bug #10770
+        ini_set('auto_detect_line_endings', '1');
 
         $this->_fp         = sugar_fopen($filename, 'r');
         $this->_sourcename   = $filename;
@@ -170,6 +172,7 @@ class ImportFile extends ImportDataSource
             }
         }
 
+        ini_restore('auto_detect_line_endings');
     }
 
     /**
@@ -413,27 +416,27 @@ class ImportFile extends ImportDataSource
     }
 
     //Begin Implementation for SPL's Iterator interface
-    public function key(): mixed
+    public function key()
     {
         return $this->_rowsCount;
     }
 
-    public function current(): mixed
+    public function current()
     {
         return $this->_currentRow;
     }
 
-    public function next(): void
+    public function next()
     {
         $this->getNextRow();
     }
 
-    public function valid(): bool
+    public function valid()
     {
         return $this->_currentRow !== false;
     }
 
-    public function rewind(): void
+    public function rewind()
     {
         $this->setFpAfterBOM();
         //Load our first row

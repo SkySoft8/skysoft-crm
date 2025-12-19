@@ -61,7 +61,7 @@ $subpanel_layout = array(
             'sortable'=>false,
         ),
         'message_name' => array(
-            'vname' => 'LBL_LIST_MARKETING_NAME',
+            'vname' => 'LBL_MARKETING_ID',
             'width' => '10%',
             'sortable'=>false,
         ),

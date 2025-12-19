@@ -603,11 +603,15 @@ table.subpanel-table .pagination .SugarActionMenu li.single a:hover {
 }
 
 table.subpanel-table .pagination li.single > form {
-  position: static;
+  position: absolute;
+  top: -39px;
+  right: 4px;
 }
 
 table.subpanel-table .pagination li.single > a {
-  position: static;
+  position: absolute;
+  top: -39px;
+  right: 7px;
 }
 
 .header-module-title {

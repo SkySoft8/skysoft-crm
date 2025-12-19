@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace ApiPlatform\Metadata;
 
-use ApiPlatform\Metadata\Exception\ProblemExceptionInterface;
 use ApiPlatform\OpenApi\Attributes\Webhook;
 use ApiPlatform\OpenApi\Model\Operation as OpenApiOperation;
 use ApiPlatform\State\OptionsInterface;
@@ -74,12 +73,11 @@ class HttpOperation extends Operation
      *     class?: string|null,
      *     name?: string,
      * }|string|false|null $output {@see https://api-platform.com/docs/core/dto/#specifying-an-input-or-an-output-data-representation}
-     * @param string|array|bool|null                              $mercure   {@see https://api-platform.com/docs/core/mercure}
-     * @param string|bool|null                                    $messenger {@see https://api-platform.com/docs/core/messenger/#dispatching-a-resource-through-the-message-bus}
-     * @param string|callable|null                                $provider  {@see https://api-platform.com/docs/core/state-providers/#state-providers}
-     * @param string|callable|null                                $processor {@see https://api-platform.com/docs/core/state-processors/#state-processors}
-     * @param WebLink[]|null                                      $links
-     * @param array<class-string<ProblemExceptionInterface>>|null $errors
+     * @param string|array|bool|null $mercure   {@see https://api-platform.com/docs/core/mercure}
+     * @param string|bool|null       $messenger {@see https://api-platform.com/docs/core/messenger/#dispatching-a-resource-through-the-message-bus}
+     * @param string|callable|null   $provider  {@see https://api-platform.com/docs/core/state-providers/#state-providers}
+     * @param string|callable|null   $processor {@see https://api-platform.com/docs/core/state-processors/#state-processors}
+     * @param WebLink[]|null         $links
      */
     public function __construct(
         protected string $method = 'GET',
@@ -155,8 +153,8 @@ class HttpOperation extends Operation
         protected ?array $openapiContext = null, // TODO Remove in 4.0
         protected bool|OpenApiOperation|Webhook|null $openapi = null,
         protected ?array $exceptionToStatus = null,
+        protected ?bool $queryParameterValidationEnabled = null,
         protected ?array $links = null,
-        protected ?array $errors = null,
 
         ?string $shortName = null,
         ?string $class = null,
@@ -203,7 +201,6 @@ class HttpOperation extends Operation
         $processor = null,
         ?OptionsInterface $stateOptions = null,
         array|Parameters|null $parameters = null,
-        ?bool $queryParameterValidationEnabled = null,
         array $extraProperties = [],
     ) {
         parent::__construct(
@@ -252,7 +249,6 @@ class HttpOperation extends Operation
             processor: $processor,
             stateOptions: $stateOptions,
             parameters: $parameters,
-            queryParameterValidationEnabled: $queryParameterValidationEnabled,
             extraProperties: $extraProperties
         );
     }
@@ -611,6 +607,19 @@ class HttpOperation extends Operation
         return $self;
     }
 
+    public function getQueryParameterValidationEnabled(): ?bool
+    {
+        return $this->queryParameterValidationEnabled;
+    }
+
+    public function withQueryParameterValidationEnabled(bool $queryParameterValidationEnabled): self
+    {
+        $self = clone $this;
+        $self->queryParameterValidationEnabled = $queryParameterValidationEnabled;
+
+        return $self;
+    }
+
     public function getLinks(): ?array
     {
         return $this->links;
@@ -623,22 +632,6 @@ class HttpOperation extends Operation
     {
         $self = clone $this;
         $self->links = $links;
-
-        return $self;
-    }
-
-    public function getErrors(): ?array
-    {
-        return $this->errors;
-    }
-
-    /**
-     * @param class-string<ProblemExceptionInterface>[] $errors
-     */
-    public function withErrors(array $errors): self
-    {
-        $self = clone $this;
-        $self->errors = $errors;
 
         return $self;
     }

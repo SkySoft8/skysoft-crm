@@ -39,17 +39,17 @@ array (
     'width' => '10%',
     'default' => false,
   ),
-  'TITLE' => 
-  array (
-    'width' => '20%',
-    'label' => 'LBL_LIST_TITLE',
-    'link' => false,
-    'default' => false,
-  ),
   'PHONE_WORK' => 
   array (
     'width' => '10%',
     'label' => 'LBL_LIST_PHONE',
+    'link' => false,
+    'default' => false,
+  ),
+  'TITLE' => 
+  array (
+    'width' => '20%',
+    'label' => 'LBL_LIST_TITLE',
     'link' => false,
     'default' => false,
   ),

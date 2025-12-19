@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2023 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2023 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -25,6 +25,7 @@
  */
 
 import {Injectable} from '@angular/core';
+import {Action, ActionContext, ActionManager} from 'common';
 import {AsyncActionInput, AsyncActionService} from '../process/processes/async-action/async-action';
 import {MessageService} from '../message/message.service';
 import {ConfirmationModalService} from '../modals/confirmation-modal.service';
@@ -33,9 +34,6 @@ import {LanguageStore} from '../../store/language/language.store';
 import {SelectModalService} from '../modals/select-modal.service';
 import {MetadataStore} from '../../store/metadata/metadata.store.service';
 import {AppMetadataStore} from "../../store/app-metadata/app-metadata.store.service";
-import {Action, ActionContext, ActionManager} from "../../common/actions/action.model";
-import {FieldModalService} from "../modals/field-modal.service";
-import {FieldLogicManager} from "../../fields/field-logic/field-logic.manager";
 
 @Injectable()
 export abstract class BaseFieldActionsAdapter<D> extends BaseActionsAdapter<D> {
@@ -48,10 +46,8 @@ export abstract class BaseFieldActionsAdapter<D> extends BaseActionsAdapter<D> {
         protected confirmation: ConfirmationModalService,
         protected language: LanguageStore,
         protected selectModalService: SelectModalService,
-        protected fieldModalService: FieldModalService,
         protected metadata: MetadataStore,
-        protected appMetadataStore: AppMetadataStore,
-        protected logic: FieldLogicManager,
+        protected appMetadataStore: AppMetadataStore
     ) {
         super(
             actionManager,
@@ -60,10 +56,8 @@ export abstract class BaseFieldActionsAdapter<D> extends BaseActionsAdapter<D> {
             confirmation,
             language,
             selectModalService,
-            fieldModalService,
             metadata,
-            appMetadataStore,
-            logic
+            appMetadataStore
         )
     }
 

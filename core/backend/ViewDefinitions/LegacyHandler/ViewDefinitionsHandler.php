@@ -1,13 +1,13 @@
 <?php
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -29,7 +29,6 @@ namespace App\ViewDefinitions\LegacyHandler;
 
 use App\Engine\LegacyHandler\LegacyHandler;
 use App\Engine\LegacyHandler\LegacyScopeState;
-use App\Engine\Service\DefinitionEntryHandlingTrait;
 use App\FieldDefinitions\Entity\FieldDefinition;
 use App\FieldDefinitions\Service\FieldDefinitionsProviderInterface;
 use App\Module\Service\ModuleNameMapperInterface;
@@ -49,8 +48,6 @@ use function in_array;
  */
 class ViewDefinitionsHandler extends LegacyHandler implements ViewDefinitionsProviderInterface
 {
-    use DefinitionEntryHandlingTrait;
-
     public const HANDLER_KEY = 'view-definitions';
 
     /**
@@ -71,7 +68,7 @@ class ViewDefinitionsHandler extends LegacyHandler implements ViewDefinitionsPro
     /**
      * @var array
      */
-    protected $defaultFields = [
+    private $defaultFields = [
         'type' => 'type',
         'label' => 'vname',
     ];
@@ -79,54 +76,47 @@ class ViewDefinitionsHandler extends LegacyHandler implements ViewDefinitionsPro
     /**
      * @var LoggerInterface
      */
-    protected $logger;
+    private $logger;
 
     /**
      * @var FieldDefinitionsProviderInterface
      */
-    protected $fieldDefinitionProvider;
+    private $fieldDefinitionProvider;
 
     /**
      * @var ModuleNameMapperInterface
      */
-    protected $moduleNameMapper;
+    private $moduleNameMapper;
 
     /**
      * @var RecordViewDefinitionHandler
      */
-    protected $recordViewDefinitionHandler;
-
-    /**
-     * @var RecordModalDefinitionHandler
-     */
-    protected $recordModalDefinitionHandler;
+    private $recordViewDefinitionHandler;
 
     /**
      * @var SubPanelDefinitionHandler
      */
-    protected $subPanelDefinitionHandler;
+    private $subPanelDefinitionHandler;
 
     /**
      * @var ListViewDefinitionHandler
      */
-    protected $listViewDefinitionsHandler;
+    private $listViewDefinitionsHandler;
 
     /**
      * @var ViewDefinitionMappers
      */
-    protected $mappers;
+    private $mappers;
 
     /**
      * @var MassUpdateDefinitionProviderInterface
      */
-    protected $massUpdateDefinitionProvider;
+    private $massUpdateDefinitionProvider;
 
     /**
      * @var FieldAliasMapper
      */
-    protected $fieldAliasMapper;
-    protected array $metadataEntries;
-    protected ViewConfigMappers $viewConfigMappers;
+    private $fieldAliasMapper;
 
     /**
      * ViewDefinitionsHandler constructor.
@@ -138,7 +128,6 @@ class ViewDefinitionsHandler extends LegacyHandler implements ViewDefinitionsPro
      * @param ModuleNameMapperInterface $moduleNameMapper
      * @param FieldDefinitionsProviderInterface $fieldDefinitionProvider
      * @param RecordViewDefinitionHandler $recordViewDefinitionHandler
-     * @param RecordModalDefinitionHandler $recordModalDefinitionHandler
      * @param SubPanelDefinitionProviderInterface $subPanelDefinitionHandler
      * @param ListViewDefinitionHandler $listViewDefinitionsHandler
      * @param MassUpdateDefinitionProviderInterface $massUpdateDefinitionProvider
@@ -146,29 +135,25 @@ class ViewDefinitionsHandler extends LegacyHandler implements ViewDefinitionsPro
      * @param LoggerInterface $logger
      * @param ViewDefinitionMappers $mappers
      * @param RequestStack $session
-     * @param array $metadataEntries
-     * @param ViewConfigMappers $viewDefsConfigMappers
      */
     public function __construct(
-        string $projectDir,
-        string $legacyDir,
-        string $legacySessionName,
-        string $defaultSessionName,
-        LegacyScopeState $legacyScopeState,
-        ModuleNameMapperInterface $moduleNameMapper,
-        FieldDefinitionsProviderInterface $fieldDefinitionProvider,
-        RecordViewDefinitionHandler $recordViewDefinitionHandler,
-        RecordModalDefinitionHandler $recordModalDefinitionHandler,
-        SubPanelDefinitionProviderInterface $subPanelDefinitionHandler,
-        ListViewDefinitionHandler $listViewDefinitionsHandler,
+        string                                $projectDir,
+        string                                $legacyDir,
+        string                                $legacySessionName,
+        string                                $defaultSessionName,
+        LegacyScopeState                      $legacyScopeState,
+        ModuleNameMapperInterface             $moduleNameMapper,
+        FieldDefinitionsProviderInterface     $fieldDefinitionProvider,
+        RecordViewDefinitionHandler           $recordViewDefinitionHandler,
+        SubPanelDefinitionProviderInterface   $subPanelDefinitionHandler,
+        ListViewDefinitionHandler             $listViewDefinitionsHandler,
         MassUpdateDefinitionProviderInterface $massUpdateDefinitionProvider,
-        FieldAliasMapper $fieldAliasMapper,
-        LoggerInterface $logger,
-        ViewDefinitionMappers $mappers,
-        RequestStack $session,
-        array $metadataEntries,
-        ViewConfigMappers $viewDefsConfigMappers
-    ) {
+        FieldAliasMapper                      $fieldAliasMapper,
+        LoggerInterface                       $logger,
+        ViewDefinitionMappers                 $mappers,
+        RequestStack                          $session
+    )
+    {
         parent::__construct(
             $projectDir,
             $legacyDir,
@@ -180,15 +165,12 @@ class ViewDefinitionsHandler extends LegacyHandler implements ViewDefinitionsPro
         $this->moduleNameMapper = $moduleNameMapper;
         $this->fieldDefinitionProvider = $fieldDefinitionProvider;
         $this->recordViewDefinitionHandler = $recordViewDefinitionHandler;
-        $this->recordModalDefinitionHandler = $recordModalDefinitionHandler;
         $this->subPanelDefinitionHandler = $subPanelDefinitionHandler;
         $this->listViewDefinitionsHandler = $listViewDefinitionsHandler;
         $this->massUpdateDefinitionProvider = $massUpdateDefinitionProvider;
         $this->logger = $logger;
         $this->mappers = $mappers;
         $this->fieldAliasMapper = $fieldAliasMapper;
-        $this->metadataEntries = $metadataEntries;
-        $this->viewConfigMappers = $viewDefsConfigMappers;
     }
 
     /**
@@ -213,8 +195,7 @@ class ViewDefinitionsHandler extends LegacyHandler implements ViewDefinitionsPro
                 'listView',
                 'search',
                 'massUpdate',
-                'subPanel',
-                'recordModal'
+                'subPanel'
             ];
         }
 
@@ -227,16 +208,6 @@ class ViewDefinitionsHandler extends LegacyHandler implements ViewDefinitionsPro
         $viewDef = new ViewDefinition();
         $viewDef->setId($moduleName);
 
-        $metadataEntries = $this->getMetadataEntries($moduleName);
-        $defaultEntries = [
-            'listView',
-            'search',
-            'recordView',
-            'recordModal',
-            'subPanel',
-            'massUpdate',
-        ];
-        $nonDefaultEntries = array_diff_key($metadataEntries, array_flip($defaultEntries));
 
         if (in_array('listView', $views, true)) {
             $listViewDef = $this->listViewDefinitionsHandler->fetch($moduleName, $legacyModuleName, $fieldDefinition);
@@ -256,16 +227,6 @@ class ViewDefinitionsHandler extends LegacyHandler implements ViewDefinitionsPro
             $viewDef->setRecordView($recordViewDefs);
         }
 
-
-        if (in_array('recordModal', $views, true)) {
-            $recordModalDefs = $this->recordModalDefinitionHandler->fetch(
-                $moduleName,
-                $legacyModuleName,
-                $fieldDefinition
-            );
-            $viewDef->setRecordModal($recordModalDefs);
-        }
-
         if (in_array('subPanel', $views, true)) {
             $subPanelViewDefs = $this->subPanelDefinitionHandler->getSubPanelDef($legacyModuleName);
             $viewDef->setSubPanel($subPanelViewDefs);
@@ -274,25 +235,6 @@ class ViewDefinitionsHandler extends LegacyHandler implements ViewDefinitionsPro
         if (in_array('massUpdate', $views, true)) {
             $massUpdateDefinitions = $this->massUpdateDefinitionProvider->getDefinitions($moduleName);
             $viewDef->setMassUpdate($massUpdateDefinitions);
-        }
-
-
-        foreach ($nonDefaultEntries as $entryKey => $entry) {
-            $entryType = $entry['type'] ?? '';
-            if (!$entryType) {
-                continue;
-            }
-
-            $legacyType = $entry['legacyType'] ?? '';
-            if ($entryType === 'record' && $legacyType !== '') {
-                $entryDefinition = $this->recordViewDefinitionHandler->fetch(
-                    $moduleName,
-                    $legacyModuleName,
-                    $fieldDefinition,
-                    $legacyType
-                );
-                $viewDef->setExtraEntry($entryKey, $entryDefinition);
-            }
         }
 
         $mappers = $this->mappers->get($moduleName) ?? [];
@@ -368,27 +310,6 @@ class ViewDefinitionsHandler extends LegacyHandler implements ViewDefinitionsPro
     }
 
     /**
-     * @inheritDoc
-     */
-    public function getRecordModalDefs(string $moduleName): ViewDefinition
-    {
-        $this->init();
-
-        $fieldDefinition = $this->fieldDefinitionProvider->getVardef($moduleName);
-
-        $legacyModuleName = $this->validateModuleName($moduleName);
-
-        $viewDef = new ViewDefinition();
-        $viewDef->setId($moduleName);
-        $recordModalDefs = $this->recordModalDefinitionHandler->fetch($moduleName, $legacyModuleName, $fieldDefinition);
-        $viewDef->setRecordModal($recordModalDefs);
-
-        $this->close();
-
-        return $viewDef;
-    }
-
-    /**
      * Internal API
      */
 
@@ -412,9 +333,6 @@ class ViewDefinitionsHandler extends LegacyHandler implements ViewDefinitionsPro
         }
 
         $definition = $searchDefs['searchdefs'][$module];
-
-        $definition = $this->viewConfigMappers->run($module, 'search', $definition) ?? [];
-
 
         if (isset($definition['templateMeta'])) {
             unset($definition['templateMeta']);
@@ -656,24 +574,5 @@ class ViewDefinitionsHandler extends LegacyHandler implements ViewDefinitionsPro
         $merged['fieldDefinition']['metadata'] = $metadata;
 
         return $merged;
-    }
-
-    protected function getMetadataEntries(string $module): array
-    {
-        $config = $this->metadataEntries ?? [];
-        $config['modules'][$module] = $config['modules'][$module] ?? [];
-        $config['modules'][$module]['entries'] = $config['modules'][$module]['entries'] ?? [];
-        $config['modules'][$module]['exclude'] = $config['modules'][$module]['exclude'] ?? [];
-
-        $config['modules'][$module]['entries'] = array_merge(
-            $moduleDefaults['entries'] ?? [],
-            $config['modules'][$module]['entries']
-        );
-        $config['modules'][$module]['exclude'] = array_merge(
-            $moduleDefaults['exclude'] ?? [],
-            $config['modules'][$module]['exclude']
-        );
-
-        return $this->filterDefinitionEntries($module, 'entries', $config, null);
     }
 }

@@ -1,13 +1,13 @@
 <?php
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -155,7 +155,7 @@ trait StatisticsHandlingTrait
         ];
 
         if ($options !== null) {
-            $metadata['chartOptions'] = $options->toArray();
+            $metadata['chartOptions'] = (array)$options;
         }
 
         $statistic->setMetadata($metadata);
@@ -168,8 +168,7 @@ trait StatisticsHandlingTrait
      * @param string $groupingField
      * @param string $nameField
      * @param string $valueField
-     * @param array $defaultValues
-     * @param bool $addEmpty
+     * @param $defaultValues
      * @return Series|SeriesResult
      */
     protected function buildMultiSeries(
@@ -177,9 +176,8 @@ trait StatisticsHandlingTrait
         string $groupingField,
         string $nameField,
         string $valueField,
-        array $defaultValues,
-        bool $addEmpty = false
-    ): Series|SeriesResult {
+        array $defaultValues
+    ) {
         $seriesMap = [];
 
         foreach ($result as $row) {
@@ -208,24 +206,6 @@ trait StatisticsHandlingTrait
             $seriesMap[$groupingFieldValue]['items'][$nameFieldValue]->value = $valueFieldValue;
         }
 
-        if (empty($result) && $addEmpty) {
-            $series = new Series();
-            $series->name = '';
-            $series->series = [];
-            $seriesMap[''] = [
-                'series' => $series,
-                'items' => []
-            ];
-
-            foreach ($defaultValues as $default) {
-                $item = new SeriesItem();
-                $item->name = $default;
-                $item->value = '0';
-
-                $seriesMap['']['items'][$default] = $item;
-            }
-        }
-
         $series = new SeriesResult();
         $series->multiSeries = [];
 
@@ -238,22 +218,18 @@ trait StatisticsHandlingTrait
     }
 
     /**
-     * Build single series from query results with raw data (no translation)
      * @param array $result
      * @param string $nameField
      * @param string $valueField
-     * @param array $defaultValues
-     * @return SeriesResult
+     * @param $defaultValues
+     * @return Series|SeriesResult
      */
     protected function buildSingleSeries(
         array $result,
         string $nameField,
         string $valueField,
-        array $fields = [],
-        array $defaultValues = [],
-        bool $showEmpty = false
-    ): Series|SeriesResult
-    {
+        array $defaultValues = []
+    ) {
         $seriesMap = [];
 
         if (!empty($defaultValues)) {
@@ -268,43 +244,20 @@ trait StatisticsHandlingTrait
 
         foreach ($result as $row) {
             $nameFieldValue = $row[$nameField] ?? '';
-            $valueFieldValue = $row[$valueField] ?? '0';
-            $label = $fields[$nameFieldValue] ?? '';
+            $valueFieldValue = $row[$valueField] ?? '';
 
             if (empty($seriesMap[$nameFieldValue])) {
                 $seriesMap[$nameFieldValue] = new SeriesItem();
                 $seriesMap[$nameFieldValue]->name = $nameFieldValue;
-                if (!empty($label)) {
-                    $seriesMap[$nameFieldValue]->label = $label;
-                }
             }
 
             $seriesMap[$nameFieldValue]->value = $valueFieldValue;
         }
 
-        if (empty($result) && !$showEmpty){
-            $series = new SeriesResult();
-            $series->singleSeries = array_values($seriesMap);
-
-            return $series;
-        }
-
-
-        foreach ($fields as $i => $field) {
-            if (empty($seriesMap[$i])){
-                $seriesMap[$i] = new SeriesItem();
-                $seriesMap[$i]->name = $i;
-                $seriesMap[$i]->label = $field;
-                $seriesMap[$i]->value = '0';
-            }
-        }
-
-
         $series = new SeriesResult();
         $series->singleSeries = array_values($seriesMap);
 
         return $series;
-
     }
 
 
@@ -436,6 +389,5 @@ trait StatisticsHandlingTrait
 
         return $entry;
     }
-
 
 }

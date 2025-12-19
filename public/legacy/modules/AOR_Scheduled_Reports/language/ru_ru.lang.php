@@ -1,9 +1,4 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -65,7 +60,6 @@ $mod_strings = array(
   'LBL_ASSIGNED_USER' => 'Ответственный(ая):',
   'LBL_EMAIL_RECIPIENTS' => 'Получатели:',
   'NTC_DELETE_CONFIRMATION' => 'Вы действительно хотите удалить эту запись?',
-  'NTC_SNOOZE_CONFIRMATION' => 'Вы действительно хотите отложить уведомление?',
   'LBL_LIST_FORM_TITLE' => 'Отчёты по расписанию',
   'LBL_MODULE_NAME' => 'Отчёты по расписанию',
   'LBL_MODULE_TITLE' => 'Отчёты по расписанию',

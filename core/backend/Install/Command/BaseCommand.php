@@ -1,13 +1,13 @@
 <?php
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -29,13 +29,10 @@ namespace App\Install\Command;
 
 use App\Engine\LegacyHandler\DefaultLegacyHandler;
 use App\Engine\Model\Feedback;
-use App\Install\Service\CommandLastRunTracker;
 use App\Languages\LegacyHandler\AppStringsHandler;
-use App\Schedulers\LegacyHandler\CronHandler;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 abstract class BaseCommand extends Command
@@ -61,11 +58,6 @@ abstract class BaseCommand extends Command
     protected $requestStack;
 
     /**
-     * @var CommandLastRunTracker
-     */
-    protected $lastRun;
-
-    /**
      * @var string
      */
     protected $legacySessionName;
@@ -74,11 +66,6 @@ abstract class BaseCommand extends Command
      * @var AppStringsHandler
      */
     protected $appStringsHandler;
-
-    /**
-     * @var CronHandler
-     */
-    protected $cronHandler;
 
     /**
      * @var DefaultLegacyHandler
@@ -119,22 +106,6 @@ abstract class BaseCommand extends Command
     public function setAppStringsHandler(AppStringsHandler $appStringsHandler): void
     {
         $this->appStringsHandler = $appStringsHandler;
-    }
-    /**
-     * @required
-     * @param CronHandler $cronHandler
-     */
-    public function setCronHandler(CronHandler $cronHandler): void
-    {
-        $this->cronHandler = $cronHandler;
-    }
-    /**
-     * @required
-     * @param CommandLastRunTracker $lastRun
-     */
-    public function setLastRunTracker(CommandLastRunTracker $lastRun): void
-    {
-        $this->lastRun = $lastRun;
     }
 
     /**
@@ -334,36 +305,6 @@ abstract class BaseCommand extends Command
     {
         return implode('', ["<$type>", $message, "</$type>"]);
     }
-
-    protected function colorText(string $color, string $message): string
-    {
-        return implode('', ["<fg=$color>", $message, "</>"]);
-    }
-
-    /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
-     * @return int
-     */
-    public function checkRunningUser(InputInterface $input, OutputInterface $output): int
-    {
-        if ($this->cronHandler->getRunningUser() === 'root') {
-            $helper = $this->getHelper('question');
-            $question = $this->getAppStrings()['LBL_CRON_UNRECOMMENDED_USER'];
-            $output->writeln([
-                'Checking Running User',
-                '=========================',
-            ]);
-            $question = new ConfirmationQuestion($question, false);
-            $answer = $helper->ask($input, $output, $question);
-            if ($answer === false) {
-                return Command::FAILURE;
-            }
-        }
-
-        return Command::SUCCESS;
-    }
-
 
     /**
      * @return array|null

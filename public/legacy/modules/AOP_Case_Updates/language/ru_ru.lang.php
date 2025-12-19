@@ -1,9 +1,4 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -64,6 +59,4 @@ $mod_strings = array(
   'LBL_CONTACT_NAME' => 'Контакт',
   'LBL_INTERNAL' => 'Внутреннее обновление',
   'LBL_AOP_CASE_ATTACHMENTS' => 'Вложения: ',
-  'LBL_AUTHOR' => 'Автор',
-  'LBL_SOURCE' => 'Источник'
 );

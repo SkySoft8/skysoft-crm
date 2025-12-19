@@ -3738,24 +3738,6 @@
           1 => 'prospect_list_id',
         ),
       ),
-      2 => 
-      array (
-        'name' => 'idx_prospect_list_id',
-        'type' => 'index',
-        'fields' => 
-        array (
-          0 => 'prospect_list_id',
-        ),
-      ),
-      3 => 
-      array (
-        'name' => 'idx_email_marketing_id',
-        'type' => 'index',
-        'fields' => 
-        array (
-          0 => 'email_marketing_id',
-        ),
-      ),
     ),
     'relationships' => 
     array (
@@ -9442,50 +9424,6 @@
     'rhs_key' => 'template_id',
     'relationship_type' => 'one-to-many',
   ),
-  'email_marketing_survey' => 
-  array (
-    'name' => 'email_marketing_survey',
-    'lhs_module' => 'Surveys',
-    'lhs_table' => 'surveys',
-    'lhs_key' => 'id',
-    'rhs_module' => 'EmailMarketing',
-    'rhs_table' => 'email_marketing',
-    'rhs_key' => 'survey_id',
-    'relationship_type' => 'one-to-many',
-  ),
-  'email_marketing_outbound_email_accounts' => 
-  array (
-    'name' => 'email_marketing_outbound_email_accounts',
-    'lhs_module' => 'OutboundEmailAccounts',
-    'lhs_table' => 'outbound_email',
-    'lhs_key' => 'id',
-    'rhs_module' => 'EmailMarketing',
-    'rhs_table' => 'email_marketing',
-    'rhs_key' => 'outbound_email_id',
-    'relationship_type' => 'one-to-many',
-  ),
-  'email_marketing_campaignlog' => 
-  array (
-    'name' => 'email_marketing_campaignlog',
-    'lhs_module' => 'EmailMarketing',
-    'lhs_table' => 'email_marketing',
-    'lhs_key' => 'id',
-    'rhs_module' => 'CampaignLog',
-    'rhs_table' => 'campaign_log',
-    'rhs_key' => 'marketing_id',
-    'relationship_type' => 'one-to-many',
-  ),
-  'email_marketing_emailman' => 
-  array (
-    'name' => 'email_marketing_emailman',
-    'lhs_module' => 'EmailMarketing',
-    'lhs_table' => 'email_marketing',
-    'lhs_key' => 'id',
-    'rhs_module' => 'EmailMan',
-    'rhs_table' => 'emailman',
-    'rhs_key' => 'marketing_id',
-    'relationship_type' => 'one-to-many',
-  ),
   'campaignlog_contact' => 
   array (
     'name' => 'campaignlog_contact',
@@ -9550,17 +9488,6 @@
     'rhs_module' => 'CampaignTrackers',
     'rhs_table' => 'campaign_trkrs',
     'rhs_key' => 'campaign_id',
-    'relationship_type' => 'one-to-many',
-  ),
-  'emailman_assigned_user' => 
-  array (
-    'name' => 'emailman_assigned_user',
-    'lhs_module' => 'Users',
-    'lhs_table' => 'users',
-    'lhs_key' => 'id',
-    'rhs_module' => 'Emailman',
-    'rhs_table' => 'emailman',
-    'rhs_key' => 'assigned_user_id',
     'relationship_type' => 'one-to-many',
   ),
   'schedulers_created_by_rel' => 
@@ -10663,17 +10590,6 @@
         'required' => false,
       ),
     ),
-  ),
-  'email_outbound_email_accounts' => 
-  array (
-    'name' => 'email_outbound_email_accounts',
-    'lhs_module' => 'OutboundEmailAccounts',
-    'lhs_table' => 'outbound_email',
-    'lhs_key' => 'id',
-    'rhs_module' => 'Emails',
-    'rhs_table' => 'emails',
-    'rhs_key' => 'outbound_email_id',
-    'relationship_type' => 'one-to-many',
   ),
   'meetings_modified_user' => 
   array (
@@ -13742,17 +13658,6 @@
       ),
     ),
   ),
-  'outbound_email_accounts_email_marketing' => 
-  array (
-    'name' => 'outbound_email_accounts_email_marketing',
-    'lhs_module' => 'OutboundEmailAccounts',
-    'lhs_table' => 'outbound_email',
-    'lhs_key' => 'id',
-    'rhs_module' => 'EmailMarketing',
-    'rhs_table' => 'email_marketing',
-    'rhs_key' => 'outbound_email_id',
-    'relationship_type' => 'one-to-one',
-  ),
   'outbound_email_owner_user' => 
   array (
     'name' => 'outbound_email_owner_user',
@@ -13795,17 +13700,6 @@
     'rhs_module' => 'OutboundEmailAccounts',
     'rhs_table' => 'outbound_email',
     'rhs_key' => 'assigned_user_id',
-    'relationship_type' => 'one-to-many',
-  ),
-  'outbound_emails_external_oauth_connections' => 
-  array (
-    'name' => 'outbound_emails_external_oauth_connections',
-    'lhs_module' => 'ExternalOAuthConnection',
-    'lhs_table' => 'external_oauth_connections',
-    'lhs_key' => 'id',
-    'rhs_module' => 'OutboundEmailAccounts',
-    'rhs_table' => 'outbound_email',
-    'rhs_key' => 'external_oauth_connection_id',
     'relationship_type' => 'one-to-many',
   ),
   'externaloauthconnection_modified_user' => 
@@ -14705,54 +14599,54 @@
       ),
     ),
   ),
-  'mediaobjects_modified_user' => 
+  'plank_planning_modified_user' => 
   array (
-    'name' => 'mediaobjects_modified_user',
+    'name' => 'plank_planning_modified_user',
     'lhs_module' => 'Users',
     'lhs_table' => 'users',
     'lhs_key' => 'id',
-    'rhs_module' => 'MediaObjects',
-    'rhs_table' => 'public_images_media_objects',
+    'rhs_module' => 'planK_Planning',
+    'rhs_table' => 'plank_planning',
     'rhs_key' => 'modified_user_id',
     'relationship_type' => 'one-to-many',
   ),
-  'mediaobjects_created_by' => 
+  'plank_planning_created_by' => 
   array (
-    'name' => 'mediaobjects_created_by',
+    'name' => 'plank_planning_created_by',
     'lhs_module' => 'Users',
     'lhs_table' => 'users',
     'lhs_key' => 'id',
-    'rhs_module' => 'MediaObjects',
-    'rhs_table' => 'public_images_media_objects',
+    'rhs_module' => 'planK_Planning',
+    'rhs_table' => 'plank_planning',
     'rhs_key' => 'created_by',
     'relationship_type' => 'one-to-many',
   ),
-  'mediaobjects_assigned_user' => 
+  'plank_planning_assigned_user' => 
   array (
-    'name' => 'mediaobjects_assigned_user',
+    'name' => 'plank_planning_assigned_user',
     'lhs_module' => 'Users',
     'lhs_table' => 'users',
     'lhs_key' => 'id',
-    'rhs_module' => 'MediaObjects',
-    'rhs_table' => 'public_images_media_objects',
+    'rhs_module' => 'planK_Planning',
+    'rhs_table' => 'plank_planning',
     'rhs_key' => 'assigned_user_id',
     'relationship_type' => 'one-to-many',
   ),
-  'securitygroups_mediaobjects' => 
+  'securitygroups_plank_planning' => 
   array (
-    'name' => 'securitygroups_mediaobjects',
+    'name' => 'securitygroups_plank_planning',
     'lhs_module' => 'SecurityGroups',
     'lhs_table' => 'securitygroups',
     'lhs_key' => 'id',
-    'rhs_module' => 'MediaObjects',
-    'rhs_table' => 'public_images_media_objects',
+    'rhs_module' => 'planK_Planning',
+    'rhs_table' => 'plank_planning',
     'rhs_key' => 'id',
     'relationship_type' => 'many-to-many',
     'join_table' => 'securitygroups_records',
     'join_key_lhs' => 'securitygroup_id',
     'join_key_rhs' => 'record_id',
     'relationship_role_column' => 'module',
-    'relationship_role_column_value' => 'MediaObjects',
+    'relationship_role_column_value' => 'planK_Planning',
     'fields' => 
     array (
       0 => 

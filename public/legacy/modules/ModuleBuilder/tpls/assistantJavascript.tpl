@@ -47,7 +47,7 @@ if(typeof(Assistant)!="undefined" && Assistant.mbAssistant){
 {if $userPref }
 	{literal}Assistant.processUserPref("{/literal}{$userPref}{literal}");{/literal}
 {/if}
-{if isset($assistant.key) && isset($assistant.group)}
+{if $assistant.key && $assistant.group}
 	{literal}Assistant.mbAssistant.setBody(SUGAR.language.get('ModuleBuilder','assistantHelp').{/literal}{$assistant.group}{literal}.{/literal}{$assistant.key}{literal});{/literal}
 {/if}
 {literal}

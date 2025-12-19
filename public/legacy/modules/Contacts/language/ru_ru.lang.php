@@ -1,9 +1,5 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -158,12 +154,11 @@ $mod_strings = array(
 'LNK_NEW_TASK' => 'Создать задачу' ,
 'LNK_SELECT_ACCOUNT' => 'Выбор контрагента' ,
 'NTC_DELETE_CONFIRMATION' => 'Вы действительно хотите удалить эту запись?' ,
-'NTC_SNOOZE_CONFIRMATION' => 'Вы действительно хотите отложить уведомление?',
 'NTC_OPPORTUNITY_REQUIRES_ACCOUNT' => 'Создание сделки требует контрагента.\n Пожалуйста, или создайте нового контрагента или выберите из уже существующих.' ,
 'NTC_REMOVE_CONFIRMATION' => 'Вы действительно хотите удалить этот контакт из данного обращения?' ,
 
 
-'LBL_LEADS_SUBPANEL_TITLE' => 'Предварит. контакты' ,
+'LBL_LEADS_SUBPANEL_TITLE' => 'Предварительные контакты' ,
 'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки' ,
 'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Документы',
 'LBL_COPY_ADDRESS_CHECKED_PRIMARY' => 'Копировать в основной адрес',
@@ -184,6 +179,9 @@ $mod_strings = array(
 'LBL_PROJECT_SUBPANEL_TITLE' => 'Проекты',
 'LNK_IMPORT_CONTACTS' => 'Импорт контактов',
 
+//For export labels ///
+
+
 // SNIP
 'LBL_USER_SYNC' => 'User Sync',
 
@@ -197,24 +195,18 @@ $mod_strings = array(
 'LBL_ENABLE_PORTAL_USER_FAILED' => 'Ошибка включения пользователя портала.',
 'LBL_DISABLE_PORTAL_USER_FAILED' => 'Ошибка отключения пользователя портала.',
 'LBL_CREATE_PORTAL_USER_SUCCESS' => 'Пользователь портала успешно создан',
-'LBL_ENABLE_PORTAL_USER_SUCCESS' => 'Пользователь портала включён',
-'LBL_DISABLE_PORTAL_USER_SUCCESS' => 'Пользователь портала отключён',
-'LBL_FAILED_TO_CONNECT_JOOMLA' => 'Не удалось создать пользователя портала, поскольку не удалось подключиться к Joomla',
-'LBL_ERROR_CONTACT_ID_OR_EMAIL_EMPTY' => 'Пустой ID контакта или E-mail контакта',
+'LBL_ENABLE_PORTAL_USER_SUCCESS' => 'Включить пользователя портала',
+'LBL_DISABLE_PORTAL_USER_SUCCESS' => 'Отключить пользователя портала',
 'LBL_NO_JOOMLA_URL' => 'Не указан URL портала',
 'LBL_PORTAL_USER_TYPE' => 'Пользователь портала:',
 'LBL_PORTAL_ACCOUNT_DISABLED' => 'Учётная запись портала отключена:',
 'LBL_JOOMLA_ACCOUNT_ID' => 'ID учётной записи Joomla',
-'LBL_AOP_DISABLED' => 'Настройки портала отключены, включите их в панели администратора',
 
 'LBL_AOS_CONTRACTS' => 'Договоры',
 'LBL_AOS_INVOICES' => 'Счета',
 'LBL_AOS_QUOTES' => 'Предложения',
 'LBL_PROJECT_CONTACTS_1_FROM_PROJECT_TITLE' => 'Контакты проекта',
-'LBL_LAST_MEETING' => 'В последний раз вы встречались:',
-'LBL_LAST_CALL' => 'В последний раз вы звонили:',
-'LBL_LAST_EMAIL' => 'В последний раз вы отправляли E-mail:',
-'LBL_NO_INTERACTION' => 'Вы еще не общались с этим Контактом',
 
 'LBL_LIST_INVITE_STATUS' => 'Статус приглашения',
+
 );

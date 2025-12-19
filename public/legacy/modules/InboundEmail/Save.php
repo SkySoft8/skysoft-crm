@@ -167,12 +167,7 @@ if ($type === 'bounce') {
 if (!empty($_REQUEST['external_oauth_connection_id'])) {
     $externalOauthConnection = BeanFactory::getBean('ExternalOAuthConnection', $_REQUEST['external_oauth_connection_id']);
 
-    $focusType = $focus->type ?? '';
-    if ($focusType === 'bounce') {
-        $focusType = 'group';
-    }
-
-    if ($externalOauthConnection->type !== $focusType) {
+    if ($externalOauthConnection->type !== $focus->type) {
         SugarApplication::appendErrorMessage($mod_strings['LBL_TYPE_DIFFERENT']);
         SugarApplication::redirect('index.php?module=InboundEmail&action=EditView&is_personal=1&type=personal');
         return;

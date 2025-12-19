@@ -794,12 +794,6 @@ option:checked {
   height: min-content;
 }
 
-#EditView .subpanel-table .buttons ,.action_buttons {
-  position: static;
-  justify-content: flex-start;
-  gap: 0.5em;
-}
-
 .actionbutton-footer {
   display: none;
 }

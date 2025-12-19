@@ -1,9 +1,4 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
 /*********************************************************************************
  *
  * This program is free software; you can redistribute it and/or modify it under
@@ -69,7 +64,7 @@ $mod_strings = array(
   'LBL_SURVEY_QUESTIONS_DISPLAY' => 'Вопросы',
   'LBL_SURVEY_URL_DISPLAY' => 'Ссылка на опрос',
   'LBL_HAPPINESS_QUESTION' => 'Оценка степени удовлетворённости',
-  'LBL_CANT_EDIT_RESPONDED' => 'Вопросы не могут быть изменены, если получен хотя бы один ответ.',
+  'LBL_CANT_EDIT_RESPONDED' => 'Вопросы уже не могут быть изменены, если получен хотя бы один ответ.',
   'LBL_VIEW_SURVEY_REPORTS' => 'Просмотр отчётов по опросу',
   'LBL_CHECKED' => 'Отмечено',
   'LBL_UNCHECKED' => 'Не отмечено',
@@ -85,8 +80,7 @@ $mod_strings = array(
   'LBL_SURVEYS_SURVEYQUESTIONS_FROM_SURVEYQUESTIONS_TITLE' => 'Вопросы',
   'LBL_SURVEYS_SURVEYRESPONSES_FROM_SURVEYRESPONSES_TITLE' => 'Результаты опроса',
   'LBL_SHOW_RESPONSES' => 'Показать результаты',
-  'LNK_LIST_SURVEY_RESPONSES' => 'Показать результаты',
-  'LBL_HIDE_RESPONSES' => 'Скрыть результаты', 
+  'LBL_HIDE_RESPONSES' => 'Скрыть результаты',
   'LBL_SURVEY_QUESTION' => 'Вопрос',
   'LBL_SURVEY_TEXT' => 'Текст',
   'LBL_SURVEY_TYPE' => 'Тип',
@@ -99,6 +93,4 @@ $mod_strings = array(
   'LBL_SUBMIT' => 'Отправить',
   'LBL_STARS' => 'Звёзды',
   'LBL_SURVEY_CLOSE_RESPONSE' => 'Благодарим за проявленный интерес, но опрос уже окончен.',
-  'LBL_SURVEY_THANKS' => 'Благодарим за пройденный опрос.',
-
 );

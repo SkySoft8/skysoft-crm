@@ -66,7 +66,7 @@ class RouteConverter
     public function convert(?string $module, ?string $action, ?string $record, ?array $queryParams): string
     {
         if (empty($module)) {
-            return '';
+            throw new InvalidArgumentException('No module defined');
         }
 
         $route = $this->buildRoute($module, $action, $record);

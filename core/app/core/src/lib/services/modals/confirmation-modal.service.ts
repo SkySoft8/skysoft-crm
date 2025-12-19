@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -26,10 +26,8 @@
 
 import {Injectable} from '@angular/core';
 import {MessageModalComponent} from '../../components/modal/components/message-modal/message-modal.component';
-import {ModalButtonInterface} from '../../common/components/modal/modal.model';
+import {ModalButtonInterface} from 'common';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {StringMap} from "../../common/types/string-map";
-import {FieldMap} from "../../common/record/field.model";
 
 @Injectable({
     providedIn: 'root',
@@ -41,20 +39,15 @@ export class ConfirmationModalService {
     ) {
     }
 
-    public showModal(confirmationMessages: string[], onProceed: Function, onClose: Function = () => {}, fields = {} as FieldMap, context = {} as StringMap): void {
+    public showModal(messageLabel: string, onProceed: Function): void {
         const modal = this.modalService.open(MessageModalComponent);
 
-        modal.componentInstance.labelKeys = confirmationMessages ?? 'LBL_GENERIC_CONFIRMATION';
-        modal.componentInstance.fields = fields;
-        modal.componentInstance.context = context;
+        modal.componentInstance.textKey = messageLabel ?? 'LBL_GENERIC_CONFIRMATION';
         modal.componentInstance.buttons = [
             {
                 labelKey: 'LBL_CANCEL',
                 klass: ['btn-secondary'],
-                onClick: activeModal => {
-                    onClose();
-                    activeModal.dismiss();
-                }
+                onClick: activeModal => activeModal.dismiss()
             } as ModalButtonInterface,
             {
                 labelKey: 'LBL_PROCEED',
@@ -65,15 +58,5 @@ export class ConfirmationModalService {
                 }
             } as ModalButtonInterface,
         ];
-
-        if (onClose) {
-            modal.componentInstance.onClose = onClose;
-        }
-
-        modal.dismissed.subscribe(() => {
-            if (onClose) {
-                onClose();
-            }
-        });
     }
 }

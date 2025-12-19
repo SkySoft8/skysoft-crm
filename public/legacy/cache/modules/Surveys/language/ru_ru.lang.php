@@ -1,5 +1,5 @@
 <?php
-// created: 2025-11-19 09:05:45
+// created: 2025-04-23 14:26:06
 $mod_strings = array (
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Дата создания',
@@ -44,7 +44,7 @@ $mod_strings = array (
   'LBL_SURVEY_QUESTIONS_DISPLAY' => 'Вопросы',
   'LBL_SURVEY_URL_DISPLAY' => 'Ссылка на опрос',
   'LBL_HAPPINESS_QUESTION' => 'Оценка степени удовлетворённости',
-  'LBL_CANT_EDIT_RESPONDED' => 'Вопросы не могут быть изменены, если получен хотя бы один ответ.',
+  'LBL_CANT_EDIT_RESPONDED' => 'Вопросы уже не могут быть изменены, если получен хотя бы один ответ.',
   'LBL_VIEW_SURVEY_REPORTS' => 'Просмотр отчётов по опросу',
   'LBL_CHECKED' => 'Отмечено',
   'LBL_UNCHECKED' => 'Не отмечено',
@@ -60,7 +60,6 @@ $mod_strings = array (
   'LBL_SURVEYS_SURVEYQUESTIONS_FROM_SURVEYQUESTIONS_TITLE' => 'Вопросы',
   'LBL_SURVEYS_SURVEYRESPONSES_FROM_SURVEYRESPONSES_TITLE' => 'Результаты опроса',
   'LBL_SHOW_RESPONSES' => 'Показать результаты',
-  'LNK_LIST_SURVEY_RESPONSES' => 'Показать результаты',
   'LBL_HIDE_RESPONSES' => 'Скрыть результаты',
   'LBL_SURVEY_QUESTION' => 'Вопрос',
   'LBL_SURVEY_TEXT' => 'Текст',
@@ -74,5 +73,4 @@ $mod_strings = array (
   'LBL_SUBMIT' => 'Отправить',
   'LBL_STARS' => 'Звёзды',
   'LBL_SURVEY_CLOSE_RESPONSE' => 'Благодарим за проявленный интерес, но опрос уже окончен.',
-  'LBL_SURVEY_THANKS' => 'Благодарим за пройденный опрос.',
 );

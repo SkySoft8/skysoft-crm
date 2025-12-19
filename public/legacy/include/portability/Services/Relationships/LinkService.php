@@ -88,14 +88,6 @@ class LinkService
             ];
         }
 
-        $linkedIds = $this->checkDuplicates($bean, $linkField, $linkedIds);
-
-        if (empty($linkedIds)) {
-            return [
-                'success' => true
-            ];
-        }
-
         $result = $this->link($bean, $linkField, $linkedIds);
 
         if ($result === false) {
@@ -124,18 +116,5 @@ class LinkService
         $bean->save();
 
         return $result === true;
-    }
-
-    protected function checkDuplicates(SugarBean $bean, string $linkField, array $linkedIds)
-    {
-        $ids = $bean->$linkField->get();
-
-        foreach ($linkedIds as $key => $id) {
-            if (in_array($id, array_values($ids), true)){
-                unset($linkedIds[$key]);
-            }
-        }
-
-        return $linkedIds;
     }
 }

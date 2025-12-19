@@ -23,7 +23,7 @@ use Symfony\Component\HttpFoundation\Response;
  */
 final class ValidateProvider implements ProviderInterface
 {
-    public function __construct(private readonly ?ProviderInterface $decorated, private readonly ValidatorInterface $validator, private readonly string $canValidateAccessor = 'canValidate')
+    public function __construct(private readonly ?ProviderInterface $decorated, private readonly ValidatorInterface $validator)
     {
     }
 
@@ -35,7 +35,7 @@ final class ValidateProvider implements ProviderInterface
             return $body;
         }
 
-        if (method_exists($operation, $this->canValidateAccessor) && !($operation->{$this->canValidateAccessor}() ?? ('canValidate' === $this->canValidateAccessor))) {
+        if (!($operation->canValidate() ?? true)) {
             return $body;
         }
 

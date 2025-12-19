@@ -30,7 +30,12 @@ interface FilterInterface
      *   - description : the description of the filter
      *   - strategy: the used strategy
      *   - is_collection: if this filter is for collection
-     *   - swagger: deprecated, use openapi instead
+     *   - swagger: additional parameters for the path operation,
+     *     e.g. 'swagger' => [
+     *       'description' => 'My Description',
+     *       'name' => 'My Name',
+     *       'type' => 'integer',
+     *     ]
      *   - openapi: additional parameters for the path operation in the version 3 spec,
      *     e.g. 'openapi' => [
      *       'description' => 'My Description',

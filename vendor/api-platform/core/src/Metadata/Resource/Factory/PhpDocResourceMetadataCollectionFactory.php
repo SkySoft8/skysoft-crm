@@ -25,7 +25,6 @@ use PHPStan\PhpDocParser\Parser\ConstExprParser;
 use PHPStan\PhpDocParser\Parser\PhpDocParser;
 use PHPStan\PhpDocParser\Parser\TokenIterator;
 use PHPStan\PhpDocParser\Parser\TypeParser;
-use PHPStan\PhpDocParser\ParserConfig;
 
 /**
  * Extracts descriptions from PHPDoc.
@@ -59,13 +58,9 @@ final class PhpDocResourceMetadataCollectionFactory implements ResourceMetadataC
         }
         $phpDocParser = null;
         $lexer = null;
-        if (class_exists(PhpDocParser::class) && class_exists(ParserConfig::class)) {
-            $config = new ParserConfig([]);
-            $phpDocParser = new PhpDocParser($config, new TypeParser($config, new ConstExprParser($config)), new ConstExprParser($config));
-            $lexer = new Lexer($config);
-        } elseif (class_exists(PhpDocParser::class)) {
-            $phpDocParser = new PhpDocParser(new TypeParser(new ConstExprParser()), new ConstExprParser()); // @phpstan-ignore-line
-            $lexer = new Lexer(); // @phpstan-ignore-line
+        if (class_exists(PhpDocParser::class)) {
+            $phpDocParser = new PhpDocParser(new TypeParser(new ConstExprParser()), new ConstExprParser());
+            $lexer = new Lexer();
         }
         $this->phpDocParser = $phpDocParser;
         $this->lexer = $lexer;

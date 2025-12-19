@@ -80,7 +80,7 @@
                 {counter start=0 name="colCounter" print=false assign="colCounter"}
                 {foreach from=$rowData key=col item=params}
                     {strip}
-                    <td align='left' valign="top" scope="record">
+                    <td align='left' valign="top">
                         {$params}
                     </td>
                     {/strip}

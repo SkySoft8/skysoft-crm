@@ -1,5 +1,5 @@
 <?php
-// created: 2025-11-19 09:06:04
+// created: 2025-04-23 15:02:32
 $mod_strings = array (
   'LBL_ACCESS_ALL' => 'Все',
   'LBL_ACCESS_NONE' => 'Нет',

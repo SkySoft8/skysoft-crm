@@ -53,18 +53,14 @@ abstract class NodeTestCase extends TestCase
 
     protected function getEnvironment()
     {
-        if (!$this->currentEnv) {
-            $this->currentEnv = new Environment(new ArrayLoader());
-        }
-
-        return $this->currentEnv;
+        return $this->currentEnv = new Environment(new ArrayLoader([]));
     }
 
     protected function getVariableGetter($name, $line = false)
     {
         $line = $line > 0 ? "// line $line\n" : '';
 
-        return \sprintf('%s($context["%s"] ?? null)', $line, $name);
+        return sprintf('%s($context["%s"] ?? null)', $line, $name);
     }
 
     protected function getAttributeGetter()

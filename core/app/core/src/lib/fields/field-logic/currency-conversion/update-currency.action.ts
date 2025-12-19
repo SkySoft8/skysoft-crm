@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -25,13 +25,9 @@
  */
 
 import {Injectable} from '@angular/core';
-import {Action} from '../../../common/actions/action.model';
-import {Field} from '../../../common/record/field.model';
-import {Record} from '../../../common/record/record.model';
-import {ViewMode} from '../../../common/views/view.model';
+import {Action, Field, Record, ViewMode} from 'common';
 import {FieldLogicActionData, FieldLogicActionHandler} from '../field-logic.action';
 import {CurrencyService} from '../../../services/currency/currency.service';
-import {CurrencyFormatter} from "../../../services/formatters/currency/currency-formatter.service";
 
 @Injectable({
     providedIn: 'root'
@@ -41,7 +37,7 @@ export class UpdateCurrencyAction extends FieldLogicActionHandler {
     key = 'update-currency';
     modes = ['edit', 'create', 'massupdate', 'filter'] as ViewMode[];
 
-    constructor(protected currencyService: CurrencyService, protected currencyFormatter: CurrencyFormatter) {
+    constructor(protected currencyService: CurrencyService) {
         super();
     }
 
@@ -75,19 +71,9 @@ export class UpdateCurrencyAction extends FieldLogicActionHandler {
     }
 
     protected updateValue(field: Field, value: number, record: Record): void {
-
-        const options = {
-            mode: 'edit' as ViewMode
-        }
-
-        const formattedValue = this.currencyFormatter.toUserFormat(value.toString(), options);
-        field.value = formattedValue;
-        field.formControl.setValue(formattedValue);
+        field.value = value.toString();
+        field.formControl.setValue(value.toString());
         // re-validate the parent form-control after value update
         record.formGroup.updateValueAndValidity({onlySelf: true, emitEvent: true});
-    }
-
-    getTriggeringStatus(): string[] {
-        return ['onAnyLogic'];
     }
 }

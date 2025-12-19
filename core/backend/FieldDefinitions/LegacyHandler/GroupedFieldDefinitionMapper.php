@@ -1,13 +1,13 @@
 <?php
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -102,8 +102,7 @@ class GroupedFieldDefinitionMapper implements FieldDefinitionMapperInterface, Gr
             $mappedDefinition['groupFields'] = $this->getGroupedFieldDefinitions(
                 $groupedFields,
                 $vardefs,
-                $groupedType,
-                $fieldDefinition
+                $groupedType
             );
 
             $mappedDefinition['type'] = 'grouped-field';
@@ -248,7 +247,7 @@ class GroupedFieldDefinitionMapper implements FieldDefinitionMapperInterface, Gr
      * @param array $groupedType
      * @return array
      */
-    public function getGroupedFieldDefinitions(array $groupedFields, ?array $vardefs, array $groupedType, array $groupFieldDefinition = []): array
+    public function getGroupedFieldDefinitions(array $groupedFields, ?array $vardefs, array $groupedType): array
     {
         $definitions = [];
         foreach ($groupedFields as $groupedField) {
@@ -258,7 +257,7 @@ class GroupedFieldDefinitionMapper implements FieldDefinitionMapperInterface, Gr
                 continue;
             }
 
-            $mappedDef = $this->injectOverrides($groupedType, $groupedField, $definition, $groupFieldDefinition);
+            $mappedDef = $this->injectOverrides($groupedType, $groupedField, $definition);
 
             $definitions[$groupedField] = $mappedDef;
         }
@@ -274,17 +273,14 @@ class GroupedFieldDefinitionMapper implements FieldDefinitionMapperInterface, Gr
      * @param array $definition
      * @return array
      */
-    protected function injectOverrides(array $groupedType, $groupedField, array $definition, array $groupFieldDefinition = []): array
+    protected function injectOverrides(array $groupedType, $groupedField, array $definition): array
     {
-        $definitionOverrides = $groupedType['definition'][$groupedField] ?? $groupFieldDefinition['definition'][$groupedField] ?? [];
+        $definitionOverrides = $groupedType['definition'][$groupedField] ?? [];
         if (empty($definitionOverrides)) {
             return $definition;
         }
-        $metadata = array_merge($definition['metadata'] ?? [], $definitionOverrides['metadata'] ?? []);
-        $merged = array_merge($definition, $definitionOverrides);
-        $merged['metadata'] = $metadata;
 
-        return $merged;
+        return array_merge($definition, $definitionOverrides);
     }
 
     /**

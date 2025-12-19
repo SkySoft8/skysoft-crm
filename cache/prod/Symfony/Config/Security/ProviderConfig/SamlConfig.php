@@ -13,7 +13,7 @@ class SamlConfig
     private $userClass;
     private $defaultRoles;
     private $_usedProperties = [];
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -23,10 +23,10 @@ class SamlConfig
     {
         $this->_usedProperties['userClass'] = true;
         $this->userClass = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
      *
@@ -36,10 +36,10 @@ class SamlConfig
     {
         $this->_usedProperties['defaultRoles'] = true;
         $this->defaultRoles = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('user_class', $value)) {
@@ -47,18 +47,18 @@ class SamlConfig
             $this->userClass = $value['user_class'];
             unset($value['user_class']);
         }
-
+    
         if (array_key_exists('default_roles', $value)) {
             $this->_usedProperties['defaultRoles'] = true;
             $this->defaultRoles = $value['default_roles'];
             unset($value['default_roles']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -68,7 +68,7 @@ class SamlConfig
         if (isset($this->_usedProperties['defaultRoles'])) {
             $output['default_roles'] = $this->defaultRoles;
         }
-
+    
         return $output;
     }
 

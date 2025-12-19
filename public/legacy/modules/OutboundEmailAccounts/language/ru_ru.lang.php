@@ -1,9 +1,4 @@
 <?php
-
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-
 /*********************************************************************************
 
 * This program is free software; you can redistribute it and/or modify it under
@@ -55,9 +50,11 @@ $mod_strings = array(
   'LBL_MODULE_TITLE' => 'Серверы исходящей почты (SMTP)',
   'LBL_HOMEPAGE_TITLE' => 'Мои серверы исходящей почты',
   'LNK_NEW_RECORD' => 'Добавить сервер исходящей почты',
+  
   'LNK_LIST_CREATE_NEW_PERSONAL' => 'Создать персональную учётную запись исходящей почты',
   'LNK_LIST_CREATE_NEW_GROUP' => 'Создать групповую учётную запись исходящей почты',
-      'LNK_LIST_CREATE_SYSTEM_OVERRIDE_GROUP' => 'New System Override Outbound Email Account', ///
+  'LNK_LIST_CREATE_SYSTEM_OVERRIDE_GROUP' => 'New System Override Outbound Email Account', ///
+	
   'LNK_LIST' => 'Учётные записи исходящей почты',
   'LNK_LIST_INBOUND_EMAIL_ACCOUNTS' => 'Учётные записи входящей почты',
   'LBL_SEARCH_FORM_TITLE' => 'Поиск серверов исходящей почты',
@@ -85,7 +82,7 @@ $mod_strings = array(
     'LBL_MAIL_SMTPUSER' => 'Логин:',
     'LBL_MAIL_SMTP_SETTINGS' => 'Параметры SMTP-сервера',
     'LBL_CHOOSE_EMAIL_PROVIDER' => 'Укажите провайдера электронной почты',
-    'LBL_YAHOOMAIL_SMTPPASS' => 'Пароль:',
+	'LBL_YAHOOMAIL_SMTPPASS' => 'Пароль:',
     'LBL_YAHOOMAIL_SMTPUSER' => 'Mail ID:',
     'LBL_GMAIL_SMTPPASS' => 'Пароль:',
     'LBL_GMAIL_SMTPUSER' => 'Логин:',
@@ -101,22 +98,11 @@ $mod_strings = array(
     'LBL_SMTP_FROM_ADDR' => 'Адрес отправителя',
 	'LBL_REPLY_TO_NAME' => 'Ответить на имя',
     'LBL_REPLY_TO_ADDR' => 'Ответить на адрес',
+	
 	'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Группы пользователей',
+
     'LBL_OWNER' => 'Владелец',
     'LBL_OWNER_NAME' => 'Владелец',
-    'LBL_IS_DEFAULT' => 'По умолчанию',
-    'LBL_IS_PERSONAL' => 'Персональная',
-    'LBL_SET_AS_DEFAULT_BUTTON' => 'Установить по умолчанию',
 
-
-    'LBL_AUTH_TYPE' => 'Аутентификация',
-	
-	'LBL_EXTERNAL_OAUTH_CONNECTION' => 'Внешнее подключение OAuth',
-    'LBL_EXTERNAL_OAUTH_CONNECTION_ID' => 'ID внешнего подключения OAuth',
-    'LBL_EXTERNAL_OAUTH_CONNECTION_NAME' => 'Внешнее подключение OAuth',
-    'LNK_EXTERNAL_OAUTH_CONNECTIONS' => 'Внешние подключения OAuth',
-	
-	'LBL_ERROR_OUTBOUND_EMAIL_SYSTEM_EXISTS' => 'Системная учётная запись для исходящей почты уже существует. Перед созданием новой аналогичной записи её необходимо удалить.',
-    'LBL_ERROR_OUTBOUND_EMAIL_SYSTEM_IS_NOT_GROUP' => 'При настройке системной учётной записи для исходящей почты с использованием OAuth необходимо выбрать групповой тип внешнего подключения OAuth.',
-    'LBL_ERROR_OUTBOUND_EMAIL_CONNECTION_TYPE_MISMATCH' => 'При настройке учётной записи для исходящей почты с использованием OAuth необходимо выбрать тот же тип внешнего подключения OAuth.',
+    'LNK_EXTERNAL_OAUTH_CONNECTIONS' => 'Внешние подключения OAuth'
 );

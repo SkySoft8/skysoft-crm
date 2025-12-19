@@ -146,6 +146,6 @@ abstract class Controller
      */
     private function getActionName(): string
     {
-        return 'do' . filter_input(INPUT_GET, 'do');
+        return 'do' . filter_input(INPUT_GET, 'do', FILTER_SANITIZE_STRING);
     }
 }

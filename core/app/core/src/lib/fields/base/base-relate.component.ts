@@ -1,12 +1,12 @@
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -24,10 +24,10 @@
  * the words "Supercharged by SuiteCRM".
  */
 
-import {Component, OnDestroy, OnInit, signal, WritableSignal} from '@angular/core';
-import {Observable, of, Subject} from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Observable, of} from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
-import {AttributeMap, Record} from '../../common/record/record.model';
+import {AttributeMap, Record} from 'common';
 import {ModuleNameMapper} from '../../services/navigation/module-name-mapper/module-name-mapper.service';
 import {BaseFieldComponent} from './base-field.component';
 import {DataTypeFormatter} from '../../services/formatters/data-type.formatter.service';
@@ -35,28 +35,14 @@ import {LanguageStore} from '../../store/language/language.store';
 import {RelateService} from '../../services/record/relate/relate.service';
 import {FieldLogicManager} from '../field-logic/field-logic.manager';
 import {FieldLogicDisplayManager} from '../field-logic-display/field-logic-display.manager';
-import {SearchCriteria} from "../../common/views/list/search-criteria.model";
-import {StringMap} from "../../common/types/string-map";
-import {ObjectMap} from "../../common/types/object-map";
-import {SystemConfigStore} from "../../store/system-config/system-config.store";
 
 @Component({template: ''})
 export class BaseRelateComponent extends BaseFieldComponent implements OnInit, OnDestroy {
     selectedValues: AttributeMap[] = [];
     options: AttributeMap[] = [];
-    currentOptions: WritableSignal<AttributeMap[]> = signal([]);
-    relateFieldName: string = '';
-    headerFields: ObjectMap = {};
-    subHeaderFields: ObjectMap = {};
-    dynamicOptionLabel: string = '';
-    dynamicOptionSubLabel: string = '';
-    dynamicOptionLabelContext: StringMap = {};
-
-    protected filterInputBuffer = new Subject<any>();
-    protected filterInputBuffer$: Observable<any> = this.filterInputBuffer.asObservable();
 
     status: '' | 'searching' | 'not-found' | 'error' | 'found' | 'no-module' = '';
-    initModule: WritableSignal<string> = signal('');
+    initModule = '';
 
     constructor(
         protected languages: LanguageStore,
@@ -64,8 +50,7 @@ export class BaseRelateComponent extends BaseFieldComponent implements OnInit, O
         protected relateService: RelateService,
         protected moduleNameMapper: ModuleNameMapper,
         protected logic: FieldLogicManager,
-        protected logicDisplay: FieldLogicDisplayManager,
-        protected config: SystemConfigStore
+        protected logicDisplay: FieldLogicDisplayManager
     ) {
         super(typeFormatter, logic, logicDisplay);
     }
@@ -87,9 +72,6 @@ export class BaseRelateComponent extends BaseFieldComponent implements OnInit, O
         this.subs.push(this.field.valueChanges$.subscribe(() => {
             this.onModuleChange();
         }));
-
-        this.relateFieldName = this.getRelateFieldName();
-        this.initDynamicOptionLabel();
     }
 
 
@@ -98,15 +80,14 @@ export class BaseRelateComponent extends BaseFieldComponent implements OnInit, O
     }
 
     onModuleChange(): void {
-
-        const currentModule = this.initModule();
+        const currentModule = this.initModule;
         const newModule = this?.field?.definition?.module ?? '';
 
         if (currentModule === newModule) {
             return;
         }
 
-        this.initModule.set(newModule);
+        this.initModule = newModule;
 
         if (currentModule === '' && currentModule !== newModule) {
             this.init();
@@ -119,19 +100,19 @@ export class BaseRelateComponent extends BaseFieldComponent implements OnInit, O
             this.status = '';
             this.selectedValues = [];
             this.options = [];
-            this.currentOptions.set([]);
+
         }
     }
 
-    search = (text: string, criteria: SearchCriteria = {}): Observable<any> => {
+    search = (text: string): Observable<any> => {
 
-        if (text === '' && !(this.field.definition.filterOnEmpty ?? false)) {
+        if(text === '') {
             return of([]);
         }
 
         this.status = 'searching';
 
-        return this.relateService.search(text, this.getRelateFieldName(), criteria).pipe(
+        return this.relateService.search(text, this.getRelateFieldName()).pipe(
             tap(() => this.status = 'found'),
             catchError(() => {
                 this.status = 'error';
@@ -166,18 +147,12 @@ export class BaseRelateComponent extends BaseFieldComponent implements OnInit, O
         return this.field.definition.metadata.relateSearchField;
     }
 
-    initDynamicOptionLabel(): void {
-        this.dynamicOptionLabel = this?.field?.metadata?.dynamicOptionLabel || this?.field?.definition?.metadata?.dynamicOptionLabel || '';
-        this.dynamicOptionSubLabel = this?.field?.metadata?.dynamicOptionSubLabel || this?.field?.definition?.metadata?.dynamicOptionSubLabel || '';
-        this.dynamicOptionLabelContext = this?.field?.metadata?.dynamicOptionLabelContext || this?.field?.definition?.metadata?.dynamicOptionLabelContext || {};
-    }
-
     getRelateIdField(): string {
         return (this.field && this.field.definition && this.field.definition.id_name) || '';
     }
 
     getRelatedModule(): string {
-        const legacyName = this?.field?.definition?.module ?? this.record.fields[this.field.definition.type_name].value ?? '';
+        const legacyName = (this.field && this.field.definition && this.field.definition.module) || '';
         if (!legacyName) {
             return '';
         }
@@ -227,48 +202,21 @@ export class BaseRelateComponent extends BaseFieldComponent implements OnInit, O
 
     protected init(): void {
 
-        const module = this?.field?.definition?.module ?? this.record.fields[this.field.definition.type_name].value ?? '';
-
-        this.initModule.set(module);
+        this.initModule = this?.field?.definition?.module ?? '';
 
         if (this.relateService) {
             this.relateService.init(this.getRelatedModule());
         }
-
-
-        const metadata = this?.field?.metadata || this?.field?.definition?.metadata || {};
-
-        if (!metadata ?? false) {
-            return;
-        }
-
-        const rmodule = this.getRelatedModule();
-
-        this.headerFields[rmodule] = metadata?.headerField ?? 'name';
-        this.subHeaderFields[rmodule] = metadata?.subHeaderField ?? '';
     }
 
-    protected buildRelate(id: string, relateValue: string, other: AttributeMap = {}): any {
-        const relate = {...other, id};
+    protected buildRelate(id: string, relateValue: string): any {
+        const relate = {id};
 
         if (this.getRelateFieldName()) {
             relate[this.getRelateFieldName()] = relateValue;
         }
 
         return relate;
-    }
-
-    /**
-     * Get debounce time
-     * @return number
-     * @protected
-     */
-    protected getDebounceTime(): number {
-        let filterDebounceTime = this.config?.getUi('relate_field_debounce_time') ?? 750;
-        if (!isFinite(filterDebounceTime)) {
-            filterDebounceTime = 750;
-        }
-        return filterDebounceTime;
     }
 
 }

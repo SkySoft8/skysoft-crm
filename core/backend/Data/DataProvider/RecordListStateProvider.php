@@ -1,13 +1,13 @@
 <?php
 /**
- * SuiteCRM is a customer relationship management program developed by SuiteCRM Ltd.
- * Copyright (C) 2021 SuiteCRM Ltd.
+ * SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+ * Copyright (C) 2021 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
  * Free Software Foundation with the addition of the following permission added
  * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUITECRM, SUITECRM DISCLAIMS THE
+ * IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
  * WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
@@ -29,10 +29,8 @@ namespace App\Data\DataProvider;
 
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
-use App\Data\Entity\Record;
 use App\Data\Entity\RecordList;
 use App\Data\LegacyHandler\RecordListHandler;
-use App\Data\Service\Record\ApiRecordMappers\ApiRecordMapperRunner;
 
 /**
  * Class RecordListStateProvider
@@ -40,20 +38,18 @@ use App\Data\Service\Record\ApiRecordMappers\ApiRecordMapperRunner;
  */
 class RecordListStateProvider implements ProviderInterface
 {
-    protected RecordListHandler $recordListHandler;
-    protected ApiRecordMapperRunner $apiRecordMapperRunner;
+    /**
+     * @var RecordListHandler
+     */
+    protected $recordListHandler;
 
     /**
      * RecordListStateProvider constructor.
      * @param RecordListHandler $recordListHandler
-     * @param ApiRecordMapperRunner $apiRecordMapperRunner
      */
-    public function __construct(
-        RecordListHandler $recordListHandler,
-        ApiRecordMapperRunner $apiRecordMapperRunner
-    ) {
+    public function __construct(RecordListHandler $recordListHandler)
+    {
         $this->recordListHandler = $recordListHandler;
-        $this->apiRecordMapperRunner = $apiRecordMapperRunner;
     }
 
     /**
@@ -64,19 +60,6 @@ class RecordListStateProvider implements ProviderInterface
      */
     public function provide(Operation $operation, array $uriVariables = [], array $context = []): ?RecordList
     {
-        $list = $this->recordListHandler->getList($uriVariables['id'] ?? '');
-
-        $mappedRecords = [];
-        foreach ($list->getRecords() as $recordArray) {
-            $record = new Record();
-            $record->fromArray($recordArray);
-
-            $this->apiRecordMapperRunner->toExternal($record, 'list');
-            $mappedRecords[] = $record->toArray();
-        }
-
-        $list->setRecords($mappedRecords);
-        return $list;
-
+        return $this->recordListHandler->getList($uriVariables['id'] ?? '');
     }
 }

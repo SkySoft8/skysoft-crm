@@ -41,88 +41,60 @@ if (!defined('sugarEntry') || !sugarEntry) {
  * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$viewdefs['EmailMan'] = [
-    'ListView' => [
-        'tableActions' => [
-            'actions' => [
-                'send-batched-campaign-emails' => [
-                    'key' => 'send-batched-campaign-emails',
-                    'labelKey' => 'LBL_CAMPAIGNS_SEND_NEXT_BATCH',
-                    'modes' => ['list'],
-                    'acl' => ['list'],
-                    'asyncProcess' => true,
-                    'params' => [
-                        'expanded' => true,
-                        'displayConfirmation' => true,
-                        'confirmationLabel' => 'NTC_SEND_QUEUED_CAMPAIGN_EMAILS'
-                    ]
-                ],
-            ]
-        ]
-    ]
-];
 
-$listViewDefs['EmailMan'] = [
-    'CAMPAIGN_NAME' => [
+
+
+$listViewDefs['EmailMan'] = array(
+    'CAMPAIGN_NAME' => array(
         'width' => '10',
         'label' => 'LBL_LIST_CAMPAIGN',
         'link' => true,
-        'id' => 'campaign_id',
-        'module' => 'Campaigns',
-        'ACLTag' => 'CAMPAIGNS',
-        'default' => true,
-        'related_fields' => array('campaign_id')
-    ],
-    'RECIPIENT_NAME' => [
+        'customCode' => '<a href="index.php?module=Campaigns&action=DetailView&record={$CAMPAIGN_ID}">{$CAMPAIGN_NAME}</a>',
+        'default' => true),
+    'RECIPIENT_NAME' => array(
         'sortable' => false,
         'width' => '10',
         'label' => 'LBL_LIST_RECIPIENT_NAME',
-        'default' => true
-    ],
-    'RECIPIENT_EMAIL' => [
+        'customCode' => '<a href="index.php?module={$RELATED_TYPE}&action=DetailView&record={$RELATED_ID}">{$RECIPIENT_NAME}</a>',
+        'default' => true),
+    'RECIPIENT_EMAIL' => array(
         'sortable' => false,
         'width' => '10',
         'label' => 'LBL_LIST_RECIPIENT_EMAIL',
-        'default' => true
-    ],
-    'MESSAGE_NAME' => [
+        'customCode' => '{$RECIPIENT_EMAIL}</a>',
+        'default' => true),
+    'MESSAGE_NAME' => array(
         'sortable' => false,
         'width' => '10',
         'label' => 'LBL_LIST_MESSAGE_NAME',
-        'default' => true,
-        'id' => 'marketing_id',
-        'module' => 'EmailMarketing',
-        'ACLTag' => 'EMAILMARKETING',
-        'related_fields' => array('marketing_id')
-    ],
-    'SEND_DATE_TIME' => [
+        'customCode' => '<a href="index.php?module=EmailMarketing&action=DetailView&record={$MARKETING_ID}">{$MESSAGE_NAME}</a>',
+        'default' => true),
+    'SEND_DATE_TIME' => array(
         'width' => '10',
         'label' => 'LBL_LIST_SEND_DATE_TIME',
-        'default' => true
-    ],
-    'SEND_ATTEMPTS' => [
+        'default' => true),
+    'SEND_ATTEMPTS' => array(
         'width' => '10',
         'label' => 'LBL_LIST_SEND_ATTEMPTS',
-        'default' => true
-    ],
-    'IN_QUEUE' => [
+        'default' => true),
+    'IN_QUEUE' => array(
         'width' => '10',
         'label' => 'LBL_LIST_IN_QUEUE',
-        'default' => true
-    ],
-    'DATE_ENTERED' => [
+        'default' => true),
+    'DATE_ENTERED' => array(
         'width' => '10',
         'label' => 'LBL_DATE_ENTERED',
-        'default' => false
-    ],
-    'DATE_MODIFIED' => [
+        'default' => false),  
+    'DATE_MODIFIED' => array(
         'width' => '10',
         'label' => 'LBL_DATE_MODIFIED',
-        'default' => false
-    ],
-    'MODIFIED_USER_ID' => [
+        'default' => false),  
+    'MODIFIED_USER_ID' => array(
         'width' => '10',
         'label' => 'LBL_MODIFIED_USER',
-        'default' => false
-    ],
-];
+        'default' => false),                  
+    'USER_ID' => array(
+        'width' => '10',
+        'label' => 'LBL_USER_ID',
+        'default' => false),    
+);
