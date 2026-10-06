@@ -59,14 +59,6 @@ $app_list_strings['project_status_dom']=array (
   'On_Hold' => 'Приостановлен',
   'Completed' => 'Завершён',
 );
-
-$app_list_strings['project_task_status_options']=array (
-  'Not Started' => 'Не начата',
-  'In Progress' => 'В процессе',
-  'On_Check' => 'На проверке',
-  'Completed' => 'Завершена',
-);
-
 $app_list_strings['lead_source_dom']=array (
   'Partner' => 'Партнёр',
   'Conference' => 'Конференция',
@@ -135,4 +127,35 @@ $app_list_strings['refusal_reason_list']=array (
   'non_financial' => 'Нет финансирования',
   'success_closed' => 'Закрыто с успехом',
   'other' => 'Другое',
+);
+$app_list_strings['project_task_status_options']=array (
+  'Not Started' => 'Не начата',
+  'In Progress' => 'В процессе',
+  'Question' => 'Вопрос',
+  'On_Check' => 'На проверке',
+  'Completed' => 'Завершена',
+);
+
+$app_list_strings['document_status_dom']=array (
+  'Not_signed' => 'Не подписан',
+  'EDS_signed' => 'Подписан ЭЦП',
+);
+$app_list_strings['document_category_dom']=array (
+  'Internal' => 'Внутренние',
+  'External' => 'Внешние',
+);
+$app_list_strings['document_template_type_dom']=array (
+  'Outgoing_letter' => 'Исходящее письмо',
+  'Order' => 'Приказ',
+  'Contract' => 'Договор',
+  'Certificate_of_completion' => 'Акт выполненных работ',
+  'Additional_agreement' => 'Дополнительное соглашение',
+  'nda' => 'Соглашение о неразглашении (NDA)',
+  'Other' => 'Другое',
+);
+$app_list_strings['document_subcategory_dom']=array (
+  'Orders' => 'Приказы',
+  'Outgoing' => 'Исходящие',
+  'Commercial' => 'Коммерческие',
+  'Other' => 'Другие',
 );

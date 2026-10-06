@@ -5,11 +5,13 @@ array (
   array (
     'basic_search' => 
     array (
-      'name' => 
+      'status' => 
       array (
-        'name' => 'name',
-        'default' => true,
+        'type' => 'enum',
+        'label' => 'LBL_STATUS',
         'width' => '10%',
+        'default' => true,
+        'name' => 'status',
       ),
       'project_name' => 
       array (
@@ -37,20 +39,20 @@ array (
     ),
     'advanced_search' => 
     array (
-      'name' => 
-      array (
-        'type' => 'name',
-        'label' => 'LBL_NAME',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'name',
-      ),
       'project_name' => 
       array (
         'name' => 'project_name',
         'label' => 'LBL_PROJECT_NAME',
         'width' => '10%',
         'default' => true,
+      ),
+      'status' => 
+      array (
+        'type' => 'enum',
+        'label' => 'LBL_STATUS',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'status',
       ),
       'assigned_user_id' => 
       array (

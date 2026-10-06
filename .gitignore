@@ -1,0 +1,28 @@
+
+# Секреты и настройки конкретного сервера
+.env
+.env.*
+!.env.example
+!.env.dist
+/public/legacy/config.php
+/public/legacy/config_override.php
+/public/legacy/custom/blowfish/
+
+# Кеш и логи
+/cache/
+/logs/
+/public/legacy/cache/
+*.log
+
+# Пользовательские вложения — скачать отдельно
+/public/legacy/upload/
+
+# Зависимости
+/vendor/
+/node_modules/
+
+# Резервные копии и дампы
+*.sql
+*.sql.gz
+*.bak
+/public/legacy/custom/history/
